@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "CommonJS",
+    "lib": ["ESNext", "DOM"],
+    "declaration": true,
+    "declarationMap": false,
+    "emitDeclarationOnly": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noEmitOnError": false,
+    "jsx": "react",
+    "paths": {
+      "ray": ["./.ray"],
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"]
+    },
+    "types": []
+  },
+  "include": ["src/**/*.*", ".ray/**/*.*", "typings"],
+  "exclude": ["node_modules", "dist", "public"]
+}

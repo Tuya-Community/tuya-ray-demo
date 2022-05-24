@@ -1,0 +1,19 @@
+.idea
+.DS_Store
+
+node_modules/
+**/lib/
+**/esm/
+**/cjs/
+**/dist/
+**/dts/
+*.log
+**/coverage/
+
+# 此文件由构建器来生成
+app/src/app.config.ts
+examples/*/.ray
+
+package-lock.json
+
+scripts/

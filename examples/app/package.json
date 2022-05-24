@@ -1,0 +1,37 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "core-js": "^3.19.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack-chain": "^6.5.1"
+  },
+  "dependencies": {
+    "@ray-js/api": "0.3.8-beta.72a03a4e",
+    "@ray-js/cli": "0.3.8-beta.72a03a4e",
+    "@ray-js/components": "0.3.8-beta.72a03a4e",
+    "@ray-js/framework": "0.3.8-beta.72a03a4e",
+    "@ray-js/router": "0.3.8-beta.72a03a4e",
+    "@ray-js/router-mp": "0.3.8-beta.72a03a4e",
+    "@ray-js/runtime": "0.3.8-beta.72a03a4e",
+    "@ray-js/types": "0.3.8-beta.72a03a4e",
+    "@tuya-miniapp/base-kit": "^2.1.2",
+    "@tuya-miniapp/mini-kit": "^2.3.7",
+    "@tuya-miniapp/ty-kit": "^2.0.7",
+    "react-motion": "^0.5.2"
+  },
+  "scripts": {
+    "build:tuya": "ray build --target=tuya",
+    "build:wechat": "ray build --target=wechat",
+    "build:web": "ray build --target=web",
+    "build:native": "ray build --target=native",
+    "start:tuya": "ray start --target=tuya",
+    "start:wechat": "ray start --target=wechat",
+    "start:web": "ray start --target=web",
+    "start:native": "ray start --target=native"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "ray-demos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:web": "ray start ./examples/app -t web --verbose",
+    "start:wechat": "ray start ./examples/app -t wechat --verbose",
+    "start:tuya": "ray start ./examples/pref -t tuya --verbose",
+    "start:native": "ray start ./examples/app -t native --verbose",
+    "build:web": "ray build ./examples/app -t web --verbose",
+    "build:wechat": "ray build ./examples/app -t wechat --verbose",
+    "build:native": "ray build ./examples/app -t native --verbose",
+    "build:tuya": "ray build ./examples/app -t tuya --verbose"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "examples/*"
+  ],
+  "devDependencies": {}
+}
