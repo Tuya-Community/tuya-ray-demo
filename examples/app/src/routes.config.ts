@@ -24,11 +24,6 @@ export const routes: Routes = [
     route: '/detail/:uid',
     path: '/pages/detail/index',
   },
-  {
-    id: 'demo',
-    route: '/demo',
-    path: '/pages/demo/index',
-  },
   // 基础组件路由
   ...BASIC_ROUTES,
   // API 页面路由
@@ -62,13 +57,6 @@ export const tabBar: TabBar = {
       icon: '/tabBar/api.png',
       activeIcon: '/tabBar/api-active.png',
       pagePath: '/pages/api/index',
-    },
-    {
-      id: 'demo',
-      text: 'DEMO',
-      icon: '/tabBar/demo.png',
-      activeIcon: '/tabBar/demo-active.png',
-      pagePath: '/pages/demo/index',
     },
   ],
 };

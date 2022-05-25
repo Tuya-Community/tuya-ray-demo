@@ -12,7 +12,6 @@ export const wechat = {
     "pages/plus/index",
     "pages/api/index",
     "pages/detail/index",
-    "pages/demo/index",
     "basic/view/index",
     "basic/image/index",
     "basic/text/index",
@@ -66,12 +65,6 @@ export const wechat = {
         "text": "API",
         "iconPath": "/tabBar/api.png",
         "selectedIconPath": "/tabBar/api-active.png"
-      },
-      {
-        "pagePath": "pages/demo/index",
-        "text": "DEMO",
-        "iconPath": "/tabBar/demo.png",
-        "selectedIconPath": "/tabBar/demo-active.png"
       }
     ]
   }
@@ -88,7 +81,6 @@ export const tuya = {
     "pages/plus/index",
     "pages/api/index",
     "pages/detail/index",
-    "pages/demo/index",
     "basic/view/index",
     "basic/image/index",
     "basic/text/index",
@@ -142,12 +134,6 @@ export const tuya = {
         "text": "API",
         "iconPath": "/tabBar/api.png",
         "selectedIconPath": "/tabBar/api-active.png"
-      },
-      {
-        "pagePath": "pages/demo/index",
-        "text": "DEMO",
-        "iconPath": "/tabBar/demo.png",
-        "selectedIconPath": "/tabBar/demo-active.png"
       }
     ]
   }
