@@ -1067,7 +1067,7 @@
     pirates "^4.0.5"
     source-map-support "^0.5.16"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.7.7", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.18.0", "@babel/runtime@^7.7.7", "@babel/runtime@^7.8.4":
   version "7.18.0"
   resolved "https://registry.npmmirror.com/@babel/runtime/-/runtime-7.18.0.tgz#6d77142a19cb6088f0af662af1ada37a604d34ae"
   integrity sha512-YMQvx/6nKEaucl0MY56mwIG483xk8SDNdlUwb2Ts6FUpr7fm85DxEmsY18LXBNhcTz6tO6JwZV8w1W06v8UKeg==
@@ -1252,72 +1252,55 @@
   resolved "https://registry.npmmirror.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@ray-js/api@0.3.8-beta.72a03a4e":
-  version "0.3.8-beta.72a03a4e"
-  resolved "https://registry.npmmirror.com/@ray-js/api/-/api-0.3.8-beta.72a03a4e.tgz#e86a2e6ed20ddc9ae35e471a29240e7237dd5924"
-  integrity sha512-7TfKU92kAfcZbr6GYmAa19Y0ByVuCuQxsDf+ofg/rxmwRDiJ5BUdASdD7Bd4IDqiwi+7PxeXMCuPGx/4g87TEA==
+"@ray-js/api@^0.3.12-beta-09246069", "@ray-js/api@latest":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/api/-/api-0.3.12-beta-09246069.tgz#8279c9f94341f7b97fb4564577a4f292e6bead28"
+  integrity sha512-+jjVQnJFYCa2DpZRjSd1qPdNQMYvZxr+E2wDeCEMU3wA2z5qHAAx9ePqGq0Q9+LC3Ht3vOwT3u7hCxD9Qau4Hg==
   dependencies:
-    "@ray-js/framework" "^0.3.8-beta.72a03a4e"
-    "@ray-js/framework-native" "^0.3.8-beta.72a03a4e"
-    "@ray-js/ray-panel-notification" "^0.3.8-beta.72a03a4e"
-    "@ray-js/router" "^0.3.8-beta.72a03a4e"
-    "@ray-js/router-native" "^0.3.8-beta.72a03a4e"
-    "@ray-js/runtime-native" "^0.3.8-beta.72a03a4e"
+    "@ray-js/framework" "^0.3.12-beta-09246069"
+    "@ray-js/framework-native" "^0.3.12-beta-09246069"
+    "@ray-js/ray-panel-notification" "^0.3.12-beta-09246069"
+    "@ray-js/router" "^0.3.12-beta-09246069"
+    "@ray-js/router-native" "^0.3.12-beta-09246069"
+    "@ray-js/runtime-native" "^0.3.12-beta-09246069"
     "@tuya-miniapp/base-kit" "^2.1.2"
     "@tuya-miniapp/device-kit" "^2.1.6"
     "@tuya-miniapp/mini-kit" "^2.3.7"
     "@tuya-miniapp/ty-kit" "^2.0.7"
     react-native "0.59.10"
 
-"@ray-js/api@^0.3.10", "@ray-js/api@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/api/-/api-0.3.10.tgz#dad812bcc65e690a8bf5b79edce6a4faf2063c7e"
-  integrity sha512-eF9zUD9MWlwCHWHXJ9dC4q/bnbyvrd9PNe6DrGkcFVv6WAMS73Ms1kht1fL/DNQYf4clOAklWLkPbZ6I8Aq8MA==
+"@ray-js/babel-plugin-transform-react-jsx-to-rn-stylesheet@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/babel-plugin-transform-react-jsx-to-rn-stylesheet/-/babel-plugin-transform-react-jsx-to-rn-stylesheet-0.3.12-beta-09246069.tgz#a3031c0adb643d6aaf890d38b01215b6a076a7b9"
+  integrity sha512-v/ZGasetjYfKav/xkWKdOPcLwocZfQgOFrM17WFhDpLBXt1JVgxMnLOdaRoYvr8MBhkO+S+UxUSYE6SObnYJ/Q==
   dependencies:
-    "@ray-js/framework" "^0.3.10"
-    "@ray-js/framework-native" "^0.3.10"
-    "@ray-js/ray-panel-notification" "^0.3.10"
-    "@ray-js/router" "^0.3.10"
-    "@ray-js/router-native" "^0.3.10"
-    "@ray-js/runtime-native" "^0.3.10"
-    "@tuya-miniapp/base-kit" "^2.1.2"
-    "@tuya-miniapp/device-kit" "^2.1.6"
-    "@tuya-miniapp/mini-kit" "^2.3.7"
-    "@tuya-miniapp/ty-kit" "^2.0.7"
-    react-native "0.59.10"
-
-"@ray-js/babel-plugin-transform-react-jsx-to-rn-stylesheet@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/babel-plugin-transform-react-jsx-to-rn-stylesheet/-/babel-plugin-transform-react-jsx-to-rn-stylesheet-0.3.10.tgz#d713e2e11dd715666c5304ca3ec4d14b5aafefd3"
-  integrity sha512-9Fb9nrnk87lAiqLJ095rqERLyeAZLlBNchXNfLyJ7dFXxcoSvNJSDw+eEvXMU8+rGmMsIFw9ASlnJnp3g4q6Ew==
-  dependencies:
-    "@ray-js/css-to-react-native" "^0.3.10"
+    "@ray-js/css-to-react-native" "^0.3.12-beta-09246069"
     camelize "^1.0.0"
 
-"@ray-js/babel-preset-base@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/babel-preset-base/-/babel-preset-base-0.3.10.tgz#5cd2e777d15c7fd330906f6521c0d70abc415493"
-  integrity sha512-wHw4SAYoVI/xritSn5pWEaiIfCn5mU18ZpLE+VdAPC1zMiP3rYJqxodTS77amhvl+EE/hhUDFlcYz5DO+m7R6Q==
+"@ray-js/babel-preset-base@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/babel-preset-base/-/babel-preset-base-0.3.12-beta-09246069.tgz#43bebb132006739b08bda78951848a21655461a9"
+  integrity sha512-HLjfb1CVHPs//jfpOBhBEzI9TvJ02uBvqB03RYZsiWCV5MIMgPfApFoFiPrYlX4xXMa71NKkZjViVMIvAlOt3A==
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-transform-runtime" "^7.15.0"
     "@babel/preset-env" "^7.15.4"
     "@babel/preset-typescript" "^7.15.0"
 
-"@ray-js/babel-preset-ray-rn@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/babel-preset-ray-rn/-/babel-preset-ray-rn-0.3.10.tgz#41d288dd9661789b34266db4c180dfd7f76258c6"
-  integrity sha512-7YYgwNXIlm986wsMRnhtRfWEagZ+sr/M4yqdm0eBNq9gpkST1t0j4i071UPc6p+mcbHuz+m2ylhJN7ULCsfffw==
+"@ray-js/babel-preset-ray-rn@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/babel-preset-ray-rn/-/babel-preset-ray-rn-0.3.12-beta-09246069.tgz#e9d9681c2fd6ef247d521603b3485a9b2c133d1f"
+  integrity sha512-JsLeTFqmViRGySIS/8KwKVZYA9pf3pbGoTxb6cpCWmy6qRMkypypMpcAeYF3eE+24tXtYcBeFc7+sE/VD/Udhw==
   dependencies:
     "@babel/plugin-proposal-decorators" "7.15.8"
-    "@ray-js/babel-plugin-transform-react-jsx-to-rn-stylesheet" "^0.3.10"
+    "@ray-js/babel-plugin-transform-react-jsx-to-rn-stylesheet" "^0.3.12-beta-09246069"
     babel-plugin-jsx-attributes-array-to-object "^0.3.0"
     metro-react-native-babel-preset "^0.63.0"
 
-"@ray-js/babel-preset-standard@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/babel-preset-standard/-/babel-preset-standard-0.3.10.tgz#94c305ce94eae80820b59129123e5a690f95d40e"
-  integrity sha512-zvl/HSRH4yYX1o1aYOYjiFOGR5SR8Wv8W2NIpkSd2mALXMEW+sQMnZeS8ICfcGvzVmh9/uFQc58eHsBC7skI+Q==
+"@ray-js/babel-preset-standard@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/babel-preset-standard/-/babel-preset-standard-0.3.12-beta-09246069.tgz#c3736845b08e18aad63ff0da0b8940999fed46e4"
+  integrity sha512-l58sncAKe6r8hQEopAtKAjsoblcG8KwSYYBVtfzCPggSFlW8dKFY2oEx2ilsGqKa3mNg4xeNuAVg8GXH/CM5jw==
   dependencies:
     "@babel/plugin-proposal-decorators" "^7.15.4"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.14.5"
@@ -1325,60 +1308,60 @@
     "@babel/plugin-proposal-optional-chaining" "^7.14.5"
     "@babel/plugin-syntax-jsx" "^7.14.5"
     "@babel/preset-react" "^7.14.5"
-    "@ray-js/babel-preset-base" "^0.3.10"
+    "@ray-js/babel-preset-base" "^0.3.12-beta-09246069"
     babel-plugin-macros "^3.1.0"
     babel-plugin-minify-dead-code-elimination-while-loop-fixed "^0.3.0"
     babel-plugin-transform-prune-unused-imports "^1.0.1"
 
-"@ray-js/build-plugin-ray@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/build-plugin-ray/-/build-plugin-ray-0.3.10.tgz#f8a18b462199789d7bc81d2b8d753c36f1433f80"
-  integrity sha512-LrOgBX0GGp25tHND4beZ+RV6Kk4MW4FMoIvtPdpvaAtothiGSSgXfMtpjGefnhLHPmBvTOjLit/N7uFQZp2uig==
+"@ray-js/build-plugin-ray@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/build-plugin-ray/-/build-plugin-ray-0.3.12-beta-09246069.tgz#5d6141ffa10bc5f0486b6a6b7f6f8ad1714453da"
+  integrity sha512-ZatycUqtgbYqGL9wKRbEll+9AmhuePAAPhIwqDyqtQcHTymnWNdOidz6PNEJDfsvQ4zvjgJv/2rRre6swPYPPg==
   dependencies:
-    "@ray-js/shared" "^0.3.10"
+    "@ray-js/shared" "^0.3.12-beta-09246069"
     colors "1.4.0"
     fs-extra "^10.0.0"
 
-"@ray-js/build-plugin-router@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/build-plugin-router/-/build-plugin-router-0.3.10.tgz#eedadff626bafbaddff89aa4f7900e822c908970"
-  integrity sha512-cNoiK0IxTcMax3veIbB/YJ3CDcPCcIzDHMf+7n8Sh1MjtmmzRoWdwBYb85L/Po2tAR0K7MYn/jhwEe62CEeMUQ==
+"@ray-js/build-plugin-router@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/build-plugin-router/-/build-plugin-router-0.3.12-beta-09246069.tgz#faddd5920ecbe0eb6735386ca4561a18bbb1a64f"
+  integrity sha512-uVZW4Pba0uTjm7JD/JvDK90x4OkTYjAbsRkpk1piEKN4qwVzsmwtuS6Go4052NnZr6lblvh9x+NZSjjVdUaTEw==
   dependencies:
-    "@ray-js/plugin-utils" "^0.3.10"
-    "@ray-js/shared" "^0.3.10"
+    "@ray-js/plugin-utils" "^0.3.12-beta-09246069"
+    "@ray-js/shared" "^0.3.12-beta-09246069"
     chokidar "^3.5.2"
     colors "1.4.0"
 
-"@ray-js/builder-component@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/builder-component/-/builder-component-0.3.10.tgz#3bae30705505f5049c8f7bbf4135cfd9886e2f7e"
-  integrity sha512-djkSmcrYuXqnWXPXcwqr9qlL8j0DALYMbO/PDxV28MQnZthosb1NCyIxYa+RcJc+DOUz8zRmsMX0Dg4Cxn/R1w==
+"@ray-js/builder-component@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/builder-component/-/builder-component-0.3.12-beta-09246069.tgz#94b258e66e719f733e6a767999ca9e3d2026d677"
+  integrity sha512-zp5uByIqecdTfo0gFf8k9BnUgzcVIyDwT4sb3BomNgvFrWA28g4azYtip9qqeGuVtdztjbNsy2fqHDzdA3F8TQ==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/traverse" "^7.16.3"
     "@babel/types" "^7.16.0"
-    "@ray-js/babel-preset-standard" "^0.3.10"
-    "@ray-js/env-loader" "^0.3.10"
-    "@ray-js/shared" "^0.3.10"
-    "@ray-js/types" "^0.3.10"
+    "@ray-js/babel-preset-standard" "^0.3.12-beta-09246069"
+    "@ray-js/env-loader" "^0.3.12-beta-09246069"
+    "@ray-js/shared" "^0.3.12-beta-09246069"
+    "@ray-js/types" "^0.3.12-beta-09246069"
     babel-plugin-import "^1.13.3"
     chokidar "^3.5.2"
     colors "1.4.0"
     fs-extra "^10.0.0"
     globby "11.x"
 
-"@ray-js/builder-mp@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/builder-mp/-/builder-mp-0.3.10.tgz#bb1549e36fb5d295b5d1613e79c9abd206b23eb7"
-  integrity sha512-ZWrlZwZr1bLjwMd/6nks6F2/DGs2zdSOzQUujeBHlmnIgUuTGWGikPRnmtKoO1Vs5semGMGv9wVY/2wkVP0F5Q==
+"@ray-js/builder-mp@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/builder-mp/-/builder-mp-0.3.12-beta-09246069.tgz#0a2305f1a17d29a1ce87a9b8fd91cf9ff8bf5917"
+  integrity sha512-Nyf0u4Ps9JbA/5EUhv3EzMIZdWIcz0OQKw2Qg5Y5/oKOi2PPZ5LSgkzG16qw2OxaJckTwvJ/0HnIESYESKQChg==
   dependencies:
     "@babel/template" "^7.16.0"
     "@babel/traverse" "^7.16.3"
     "@babel/types" "^7.16.0"
-    "@ray-js/remax-tuya" "^0.3.10"
-    "@ray-js/shared" "^0.3.10"
-    "@ray-js/types" "^0.3.10"
+    "@ray-js/remax-tuya" "^0.3.12-beta-09246069"
+    "@ray-js/shared" "^0.3.12-beta-09246069"
+    "@ray-js/types" "^0.3.12-beta-09246069"
     "@remax/build-store" "2.15.6"
     "@remax/cli" "2.15.6"
     babel-loader "^8.2.3"
@@ -1397,31 +1380,31 @@
     webpack-chain "^6.5.1"
     webpack-virtual-modules "^0.4.3"
 
-"@ray-js/builder-native@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/builder-native/-/builder-native-0.3.10.tgz#93bb7bb8120105cf0ddcb5c1cb951f3d0890c47e"
-  integrity sha512-D/ijN+X5dMTP80E/3zmsH/sLAfW/VdUFvUQfYWGYdlDYUwjgrKY90A7DMuzggC4cQQS9ESH81sELIOUPCNzjXw==
+"@ray-js/builder-native@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/builder-native/-/builder-native-0.3.12-beta-09246069.tgz#2e2f1eb841494f620146f1808f01f42acc73743f"
+  integrity sha512-wGgzkV6UmJLLQmSP4DqXMG5MIZGXMslzNbLIxcRHlva1U5/ZaJOmy+3qWDjzCfICzVaDsIgYqugHOerYa89+NQ==
   dependencies:
-    "@ray-js/babel-preset-ray-rn" "^0.3.10"
-    "@ray-js/babel-preset-standard" "^0.3.10"
-    "@ray-js/env-loader" "^0.3.10"
-    "@ray-js/rn-transformer-helper" "^0.3.10"
-    "@ray-js/shared" "^0.3.10"
-    "@ray-js/types" "^0.3.10"
+    "@ray-js/babel-preset-ray-rn" "^0.3.12-beta-09246069"
+    "@ray-js/babel-preset-standard" "^0.3.12-beta-09246069"
+    "@ray-js/env-loader" "^0.3.12-beta-09246069"
+    "@ray-js/rn-transformer-helper" "^0.3.12-beta-09246069"
+    "@ray-js/shared" "^0.3.12-beta-09246069"
+    "@ray-js/types" "^0.3.12-beta-09246069"
     "@tuya/tuya-panel-patches" "^0.59.11-beta.0"
     colors "1.4.0"
     compressing "^1.5.1"
     react-native "0.59.10"
 
-"@ray-js/builder-web@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/builder-web/-/builder-web-0.3.10.tgz#ffc7cd6288558cbb1f590bf3688e6c3923ee2bcb"
-  integrity sha512-eeIdiS+1vdYOXTswySy5wKV/rrGY3iXl0dtL/jbbBKuP9mW3vVQI3sm/2qSlJ60XIZgRV+1QfSOCwAkgrffBFw==
+"@ray-js/builder-web@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/builder-web/-/builder-web-0.3.12-beta-09246069.tgz#f9e788cb0d0e00ec54bbecc90412c2623db4194a"
+  integrity sha512-JFskCpuPl/qEIzPMvMTDezH1axBRpHPKgcb0wiAuM/UvSzHYUCZ9AOWFJjGmNeQ4uPPNNOt2IojYqXF0rV5VBQ==
   dependencies:
-    "@ray-js/babel-preset-standard" "^0.3.10"
-    "@ray-js/env-loader" "^0.3.10"
-    "@ray-js/shared" "^0.3.10"
-    "@ray-js/types" "^0.3.10"
+    "@ray-js/babel-preset-standard" "^0.3.12-beta-09246069"
+    "@ray-js/env-loader" "^0.3.12-beta-09246069"
+    "@ray-js/shared" "^0.3.12-beta-09246069"
+    "@ray-js/types" "^0.3.12-beta-09246069"
     address "^1.1.2"
     autoprefixer "9.x"
     camelcase "^6.2.1"
@@ -1446,30 +1429,30 @@
     webpack-dev-server "^3.0.0"
     webpackbar "^4.0.0"
 
-"@ray-js/cli@0.3.8-beta.72a03a4e":
-  version "0.3.8-beta.72a03a4e"
-  resolved "https://registry.npmmirror.com/@ray-js/cli/-/cli-0.3.8-beta.72a03a4e.tgz#d462b7337121a531ab447d43b19f93d47f667e86"
-  integrity sha512-CYzL78jyTn8RVEPjtOD1us0cwftlCBGP41DOWbafR7ZfpMU6OOpBleQeVIKTclrDwoqzlbAec8vMO+XgtRB5VA==
+"@ray-js/cli@latest":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/cli/-/cli-0.3.12-beta-09246069.tgz#433fa8cd6e9f47ce2f0c344a7846ddf9295b0c65"
+  integrity sha512-I9t93bSXyt5LO7RUyYqWUkpWJP0e9pjaA4DIt4ezSPdpcLCClyBva836yu3PZvRCDHX+MMCLS3/DyfLa7u6Lww==
   dependencies:
-    "@ray-js/build-plugin-ray" "^0.3.8-beta.72a03a4e"
-    "@ray-js/build-plugin-router" "^0.3.8-beta.72a03a4e"
-    "@ray-js/builder-component" "^0.3.8-beta.72a03a4e"
-    "@ray-js/builder-mp" "^0.3.8-beta.72a03a4e"
-    "@ray-js/builder-native" "^0.3.8-beta.72a03a4e"
-    "@ray-js/builder-web" "^0.3.8-beta.72a03a4e"
-    "@ray-js/shared" "^0.3.8-beta.72a03a4e"
-    "@ray-js/types" "^0.3.8-beta.72a03a4e"
+    "@ray-js/build-plugin-ray" "^0.3.12-beta-09246069"
+    "@ray-js/build-plugin-router" "^0.3.12-beta-09246069"
+    "@ray-js/builder-component" "^0.3.12-beta-09246069"
+    "@ray-js/builder-mp" "^0.3.12-beta-09246069"
+    "@ray-js/builder-native" "^0.3.12-beta-09246069"
+    "@ray-js/builder-web" "^0.3.12-beta-09246069"
+    "@ray-js/shared" "^0.3.12-beta-09246069"
+    "@ray-js/types" "^0.3.12-beta-09246069"
     colors "1.4.0"
     commander "^8.2.0"
     webpack-chain "^6.5.1"
 
-"@ray-js/components@0.3.8-beta.72a03a4e":
-  version "0.3.8-beta.72a03a4e"
-  resolved "https://registry.npmmirror.com/@ray-js/components/-/components-0.3.8-beta.72a03a4e.tgz#ac6a95bf64e99409ee1e78133c59a4adf6590cfb"
-  integrity sha512-wK+rLIw9IIX/2x/7RbXq8z9HNtaMKcHZ09tmp53MXGylWzOUOV2Ci/kud27oN2VJxDYDUBNpI1OB8/x7UABHjg==
+"@ray-js/components@latest":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/components/-/components-0.3.12-beta-09246069.tgz#5032ee9e0e64ca4d654af011425ff0e640f04152"
+  integrity sha512-I7NW0lUEHeHzaOS2ORwAVpSbAyOO3RX5+mVDdrsXETncdAZMiqddTbL/QK/cq908uS7rStB3ovb/vUMwvTyi7g==
   dependencies:
-    "@ray-js/framework-shared" "^0.3.8-beta.72a03a4e"
-    "@ray-js/remax-tuya" "^0.3.8-beta.72a03a4e"
+    "@ray-js/framework-shared" "^0.3.12-beta-09246069"
+    "@ray-js/remax-tuya" "^0.3.12-beta-09246069"
     "@remax/macro" "2.15.6"
     "@remax/wechat" "2.15.6"
     antd-mobile "^5.0.0-beta.17"
@@ -1485,10 +1468,10 @@
     tuya-panel-slider "^0.1.1"
     tuya-panel-switch "^0.1.1"
 
-"@ray-js/css-to-react-native@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/css-to-react-native/-/css-to-react-native-0.3.10.tgz#04953eca5ad96af1547cfa74c229c6591df6f447"
-  integrity sha512-o9zTuXFz59ap5VFRHEU+1CrjuIYZKwxYbVigO9C52AFhNqlGNECBsY5/VD7fi8aqEQyTs9mpXK+BRpu4NLM2gA==
+"@ray-js/css-to-react-native@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/css-to-react-native/-/css-to-react-native-0.3.12-beta-09246069.tgz#bb2046a4c1867a5dbed5788ff886e89c2e67a004"
+  integrity sha512-DWCdqALlRgLUHcPRcgM+z/l3HopZckXse8GPW5sJ+L8NBs+CjmkMjKwfzRRsVCNlvE4gxUhEIBfFxwpkwNINQg==
   dependencies:
     camelize "^1.0.0"
     css "^2.2.4"
@@ -1496,124 +1479,107 @@
     css-mediaquery "^0.1.2"
     postcss-value-parser "^3.3.0"
 
-"@ray-js/env-loader@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/env-loader/-/env-loader-0.3.10.tgz#7225f3cd46027a7752b9c1345dd9ba9f1f2f6d02"
-  integrity sha512-WiyQgUtqJpPWEDBHGo0QfAozB3qVgo877CUmenE3AnOeODRZyP2P3gJ8EQO5HGVwwvwZBEqdhGA7SjqBz2Lr4Q==
+"@ray-js/env-loader@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/env-loader/-/env-loader-0.3.12-beta-09246069.tgz#4bd42fe185b71f565264be58fe7fb92f1988f0eb"
+  integrity sha512-wdAUcEg37OsDcYp60WH6cLy4MyNfAM8rsW8hrnO0eQe2K3F9zAgz7c+pwC6w1GxCIbofJrOm7bAtNhgcNQnhNA==
   dependencies:
     "@babel/code-frame" "^7.16.0"
     "@babel/generator" "^7.15.4"
     "@babel/parser" "^7.16.4"
     "@babel/traverse" "^7.15.4"
     "@babel/types" "^7.15.6"
-    "@ray-js/env" "^0.3.10"
+    "@ray-js/env" "^0.3.12-beta-09246069"
     loader-utils "^2.0.0"
     source-map "^0.7.3"
     webpack "4.x"
 
-"@ray-js/env@^0.3.10", "@ray-js/env@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/env/-/env-0.3.10.tgz#c188e7430a6285059b9c9adc7bc7d1bdfdf5d61e"
-  integrity sha512-O2oiCG/3WsfhDmJwwD7sfY5PmU8L+bLFzPZqjWd8b7iQqZFCe7nZPuzf6r58VV6tCoYiPfYsl+tEQfIOEgJ62w==
+"@ray-js/env@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/env/-/env-0.3.12-beta-09246069.tgz#7a711c05c2eddf4cd84a9add151e37c427e58909"
+  integrity sha512-XIhZADeJT+H+50DNb/a5a2ASe+rmTry4+44Csll39WWaS4/5ndG0oAmJ02bQ7jv0fXM2Glj2Jc48/BFF9V30YA==
   dependencies:
     react-native "0.59.10"
 
-"@ray-js/framework-mp@^0.3.10", "@ray-js/framework-mp@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/framework-mp/-/framework-mp-0.3.10.tgz#ad2b5e484387a8ae4fd3666f12aa065cd9c63703"
-  integrity sha512-G8KqfwMyHPZ3DJKAhcfAkQhheX1yt/69//WT8KHRaviIOWdO7wFP4341IxhUfQ0YnYxmcqf4fy4pFIKZB2N6uQ==
+"@ray-js/framework-mp@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/framework-mp/-/framework-mp-0.3.12-beta-09246069.tgz#02eb87592d780c3d1b3ad6144a8a6caeba04fbc2"
+  integrity sha512-Zs6YUEFuAT5M6NhqSmIxWsbc7XubzRlWBIVqpy5HVDoR1TkCUgi4PKUTz5zBeQwA9DrF478xxqtrlnb6PUHyYw==
   dependencies:
-    "@ray-js/runtime" "^0.3.10"
+    "@ray-js/runtime" "^0.3.12-beta-09246069"
 
-"@ray-js/framework-native@^0.3.10", "@ray-js/framework-native@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/framework-native/-/framework-native-0.3.10.tgz#dad7984fb3e7ddc6dc52beef1195df53782b427c"
-  integrity sha512-HZGld/TSeZdDyBECkQLVgA66cQVcNXnt/gFIdGcYamE4DaiTg4hS3bgfHzaQPNfY09i3U0I4/MmxgA5uD5ysHQ==
+"@ray-js/framework-native@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/framework-native/-/framework-native-0.3.12-beta-09246069.tgz#a2ad1224f30782c574503a8572675af3844166cc"
+  integrity sha512-lynN6HliwJxxWPGp2pa2btrdFwlmx2PR6Q0TLO7b37r55Vd+sHQa6knr0WuoOssGPwdAGBgNEWkls1+ZI1Pe7Q==
   dependencies:
-    "@ray-js/runtime-native" "^0.3.10"
+    "@ray-js/runtime-native" "^0.3.12-beta-09246069"
 
-"@ray-js/framework-shared@^0.3.10", "@ray-js/framework-shared@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/framework-shared/-/framework-shared-0.3.10.tgz#0cd31fc1b8d97cc274a29bbd6419bb8c0f1aa3dd"
-  integrity sha512-Lgahh/GHWqaXdcWPKscwFvLEMC5VStayPsJ+GAxEdSeKq2YhW14ROW9QpLLIoGY3SOEOcEw/vAw95F60w+XuDA==
+"@ray-js/framework-shared@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/framework-shared/-/framework-shared-0.3.12-beta-09246069.tgz#00e3c23a27e77b801495bcd6f1f43d10d2f4f68c"
+  integrity sha512-hO8TGuSOsz4cmHg8mzw5QC7N38zC4CHttMfz8gzeK0hy3Jl4Ywf+bga3/fOd8hSDkcOX6cnQHjw6S002SudxIA==
   dependencies:
-    "@ray-js/env" "^0.3.10"
+    "@ray-js/env" "^0.3.12-beta-09246069"
     "@remax/wechat" "2.15.6"
     react-native "0.59.10"
 
-"@ray-js/framework@0.3.8-beta.72a03a4e":
-  version "0.3.8-beta.72a03a4e"
-  resolved "https://registry.npmmirror.com/@ray-js/framework/-/framework-0.3.8-beta.72a03a4e.tgz#af208de8e8db552e3e8f22be98d56a4712976b32"
-  integrity sha512-MFq/YL6aNSutEOcZNjYbWrkWroqYtZj9o5qpZnGHdXTy6VFAgGOBTXJ/n6EUOMWwvTakTbrpMVDuWqIx9lBK/g==
+"@ray-js/framework@^0.3.12-beta-09246069", "@ray-js/framework@latest":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/framework/-/framework-0.3.12-beta-09246069.tgz#b652d90ea4b11c5a2abbd393de80eeedbf955067"
+  integrity sha512-BHyKjrztnpN7yV64I7qX+Vkb04wQ0FXem6SMJaaCghIYm7JBlokszL3oKqysRVwNLHuD4kuwFOXKEy8K/gZvyg==
   dependencies:
-    "@ray-js/framework-mp" "^0.3.8-beta.72a03a4e"
-    "@ray-js/framework-native" "^0.3.8-beta.72a03a4e"
-    "@ray-js/framework-shared" "^0.3.8-beta.72a03a4e"
-    "@ray-js/library" "^0.3.8-beta.72a03a4e"
-    "@ray-js/location" "^0.3.8-beta.72a03a4e"
-    "@ray-js/router" "^0.3.8-beta.72a03a4e"
-    "@ray-js/runtime" "^0.3.8-beta.72a03a4e"
+    "@ray-js/framework-mp" "^0.3.12-beta-09246069"
+    "@ray-js/framework-native" "^0.3.12-beta-09246069"
+    "@ray-js/framework-shared" "^0.3.12-beta-09246069"
+    "@ray-js/library" "^0.3.12-beta-09246069"
+    "@ray-js/location" "^0.3.12-beta-09246069"
+    "@ray-js/router" "^0.3.12-beta-09246069"
+    "@ray-js/runtime" "^0.3.12-beta-09246069"
     clsx "^1.1.1"
     hoist-non-react-statics "^3.3.2"
     lodash.get "^4.4.2"
     tiny-invariant "^1.1.0"
 
-"@ray-js/framework@^0.3.10", "@ray-js/framework@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/framework/-/framework-0.3.10.tgz#b60c2946eb9d08b47b975c1b778f590c8224ec6d"
-  integrity sha512-+DFSiuHLB3lE1P+zQC8DRKWP6w7qvT5K6MiaNB3mYhxTSZjEFCUVuAfEOnLgXt2cslF8oDM35thuibb4Vsp/Ag==
-  dependencies:
-    "@ray-js/framework-mp" "^0.3.10"
-    "@ray-js/framework-native" "^0.3.10"
-    "@ray-js/framework-shared" "^0.3.10"
-    "@ray-js/library" "^0.3.10"
-    "@ray-js/location" "^0.3.10"
-    "@ray-js/router" "^0.3.10"
-    "@ray-js/runtime" "^0.3.10"
-    clsx "^1.1.1"
-    hoist-non-react-statics "^3.3.2"
-    lodash.get "^4.4.2"
-    tiny-invariant "^1.1.0"
-
-"@ray-js/library@^0.3.10", "@ray-js/library@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/library/-/library-0.3.10.tgz#3da6d574f6d7b7fd30fa4335c20347c33bae8074"
-  integrity sha512-wBX9Ng60lnI+yUPcMylBk83JBKAyeLzwloglWy8gvNVH2PClyiGk+Ae+N8PfobD8w0UTkMzKbZ3Uu/ehcws9cw==
+"@ray-js/library@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/library/-/library-0.3.12-beta-09246069.tgz#82315ee90f7bb5ad08ed8afbd521fc4adacb488e"
+  integrity sha512-nnIRTB/xSV4KoNh8Uo76xILYRztZWY4d2RRQ0+Z+j3gPE0GIcc7ogk3jIZFHI3HnA7x/NIjg3O9eJ06OjticZQ==
   dependencies:
     merge "^2.1.1"
 
-"@ray-js/location@^0.3.10", "@ray-js/location@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/location/-/location-0.3.10.tgz#071a887ec3fd630058e1865dff5ea8349857945a"
-  integrity sha512-dwoKrC/xhjGesXhon2PFhgH1sJTc2d+MoBwzf7c4cu7ffdFul6eB4WSppy0Cn0Y03AvNN4FQonosYXDqyoZjLg==
+"@ray-js/location@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/location/-/location-0.3.12-beta-09246069.tgz#c1f758aeb8d2a0460cdfa656750191a2fc2f912d"
+  integrity sha512-usY1cg9Brghj/Xnt1nuVb50nfbSb5cAn3YQArza/3Ht9yw+XXn2w8TmlOBMgy6w+zDUIT10XTryTB/CeRIllqA==
   dependencies:
-    "@ray-js/library" "^0.3.10"
-    "@ray-js/router" "^0.3.10"
-    "@ray-js/router-mp" "^0.3.10"
+    "@ray-js/library" "^0.3.12-beta-09246069"
+    "@ray-js/router" "^0.3.12-beta-09246069"
+    "@ray-js/router-mp" "^0.3.12-beta-09246069"
 
-"@ray-js/plugin-utils@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/plugin-utils/-/plugin-utils-0.3.10.tgz#916de105fc3983ddb3de6951402fa61d9db566c4"
-  integrity sha512-tJSfF4ceG5nOGTuyBPp0UFaeXGt6ixLib9031F4Os9/UfKL/21sgtH3rSLhsD/qNY254uza1C8C+LUt2FonmQw==
+"@ray-js/plugin-utils@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/plugin-utils/-/plugin-utils-0.3.12-beta-09246069.tgz#2797d156633a24c50dc5b2da81cde54f5855bf0b"
+  integrity sha512-pWWlh7WnMspSWYQpaGp7sryPcvboXf0gvx/iXPo3dsnsz27GMtbBL+GB8MiC+NVswCh86Ofz305IwYD8EEC9pA==
   dependencies:
     ejs "^3.1.6"
     fs-extra "^10.0.0"
 
-"@ray-js/ray-panel-core@^0.3.10", "@ray-js/ray-panel-core@^0.3.10-beta.0172b845", "@ray-js/ray-panel-core@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/ray-panel-core/-/ray-panel-core-0.3.10.tgz#1f7ff325a6b8b3e2771d133f6d5e68f9fb9efb30"
-  integrity sha512-IpcHve56C2LBk5QasCoj7BvTBS36wATWaa1wjYggasd73OxXZx1EwbJbiodQkjIL0+YBmUuG1+MLU5RwUC0P8Q==
+"@ray-js/ray-panel-core@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/ray-panel-core/-/ray-panel-core-0.3.12-beta-09246069.tgz#b3dbec35427bad4de78800fe319b1cc337fc60b0"
+  integrity sha512-JKNXF3/tae4oKMwfVnnPZbG8v0dWSH1yZtaxtW8O4aeSsXsd2fnsdHVo8G1ji/DGaUEjXAkus5YrRZOqzfMaFw==
   dependencies:
     core-js "^3.19.1"
     events "^3.3.0"
 
-"@ray-js/ray-panel-notification@^0.3.10":
-  version "0.3.10-beta.0172b845"
-  resolved "https://registry.npmmirror.com/@ray-js/ray-panel-notification/-/ray-panel-notification-0.3.10-beta.0172b845.tgz#6de656eacd0a38f9da9c3cee9f2b0f21fec7c6e5"
-  integrity sha512-ufRhoPlq8+DUgryZKcdnvgSMJmunYE/p6QPqwn50CTYwmPO9fPGd5LDns6yu9FcPt5UWxVTq/oy10ar02HlG6Q==
+"@ray-js/ray-panel-notification@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/ray-panel-notification/-/ray-panel-notification-0.3.12-beta-09246069.tgz#96e527690519962e7bf094561a504766b7dc3c30"
+  integrity sha512-mKppRakDFJMAzycdM6omrVB6vsWz91TXlyfDV9/mHGGAS1Vl4QojtDcxGOX5+HZnvMX8Oq5XpQC+jIwubMo4ew==
   dependencies:
-    "@ray-js/ray-panel-core" "^0.3.10-beta.0172b845"
-    "@ray-js/ray-panel-utils" "^0.3.10-beta.0172b845"
+    "@ray-js/ray-panel-core" "^0.3.12-beta-09246069"
+    "@ray-js/ray-panel-utils" "^0.3.12-beta-09246069"
     core-js "^3.19.1"
     react "^16.8.3"
     react-native "0.59.10"
@@ -1621,26 +1587,12 @@
     tuya-panel-motion "^0.0.1"
     tuya-panel-text "^0.1.1"
 
-"@ray-js/ray-panel-notification@^0.3.8-beta.72a03a4e":
-  version "0.3.8-beta.72a03a4e"
-  resolved "https://registry.npmmirror.com/@ray-js/ray-panel-notification/-/ray-panel-notification-0.3.8-beta.72a03a4e.tgz#2492c837e734c4e9be3973281bf7891f26726fde"
-  integrity sha512-NDfpuHUzxgGpDDLbDtfmltx4ps2pGkai2xf1pT+Ot11t1+n4pwezdzYMxas6XIuj3tTO2bwSjiFo+R35vuD/iw==
+"@ray-js/ray-panel-utils@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/ray-panel-utils/-/ray-panel-utils-0.3.12-beta-09246069.tgz#ac4cb625fb963ce6f6a031051798924db9471ca8"
+  integrity sha512-X99koBF23saiJaq89HecAcmofB8Tk2L2pVDoAsiUgjz7ukwJWijq7Z6El5l+OJEYBma6cnXlkSc0Q99qKhQcWg==
   dependencies:
-    "@ray-js/ray-panel-core" "^0.3.8-beta.72a03a4e"
-    "@ray-js/ray-panel-utils" "^0.3.8-beta.72a03a4e"
-    core-js "^3.19.1"
-    react "^16.8.3"
-    react-native "0.59.10"
-    tuya-panel-icon "^0.1.1"
-    tuya-panel-motion "^0.0.1"
-    tuya-panel-text "^0.1.1"
-
-"@ray-js/ray-panel-utils@^0.3.10-beta.0172b845", "@ray-js/ray-panel-utils@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/ray-panel-utils/-/ray-panel-utils-0.3.10.tgz#87607aef130710f09a7e9a14d6d6912b7733127d"
-  integrity sha512-FeJAACrsjfa2/Q1Vi5xwyzHpCKyYDFTpO3G4Sf1DC8gRyjanLyB3RXEWpNq5t8+GagBBmj5HIKpLm31aGdCh+g==
-  dependencies:
-    "@ray-js/ray-panel-core" "^0.3.10"
+    "@ray-js/ray-panel-core" "^0.3.12-beta-09246069"
     core-js "^3.19.1"
     prop-types "^15.7.2"
     react "^16.8.3"
@@ -1648,22 +1600,22 @@
     styled-components "^5.3.3"
     tuya-panel-utils "^0.1.5"
 
-"@ray-js/remax-tuya@^0.3.10", "@ray-js/remax-tuya@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/remax-tuya/-/remax-tuya-0.3.10.tgz#bfd3207b485739007e04686b4ba1651dbe721e6c"
-  integrity sha512-+A1r6NoAnd66VH7RiloEz52C1ahtV3n8drZlu5PFC8ZzROrvrXiNay6zOUDezPs0XQO0GM+hRZANfzzybJmF5w==
+"@ray-js/remax-tuya@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/remax-tuya/-/remax-tuya-0.3.12-beta-09246069.tgz#7ad59576aa5f3a9bb518a7fbbe90bd30c5118e3b"
+  integrity sha512-x7twwDHkzfj4qc79a5H+ugJeDAH61QO/+ZSDCkN98HdqJKZ7ag9bbv+tU3nhDFtuZ8efTVkZ+SF6GNixxBOPWA==
   dependencies:
     "@remax/runtime" "2.15.6"
     "@remax/shared" "2.15.6"
     "@remax/types" "2.15.6"
 
-"@ray-js/rn-style-transformer@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/rn-style-transformer/-/rn-style-transformer-0.3.10.tgz#124fcae3382be64d49122c41e2652b3c43378c95"
-  integrity sha512-v2QTtkSkkSRsCpbXb7UgQjy3v5gOqwPThmVze3ASv5kgoXfdRd74VXuTrlpobkf6Cor6EdEYyMlsbmQmwIRcrw==
+"@ray-js/rn-style-transformer@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/rn-style-transformer/-/rn-style-transformer-0.3.12-beta-09246069.tgz#588c634dae817530def840522d5e780e8b1b19c4"
+  integrity sha512-MtN/qnRv163UeD4smoHZ68fdWGDUwzBvvUGMtJIam7uChz6MpF+0d9mFB4huxpqxi9CTBrvHUmzn2ETGmm49tg==
   dependencies:
-    "@ray-js/css-to-react-native" "^0.3.10"
-    "@ray-js/stylelint-config-ray-native" "^0.3.10"
+    "@ray-js/css-to-react-native" "^0.3.12-beta-09246069"
+    "@ray-js/stylelint-config-ray-native" "^0.3.12-beta-09246069"
     core-js "^3.19.1"
     fbjs "^2.0.0"
     less "^3.12.2"
@@ -1678,51 +1630,39 @@
     stylelint "^13.8.0"
     stylus "^0.54.8"
 
-"@ray-js/rn-transformer-helper@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/rn-transformer-helper/-/rn-transformer-helper-0.3.10.tgz#fd831c3c81cac28bdf6cf31bed2b212209089646"
-  integrity sha512-E8F1pFNQ1CJLKP1ViWLP2StUFTivkjeUHNi9do2jlvPRWvK9QB3Pl7tMnaKrpWk1QlJBBfq4A6lwl9G5683S7A==
+"@ray-js/rn-transformer-helper@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/rn-transformer-helper/-/rn-transformer-helper-0.3.12-beta-09246069.tgz#781b0ad791673cc19ad6cf82badc90f428400061"
+  integrity sha512-YOkiX6TQ8SalSjLZ/luPOpYvoMRvwPnZYbVYOSN2oaDajHqGlKX+2wFnBSUjNyuEZmp//0d+SUQJVCBeCy4zZQ==
   dependencies:
-    "@ray-js/rn-style-transformer" "^0.3.10"
-    "@ray-js/rn-transformer" "^0.3.10"
+    "@ray-js/rn-style-transformer" "^0.3.12-beta-09246069"
+    "@ray-js/rn-transformer" "^0.3.12-beta-09246069"
 
-"@ray-js/rn-transformer@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/rn-transformer/-/rn-transformer-0.3.10.tgz#4bef899766a385a98c02383ef80951be6a72740d"
-  integrity sha512-wWj8kBf7mjlCScvuRtTbP5MdLL03CMRAiZEfoSzBCo+1Eg04USwnwltTKnjDZBEViudMFTqRhX++sWJ4V1x/Ew==
+"@ray-js/rn-transformer@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/rn-transformer/-/rn-transformer-0.3.12-beta-09246069.tgz#2ea57215b8ec08934dea57ebdfc4ecbc82be96c8"
+  integrity sha512-vKzTFj8+KxsBKM2fHGkVOYd4i3L8/cE5r6H2TPwUBwcnv4CIQ3kfGKbFex4U0Gy2RU8TYOHb/jqjl/wmHtvQGg==
   dependencies:
-    "@ray-js/router-native" "^0.3.10"
-    "@ray-js/runtime-native" "^0.3.10"
-    "@ray-js/shared" "^0.3.10"
+    "@ray-js/router-native" "^0.3.12-beta-09246069"
+    "@ray-js/runtime-native" "^0.3.12-beta-09246069"
+    "@ray-js/shared" "^0.3.12-beta-09246069"
 
-"@ray-js/router-mp@0.3.8-beta.72a03a4e":
-  version "0.3.8-beta.72a03a4e"
-  resolved "https://registry.npmmirror.com/@ray-js/router-mp/-/router-mp-0.3.8-beta.72a03a4e.tgz#095275872feea99c38f22ba1f17245b36f35cb4c"
-  integrity sha512-LToTXkVp1Ciy2gvzNoze/Ogdvh1YUrt6npYqaZdAiZEPuhqbSkGoNaeUWR444pitpnL4P5LnNDcwpLzWYubNuQ==
+"@ray-js/router-mp@^0.3.12-beta-09246069", "@ray-js/router-mp@latest":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/router-mp/-/router-mp-0.3.12-beta-09246069.tgz#b7d7a35f340b7d27581719e0997b5601dab98d95"
+  integrity sha512-1yTWlnxcyquRT5ntwKab7X8/H6QuquafariqH3QhscZeWZFnWyJcRTQyRhUKF8UXfZ7je5dLoLlmLIBI3YGwvQ==
   dependencies:
-    "@ray-js/api" "^0.3.8-beta.72a03a4e"
-    "@ray-js/env" "^0.3.8-beta.72a03a4e"
-    "@ray-js/library" "^0.3.8-beta.72a03a4e"
-    "@ray-js/types" "^0.3.8-beta.72a03a4e"
+    "@ray-js/api" "^0.3.12-beta-09246069"
+    "@ray-js/env" "^0.3.12-beta-09246069"
+    "@ray-js/library" "^0.3.12-beta-09246069"
+    "@ray-js/types" "^0.3.12-beta-09246069"
     "@react-navigation/core" "^6.1.0"
     path-to-regexp "^6.2.0"
 
-"@ray-js/router-mp@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/router-mp/-/router-mp-0.3.10.tgz#055a0ac2cb23282541016ade34f329bbc2d7c9ac"
-  integrity sha512-zkaig+fBz5pKyt4qm0JDK27qE4rtRBi7vCT6ED6UYa3M3QDif9LZQJhCJFygvJLRYDkfCrlQ9MF4bpMudcHDQg==
-  dependencies:
-    "@ray-js/api" "^0.3.10"
-    "@ray-js/env" "^0.3.10"
-    "@ray-js/library" "^0.3.10"
-    "@ray-js/types" "^0.3.10"
-    "@react-navigation/core" "^6.1.0"
-    path-to-regexp "^6.2.0"
-
-"@ray-js/router-native@^0.3.10", "@ray-js/router-native@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/router-native/-/router-native-0.3.10.tgz#7812dc351f194e0cd02c9992f576b33f9aacc971"
-  integrity sha512-zhTBwIzvnPMnnpE1592B4gxv4ZIs+F5U3Vm16901bxuSbbD58br4tGyuYdAMGqVltjdCoP7K5d8sJUj3JaifiA==
+"@ray-js/router-native@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/router-native/-/router-native-0.3.12-beta-09246069.tgz#06c5871f067559b5c81adfbaa851c7730f5378b4"
+  integrity sha512-gGYe2Vmy/iMF9fs2Mno02Ekfos4T0Qsg6DYBAP0WmUALTVO096aDACthkEtsWJUNXPZdUFJ8RY9hX1cNs8TuYw==
   dependencies:
     "@react-navigation/bottom-tabs" "^5.6.1"
     "@react-navigation/native" "^5.6.1"
@@ -1734,75 +1674,54 @@
     react-native-iphone-x-helper "^1.3.1"
     react-native-safe-area-context "3.0.7"
 
-"@ray-js/router@0.3.8-beta.72a03a4e":
-  version "0.3.8-beta.72a03a4e"
-  resolved "https://registry.npmmirror.com/@ray-js/router/-/router-0.3.8-beta.72a03a4e.tgz#e9f58254e0470904899b973bd773276e6198de30"
-  integrity sha512-CLr3TWY6R5uyXLWe2Po7Tqke6C2zv1R4UT24O50TvhrDihHF+If7wLyT4bGFhQ8fhlnvMjUX8HAoT5sjGyvA8g==
+"@ray-js/router@^0.3.12-beta-09246069", "@ray-js/router@latest":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/router/-/router-0.3.12-beta-09246069.tgz#0a2b767c314a86e856a8e56ff8c52b3cd1c2dfdb"
+  integrity sha512-LTVJII9uOZY896wnz4FomF+VmHoq+oF9DJaTKZCKjtgqr059vaCjydSWm6YbjD02Y8saygkdf1sdn+CRg+N8ZQ==
   dependencies:
-    "@ray-js/library" "^0.3.8-beta.72a03a4e"
-    "@ray-js/types" "^0.3.8-beta.72a03a4e"
+    "@ray-js/library" "^0.3.12-beta-09246069"
+    "@ray-js/types" "^0.3.12-beta-09246069"
     history "4.x"
 
-"@ray-js/router@^0.3.10", "@ray-js/router@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/router/-/router-0.3.10.tgz#9da895bcdebc60c46b604f14ff88afea8a765645"
-  integrity sha512-BZ5LDwiBLgfDpKHcE1E0tfL9fgzuzDPGcDHXYWpc2fUtYYaFyJ1BDVZSjNwNdWMYC8VhKcwzPT/ibsWBFrAe2A==
-  dependencies:
-    "@ray-js/library" "^0.3.10"
-    "@ray-js/types" "^0.3.10"
-    history "4.x"
-
-"@ray-js/runtime-native@^0.3.10", "@ray-js/runtime-native@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/runtime-native/-/runtime-native-0.3.10.tgz#30c8b1f74465dedf816527cb0f8eeb59a71ca9f4"
-  integrity sha512-JHcX1rjvZA9RHvP+Ms9yRhKut/XfsTsRFCAaLTOnKrn9tzNpQ8UdsHbtm1KeYy2ke4yFTdCYBxLclUkPXUb0Qw==
+"@ray-js/runtime-native@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/runtime-native/-/runtime-native-0.3.12-beta-09246069.tgz#adbc9b28014ceadb55d2d9c50fc330bf1c6ab513"
+  integrity sha512-cTk39jyJgh46Pg7bojyAs7npL0CDJeN8z/+qY0xttSeyrrjrM7D84Afo/bAz6qXlj+8XKQ/ExYZH95VYUqYpgg==
   dependencies:
     "@ant-design/react-native" "^4.2.0"
-    "@ray-js/router-native" "^0.3.10"
+    "@ray-js/router-native" "^0.3.12-beta-09246069"
     lodash "^4.17.21"
     react-native "0.59.10"
 
-"@ray-js/runtime@0.3.8-beta.72a03a4e":
-  version "0.3.8-beta.72a03a4e"
-  resolved "https://registry.npmmirror.com/@ray-js/runtime/-/runtime-0.3.8-beta.72a03a4e.tgz#0ad3512100c6a2b95f0ceab4034a5d72e6284059"
-  integrity sha512-fsa85r9u1HtkFlVpPhIQaY7SawGA/DGoLlOmWewgAK8h5g+jOnuGtJTQM/MKPhicKMJcmCNnDeOr5uziR/9mrQ==
+"@ray-js/runtime@^0.3.12-beta-09246069", "@ray-js/runtime@latest":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/runtime/-/runtime-0.3.12-beta-09246069.tgz#3aaf9a61f27d04befbdef36786d1368a79eee571"
+  integrity sha512-9gfMfWXU6F6znM/bEYI7cbQg/DQl4nkrA1FgczhNlhnL2n3Ls10mW3hDAZjWBvWEcM5UUMG3KcWsOxTJaro6sg==
 
-"@ray-js/runtime@^0.3.10", "@ray-js/runtime@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/runtime/-/runtime-0.3.10.tgz#0293af45d47133e13c4e8e38c463ac7d58017fe7"
-  integrity sha512-e2MY59ZI9KGvWIILmTK7BaAxe5fQMXBMc654bMPV4TB39IHZVJelOSRD6gGXRLMjnqUfnYd30lz4YxW8FG6pDQ==
-
-"@ray-js/shared@^0.3.10", "@ray-js/shared@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/shared/-/shared-0.3.10.tgz#6b88899b31cf894c1dfdb92b8e600eb928e17716"
-  integrity sha512-1Ph8PUeL9hDRvHR/neNBSxFNP5dByzEDSJWGnTon7WKxTUWm7K/2pK2rzTkiWpCa1qhmCqaOhcbt75/xJOo2gw==
+"@ray-js/shared@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/shared/-/shared-0.3.12-beta-09246069.tgz#43af9159f1d928c265b7349182ba08f6e7386e40"
+  integrity sha512-LrOpfCtKrtcQbozOBkmucHvWeZ9kgL/6zmgzWT+fgQds6StLrshAyGkK/q5k2KfXGgZ92y+dW8lkuE9HcAqx6Q==
   dependencies:
     "@babel/preset-env" "^7.15.6"
     "@babel/preset-typescript" "^7.15.0"
     "@babel/register" "^7.15.3"
-    "@ray-js/types" "^0.3.10"
+    "@ray-js/types" "^0.3.12-beta-09246069"
     change-case "^4.1.2"
     fs-extra "^10.0.0"
     merge "^2.1.1"
     npmlog "^5.0.1"
     slash "3.x"
 
-"@ray-js/stylelint-config-ray-native@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/stylelint-config-ray-native/-/stylelint-config-ray-native-0.3.10.tgz#fa79d4a0ef88f3566fa7e130b199adbf46723f62"
-  integrity sha512-OeeTXfR9Wl8mb2Ir5vw6S+adjFfh0FAL5dXY8bQ85UITvz825mTK4EGRRVXvAgnEgNxfOVJAnlTpoWTDPuo8TA==
+"@ray-js/stylelint-config-ray-native@^0.3.12-beta-09246069":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/stylelint-config-ray-native/-/stylelint-config-ray-native-0.3.12-beta-09246069.tgz#9a7d87b99de8fbf7cf9b9f410da828aadc20b208"
+  integrity sha512-Te2b29fnE8KNVYLutuJyiVB41NYTp1Mtcxbu/htTk8R5odOug7Sj2Lh3Bj9V3Gp5k3NE62pZPXsekq0m2gURjg==
 
-"@ray-js/types@0.3.8-beta.72a03a4e":
-  version "0.3.8-beta.72a03a4e"
-  resolved "https://registry.npmmirror.com/@ray-js/types/-/types-0.3.8-beta.72a03a4e.tgz#ebd5b833609ce8d4267eaeda3ef185293269b477"
-  integrity sha512-V15pcCW5vmZ765VvMvqYCZfXJpC31vJ/PpZiMMhfbeWPsTJNDferqrtud89S8ZZlfnf2rlDbsQHJgdDkzqjDsA==
-  dependencies:
-    path-to-regexp "^6.2.0"
-
-"@ray-js/types@^0.3.10", "@ray-js/types@^0.3.8-beta.72a03a4e":
-  version "0.3.10"
-  resolved "https://registry.npmmirror.com/@ray-js/types/-/types-0.3.10.tgz#40e176bbf360f046a566de5f65764e22b4b14421"
-  integrity sha512-M938r5qiS5leYw+/1hRgiSnzXPkCPBBMrQppahZ5As6J2Teaon/5f3xMOJ7/TNGndypJhGYZlMdkPoXU3VJPJA==
+"@ray-js/types@^0.3.12-beta-09246069", "@ray-js/types@latest":
+  version "0.3.12-beta-09246069"
+  resolved "https://registry.npmmirror.com/@ray-js/types/-/types-0.3.12-beta-09246069.tgz#167ebe64b20ddcb17e0e42d931f51eaed77cd84c"
+  integrity sha512-a7HyWQfo/feCRS3d53Rsz21UUGYA3K/a7G0sFv9h/X7jYnxS4WS4oxhE1Jkoj4oqTBNYZ72XdKvkdwGju+poXQ==
   dependencies:
     path-to-regexp "^6.2.0"
 
@@ -4422,9 +4341,9 @@ copy-webpack-plugin@^5.1.1:
     webpack-log "^2.0.0"
 
 core-js-compat@^3.21.0, core-js-compat@^3.22.1:
-  version "3.22.6"
-  resolved "https://registry.npmmirror.com/core-js-compat/-/core-js-compat-3.22.6.tgz#2e7c7a703238c168883dbf55c24bbb67503cddcb"
-  integrity sha512-dQ/SxlHcuiywaPIoSUCU6Fx+Mk/H5TXENqd/ZJcK85ta0ZcQkbzHwblxPeL0hF5o+NsT2uK3q9ZOG5TboiVuWw==
+  version "3.22.7"
+  resolved "https://registry.npmmirror.com/core-js-compat/-/core-js-compat-3.22.7.tgz#8359eb66ecbf726dd0cfced8e48d5e73f3224239"
+  integrity sha512-uI9DAQKKiiE/mclIC5g4AjRpio27g+VMRhe6rQoz+q4Wm4L6A/fJhiLtBw+sfOpDG9wZ3O0pxIw7GbfOlBgjOA==
   dependencies:
     browserslist "^4.20.3"
     semver "7.0.0"
@@ -4440,9 +4359,9 @@ core-js@^2.2.2, core-js@^2.4.0, core-js@^2.4.1:
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
 core-js@^3.19.1, core-js@^3.6.4:
-  version "3.22.6"
-  resolved "https://registry.npmmirror.com/core-js/-/core-js-3.22.6.tgz#294dd824b4cae2c24725a36baa4a791ed00bb0de"
-  integrity sha512-2IGcGH00z9I4twgNWU4uGCNEsBFG1s2JudVQrgSCoVhOfwoTwQjxC8aMo9exrpTMOxvobggEpaHnGMmQY4cfBQ==
+  version "3.22.7"
+  resolved "https://registry.npmmirror.com/core-js/-/core-js-3.22.7.tgz#8d6c37f630f6139b8732d10f2c114c3f1d00024f"
+  integrity sha512-Jt8SReuDKVNZnZEzyEQT5eK6T2RRCXkfTq7Lo09kpm+fHjgGewSbNjV+Wt4yZMhPDdzz2x1ulI5z/w4nxpBseg==
 
 core-util-is@~1.0.0:
   version "1.0.3"
@@ -5059,9 +4978,9 @@ ejs@^3.0.1, ejs@^3.1.6:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.118:
-  version "1.4.137"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.137.tgz#186180a45617283f1c012284458510cd99d6787f"
-  integrity sha512-0Rcpald12O11BUogJagX3HsCN3FE83DSqWjgXoHo5a72KUKMSfI39XBgJpgNNxS9fuGzytaFjE06kZkiVFy2qA==
+  version "1.4.138"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.138.tgz#3ec41ca589aaf505dfe2034fde913329af801730"
+  integrity sha512-IOyp2Seq3w4QLln+yZWcMF3VXhhduz4bwg9gfI+CnP5TkzwNXQ8FCZuwwPsnes73AfWdf5J2n2OXdUwDUspDPQ==
 
 elliptic@^6.5.3:
   version "6.5.4"
@@ -8649,9 +8568,9 @@ node-object-hash@^1.2.0:
   integrity sha512-UdS4swXs85fCGWWf6t6DMGgpN/vnlKeSGEQ7hJcrs7PBFoxoKLmibc3QRb7fwiYsjdL7PX8iI/TMSlZ90dgHhQ==
 
 node-releases@^2.0.3:
-  version "2.0.4"
-  resolved "https://registry.npmmirror.com/node-releases/-/node-releases-2.0.4.tgz#f38252370c43854dc48aa431c766c6c398f40476"
-  integrity sha512-gbMzqQtTtDz/00jQzZ21PQzdI9PyLYqUSvD0p3naOhX4odFji0ZxYdnVwPTxmSwkmxhcFImpozceidSG+AgoPQ==
+  version "2.0.5"
+  resolved "https://registry.npmmirror.com/node-releases/-/node-releases-2.0.5.tgz#280ed5bc3eba0d96ce44897d8aee478bfb3d9666"
+  integrity sha512-U9h1NLROZTq9uE1SNffn6WuPDg8icmi3ns4rEl/oTfIle4iLjTliCzgTsbaIFMq/Xn078/lfY/BL0GWZ+psK4Q==
 
 normalize-css-color@^1.0.2:
   version "1.0.2"
@@ -10180,11 +10099,11 @@ raw-body@2.5.1:
     unpipe "1.0.0"
 
 rc-field-form@^1.26.4:
-  version "1.26.5"
-  resolved "https://registry.npmmirror.com/rc-field-form/-/rc-field-form-1.26.5.tgz#603eddaf90a3329efc6a61f9a9c5e36d7097e605"
-  integrity sha512-JeZM7tF8V1A4l8eT1GUoanYTNXtGxIw+Qvwkc8k+9PnogKPXZxw2PGMKyo0RBUknR90omT2BhA9AaDEmVXDZLA==
+  version "1.26.6"
+  resolved "https://registry.npmmirror.com/rc-field-form/-/rc-field-form-1.26.6.tgz#00c526831db287421ae761a6fae079b68e9f3229"
+  integrity sha512-N7nx/9Zk3innxZWTa4GPUV3j78OCgXacl2Lgi6agmP7ziz6BHoZYZ1djOt5UW50kK7UoVMAPtue5I1XgQO24MA==
   dependencies:
-    "@babel/runtime" "^7.8.4"
+    "@babel/runtime" "^7.18.0"
     async-validator "^4.1.0"
     rc-util "^5.8.0"
 
