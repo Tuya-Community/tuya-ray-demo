@@ -1446,6 +1446,28 @@
     commander "^8.2.0"
     webpack-chain "^6.5.1"
 
+"@ray-js/components@^0.3.4":
+  version "0.3.10"
+  resolved "https://registry.npmmirror.com/@ray-js/components/-/components-0.3.10.tgz#844c306124882d0853f616cc73ad24b61a0530ae"
+  integrity sha512-YVrDeFsZtxczbS2pFriIMSZNj/v/ezgylG2MzpvF/giA9xKT7KoMxHUtkGq84T3e5xI/KEhBe0/pyW3XVXae2Q==
+  dependencies:
+    "@ray-js/framework-shared" "^0.3.10"
+    "@ray-js/remax-tuya" "^0.3.10"
+    "@remax/macro" "2.15.6"
+    "@remax/wechat" "2.15.6"
+    antd-mobile "^5.0.0-beta.17"
+    antd-mobile-icons "^0.2.2"
+    clsx "^1.1.1"
+    core-js "^3.19.1"
+    react "^17.0.2"
+    react-autosize-textarea "^7.1.0"
+    react-native-swiper "^1.6.0"
+    shifty "^2.15.2"
+    tuya-panel-icon "^0.1.1"
+    tuya-panel-motion "^0.0.2"
+    tuya-panel-slider "^0.1.1"
+    tuya-panel-switch "^0.1.1"
+
 "@ray-js/components@latest":
   version "0.3.12-beta-09246069"
   resolved "https://registry.npmmirror.com/@ray-js/components/-/components-0.3.12-beta-09246069.tgz#5032ee9e0e64ca4d654af011425ff0e640f04152"
@@ -1494,6 +1516,13 @@
     source-map "^0.7.3"
     webpack "4.x"
 
+"@ray-js/env@^0.3.10":
+  version "0.3.10"
+  resolved "https://registry.npmmirror.com/@ray-js/env/-/env-0.3.10.tgz#c188e7430a6285059b9c9adc7bc7d1bdfdf5d61e"
+  integrity sha512-O2oiCG/3WsfhDmJwwD7sfY5PmU8L+bLFzPZqjWd8b7iQqZFCe7nZPuzf6r58VV6tCoYiPfYsl+tEQfIOEgJ62w==
+  dependencies:
+    react-native "0.59.10"
+
 "@ray-js/env@^0.3.12-beta-09246069":
   version "0.3.12-beta-09246069"
   resolved "https://registry.npmmirror.com/@ray-js/env/-/env-0.3.12-beta-09246069.tgz#7a711c05c2eddf4cd84a9add151e37c427e58909"
@@ -1514,6 +1543,15 @@
   integrity sha512-lynN6HliwJxxWPGp2pa2btrdFwlmx2PR6Q0TLO7b37r55Vd+sHQa6knr0WuoOssGPwdAGBgNEWkls1+ZI1Pe7Q==
   dependencies:
     "@ray-js/runtime-native" "^0.3.12-beta-09246069"
+
+"@ray-js/framework-shared@^0.3.10":
+  version "0.3.10"
+  resolved "https://registry.npmmirror.com/@ray-js/framework-shared/-/framework-shared-0.3.10.tgz#0cd31fc1b8d97cc274a29bbd6419bb8c0f1aa3dd"
+  integrity sha512-Lgahh/GHWqaXdcWPKscwFvLEMC5VStayPsJ+GAxEdSeKq2YhW14ROW9QpLLIoGY3SOEOcEw/vAw95F60w+XuDA==
+  dependencies:
+    "@ray-js/env" "^0.3.10"
+    "@remax/wechat" "2.15.6"
+    react-native "0.59.10"
 
 "@ray-js/framework-shared@^0.3.12-beta-09246069":
   version "0.3.12-beta-09246069"
@@ -1565,6 +1603,15 @@
     ejs "^3.1.6"
     fs-extra "^10.0.0"
 
+"@ray-js/ray-components-plus@latest":
+  version "0.1.5"
+  resolved "https://registry.npmmirror.com/@ray-js/ray-components-plus/-/ray-components-plus-0.1.5.tgz#28a15dfccd845b71abe5eb27b52140276fdcf27d"
+  integrity sha512-4C8ZidRuhqfU72J2FORIdR1CS21du+nmbtigpGWCUBIEpmkaQ+SK9KSW8hlInbQ78rdQTlh5VPbWJKU2NBm6aw==
+  dependencies:
+    "@ray-js/components" "^0.3.4"
+    clsx "^1.1.1"
+    events "^3.3.0"
+
 "@ray-js/ray-panel-core@^0.3.12-beta-09246069":
   version "0.3.12-beta-09246069"
   resolved "https://registry.npmmirror.com/@ray-js/ray-panel-core/-/ray-panel-core-0.3.12-beta-09246069.tgz#b3dbec35427bad4de78800fe319b1cc337fc60b0"
@@ -1599,6 +1646,15 @@
     react-native "0.59.10"
     styled-components "^5.3.3"
     tuya-panel-utils "^0.1.5"
+
+"@ray-js/remax-tuya@^0.3.10":
+  version "0.3.10"
+  resolved "https://registry.npmmirror.com/@ray-js/remax-tuya/-/remax-tuya-0.3.10.tgz#bfd3207b485739007e04686b4ba1651dbe721e6c"
+  integrity sha512-+A1r6NoAnd66VH7RiloEz52C1ahtV3n8drZlu5PFC8ZzROrvrXiNay6zOUDezPs0XQO0GM+hRZANfzzybJmF5w==
+  dependencies:
+    "@remax/runtime" "2.15.6"
+    "@remax/shared" "2.15.6"
+    "@remax/types" "2.15.6"
 
 "@ray-js/remax-tuya@^0.3.12-beta-09246069":
   version "0.3.12-beta-09246069"

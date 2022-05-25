@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
+import { Button } from '@ray-js/components';
+import { Notification } from '@ray-js/ray-components-plus'
 import Code from '@/common/Code';
 import Header from '@/common/Header';
 import DemoWrapper from '@/common/DemoWrapper';
-// import Demo0 from '@ray-js/components-plus-demo/src/Notification/index';
+
 const PagePreviewer: React.FC = () => {
   return (
     <Fragment>
@@ -10,7 +12,6 @@ const PagePreviewer: React.FC = () => {
       <Code>{`
       <Fragment>
       <Button
-        key={'b'}
         onClick={() => {
           Notification.show({ message: '一些警示提示', icon: 'warning' });
         }}
@@ -18,7 +19,6 @@ const PagePreviewer: React.FC = () => {
         显示Notification
       </Button>
       <Button
-        key={'a'}
         onClick={() => {
           Notification.hide();
         }}
@@ -28,7 +28,20 @@ const PagePreviewer: React.FC = () => {
     </Fragment>
       `}</Code>
       <DemoWrapper>
-        {/* <Demo0></Demo0> */}
+        <Button
+          onClick={() => {
+            Notification.show({ message: '一些警示提示', icon: 'warning' });
+          }}
+        >
+          显示Notification
+        </Button>
+        <Button
+          onClick={() => {
+            Notification.hide();
+          }}
+        >
+          隐藏Notification
+        </Button>
       </DemoWrapper>
     </Fragment>
   );

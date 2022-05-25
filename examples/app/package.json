@@ -15,6 +15,7 @@
     "@ray-js/cli": "latest",
     "@ray-js/components": "latest",
     "@ray-js/framework": "latest",
+    "@ray-js/ray-components-plus": "latest",
     "@ray-js/router": "latest",
     "@ray-js/router-mp": "latest",
     "@ray-js/runtime": "latest",
