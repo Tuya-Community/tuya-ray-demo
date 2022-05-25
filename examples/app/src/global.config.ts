@@ -7,6 +7,7 @@ export const wechat = {
     navigationBarBackgroundColor: '#f2f4f6',
     navigationBarTextStyle: 'black',
   },
+  pageWrapper: '@ray-js/ray-components-plus/lib/CommonWrp'
 };
 
 export const tuya = {
@@ -16,6 +17,7 @@ export const tuya = {
     navigationBarBackgroundColor: '#f2f4f6',
     navigationBarTextStyle: 'black',
   },
+  pageWrapper: '@ray-js/ray-components-plus/lib/CommonWrp'
 };
 
 export const web = {
