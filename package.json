@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start:tuya": "ray start ./examples/app -t tuya --verbose",
-    "build:tuya": "ray build ./examples/app -t tuya --verbose"
+    "build:tuya": "ray build ./examples/app -t tuya --verbose",
+    "start:panel": "ray start ./examples/panel-universal -t tuya --verbose",
+    "build:panel": "ray build ./examples/panel-universal -t tuya --verbose"
   },
   "author": "",
   "license": "ISC",

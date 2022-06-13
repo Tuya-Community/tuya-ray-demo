@@ -1,0 +1,34 @@
+diff --git a/node_modules/@remax/cli/lib/build/NativeAssets.js b/node_modules/@remax/cli/lib/build/NativeAssets.js
+index 90cdb1c..772ba62 100644
+--- a/node_modules/@remax/cli/lib/build/NativeAssets.js
++++ b/node_modules/@remax/cli/lib/build/NativeAssets.js
+@@ -53,7 +53,7 @@ class NativeAssets {
+         const { jsHelper, template } = this.builder.api.getMeta();
+         const templateFile = paths_1.replaceExtension(this.entry, template.extension);
+         const walkJsHelper = (filename) => {
+-            if (!fs.existsSync(filename)) {
++            if (!fs.existsSync(filename) || this.assets.has(filename)) {
+                 return;
+             }
+             const content = fs.readFileSync(filename);
+@@ -77,7 +77,7 @@ class NativeAssets {
+             });
+         };
+         const walkTemplate = (filename) => {
+-            if (!fs.existsSync(filename)) {
++            if (!fs.existsSync(filename) || this.assets.has(filename)) {
+                 return;
+             }
+             const content = fs.readFileSync(filename);
+@@ -133,9 +133,10 @@ class NativeAssets {
+         // https://regexr.com/5fa69
+         const IMPORT_PATTERN = /(?<=@import\s*(\(.+\))?\s*["'])(.+)(?=["'])/gm;
+         const walkCSS = (filename) => {
+-            if (!fs.existsSync(filename)) {
++            if (!fs.existsSync(filename) || this.assets.has(filename)) {
+                 return;
+             }
++            this.addAsset(filename);
+             const content = fs.readFileSync(filename);
+             const contentStr = content.toString();
+             const urls = contentStr.match(URL_PATTERN);
