@@ -2,7 +2,7 @@
   "projectname": "app",
   "i18n": false,
   "description": "项目描述",
-  "baseversion": "2.2.3",
+  "baseversion": "2.2.12",
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {
     "BaseKit": "2.1.2",
