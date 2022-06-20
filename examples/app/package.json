@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
+    "@ray-js/cli": "latest",
+    "@ray-js/patches": "latest",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "core-js": "^3.19.1",
+    "patch-package": "^6.4.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webpack-chain": "^6.5.1"
   },
   "dependencies": {
     "@ray-js/api": "latest",
-    "@ray-js/cli": "latest",
     "@ray-js/components": "latest",
     "@ray-js/framework": "latest",
     "@ray-js/ray-components-plus": "latest",
@@ -33,6 +35,7 @@
     "start:tuya": "ray start --target=tuya",
     "start:wechat": "ray start --target=wechat",
     "start:web": "ray start --target=web",
-    "start:native": "ray start --target=native"
+    "start:native": "ray start --target=native",
+    "postinstall": "patch-package --patch-dir node_modules/@ray-js/patches"
   }
 }
