@@ -1,18 +1,15 @@
 import { ScrollView, Text } from '@ray-js/components';
-import * as services from '@ray-js/panel-service';
 // import { router, usePageEvent } from 'ray';
+import { hooks, service } from '@ray-js/panel-sdk';
 import React, { useEffect, useState } from 'react';
-
-import { selectDevInfoAtom } from '@/atoms';
 import { DpItem } from '@/components/dpItem';
 import { getArray } from '@/utils/array';
-
-import { useAtomValue } from 'jotai';
 import styles from './index.module.less';
 
-export function Home() {
-  const devInfo = useAtomValue(selectDevInfoAtom);
+const { useDevInfo } = hooks;
 
+export function Home() {
+  const devInfo = useDevInfo();
   const items = getArray(devInfo?.schema);
 
   // usePageEvent('onShow', () => {
@@ -38,7 +35,7 @@ export function Home() {
   const [hostname, setHostname] = useState<string>();
 
   useEffect(() => {
-    services.common.core.getAssetHostname().then(setHostname);
+    service.getAssetHostname().then(setHostname);
   }, []);
 
   return (
