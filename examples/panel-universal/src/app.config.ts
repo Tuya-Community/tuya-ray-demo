@@ -18,9 +18,7 @@ export const tuya = {
     "navigationBarBackgroundColor": "#f2f4f6",
     "navigationBarTextStyle": "black"
   },
-  "pageWrapper": [
-    "@ray-js/ray-panel-wrapper/lib/page"
-  ],
+  "pageWrapper": [],
   "pages": [
     "pages/home/index"
   ],
