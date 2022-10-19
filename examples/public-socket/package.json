@@ -1,7 +1,7 @@
 {
-  "name": "tuya-public-protecting-socket",
+  "name": "tuya-public-socket",
   "version": "1.0.0",
-  "description": "Protecting Socket Panel Use Cases",
+  "description": "Socket Panel Use Cases",
   "main": "index.js",
   "private": true,
   "author": "Tuya.inc",

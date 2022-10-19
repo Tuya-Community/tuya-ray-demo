@@ -1,10 +1,8 @@
 English[](README.md) | [简体中文](README_zh.md)
 
-## Protecting Socket Panel Use Cases
+## Socket Panel Use Cases
 
-- productName: Protecting Socket Panel
-- productId: a14b5fdn96hrrcsf
-- deviceId: vdevo166616189908407
+- productName: Socket Panel
 
 Get started：
 

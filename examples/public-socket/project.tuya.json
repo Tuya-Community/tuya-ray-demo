@@ -1,5 +1,5 @@
 {
-  "projectname": "保护插座用例",
+  "projectname": "插座面板案例",
   "i18n": false,
   "description": "项目描述",
   "miniprogramRoot": "./dist/tuya",
@@ -9,6 +9,5 @@
     "DeviceKit": "3.0.2",
     "BizKit": "3.0.1"
   },
-  "productId": "a14b5fdn96hrrcsf",
   "baseversion": "2.10.0"
 }
