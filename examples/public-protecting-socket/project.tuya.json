@@ -1,0 +1,14 @@
+{
+  "projectname": "保护插座用例",
+  "i18n": false,
+  "description": "项目描述",
+  "miniprogramRoot": "./dist/tuya",
+  "dependencies": {
+    "BaseKit": "3.0.0",
+    "MiniKit": "3.0.2",
+    "DeviceKit": "3.0.2",
+    "BizKit": "3.0.1"
+  },
+  "productId": "a14b5fdn96hrrcsf",
+  "baseversion": "2.10.0"
+}
