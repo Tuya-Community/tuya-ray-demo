@@ -2,7 +2,7 @@
 English[](README.md) | [简体中文](README_zh.md)
 
 
-## Overview of `tuya-ray-demo`
+## Overview of `tuya-ray-demo`.
 
 The official demo.
 
