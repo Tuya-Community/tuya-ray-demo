@@ -29,7 +29,7 @@ npm run start
 
 ## 如何获得技术支持
 
-欢迎通过 [GitHub Issue](https://github.com/tuya/tuya-public-protecting-socket/issues) 向我们反馈使用的问题和获得帮助
+欢迎通过 [GitHub Issue](https://github.com/Tuya-Community/tuya-ray-demo/issues) 向我们反馈使用的问题和获得帮助
 
 ## 许可
 
