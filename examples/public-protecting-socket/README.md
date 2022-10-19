@@ -29,7 +29,7 @@ For more information, see:
 
 ## Technical support
 
-You can use [GitHub Issue](https://github.com/tuya/tuya-public-protecting-socket/issues) to give us feedback on any problems and we are ready to help you out.
+You can use [GitHub Issue](https://github.com/Tuya-Community/tuya-ray-demo/issues) to give us feedback on any problems and we are ready to help you out.
 
 ## License
 
