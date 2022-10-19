@@ -1,10 +1,8 @@
 [English](README.md) | 简体中文[](README_zh.md)
 
-## 保护插座面板案例
+## 插座面板案例
 
-- 产品名称：保护插座
-- productId: a14b5fdn96hrrcsf
-- deviceId: vdevo166616189908407
+- 产品名称：插座
 
 快速开始：
 
