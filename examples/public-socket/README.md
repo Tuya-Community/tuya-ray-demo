@@ -61,7 +61,7 @@ English[](README.md) | [简体中文](README_zh.md)
 
    Use the`Tuya Smart App` to scan the code to debugging with real machine
    ![IDE04](./images/iot07.png)
-   ![IDE05](./images/iot08.png)
+   <image src="./images/iot08.png" width=200 />
 
 ## References
 
