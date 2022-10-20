@@ -58,7 +58,7 @@
 7. 扫码真机调试
    使用`涂鸦智能App`扫码真机调试
    ![IDE04](./images/iot07.png)
-   ![IDE05](./images/iot08.png)
+   <image src="./images/iot08.png" width=200 />
 
 ## 相关文档
 
