@@ -27,7 +27,7 @@
    yarn && yarn start
    ```
 
-## 若有疑问，请访问以下链接查看详细教程
+## :rocket: 若有疑问，请访问以下链接查看详细教程
 
 - [使用 `Ray` 开发万能面板](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panelmore-guide/index.html#0)
 - [关于 Ray](https://developer.tuya.com/cn/ray)
