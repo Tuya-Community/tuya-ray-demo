@@ -32,7 +32,7 @@ export const PowerButton = React.memo<Props>(props => {
         className={styles['power-button-icon']}
         d={icons.power}
         size="34px"
-        fill={value ? '#04908b' : '#ffffff'}
+        fill={value ? '#ef550d' : '#ffffff'}
       />
     </View>
   );
