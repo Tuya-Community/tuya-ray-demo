@@ -19,7 +19,7 @@ export const Icon: React.FC<Props> = props => {
       width={width || size}
       height={height || size}
     >
-      <path d={d} fill="#00b89d" {...pathProps} />
+      <path d={d} fill="#ef550d" {...pathProps} />
     </Svg>
   );
 };

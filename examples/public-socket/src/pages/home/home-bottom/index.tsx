@@ -18,7 +18,7 @@ const getSubPanelParams = async () => {
   return {
     deviceId: devId,
     initialProps: {
-      brand: '#00B294',
+      brand: '#ef550d',
     },
     extraInfo: {
       productId,
@@ -62,31 +62,6 @@ export const HomeBottom = React.memo(() => {
     setFalse();
     devices.socket.model.actions.countdown_1.set(value * 60);
   }, []);
-
-  // const [a, setA] = React.useState(1);
-
-  // console.log('a', a);
-
-  // React.useEffect(() => {
-  //   const handler = devices.socket.model.watch.countdown_1((value: number) => {
-  //     console.log('=== countdown_1 value', value);
-  //     try {
-  //       // 倒计时弹窗没有打开前才允许更新
-  //       if (show) return;
-  //       const [h, m] = utils.parseSecond(value);
-  //       const newA = +h + +m;
-  //       console.log('newA', newA);
-  //       setA(newA);
-  //       // setValue([+h, +m]);
-  //       // setTimeout(() => {
-  //       //   setValue([+h, +m]);
-  //       // }, 0);
-  //     } catch (error) {
-  //       console.log('error', error);
-  //     }
-  //   });
-  //   return () => handler.unwatch();
-  // }, []);
 
   return (
     <>

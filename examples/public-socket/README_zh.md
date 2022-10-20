@@ -21,48 +21,13 @@
    child_lock
    ```
 
-4. 确定并将你创建的产品`PID`记下并填写到项目中的 `project.tuya.json`
-   ![pid](./images/iot04.png)
-
-   ```
-   {
-     "projectname": "socket panel",
-     "i18n": false,
-     "description": "project description",
-     "miniprogramRoot": "./dist/tuya",
-     "dependencies": {
-       "BaseKit": "3.0.0",
-       "MiniKit": "3.0.2",
-       "DeviceKit": "3.0.2",
-       "BizKit": "3.0.1"
-     },
-     "baseversion": "2.10.1",
-     "productId": "p0i6xwrgm6uvlaau"
-   }
-   ```
-
-5. 安装项目并启动项目
+4. 安装项目并启动项目
 
    ```
    yarn && yarn start
    ```
 
-6. 使用`智能小程序开发者工具`导入工程
-
-   使用`涂鸦智能App`扫码登录
-   ![IDE01](./images/iot05.png)
-
-   打开`虚拟设备`进行调试
-   ![IDE02](./images/iot06.png)
-
-7. 扫码真机调试
-   使用`涂鸦智能App`扫码真机调试
-   ![IDE04](./images/iot07.png)
-   <image src="./images/iot08.png" width=200 />
-
-## 相关文档
-
-更多信息，请访问以下链接
+## 若有疑问，请访问以下链接查看详细教程
 
 - [使用 `Ray` 开发万能面板](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panelmore-guide/index.html#0)
 - [关于 Ray](https://developer.tuya.com/cn/ray)
