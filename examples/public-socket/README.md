@@ -28,7 +28,7 @@ English[](README.md) | [简体中文](README_zh.md)
    yarn && yarn start
    ```
 
-## If you have questions, please visit the following link for a detailed tutorial:
+## :rocket: If you have questions, please visit the following link for a detailed tutorial:
 
 - [About Ray](https://developer.tuya.com/cn/ray)
 - [Use `Ray` to develop universal panel](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panelmore-guide/index.html#0)
