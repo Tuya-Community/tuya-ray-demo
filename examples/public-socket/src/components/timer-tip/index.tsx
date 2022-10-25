@@ -2,15 +2,12 @@
 import React from 'react';
 import { utils } from '@ray-js/panel-sdk';
 import { View, Text } from '@ray-js/ray';
-import { useSdmProps } from '@ray-js/sdm-react';
+import { useSdmDevice, useSdmProps } from '@ray-js/sdm-react';
 import Strings from '@/i18n';
-import { devices } from '@/devices';
 import { getLastTimer, getRepeatStrByNumber } from './utils';
-// import styles from './index.module.less';
 
 export const TimerTip: React.FC = () => {
-  const devInfo = devices.socket.getDevInfo();
-  const dpSchema = devices.socket.getDpSchema();
+  const { devInfo, dpSchema } = useSdmDevice();
 
   const cycleTime = useSdmProps(dpState => dpState.cycle_time);
   const randomTime = useSdmProps(dpState => dpState.random_time);

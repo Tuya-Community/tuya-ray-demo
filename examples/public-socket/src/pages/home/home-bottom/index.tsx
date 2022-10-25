@@ -3,16 +3,17 @@ import { router } from 'ray';
 import { useBoolean } from 'ahooks';
 import { getProductInfo, preloadPanel, openPanel } from '@ray-js/ray';
 import { ControllerBar, CountdownActionSheet } from '@/components';
-import { devices } from '@/devices';
 import { icons } from '@/res';
 import Strings from '@/i18n';
-import { useSdmProps, useActions } from '@ray-js/sdm-react';
+import { useSdmProps, useActions, useSdmDevice } from '@ray-js/sdm-react';
+import { devices } from '@/devices';
 
 // @ts-expect-error 本身就支持 promise 只是 ts 类型不符
 const getProductInfoAsync: PromisifyTTT<typeof getProductInfo> = getProductInfo;
 
 const getSubPanelParams = async () => {
   const { devId, productId } = devices.socket.getDevInfo();
+
   const productInfo = await getProductInfoAsync({ productId });
   // console.log('productInfo', productInfo);
   return {
@@ -42,7 +43,7 @@ const preloadOrGotoSubPanel = async (preload?: boolean) => {
 };
 
 export const HomeBottom = React.memo(() => {
-  const dpSchema = devices.socket.getDpSchema();
+  const { dpSchema } = useSdmDevice();
   const [visible, { setTrue, setFalse }] = useBoolean(false);
 
   const actions = useActions();

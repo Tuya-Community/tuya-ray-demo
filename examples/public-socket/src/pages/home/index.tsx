@@ -2,12 +2,11 @@ import React from 'react';
 import { setNavigationBarTitle, View } from '@ray-js/ray';
 import { CountdownTip, PowerButton } from '@/components';
 import { useSdmDevice } from '@ray-js/sdm-react';
-import { devices } from '@/devices';
 import styles from './index.module.less';
 import { HomeBottom } from './home-bottom';
 
 export function Home() {
-  const dpSchema = devices.socket.getDpSchema();
+  const { dpSchema } = useSdmDevice();
   const deviceName = useSdmDevice(d => d.devInfo.name);
 
   React.useEffect(() => {

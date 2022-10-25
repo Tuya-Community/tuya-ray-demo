@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { View } from '@ray-js/ray';
 import { DpBooleanAction } from '@tuya-miniapp/sdm';
-import { useSdmProps } from '@ray-js/sdm-react';
+import { useSdmProps, useActions } from '@ray-js/sdm-react';
 import { devices } from '@/devices';
 import { Icon } from '@/components/icon';
 import { icons } from '@/res';
@@ -16,11 +16,13 @@ export const PowerButton = React.memo<Props>(props => {
   const { dpCode } = props;
   const value = useSdmProps(dpState => dpState[dpCode]);
 
+  const actions = useActions();
+
   if (!dpCode || typeof value !== 'boolean') {
     return null;
   }
 
-  const action = devices.socket.model.actions[dpCode] as DpBooleanAction;
+  const action = actions[dpCode] as DpBooleanAction;
   return (
     <View className={styles['power-button']} onClick={action.toggle}>
       <View

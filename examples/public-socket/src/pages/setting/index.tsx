@@ -6,7 +6,7 @@ import { DpSchema } from '@ray-js/panel-sdk';
 import TyCell from '@ray-js/components-ty-cell';
 import TySwitch from '@ray-js/components-ty-switch';
 import TyActionsheet from '@ray-js/components-ty-actionsheet';
-import { useSdmProps } from '@ray-js/sdm-react';
+import { useActions, useSdmDevice, useSdmProps } from '@ray-js/sdm-react';
 import { Icon } from '@/components';
 import { STANDARD_DPCODES } from '@/constant';
 import { devices } from '@/devices';
@@ -18,9 +18,10 @@ import { DpValueContent } from './dp-value-content';
 import styles from './index.module.less';
 
 export default function Setting() {
-  const devInfo = devices.socket.getDevInfo();
+  const { devInfo } = useSdmDevice();
   const dpState = useSdmProps();
   const sysInfo = useSystemInfo();
+  const actions = useActions();
   const [visible, { setTrue: setVisibleTrue, setFalse: setVisibleFalse }] = useBoolean(false);
   const [currentSchema, setCurrentSchema] = useState<DpSchema>(null);
   const [currentDpValue, setCurrentDpValue] = useState(null);
@@ -46,7 +47,7 @@ export default function Setting() {
           checked={dpState[code] as boolean}
           onChange={(v, evt) => {
             evt?.origin?.stopPropagation();
-            const action = devices.socket.model.actions[code] as DpBooleanAction;
+            const action = actions[code] as DpBooleanAction;
             action.set(v);
           }}
         />
@@ -122,7 +123,7 @@ export default function Setting() {
         onCancel={flushState}
         onOk={() => {
           if (currentDpValue !== null) {
-            devices.socket.model.actions[currentSchema?.code].set(currentDpValue);
+            actions[currentSchema?.code].set(currentDpValue);
           }
           flushState();
         }}
