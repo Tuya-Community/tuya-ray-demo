@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { View } from '@ray-js/ray';
 import { DpBooleanAction } from '@tuya-miniapp/sdm';
 import { useSdmProps, useActions } from '@ray-js/sdm-react';
-import { devices } from '@/devices';
 import { Icon } from '@/components/icon';
 import { icons } from '@/res';
 import styles from './index.module.less';
