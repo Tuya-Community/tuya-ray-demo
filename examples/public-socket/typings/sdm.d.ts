@@ -25,4 +25,5 @@ declare module '@ray-js/sdm-react' {
     selector: (device: SmartDeviceInstanceData) => Device,
     equalityFn?: (a: Device, b: Device) => boolean
   ): Device;
+  export function useActions(): SmartDevices['socket']['model']['actions'];
 }

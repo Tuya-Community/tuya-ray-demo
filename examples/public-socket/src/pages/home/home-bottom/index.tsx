@@ -6,7 +6,7 @@ import { ControllerBar, CountdownActionSheet } from '@/components';
 import { devices } from '@/devices';
 import { icons } from '@/res';
 import Strings from '@/i18n';
-import { useSdmProps } from '@ray-js/sdm-react';
+import { useSdmProps, useActions } from '@ray-js/sdm-react';
 
 // @ts-expect-error 本身就支持 promise 只是 ts 类型不符
 const getProductInfoAsync: PromisifyTTT<typeof getProductInfo> = getProductInfo;
@@ -38,14 +38,14 @@ const handleSettingClick = () => {
 
 const preloadOrGotoSubPanel = async (preload?: boolean) => {
   const params = await getSubPanelParams();
-  // console.log('params', params);
   return preload ? preloadPanel(params) : openPanel(params);
-  // preload ? preloadPanel(params) : openRNPanel(params);
 };
 
 export const HomeBottom = React.memo(() => {
   const dpSchema = devices.socket.getDpSchema();
   const [visible, { setTrue, setFalse }] = useBoolean(false);
+
+  const actions = useActions();
 
   const countdown = useSdmProps(dpState => dpState.countdown_1);
 
@@ -55,12 +55,12 @@ export const HomeBottom = React.memo(() => {
 
   const handleStop = React.useCallback(() => {
     setFalse();
-    devices.socket.model.actions.countdown_1.set(0);
+    actions.countdown_1.set(0);
   }, []);
 
   const handleOK = React.useCallback(value => {
     setFalse();
-    devices.socket.model.actions.countdown_1.set(value * 60);
+    actions.countdown_1.set(value * 60);
   }, []);
 
   return (
