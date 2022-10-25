@@ -6,49 +6,47 @@ import { ControllerBar, CountdownActionSheet } from '@/components';
 import { icons } from '@/res';
 import Strings from '@/i18n';
 import { useSdmProps, useActions, useSdmDevice } from '@ray-js/sdm-react';
-import { devices } from '@/devices';
 
 // @ts-expect-error 本身就支持 promise 只是 ts 类型不符
 const getProductInfoAsync: PromisifyTTT<typeof getProductInfo> = getProductInfo;
 
-const getSubPanelParams = async () => {
-  const { devId, productId } = devices.socket.getDevInfo();
-
-  const productInfo = await getProductInfoAsync({ productId });
-  // console.log('productInfo', productInfo);
-  return {
-    deviceId: devId,
-    initialProps: {
-      brand: '#ef550d',
-    },
-    extraInfo: {
-      productId,
-      productVersion: productInfo.productVer,
-      i18nTime: `${productInfo.i18nTime}`,
-      bizClientId: '000001d7tx',
-      // uiType: productInfo.uiType,
-      uiType: 'RN',
-      uiPhase: productInfo.uiPhase,
-    },
-  };
-};
-
-const handleSettingClick = () => {
-  router.push('/setting');
-};
-
-const preloadOrGotoSubPanel = async (preload?: boolean) => {
-  const params = await getSubPanelParams();
-  return preload ? preloadPanel(params) : openPanel(params);
-};
-
 export const HomeBottom = React.memo(() => {
   const { dpSchema } = useSdmDevice();
   const [visible, { setTrue, setFalse }] = useBoolean(false);
+  const { devInfo } = useSdmDevice();
 
   const actions = useActions();
 
   const countdown = useSdmProps(dpState => dpState.countdown_1);
+
+  const getSubPanelParams = async () => {
+    const { devId, productId } = devInfo;
+
+    const productInfo = await getProductInfoAsync({ productId });
+    return {
+      deviceId: devId,
+      initialProps: {
+        brand: '#ef550d',
+      },
+      extraInfo: {
+        productId,
+        productVersion: productInfo.productVer,
+        i18nTime: `${productInfo.i18nTime}`,
+        bizClientId: '000001d7tx',
+        uiType: 'RN',
+        uiPhase: productInfo.uiPhase,
+      },
+    };
+  };
+
+  const handleSettingClick = () => {
+    router.push('/setting');
+  };
+
+  const preloadOrGotoSubPanel = async (preload?: boolean) => {
+    const params = await getSubPanelParams();
+    return preload ? preloadPanel(params) : openPanel(params);
+  };
 
   React.useEffect(() => {
     preloadOrGotoSubPanel(true);

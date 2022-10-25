@@ -9,7 +9,6 @@ import TyActionsheet from '@ray-js/components-ty-actionsheet';
 import { useActions, useSdmDevice, useSdmProps } from '@ray-js/sdm-react';
 import { Icon } from '@/components';
 import { STANDARD_DPCODES } from '@/constant';
-import { devices } from '@/devices';
 import { icons } from '@/res';
 import Strings from '@/i18n';
 import { useSystemInfo } from '@/hooks/useSystemInfo';
