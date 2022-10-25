@@ -5,19 +5,19 @@ import { getProductInfo, preloadPanel, openPanel } from '@ray-js/ray';
 import { ControllerBar, CountdownActionSheet } from '@/components';
 import { icons } from '@/res';
 import Strings from '@/i18n';
-import { useSdmProps, useActions, useSdmDevice } from '@ray-js/sdm-react';
+import { useProps, useActions, useDevice } from '@ray-js/sdm-react';
 
 // @ts-expect-error 本身就支持 promise 只是 ts 类型不符
 const getProductInfoAsync: PromisifyTTT<typeof getProductInfo> = getProductInfo;
 
 export const HomeBottom = React.memo(() => {
-  const { dpSchema } = useSdmDevice();
+  const { dpSchema } = useDevice();
   const [visible, { setTrue, setFalse }] = useBoolean(false);
-  const { devInfo } = useSdmDevice();
+  const { devInfo } = useDevice();
 
   const actions = useActions();
 
-  const countdown = useSdmProps(dpState => dpState.countdown_1);
+  const countdown = useProps(dpState => dpState.countdown_1);
 
   const getSubPanelParams = async () => {
     const { devId, productId } = devInfo;

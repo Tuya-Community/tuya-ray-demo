@@ -2,15 +2,15 @@
 import React from 'react';
 import { utils } from '@ray-js/panel-sdk';
 import { View, Text } from '@ray-js/ray';
-import { useSdmDevice, useSdmProps } from '@ray-js/sdm-react';
+import { useDevice, useProps } from '@ray-js/sdm-react';
 import Strings from '@/i18n';
 import { getLastTimer, getRepeatStrByNumber } from './utils';
 
 export const TimerTip: React.FC = () => {
-  const { devInfo, dpSchema } = useSdmDevice();
+  const { devInfo, dpSchema } = useDevice();
 
-  const cycleTime = useSdmProps(dpState => dpState.cycle_time);
-  const randomTime = useSdmProps(dpState => dpState.random_time);
+  const cycleTime = useProps(dpState => dpState.cycle_time);
+  const randomTime = useProps(dpState => dpState.random_time);
 
   /**
    * 如果是 zigbee 的设备为 raw 型解析格式,
