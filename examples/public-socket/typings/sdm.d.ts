@@ -15,13 +15,13 @@ declare module '@ray-js/sdm-react' {
     network: ReturnType<SmartDevices['socket']['getNetwork']>;
     bluetooth: ReturnType<SmartDevices['socket']['getBluetooth']>;
   };
-  export function useSdmProps(): SmartDevices['socket']['model']['props'];
-  export function useSdmProps<Value extends any>(
+  export function useProps(): SmartDevices['socket']['model']['props'];
+  export function useProps<Value extends any>(
     selector: (props?: SmartDevices['socket']['model']['props']) => Value,
     equalityFn?: (a: Value, b: Value) => boolean
   ): Value;
-  export function useSdmDevice(): SmartDeviceInstanceData;
-  export function useSdmDevice<Device extends any>(
+  export function useDevice(): SmartDeviceInstanceData;
+  export function useDevice<Device extends any>(
     selector: (device: SmartDeviceInstanceData) => Device,
     equalityFn?: (a: Device, b: Device) => boolean
   ): Device;
