@@ -1,5 +1,9 @@
 {
-  "projectname": "插座面板案例",
+  "id": "tyzq1kuhx0x1s0tuda",
+  "name": "插座面板案例",
+  "path": "/Users/mifind/codes/temp/tuya-ray-demo/examples/public-socket",
+  "type": "panel-app",
+  "ownerType": "tuya-official",
   "i18n": false,
   "description": "项目描述",
   "miniprogramRoot": "./dist/tuya",

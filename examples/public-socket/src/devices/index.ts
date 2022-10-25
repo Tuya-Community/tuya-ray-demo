@@ -1,7 +1,9 @@
 import { SmartDeviceModel } from '@tuya-miniapp/sdm';
 
-export const devices = {} as SmartDevices;
+export const devices = {
+  socket: new SmartDeviceModel<SmartDeviceSchema>(),
+};
 
-SmartDeviceModel.init<SmartDeviceSchema>().then(device => {
-  devices.socket = device;
+Object.keys(devices).forEach((k: keyof typeof devices) => {
+  devices[k].init();
 });
