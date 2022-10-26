@@ -8,10 +8,10 @@
   "description": "项目描述",
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {
-    "BaseKit": "3.0.0",
-    "MiniKit": "3.0.2",
-    "DeviceKit": "3.0.2",
-    "BizKit": "3.0.1"
+    "BaseKit": "2.5.3",
+    "MiniKit": "2.6.5",
+    "DeviceKit": "2.5.1",
+    "TYKit": "2.4.12"
   },
   "baseversion": "2.10.1"
 }
