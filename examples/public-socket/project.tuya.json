@@ -5,13 +5,15 @@
   "type": "panel-app",
   "ownerType": "tuya-official",
   "i18n": false,
-  "description": "项目描述",
+  "description": "",
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {
-    "BaseKit": "2.5.3",
-    "MiniKit": "2.6.5",
-    "DeviceKit": "2.5.1",
-    "TYKit": "2.4.12"
+    "BaseKit": "2.4.11",
+    "MiniKit": "2.5.7",
+    "DeviceKit": "2.4.7",
+    "TYKit": "2.3.4"
   },
-  "baseversion": "2.10.1"
+  "baseversion": "2.10.1",
+  "projectname": "PublicSocket",
+  "productId": "1ewmratk86lpxcvt"
 }
