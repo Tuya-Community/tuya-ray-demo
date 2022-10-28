@@ -1,14 +1,10 @@
 import React from 'react';
 import { router } from 'ray';
 import { useBoolean } from 'ahooks';
-import { getProductInfo, preloadPanel, openPanel } from '@ray-js/ray';
 import { ControllerBar, CountdownActionSheet } from '@/components';
 import { icons } from '@/res';
 import Strings from '@/i18n';
 import { useProps, useActions, useDevice } from '@ray-js/sdm-react';
-
-// @ts-expect-error 本身就支持 promise 只是 ts 类型不符
-const getProductInfoAsync: PromisifyTTT<typeof getProductInfo> = getProductInfo;
 
 export const HomeBottom = React.memo(() => {
   const { dpSchema } = useDevice();
@@ -19,38 +15,9 @@ export const HomeBottom = React.memo(() => {
 
   const countdown = useProps(dpState => dpState.countdown_1);
 
-  const getSubPanelParams = async () => {
-    const { devId, productId } = devInfo;
-
-    const productInfo = await getProductInfoAsync({ productId });
-    return {
-      deviceId: devId,
-      initialProps: {
-        brand: '#ef550d',
-      },
-      extraInfo: {
-        productId,
-        productVersion: productInfo.productVer,
-        i18nTime: `${productInfo.i18nTime}`,
-        bizClientId: '000001d7tx',
-        uiType: 'RN',
-        uiPhase: productInfo.uiPhase,
-      },
-    };
-  };
-
   const handleSettingClick = () => {
     router.push('/setting');
   };
-
-  const preloadOrGotoSubPanel = async (preload?: boolean) => {
-    const params = await getSubPanelParams();
-    return preload ? preloadPanel(params) : openPanel(params);
-  };
-
-  React.useEffect(() => {
-    preloadOrGotoSubPanel(true);
-  }, []);
 
   const handleStop = React.useCallback(() => {
     setFalse();
@@ -66,11 +33,6 @@ export const HomeBottom = React.memo(() => {
     <>
       <ControllerBar
         dataSource={[
-          {
-            d: icons.timer,
-            text: Strings.getLang('schedule'),
-            onClick: () => preloadOrGotoSubPanel(false),
-          },
           {
             d: icons.countdown,
             text: Strings.getDpLang(dpSchema?.countdown_1?.code),

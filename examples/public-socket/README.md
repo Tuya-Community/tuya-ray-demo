@@ -16,10 +16,14 @@ English[](README.md) | [简体中文](README_zh.md)
 
    ![功能选择](./images/iot02.png)
 
+   Required Dps
+
    ```
+   switch_1,
+   countdown_1,
+   child_lock,
    cycle_time,
    random_time,
-   child_lock
    ```
 
 4. Install project and start project
