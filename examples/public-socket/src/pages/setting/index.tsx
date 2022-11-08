@@ -8,7 +8,6 @@ import TySwitch from '@ray-js/components-ty-switch';
 import TyActionsheet from '@ray-js/components-ty-actionsheet';
 import { useActions, useDevice, useProps } from '@ray-js/sdm-react';
 import { Icon } from '@/components';
-import { STANDARD_DPCODES } from '@/constant';
 import { icons } from '@/res';
 import Strings from '@/i18n';
 import { useSystemInfo } from '@/hooks/useSystemInfo';
@@ -30,11 +29,7 @@ export default function Setting() {
   }, []);
 
   const dataSource = devInfo.schema
-    .filter(
-      schema =>
-        ['bool', 'enum', 'value'].indexOf(schema?.property?.type) !== -1 &&
-        STANDARD_DPCODES.indexOf(schema.code as any) === -1
-    )
+    .filter(schema => ['bool', 'enum', 'value'].indexOf(schema?.property?.type) !== -1)
     .map(schema => {
       const { code, mode } = schema;
       const type = schema?.property?.type;

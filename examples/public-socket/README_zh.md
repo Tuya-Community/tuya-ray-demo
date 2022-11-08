@@ -12,17 +12,11 @@
    ![功能选择](./images/iot01.png)
 3. 功能选择
 
-   除了`常用功能`，选择以下`标准功能`
-   ![功能选择](./images/iot02.png)
-
    必须的功能点
 
    ```
    switch_1,
    countdown_1,
-   child_lock,
-   cycle_time,
-   random_time,
    ```
 
 4. 安装项目并启动项目
