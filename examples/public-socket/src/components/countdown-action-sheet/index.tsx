@@ -3,7 +3,6 @@ import Actionsheet from '@ray-js/components-ty-actionsheet';
 import { CountdownPicker } from '@/components';
 
 type CountdownProps = React.ComponentProps<typeof CountdownPicker>;
-
 interface Props extends CountdownProps {
   visible: boolean;
   title: string;

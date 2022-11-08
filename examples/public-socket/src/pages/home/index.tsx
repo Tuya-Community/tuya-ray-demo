@@ -24,7 +24,6 @@ export function Home() {
           />
         </View>
       </View>
-
       <HomeBottom />
     </View>
   );

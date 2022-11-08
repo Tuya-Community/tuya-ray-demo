@@ -9,11 +9,10 @@ import { useProps, useActions, useDevice } from '@ray-js/sdm-react';
 export const HomeBottom = React.memo(() => {
   const { dpSchema } = useDevice();
   const [visible, { setTrue, setFalse }] = useBoolean(false);
-  const { devInfo } = useDevice();
 
   const actions = useActions();
 
-  const countdown = useProps(dpState => dpState.countdown_1);
+  const countdown = useProps(dpState => dpState.countdown_1 as number);
 
   const handleSettingClick = () => {
     router.push('/setting');

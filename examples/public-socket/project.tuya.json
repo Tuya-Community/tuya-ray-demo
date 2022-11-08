@@ -1,19 +1,18 @@
 {
   "id": "tyzq1kuhx0x1s0tuda",
   "name": "插座面板案例",
-  "path": "/Users/mifind/codes/temp/tuya-ray-demo/examples/public-socket",
   "type": "panel-app",
   "ownerType": "tuya-official",
   "i18n": false,
   "description": "",
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {
-    "BaseKit": "2.4.11",
-    "MiniKit": "2.5.7",
-    "DeviceKit": "2.4.7",
-    "TYKit": "2.3.4"
+    "BaseKit": "3.0.0",
+    "MiniKit": "3.0.1",
+    "DeviceKit": "3.0.2",
+    "BizKit": "3.0.6"
   },
-  "baseversion": "2.10.1",
+  "baseversion": "2.10.3",
   "projectname": "PublicSocket",
-  "productId": "1ewmratk86lpxcvt"
+  "productId": "lcrxzqjqojafatrv"
 }

@@ -4,7 +4,6 @@ export const routes: Routes = [
   {
     route: '/',
     path: '/pages/home/index',
-    // path: '/pages/setting/index',
     name: 'Home',
   },
   {

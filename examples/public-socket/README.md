@@ -12,18 +12,11 @@ English[](README.md) | [简体中文](README_zh.md)
    ![功能选择](./images/iot01.png)
 3. Function selection
 
-   In addition to common functions, select the following standard functions`
-
-   ![功能选择](./images/iot02.png)
-
    Required Dps
 
    ```
    switch_1,
    countdown_1,
-   child_lock,
-   cycle_time,
-   random_time,
    ```
 
 4. Install project and start project

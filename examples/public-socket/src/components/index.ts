@@ -5,5 +5,3 @@ export { ControllerBar } from './controller-bar';
 export { CountdownPicker } from './countdown-picker';
 export { CountdownActionSheet } from './countdown-action-sheet';
 export { CountdownTip } from './countdown-tip';
-export { TimerTip } from './timer-tip';
-export { TopBar } from './top-bar';
