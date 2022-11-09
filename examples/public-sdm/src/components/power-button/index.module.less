@@ -1,0 +1,32 @@
+.power-button {
+  position: relative;
+  border: 6rpx solid rgba(255, 255, 255, 0.2);
+  border-radius: 100%;
+  box-shadow: 0rpx 6rpx 24rpx rgba(0, 0, 0, 0.196159);
+  overflow: hidden;
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 240rpx;
+    height: 240rpx;
+    margin: 15rpx;
+    border-radius: 100%;
+    background: linear-gradient(180deg, #f7f7f7 0%, #f2f2f2 100%);
+    opacity: 0.95;
+  }
+
+  &-icon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+  }
+
+  &-off {
+    opacity: 0.3;
+  }
+}
