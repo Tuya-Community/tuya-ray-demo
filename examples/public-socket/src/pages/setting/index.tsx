@@ -15,6 +15,8 @@ import { DpEnumContent } from './dp-enum-content';
 import { DpValueContent } from './dp-value-content';
 import styles from './index.module.less';
 
+const STANDARD_DPCODES = ['switch_1', 'countdown_1'];
+
 export default function Setting() {
   const { devInfo } = useDevice();
   const dpState = useProps();
@@ -29,7 +31,11 @@ export default function Setting() {
   }, []);
 
   const dataSource = devInfo.schema
-    .filter(schema => ['bool', 'enum', 'value'].indexOf(schema?.property?.type) !== -1)
+    .filter(
+      schema =>
+        ['bool', 'enum', 'value'].indexOf(schema?.property?.type) !== -1 &&
+        STANDARD_DPCODES.indexOf(schema.code as any) === -1
+    )
     .map(schema => {
       const { code, mode } = schema;
       const type = schema?.property?.type;
@@ -48,7 +54,7 @@ export default function Setting() {
       );
       const CommonItem = (
         <View className={styles['right-item']}>
-          <Text>{type === 'value' ? value : Strings.getDpLang(code, value)}</Text>
+          <Text>{type === 'value' ? value : Strings.getDpLang(code, value as string)}</Text>
           <Icon
             d={icons.arrow}
             fill={sysInfo.theme === 'dark' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(51, 51, 51, 0.5)'}

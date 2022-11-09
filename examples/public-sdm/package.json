@@ -13,18 +13,12 @@
   },
   "dependencies": {
     "@ray-js/ray": "^0.6.13",
-    "@ray-js/components-ty-actionsheet": "^0.0.17",
-    "@ray-js/components-ty-cell": "^0.0.12",
-    "@ray-js/components-ty-slider": "0.2.19",
-    "@ray-js/components-ty-switch": "^0.0.7",
     "@ray-js/panel-sdk": "^1.1.4",
     "@ray-js/sdm-react": "beta",
     "@ray-js/svg": "^0.0.6",
     "@tuya-miniapp/sdm": "beta",
-    "ahooks": "^3.7.1",
     "clsx": "^1.2.1",
-    "core-js": "^3.23.5",
-    "dayjs": "^1.11.5"
+    "core-js": "^3.23.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
