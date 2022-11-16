@@ -250,4 +250,4 @@ export const defaultSchema = [
     },
     type: 'obj',
   },
-];
+] as const;

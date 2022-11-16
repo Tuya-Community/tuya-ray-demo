@@ -1,8 +1,8 @@
-import { SmartDeviceModel } from '@tuya-miniapp/sdm';
-import { ProductName } from '@/constants';
+import { SmartDeviceModel } from '@ray-js/panel-sdk';
+import { SmartDeviceSchema } from 'typings/sdm';
 
 export const devices = {
-  [ProductName]: new SmartDeviceModel<SmartDeviceSchema>(),
+  socket: new SmartDeviceModel<SmartDeviceSchema>(),
 };
 
 Object.keys(devices).forEach((k: keyof typeof devices) => {
