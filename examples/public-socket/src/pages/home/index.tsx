@@ -1,7 +1,7 @@
 import React from 'react';
 import { setNavigationBarTitle, View } from '@ray-js/ray';
 import { CountdownTip, PowerButton } from '@/components';
-import { useDevice } from '@ray-js/sdm-react';
+import { useDevice } from '@ray-js/panel-sdk';
 import styles from './index.module.less';
 import { HomeBottom } from './home-bottom';
 

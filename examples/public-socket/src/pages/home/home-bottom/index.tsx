@@ -4,7 +4,7 @@ import { useBoolean } from 'ahooks';
 import { ControllerBar, CountdownActionSheet } from '@/components';
 import { icons } from '@/res';
 import Strings from '@/i18n';
-import { useProps, useActions, useDevice } from '@ray-js/sdm-react';
+import { useProps, useActions, useDevice } from '@ray-js/panel-sdk';
 
 export const HomeBottom = React.memo(() => {
   const { dpSchema } = useDevice();
@@ -12,7 +12,7 @@ export const HomeBottom = React.memo(() => {
 
   const actions = useActions();
 
-  const countdown = useProps(dpState => dpState.countdown_1 as number);
+  const countdown = useProps(p => p.countdown_1);
 
   const handleSettingClick = () => {
     router.push('/setting');

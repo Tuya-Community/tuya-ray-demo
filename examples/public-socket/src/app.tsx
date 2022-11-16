@@ -2,8 +2,7 @@ import React from 'react';
 import 'ray';
 import '@/i18n';
 import './app.less';
-import { kit } from '@ray-js/panel-sdk';
-import { SdmProvider } from '@ray-js/sdm-react';
+import { kit, SdmProvider } from '@ray-js/panel-sdk';
 import { devices } from '@/devices';
 
 const { initPanelEnvironment } = kit;

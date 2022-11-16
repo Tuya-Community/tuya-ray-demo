@@ -2,7 +2,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import { View } from '@ray-js/ray';
-import { useProps } from '@ray-js/sdm-react';
+import { useProps } from '@ray-js/panel-sdk';
 import { useSystemInfo } from '@/hooks/useSystemInfo';
 import Strings from '@/i18n';
 import styles from './index.module.less';

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useBoolean } from 'ahooks';
 import { setNavigationBarTitle, Text, View } from '@ray-js/ray';
-import { DpBooleanAction } from '@tuya-miniapp/sdm';
-import { DpSchema } from '@ray-js/panel-sdk';
+import { DpSchema, DpBooleanAction, useActions, useDevice, useProps } from '@ray-js/panel-sdk';
 import TyCell from '@ray-js/components-ty-cell';
 import TySwitch from '@ray-js/components-ty-switch';
 import TyActionsheet from '@ray-js/components-ty-actionsheet';
-import { useActions, useDevice, useProps } from '@ray-js/sdm-react';
 import { Icon } from '@/components';
 import { icons } from '@/res';
 import Strings from '@/i18n';

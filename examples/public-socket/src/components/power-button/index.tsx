@@ -1,8 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { View } from '@ray-js/ray';
-import { DpBooleanAction } from '@tuya-miniapp/sdm';
-import { useProps, useActions } from '@ray-js/sdm-react';
+import { useProps, useActions, DpBooleanAction } from '@ray-js/panel-sdk';
 import { Icon } from '@/components/icon';
 import { icons } from '@/res';
 import styles from './index.module.less';
