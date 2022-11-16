@@ -2,10 +2,8 @@ import React from 'react';
 import 'ray';
 import '@/i18n';
 import './app.less';
-import { kit } from '@ray-js/panel-sdk';
-import { SdmProvider } from '@ray-js/sdm-react';
+import { kit, SdmProvider } from '@ray-js/panel-sdk';
 import { devices } from '@/devices';
-import { ProductName } from '@/constants';
 
 const { initPanelEnvironment } = kit;
 interface Props {
@@ -23,7 +21,7 @@ class App extends React.Component<Props> {
   }
 
   render() {
-    return <SdmProvider value={devices[ProductName]}>{this.props.children}</SdmProvider>;
+    return <SdmProvider value={devices.socket}>{this.props.children}</SdmProvider>;
   }
 }
 
