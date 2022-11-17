@@ -1,4 +1,4 @@
-export const defaultSchema = [
+export const socketSchema = [
   {
     attr: 128,
     canTrigger: true,
