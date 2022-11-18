@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useBoolean } from 'ahooks';
-import { setNavigationBarTitle, Text, View } from '@ray-js/ray';
+import { setNavigationBarTitle, Text, View, ScrollView } from '@ray-js/ray';
 import { DpSchema, DpBooleanAction, useActions, useDevice, useProps } from '@ray-js/panel-sdk';
 import TyCell from '@ray-js/components-ty-cell';
 import TySwitch from '@ray-js/components-ty-switch';
@@ -109,7 +109,7 @@ export default function Setting() {
   };
 
   return (
-    <>
+    <ScrollView scrollY>
       <TyCell dataSource={dataSource} rowKey="title" isRow />
       <TyActionsheet
         position="bottom"
@@ -128,6 +128,6 @@ export default function Setting() {
       >
         {renderActionSheetDpContent()}
       </TyActionsheet>
-    </>
+    </ScrollView>
   );
 }
