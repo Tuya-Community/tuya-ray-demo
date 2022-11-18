@@ -109,7 +109,7 @@ export default function Setting() {
   };
 
   return (
-    <ScrollView scrollY>
+    <ScrollView scrollY style={{ height: '100vh'}}>
       <TyCell dataSource={dataSource} rowKey="title" isRow />
       <TyActionsheet
         position="bottom"
