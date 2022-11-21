@@ -1,0 +1,4 @@
+.ray
+dist/
+node_modules/
+app.config.ts

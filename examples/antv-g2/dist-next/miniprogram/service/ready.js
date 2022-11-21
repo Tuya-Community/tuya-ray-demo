@@ -1,0 +1,1 @@
+$messageBridge.serviceLoaded();
