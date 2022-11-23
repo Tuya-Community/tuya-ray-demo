@@ -38,4 +38,6 @@ module '@ray-js/panel-sdk' {
     equalityFn?: (a: Device, b: Device) => boolean
   ): Device;
   export function useActions(): SmartDevices['socket']['model']['actions'];
+  export function useDpSchema(): ReturnType<SmartDevices['socket']['getDpSchema']>;
+  export function useDevInfo(): ReturnType<SmartDevices['socket']['getDevInfo']>;
 }
