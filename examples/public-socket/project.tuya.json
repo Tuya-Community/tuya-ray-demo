@@ -12,6 +12,5 @@
     "DeviceKit": "3.0.2",
     "BizKit": "3.0.6"
   },
-  "projectname": "PublicSocket",
-  "baseversion": "2.11.0"
+  "baseversion": "2.10.7"
 }
