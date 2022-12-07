@@ -12,7 +12,7 @@
     "DeviceKit": "3.0.2",
     "BizKit": "3.0.6"
   },
-  "baseversion": "2.10.3",
   "projectname": "PublicSocket",
-  "productId": "q2tzjsodwltggaje"
+  "productId": "q2tzjsodwltggaje",
+  "baseversion": "2.11.0"
 }
