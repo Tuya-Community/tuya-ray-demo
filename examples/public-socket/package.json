@@ -12,11 +12,11 @@
     "start": "ray start --target=tuya"
   },
   "dependencies": {
-    "@ray-js/components-ty-actionsheet": "^0.0.17",
-    "@ray-js/components-ty-cell": "^0.0.12",
-    "@ray-js/components-ty-slider": "0.2.19",
-    "@ray-js/components-ty-switch": "^0.0.7",
-    "@ray-js/panel-sdk": "^1.2.1",
+    "@ray-js/components-ty-actionsheet": "^0.0.19",
+    "@ray-js/components-ty-cell": "^0.0.16",
+    "@ray-js/components-ty-slider": "0.2.21",
+    "@ray-js/components-ty-switch": "^0.0.8",
+    "@ray-js/panel-sdk": "^1.2.2",
     "@ray-js/ray": "^0.6.27",
     "@ray-js/svg": "^0.0.6",
     "ahooks": "^3.7.1",
