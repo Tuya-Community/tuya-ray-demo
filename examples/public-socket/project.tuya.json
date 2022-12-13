@@ -12,5 +12,6 @@
     "DeviceKit": "3.0.2",
     "BizKit": "3.0.6"
   },
-  "baseversion": "2.10.4"
+  "baseversion": "2.10.4",
+  "devMode": "ray"
 }
