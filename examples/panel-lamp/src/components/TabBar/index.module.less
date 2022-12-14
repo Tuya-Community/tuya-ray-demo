@@ -1,0 +1,35 @@
+.container{
+  width: 100vw;
+  height: 16vh;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 100%);
+  display: flex;
+  align-items: flex-end;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+  .tabBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    .tabText{
+      padding-bottom: 14px;
+    }
+    
+  }
+  .lineBox{
+    position: absolute;
+    transition: left 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      .tabLine {
+          width: 56rpx;
+          height: 4rpx;
+          border-radius: 2rpx;
+          overflow: hidden;
+          background-color: #43AAFF;
+        }
+    }
+}
