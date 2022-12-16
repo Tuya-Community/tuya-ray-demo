@@ -1826,38 +1826,38 @@
     "@ray-core/shared" "0.0.20"
     miniprogram-api-typings "^3.4.3"
 
-"@ray-js/adapter@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/adapter/-/adapter-0.6.27.tgz#f765835e735e1404bddf21541719288663d76467"
-  integrity sha512-1jTiyF4bVlOmoepz8ijAE8fe+fztwOazxAoVRycody0MSvYyjAQr8sCDJZOJf2dNDSlwxwmgdJ06QSW66tsmUA==
+"@ray-js/adapter@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/adapter/-/adapter-0.6.30.tgz#c10da6c2eba4b35d847bb666ecf1e0557eade70a"
+  integrity sha512-KQfvYgh98WOnggLLRdv88bIbtEvu5lqD9me8uQEB4CgQLb2myZZeDl/3NZA5HDTW3NSxCPdNuwcVxDyUyfmEFg==
   dependencies:
     "@ray-core/runtime" "^0.0.x"
     "@ray-core/shared" "^0.0.x"
     "@ray-core/types" "^0.0.x"
 
-"@ray-js/api@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/api/-/api-0.6.27.tgz#01705b11380f3f9d54f86df3a5d256ff08c62236"
-  integrity sha512-7JqLrLqrRgR9BLDq7ZyT9B/s3i4gVk77N0rwzhDnzvqe7rYbuq688Xd1HMPGMKASLiuuXCjoMR0BYIH3W51Hsg==
+"@ray-js/api@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/api/-/api-0.6.30.tgz#df01828b86be3d1e24f353426e52c736162396c0"
+  integrity sha512-cDWM/8s/RvmshESNfH/9OGIW+/Po+B14V4h/AGSk6Mv8frYwgdxyJDoJabA+t7G7llHINtHGll4iChQeR8Am6g==
   dependencies:
-    "@ray-js/framework" "^0.6.27"
+    "@ray-js/framework" "^0.6.30"
     "@ray-js/panel-sdk" "^1.2.2"
-    "@ray-js/router" "^0.6.27"
+    "@ray-js/router" "^0.6.30"
 
-"@ray-js/babel-preset-base@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/babel-preset-base/-/babel-preset-base-0.6.27.tgz#9c0a1ebe8243255b89cd2968ed3a09110da02d3e"
-  integrity sha512-FNL/9sa78zyPcfRQu9NfkeANwxFwtxRlW3R0RvO8q7w2qspowuSIE/tB62QXWLovvUdKiULJBZGWOldDlIvkfA==
+"@ray-js/babel-preset-base@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/babel-preset-base/-/babel-preset-base-0.6.30.tgz#e27182c5c2b4ee5c42f2ba6145652c964303fed2"
+  integrity sha512-46gg3JYTxVysShP50TSYtXAH6occrYB8+4Sk9n8GcO9I75yWWhK0rtkqVCybHIN6x6GjnPEp3CZ98FFGHoAVRA==
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-transform-runtime" "^7.15.0"
     "@babel/preset-env" "^7.15.4"
     "@babel/preset-typescript" "^7.15.0"
 
-"@ray-js/babel-preset-standard@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/babel-preset-standard/-/babel-preset-standard-0.6.27.tgz#3f476c6673f3687615ef433b02375ff8976d8c03"
-  integrity sha512-qaohhhOxrQWkAS2OAOd8BNGKJ2ggDgvn1o7Kf34jiTg6IRL3Cnj8DkwWycwTeL0ZYgnfXAQ9AT3WY/U80QCVwg==
+"@ray-js/babel-preset-standard@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/babel-preset-standard/-/babel-preset-standard-0.6.30.tgz#4bc85a53fb0791093e42e4eba065a1a0b35494f6"
+  integrity sha512-blvECfmJIblIa98w+Vu3MXyUK1i5wC++460wvqWxSaAmCvCy4fuaTEFxVitKPtAPmqpJd1M3VN33Y88i0gCCOA==
   dependencies:
     "@babel/plugin-proposal-decorators" "^7.15.4"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.14.5"
@@ -1865,27 +1865,27 @@
     "@babel/plugin-proposal-optional-chaining" "^7.14.5"
     "@babel/plugin-syntax-jsx" "^7.14.5"
     "@babel/preset-react" "^7.14.5"
-    "@ray-js/babel-preset-base" "^0.6.27"
+    "@ray-js/babel-preset-base" "^0.6.30"
     babel-plugin-macros "^3.1.0"
     babel-plugin-minify-dead-code-elimination-while-loop-fixed "^0.3.0"
     babel-plugin-transform-prune-unused-imports "^1.0.1"
 
-"@ray-js/build-plugin-ray@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/build-plugin-ray/-/build-plugin-ray-0.6.27.tgz#94ba8497ae8090f1cbabf119abea1eaf1a6a0e32"
-  integrity sha512-ZThvSDqjBEsMBSk/eHnFptvaPoQoFjoSorM8bg2XirfKUaUZC9atgpjyMr9LugCREG8XtxLrGzeQhxfW/9JFbQ==
+"@ray-js/build-plugin-ray@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/build-plugin-ray/-/build-plugin-ray-0.6.30.tgz#84b95976fb4892e138b73b3c6c18ccbdadb0008d"
+  integrity sha512-XDcP1TWbbj6glUzCOBG95aKcKpOsDNg+F24Pid+XztIbl6BTaZjnL4jrxGaAjt39TtVYS2x8ZIT5HonEJdpd1w==
   dependencies:
-    "@ray-js/shared" "^0.6.27"
+    "@ray-js/shared" "^0.6.30"
     colors "1.4.0"
     fs-extra "^10.0.0"
     slash "^3.0.0"
 
-"@ray-js/build-plugin-router@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/build-plugin-router/-/build-plugin-router-0.6.27.tgz#f6ac5d15526a640fc247a1c6deec16214a1aa78d"
-  integrity sha512-7V4717IYselT6IKf/3NklHtY133W2lfqhATy3SmUrPac6YvmfZgdJ2lBDGTU0MW0kNKlLqYHKmwZc8/nGRiSgw==
+"@ray-js/build-plugin-router@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/build-plugin-router/-/build-plugin-router-0.6.30.tgz#f3099de361e486b64f1bb1aa8f1a590ff42a12ee"
+  integrity sha512-Ff/09haewkwKQvvG5FrQE6iqgKkdwxqA6lxhJwaobKGiWcOlXl4YsTqcZXDM27P5nr07Hyz377RornN49K0t3w==
   dependencies:
-    "@ray-js/shared" "^0.6.27"
+    "@ray-js/shared" "^0.6.30"
     chokidar "^3.5.2"
     colors "1.4.0"
     ejs "^3.1.6"
@@ -1893,28 +1893,28 @@
     path-to-regexp "^6.2.1"
     url "^0.11.0"
 
-"@ray-js/builder-component@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/builder-component/-/builder-component-0.6.27.tgz#dc068125d89ef1e44a2f3f7907277c28fccafd56"
-  integrity sha512-ARDnTzjJXZ0Odi6JK4bNnYT7S6TSgqpT6IJc3OXnMvqdSsZC+4++QpBoKFLLQaUKpqCKPkqEIaVjaDdGgMiEIg==
+"@ray-js/builder-component@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/builder-component/-/builder-component-0.6.30.tgz#48401d99e680f9de83e8f1523f74de7b1333d1f0"
+  integrity sha512-hdrOHTMWDFIUEeuV86v7qgDc/ToSYMlynQQZYU4d7JenwrvOMZ+802P1fzTAM3V7CI7o1rszvcdrzM4BEh0EiQ==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/traverse" "^7.16.3"
     "@babel/types" "^7.16.0"
-    "@ray-js/babel-preset-standard" "^0.6.27"
-    "@ray-js/shared" "^0.6.27"
-    "@ray-js/types" "^0.6.27"
+    "@ray-js/babel-preset-standard" "^0.6.30"
+    "@ray-js/shared" "^0.6.30"
+    "@ray-js/types" "^0.6.30"
     babel-plugin-import "^1.13.3"
     chokidar "^3.5.2"
     colors "1.4.0"
     fs-extra "^10.0.0"
     globby "11.x"
 
-"@ray-js/builder-mp@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/builder-mp/-/builder-mp-0.6.27.tgz#d7a48b1e73afd92576cfd2956c3d871b856808ce"
-  integrity sha512-fU+Xb6szPWFKb4r4A9ZjWPwwAeOTJuxkjU1JFT+YxzoCzElMe7QUnE9SUrZivb5WbYW8j/1r58QRWtunRcqMBA==
+"@ray-js/builder-mp@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/builder-mp/-/builder-mp-0.6.30.tgz#915bf43d4f852a169d880ea2c5580f29761e17df"
+  integrity sha512-UjZM9lB76q6KHkHEx3zomXy2kRMvRV5NjQ+pNAt4jUDJQmiXpRSk4kObKCOkn0OOih++afXN/W2q4I3o5gfHLw==
   dependencies:
     "@babel/template" "^7.16.0"
     "@babel/traverse" "^7.16.3"
@@ -1923,9 +1923,9 @@
     "@ray-core/build-store" "^0.0.x"
     "@ray-core/cli" "^0.0.x"
     "@ray-core/ray" "^0.0.x"
-    "@ray-js/adapter" "^0.6.27"
-    "@ray-js/shared" "^0.6.27"
-    "@ray-js/types" "^0.6.27"
+    "@ray-js/adapter" "^0.6.30"
+    "@ray-js/shared" "^0.6.30"
+    "@ray-js/types" "^0.6.30"
     babel-loader "^8.2.3"
     babel-plugin-minify-dead-code-elimination "^0.5.1"
     babel-plugin-transform-prune-unused-imports "^1.0.1"
@@ -1941,14 +1941,14 @@
     webpack-chain "^6.5.1"
     webpack-virtual-modules "^0.4.4"
 
-"@ray-js/builder-web@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/builder-web/-/builder-web-0.6.27.tgz#8b7b5a1f28b8caee306b77f541c43701236d6c44"
-  integrity sha512-N71ycpELpowZS1XCpOwP9aPMLzxdYCjdIx0X5Yuy56kZKFxJnQa7l8ML/S6eGxVkEa+PoHl+9strC5XgqXSlpw==
+"@ray-js/builder-web@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/builder-web/-/builder-web-0.6.30.tgz#bd15e284443a5c383cde80fa0bbbb49f0ad1f97f"
+  integrity sha512-z9nawUFRmoatDLMqWNPCpJIxOcsr1j0gS8AKV/I0eDzbzWlW61TPVoTdgLjTKfyWFZ3vESYCci4dbIVCUNirig==
   dependencies:
-    "@ray-js/babel-preset-standard" "^0.6.27"
-    "@ray-js/shared" "^0.6.27"
-    "@ray-js/types" "^0.6.27"
+    "@ray-js/babel-preset-standard" "^0.6.30"
+    "@ray-js/shared" "^0.6.30"
+    "@ray-js/types" "^0.6.30"
     address "^1.1.2"
     autoprefixer "9.x"
     case-sensitive-paths-webpack-plugin "^2.4.0"
@@ -1973,18 +1973,18 @@
     webpack-dev-server "^3.0.0"
     webpackbar "^5.0.2"
 
-"@ray-js/cli@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/cli/-/cli-0.6.27.tgz#710d2a2e31282bef1559fd7f8ff786ea8bcfc2a0"
-  integrity sha512-H/ifNXzWTlrAFEAz8jHnfglBk0MXibS7qgATd4DbmyDkaKmoR0WQMyPEGvkv8FVV6FkGGJS00IkEdjKayQfiAg==
+"@ray-js/cli@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/cli/-/cli-0.6.30.tgz#c8237e9d1f86149b78ccf00d64bc9ffe83f671a0"
+  integrity sha512-Ay7knUMHHwzh8RgDvwATOyBTjaJFN0HhCIKZNxvS1YgGi7/RMeR8v5HOYNY4FAfLfcMJJsJmY6g3FFroAi2oGQ==
   dependencies:
-    "@ray-js/build-plugin-ray" "^0.6.27"
-    "@ray-js/build-plugin-router" "^0.6.27"
-    "@ray-js/builder-component" "^0.6.27"
-    "@ray-js/builder-mp" "^0.6.27"
-    "@ray-js/builder-web" "^0.6.27"
-    "@ray-js/shared" "^0.6.27"
-    "@ray-js/types" "^0.6.27"
+    "@ray-js/build-plugin-ray" "^0.6.30"
+    "@ray-js/build-plugin-router" "^0.6.30"
+    "@ray-js/builder-component" "^0.6.30"
+    "@ray-js/builder-mp" "^0.6.30"
+    "@ray-js/builder-web" "^0.6.30"
+    "@ray-js/shared" "^0.6.30"
+    "@ray-js/types" "^0.6.30"
     colors "1.4.0"
     commander "^8.2.0"
     webpack-chain "^6.5.1"
@@ -2026,15 +2026,15 @@
   dependencies:
     ahooks "^3.5.2"
 
-"@ray-js/components@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/components/-/components-0.6.27.tgz#b4ef8874eb1a59bafa43a200052b0fae0ccabe05"
-  integrity sha512-F8deXgwDuh4s38kGVdUN0cGBi+RuLDoIM4JFM7FPhWtxMyH9KXuvinSe+VjM0wmLckNGeZhBftaeIJzJMhNuuw==
+"@ray-js/components@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/components/-/components-0.6.30.tgz#e49c4df7ba2177d9c208b13199c5efcf942afd1c"
+  integrity sha512-OOk6Dkzqh8M1qG9JMSK/yrdEXvsd+ga+vbUYJcwasC3di4tebOgM5UXwdEUv6GP0Xqq9Bp1Rykf4Ltl5Gq1KoA==
   dependencies:
     "@ray-core/macro" "^0.0.x"
     "@ray-core/wechat" "^0.0.x"
-    "@ray-js/adapter" "^0.6.27"
-    "@ray-js/framework-shared" "^0.6.27"
+    "@ray-js/adapter" "^0.6.30"
+    "@ray-js/framework-shared" "^0.6.30"
     ahooks "^3.7.1"
     clsx "^1.1.1"
     core-js "^3.19.1"
@@ -2043,39 +2043,39 @@
     react "^17.0.2"
     style-to-object "^0.3.0"
 
-"@ray-js/env@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/env/-/env-0.6.27.tgz#7c0bf8cf1ff8190220836ef87119d801cbd83385"
-  integrity sha512-Daj0jnxDknR62JelkP+Vdgc7Hauc7gsnbVvdbTFixRno1ByoM73uZ0wGWhQd2Z8PrmHrW3kaYFK4MRr726XyjA==
+"@ray-js/env@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/env/-/env-0.6.30.tgz#0266492849961b0e1bfdf6099d817f9e39eae1b4"
+  integrity sha512-sak8lsKGP939UBcSMwMPhufBP5IsHIOQ9lfM0ltATw+NPyhwBIBl/9kTvJ/G+JLL2Kp9WBMbA/KNaGPyIWpeMg==
 
-"@ray-js/framework-mp@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/framework-mp/-/framework-mp-0.6.27.tgz#8e01b92adbf8077cbe37d2b4d8016070a8c3df62"
-  integrity sha512-YcTkJuOt3nPY4KMG1wiSRXX8lpO1289c5ZOD3L6FTKosu/chn5IR411ZWSHlZb7ygrdyoQGYwqcElegDLTFiwA==
+"@ray-js/framework-mp@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/framework-mp/-/framework-mp-0.6.30.tgz#630f032ab9108e231a9b137d395776acea6780af"
+  integrity sha512-OqUL64DNsfy67qN4irpPlHB0jJDUHb10GZWMfmayKtgkMaOR32scYfTSHBnAD3+wPlTI7Yy+1dU5RZ+gO7BKtw==
   dependencies:
-    "@ray-js/runtime" "^0.6.27"
+    "@ray-js/runtime" "^0.6.30"
 
-"@ray-js/framework-shared@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/framework-shared/-/framework-shared-0.6.27.tgz#b8dfcef076c286c82a3512bc14352ab82fb91b2b"
-  integrity sha512-Qi81oD6OOqAfrwlGFYUL8pxQypXupscxbFfa1mxsHaIaG5+4g4t8kTxWaYtjHPsCx2u5CwpPH9o+dA8hrN/wpA==
+"@ray-js/framework-shared@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/framework-shared/-/framework-shared-0.6.30.tgz#2dc55a9d0ee77e39f6f7028310b48329bd424c1a"
+  integrity sha512-BS8hlzzG5ho/uv1dlc65jbvwlOKOXu5BydSmZY7oHed18S/vxRkYU8GwKaH8SslNcPFrVIKclYuQj+eOLkMzbQ==
   dependencies:
     "@ray-core/wechat" "^0.0.x"
-    "@ray-js/env" "^0.6.27"
-    "@ray-js/types" "^0.6.27"
+    "@ray-js/env" "^0.6.30"
+    "@ray-js/types" "^0.6.30"
     path-to-regexp "^6.2.1"
 
-"@ray-js/framework@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/framework/-/framework-0.6.27.tgz#976269059354ca842761e60ea93323ab244cb2b7"
-  integrity sha512-YXKa4G2ZAQ37Gk0pZECP4LeUcilYBAs0j4GBHhdWeoR0MgkFvW6fa1D91G40kgEaUrG6BzgAGFLyBEB5ZEA80g==
+"@ray-js/framework@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/framework/-/framework-0.6.30.tgz#68c91fc290a0fcdc0eede5f0f477439a065ff553"
+  integrity sha512-i2PImL/jma9dObeB0B/cWJAhcffGN1JN9YN2/ATYdHH9kcKld7RkOK3abSzuPSe9EY8l7a7H/8qAdppVYoP/xw==
   dependencies:
-    "@ray-js/framework-mp" "^0.6.27"
-    "@ray-js/framework-shared" "^0.6.27"
-    "@ray-js/library" "^0.6.27"
-    "@ray-js/location" "^0.6.27"
-    "@ray-js/router" "^0.6.27"
-    "@ray-js/runtime" "^0.6.27"
+    "@ray-js/framework-mp" "^0.6.30"
+    "@ray-js/framework-shared" "^0.6.30"
+    "@ray-js/library" "^0.6.30"
+    "@ray-js/location" "^0.6.30"
+    "@ray-js/router" "^0.6.30"
+    "@ray-js/runtime" "^0.6.30"
     clsx "^1.1.1"
     hoist-non-react-statics "^3.3.2"
     lodash.get "^4.4.2"
@@ -2090,21 +2090,21 @@
   dependencies:
     lodash "^4.17.21"
 
-"@ray-js/library@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/library/-/library-0.6.27.tgz#93d9594b37f8f2f5621134a6893e469bf973673b"
-  integrity sha512-CZFG4JdoS29UADiRCIxGjn6Y2SwDVOzhX+43pYscuRJt7AxBzwiWsqwtKdQ5MzOft/XCp4OqcxQ4zfL90Xa6/Q==
+"@ray-js/library@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/library/-/library-0.6.30.tgz#a6321add7c39db1c52bae13f3899228ba0cd28a3"
+  integrity sha512-IzP6WOBQ2ZZLeifyjCZzu0UaliscN40LlOYr8ANlvKXxQ51+YTSLoSouJdfaYtRCTykyG/Zh4LJrKQXiHz+Gbw==
   dependencies:
     merge "^2.1.1"
 
-"@ray-js/location@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/location/-/location-0.6.27.tgz#6fae6a00cad1eb47c934db91bccc0a729d953a7e"
-  integrity sha512-pympa0HxvungRwGWkSw6f7SqIJzIVW31n6WCBMeFhrKo1Yw/MKB1vXTtGrekIAZzdvaEdZVx00foQtd24H15YA==
+"@ray-js/location@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/location/-/location-0.6.30.tgz#a5961b81e4ab41cc7074c3a0ea26d516b46ea2fb"
+  integrity sha512-OEsZyW4PtHSmN3ww4F/3dKBa6mtQ/L5vA64auUX3wMKMaqF19qcwIeLxJ4+c3dHLZHe4CIr0iFPzed2Jlt4Zag==
   dependencies:
-    "@ray-js/library" "^0.6.27"
-    "@ray-js/router" "^0.6.27"
-    "@ray-js/router-mp" "^0.6.27"
+    "@ray-js/library" "^0.6.30"
+    "@ray-js/router" "^0.6.30"
+    "@ray-js/router-mp" "^0.6.30"
 
 "@ray-js/panel-cloud@^1.2.1":
   version "1.2.1"
@@ -2129,53 +2129,53 @@
   dependencies:
     base64-browser "^1.0.1"
 
-"@ray-js/ray@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/ray/-/ray-0.6.27.tgz#6581b66bec0472e463f10a75c9c83d9b20730a8f"
-  integrity sha512-rn8MI+o53CQY6Tjga3v5/WCJYswFtrbbzV1joC2Qc5sIIsNarZLOdFAsxibd9K8eiLTL6+1bhDhSyyelokRMhA==
+"@ray-js/ray@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/ray/-/ray-0.6.30.tgz#609a5f4b8e7aa760bee3507111327ac0ca2b45ab"
+  integrity sha512-/FzCFKK1FwepDnpHygs0u832A+ZeUrhycoO4k9tF8YvygU3bjo6jtWIHJd0Mzi5MCp6HaV9K9o1GL875gK4Lfg==
   dependencies:
-    "@ray-js/api" "^0.6.27"
-    "@ray-js/components" "^0.6.27"
-    "@ray-js/framework" "^0.6.27"
+    "@ray-js/api" "^0.6.30"
+    "@ray-js/components" "^0.6.30"
+    "@ray-js/framework" "^0.6.30"
 
-"@ray-js/router-mp@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/router-mp/-/router-mp-0.6.27.tgz#e6625c1b3e2be1234c579e478b5d3f2212f174ee"
-  integrity sha512-njZC36fWNZfwLMYMDhrAeWlQG/wXjj09DsyT2vRPeIh7ygSooELyvIX5nyQBAzuKQcOrGwZGVs0yGjL8jeKQmQ==
+"@ray-js/router-mp@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/router-mp/-/router-mp-0.6.30.tgz#17175ba1c3375c777dfb29cc2502c76eb125ebf5"
+  integrity sha512-cmAx3yy2I6F3AyW0jUIZJKKbHbeSK2VuV/4eBtYil+s9rNVdUp9m/dPTM5p4fEsObkA3Fb7mGqNUW7MzVvPGNA==
   dependencies:
-    "@ray-js/api" "^0.6.27"
-    "@ray-js/env" "^0.6.27"
-    "@ray-js/library" "^0.6.27"
-    "@ray-js/types" "^0.6.27"
+    "@ray-js/api" "^0.6.30"
+    "@ray-js/env" "^0.6.30"
+    "@ray-js/library" "^0.6.30"
+    "@ray-js/types" "^0.6.30"
     "@react-navigation/core" "^6.1.0"
     path-to-regexp "^6.2.0"
     slash "^5.0.0"
 
-"@ray-js/router@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/router/-/router-0.6.27.tgz#48526e42d4113449eb6ae9c125412b159abb54eb"
-  integrity sha512-o3JMU7ZJFJDAHJaCEhB0EedXSTS6QHpm+FydLV86X3Bu2LkG6PbMi5ELhtC5OSJa7pGk3TaLZpxJYDqlVWK1mA==
+"@ray-js/router@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/router/-/router-0.6.30.tgz#5478311764ceb1d8ade12b33ae7e4c857c85b85d"
+  integrity sha512-AAajvEp52ez/eEDf6hIy8dy/4ZVN/m4aR6EZI7P+s7AgnUgfsAogkxRdhu3wePyPjTCVEF7+0EbZdbctf/njqA==
   dependencies:
-    "@ray-js/library" "^0.6.27"
-    "@ray-js/types" "^0.6.27"
+    "@ray-js/library" "^0.6.30"
+    "@ray-js/types" "^0.6.30"
     history "4.x"
 
-"@ray-js/runtime@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/runtime/-/runtime-0.6.27.tgz#d1dc81a3daa9d7b3af3ac0ce399ab16adaea1ecf"
-  integrity sha512-JLUSiS4JMmliX7wMhFVcDwpW1W4JtXsn3No38KAyW6dE10pcrEjy39u3X/QnRy9m5fIqut0auDXlf5sDuaM+ng==
+"@ray-js/runtime@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/runtime/-/runtime-0.6.30.tgz#50ce4a4d974535d889bcb2a97192fe1296eeb35a"
+  integrity sha512-C2BLnZuBTTYRIOhF2qRIg/ffXR8pllwM0vqpkXad1IET25O9FGfkwRy2HA2Exxq4sXZxEPt5TVqNdSvjrldTKw==
   dependencies:
     "@ray-core/runtime" "^0.0.x"
 
-"@ray-js/shared@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/shared/-/shared-0.6.27.tgz#49098e96e494b6fde32076d09cc520648b7cc356"
-  integrity sha512-xzUtgE+e52FOwgLTm8t4OhbCINpnCocdsBdK/QDQ73N2nRI4gnMg02HoeBmlI3KAFyjvsZObigDu0bg9VEORTg==
+"@ray-js/shared@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/shared/-/shared-0.6.30.tgz#2bc229fff23e1834f07f9ac56e3d83660ca4ca16"
+  integrity sha512-3CSYx9dBVZ8FDLz/6AF0vooEjpdwyRiucAUV03pcquq1TdsCToJLatFxQKSXLtgn5TGHyvMxHDqx3kJmYK8Q8g==
   dependencies:
     "@babel/preset-env" "^7.15.6"
     "@babel/preset-typescript" "^7.15.0"
     "@babel/register" "^7.15.3"
-    "@ray-js/types" "^0.6.27"
+    "@ray-js/types" "^0.6.30"
     change-case "^4.1.2"
     fs-extra "^10.0.0"
     merge "^2.1.1"
@@ -2193,10 +2193,10 @@
     preact "10.10.0"
     preact-render-to-string "5.2.1"
 
-"@ray-js/types@^0.6.27":
-  version "0.6.27"
-  resolved "https://registry.npmmirror.com/@ray-js/types/-/types-0.6.27.tgz#3196ba124145711ffdea131e20ecf7153aa2846b"
-  integrity sha512-Afr6R/K/drqcDn1xVZa+a1YNK6mGnqtKOw4Eb2+rBPrD/nQpeKCbwLljjREouknDi8nfMfCGPnZPPAp2LlL5Yg==
+"@ray-js/types@^0.6.30":
+  version "0.6.30"
+  resolved "https://registry.npmmirror.com/@ray-js/types/-/types-0.6.30.tgz#7602031bb7a4877245a3196c64f2f8fd9e0256d8"
+  integrity sha512-5lsaivVyKxJuKa/Q9JifSnv+Ne715SGYvfsjm9LapWd5osjnKvIFayiIc/V+VmYcG715KjVFsR68ajreSd8FTA==
   dependencies:
     path-to-regexp "^6.2.0"
 
