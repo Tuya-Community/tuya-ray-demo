@@ -8,9 +8,9 @@
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {
     "BaseKit": "3.0.0",
-    "MiniKit": "3.0.1",
-    "DeviceKit": "3.0.2",
-    "BizKit": "3.0.6"
+    "MiniKit": "3.0.0",
+    "DeviceKit": "3.0.0",
+    "BizKit": "3.0.1"
   },
   "baseversion": "2.10.4",
   "devMode": "ray"
