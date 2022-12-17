@@ -1,17 +1,6 @@
 // this file generate by @ray-js/build-plugin-router.
 // do not modify this file!!!
-export const wechat = {
-  "window": {
-    "backgroundColor": "#f2f4f6",
-    "navigationBarTitleText": "Ray 小程序示例",
-    "navigationBarBackgroundColor": "#f2f4f6",
-    "navigationBarTextStyle": "black"
-  },
-  "pages": [
-    "pages/home/index"
-  ]
-};
-export const tuya = {
+export const thing = {
   "window": {
     "backgroundColor": "#f2f4f6",
     "navigationBarTitleText": "",
@@ -21,7 +10,6 @@ export const tuya = {
   "pageWrapper": [],
   "pages": [
     "pages/home/index"
-  ],
-  "tabBar": {}
+  ]
 };
 
