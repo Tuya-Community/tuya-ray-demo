@@ -1,8 +1,8 @@
 {
   "id": "tymwerwdwuxrtilkj5",
   "name": "万能兜底面板",
-  "path": "/Users/muhai/Desktop/github/tuya-ray-demo/examples/panel-universal",
   "type": "panel-app",
+  "devMode": "ray",  
   "ownerType": "tuya-official",
   "i18n": false,
   "description": "项目描述",
