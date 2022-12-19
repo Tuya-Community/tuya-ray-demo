@@ -1,4 +1,4 @@
-import { Routes, TabBar } from '@ray-js/types';
+import { Routes } from '@ray-js/types';
 
 export const routes: Routes = [
   {
@@ -7,5 +7,3 @@ export const routes: Routes = [
     name: 'Home',
   },
 ];
-
-export const tabBar = {};
