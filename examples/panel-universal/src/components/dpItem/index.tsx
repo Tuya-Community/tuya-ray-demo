@@ -35,7 +35,7 @@ export const DpItem: React.FC<DpItemProps> = ({ item, hostname }) => {
             : null,
         }}
       >
-        <Text className={styles.headName}>{item.name}</Text>
+        <Text className={styles.headName}>{Strings.getDpName(item.code, item.name)}</Text>
         <Text className={styles.headValue}>{headValue}</Text>
       </View>
       <View className={styles.content}>
