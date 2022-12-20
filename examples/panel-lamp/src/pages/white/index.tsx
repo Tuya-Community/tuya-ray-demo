@@ -34,6 +34,8 @@ const White = () => {
   const [showDialog, setShowDialog] = useState(false);
 
   useEffect(() => {
+    setTemp(temperature);
+    setBright(brightness);
     updateWhiteIndex();
   }, [brightness, temperature]);
   const putDpData = (key: string, value: number, isControl = true) => {
@@ -121,6 +123,11 @@ const White = () => {
             onTouchMove={v => putDpData('temp', v)}
             onTouchEnd={v => putDpData('temp', v, false)}
           />
+          {/* <WhiteRing
+            temperature={temp}
+            onMove={v => putDpData('temp', v)}
+            onEnd={v => putDpData('temp', v, false)}
+          /> */}
 
           <SliderRow
             min={1}

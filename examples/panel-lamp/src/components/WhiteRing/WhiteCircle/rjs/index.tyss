@@ -1,0 +1,41 @@
+.container {}
+
+.canvasWrapper {
+  position: absolute;
+}
+.canvasThumbWrapper {
+  z-index: 11;
+}
+
+.thumb {
+  position: absolute;
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  border: 5rpx solid rgba(255, 255, 255, 0.8);
+  z-index: 99;
+  box-shadow:0 0 7px 0 rgba(0, 0, 0, 0.16);
+}
+
+.colorTipWrapper {
+  position: absolute;
+  top: 12rpx;
+  left: 12rpx;
+  min-width: 72rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  height: 36rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 66rpx;
+  font-size: 20rpx;
+  z-index: 999;
+}
+
+.colorTip {
+  color: #fff;
+  font-size: 20rpx;
+}

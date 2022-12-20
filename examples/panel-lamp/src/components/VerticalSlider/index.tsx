@@ -32,6 +32,7 @@ export const VerticalSlider = (props: IProps) => {
     minTrackRadius,
   } = props;
   const brightToV = (v: number) => {
+    // my brain stop thinking and i am aching and stop yelling cause i am out of breathing
     return Math.round((v * 1000) / 255);
   };
   return (

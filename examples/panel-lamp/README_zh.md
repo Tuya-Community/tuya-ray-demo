@@ -2,21 +2,27 @@
 
 ## 插座面板案例
 
-- 产品名称：插座面板
+- 产品名称：照明面板
 
 ### 快速开始：
 
 1. 前往[IoT 平台](https://iot.tuya.com/)创建产品
 
-2. 选择品类 `插座`
+2. 选择品类 `照明`
    ![功能选择](./images/iot01.png)
 3. 功能选择
 
    必须的功能点
 
    ```
-   switch_1,
-   countdown_1,
+   switch_led,
+   work_mode,
+   bright_value,
+   temp_value,
+   colour_data,
+   scene_data,
+   countdown,
+   control_data,
    ```
 
 4. 安装项目并启动项目

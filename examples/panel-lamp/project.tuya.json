@@ -5,7 +5,6 @@
   "ownerType": "tuya-official",
   "i18n": false,
   "description": "",
-  "devMode": "ray",
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {
     "BaseKit": "3.0.0",

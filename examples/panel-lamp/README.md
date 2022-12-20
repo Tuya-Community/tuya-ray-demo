@@ -1,22 +1,28 @@
 English[](README.md) | [简体中文](README_zh.md)
 
-## Socket Panel Use Cases
+## Lamp Panel Use Cases
 
-- productName: Socket Panel
+- productName: Lamp Panel
 
 ### Get started：
 
 1. Go to [IoT platform](https://iot.tuya.com/) to create products
 
-2. Select category `Socket`
+2. Select category `Lamp`
    ![功能选择](./images/iot01.png)
 3. Function selection
 
    Required Dps
 
    ```
-   switch_1,
-   countdown_1,
+   switch_led,
+   work_mode,
+   bright_value,
+   temp_value,
+   colour_data,
+   scene_data,
+   countdown,
+   control_data,
    ```
 
 4. Install project and start project

@@ -23,13 +23,11 @@ export const TabBar = (props: Props) => {
             key={tabItem}
             className={styles.tabBox}
             style={{ width: `${tabWidth}%` }}
-            // @ts-ignore
             onClick={() => onClick(tabItem)}
           >
             <Text
               className={styles.tabText}
-              style={{ color: isActive ? '#43AAFF' : 'rgba(255,255,255,.9)' }}
-            >
+              style={{ color: isActive ? '#43AAFF' : 'rgba(255,255,255,.9)' }}>
               {Strings.getLang(tabItem)}
             </Text>
           </View>
