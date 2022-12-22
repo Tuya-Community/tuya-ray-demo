@@ -38,7 +38,6 @@ export const formatDevSchema = devInfo => {
   const { dps, schema } = devInfo;
   const result_schema = {};
   const result_state = {};
-  console.log('dps', dps, schema);
   for (let i = 0; i < schema.length; i++) {
     const { code, id, property, type } = schema[i];
     const define = {

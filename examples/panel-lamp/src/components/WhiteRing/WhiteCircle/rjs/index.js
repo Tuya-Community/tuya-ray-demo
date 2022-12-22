@@ -40,8 +40,11 @@ Component({
     tipRectPosition: ETipRectPosition.LEFT,
   },
   observers: {
-    'value.**': function(v) {
-      if (Math.abs(this.lastValue / 10 - v / 10) > 1 || (this.lastValue === 0 && v === 0)) {
+    'value.**': function (v) {
+      if (
+        Math.abs(this.lastValue / 10 - v / 10) > 1 ||
+        (this.lastValue === 0 && v === 0)
+      ) {
         this._updatePosByRgb(v);
         this.lastValue = v;
       }
@@ -68,7 +71,13 @@ Component({
     initCanvas() {
       const { canvasId, radius, innerRingRadius, value = 0 } = this.data;
       const ratio = 2;
-      canvasId && this.render.renderAnnulusColor(canvasId, radius, innerRingRadius, ratio);
+      canvasId &&
+        this.render.renderAnnulusColor(
+          canvasId,
+          radius,
+          innerRingRadius,
+          ratio,
+        );
       this._updatePosByRgb(value);
       this.lastValue = value;
     },
@@ -93,7 +102,6 @@ Component({
       } else if (touchType === 'move') {
         this.triggerEvent('onTouchMove', result);
       } else if (touchType === 'end') {
-        console.log('end==', result);
         this.triggerEvent('onTouchEnd', result);
       }
     },

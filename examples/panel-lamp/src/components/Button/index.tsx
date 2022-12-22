@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, Image } from '@ray-js/components';
 

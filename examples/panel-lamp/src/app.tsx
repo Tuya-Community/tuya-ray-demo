@@ -26,14 +26,13 @@ class App extends React.Component<Props> {
   async onLaunch() {
     devices.socket.onInitialized(res => {
       const devInfo = res.getDevInfo();
-      // console.log('devInfo===', devInfo);
+      //初始化devInfo
       dispatch(
         actions.common.devInfoChange({
           ...devInfo,
           state: formatDevSchema(devInfo).state,
         })
       );
-      // dispatch(actions.common.initDp(res.getDpState()));
     });
     devices.socket.onDpDataChange(res => {
       const { deviceId, dps } = res;
@@ -46,6 +45,7 @@ class App extends React.Component<Props> {
       }
       dispatch(actions.common.responseUpdateDp(updateDp));
     });
+    devices.socket.onDeviceInfoUpdated
     this.initCloud();
   }
   async initCloud() {
@@ -58,12 +58,10 @@ class App extends React.Component<Props> {
   }
 
   handleCloudData(cloudData: any) {
-    // let isFirstLoadin = true;
-    console.log('cloudData', cloudData);
+    //获取云端数据，并放到redux里
     let collectColorList = [...defaultColors];
     let collectWhiteList = [...defaultWhite];
     Object.entries(cloudData).forEach(([code, value]: [string, any]) => {
-      // 获取照明情景，这里可以先插入默认情景数据
       if (code === 'collectColors' && value && JSON.stringify(value) !== '[]') {
         collectColorList = value;
       }

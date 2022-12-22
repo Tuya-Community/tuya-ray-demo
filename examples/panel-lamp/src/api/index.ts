@@ -1,31 +1,12 @@
 /* eslint-disable no-console */
 import { store, actions as ReduxActions } from '@/redux';
 import { requestCloud } from '@ray-js/ray';
-export { initDevInfo, getDevInfo } from './devinfo';
-import { initDevInfo } from './devinfo';
 import storage from './storage';
 import LampApiRes from './LampApi';
 
 export const storageUtils = storage;
 export const LampApi = LampApiRes;
 
-setTimeout(() => {
-  console.log(store.getState(), 'store.getState()');
-}, 2000);
-
-/// 设备状态监听
-ty.device.onDeviceInfoUpdated(data => {
-  console.log('onDeviceInfoUpdated: ', data);
-  const { dispatch } = store;
-  initDevInfo();
-  // @ts-ignore
-  dispatch(ReduxActions.common.devInfoChange(data));
-});
-
-ty.device.onDeviceOnlineStatusUpdate(() => {
-  console.log('onDeviceOnlineStatusUpdate');
-  initDevInfo();
-});
 
 ty.getSystemInfo({
   success: params => {

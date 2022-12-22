@@ -1,8 +1,5 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState, useEffect } from 'react';
 import Slider from '@ray-js/components-ty-slider';
-// import SjsSlider from '@ray-js/components-ty-slider/lib/slider';
 import { Text, View, Image } from '@ray-js/components';
 import { useThrottleFn } from 'ahooks';
 import styles from './index.module.less';

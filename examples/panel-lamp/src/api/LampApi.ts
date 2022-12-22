@@ -3,7 +3,6 @@
 /* eslint-disable no-shadow */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { getDevInfo } from './devinfo';
 import { decode } from 'base64-browser';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -13,6 +12,7 @@ import { requestCloud } from '@ray-js/api';
 import { getLaunchOptionsSync } from '@ray-js/api';
 
 import StorageUtils from './storage';
+import { store } from '@/redux';
 
 const sucStyle = 'background: green; color: #fff;';
 const errStyle = 'background: red; color: #fff;';
@@ -86,7 +86,7 @@ if (!LampApi.getUiConfig) {
 }
 
 LampApi.getCloudFun = (name: string, defaultValue: any = null) => {
-  const devInfo = getDevInfo();
+  const devInfo = store.getState()?.devInfo;
   return _get(devInfo, ['panelConfig', 'fun', name], defaultValue);
 };
 
@@ -108,7 +108,6 @@ LampApi.getAllCloudConfig = () => {
         const res = JSON.parse(data[key]);
         result[key] = res;
       } catch (e) {
-        // TODO:
         console.log('========e', e);
       }
     });

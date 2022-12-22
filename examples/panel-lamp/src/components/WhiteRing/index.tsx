@@ -4,7 +4,6 @@ import res from '@/res';
 import clsx from 'clsx';
 import Strings from '@/i18n';
 import { useThrottleFn } from 'ahooks';
-// import { LampCirclePicker } from '@ray-js/components-ty-lamp';
 import LampCirclePicker from './WhiteCircle/index';
 import styled from './index.module.less';
 

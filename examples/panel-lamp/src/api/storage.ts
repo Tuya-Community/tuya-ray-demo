@@ -1,19 +1,20 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { getDevInfo } from './devinfo';
 
-const getDevKey = async (name: string) => {
-  const { devId } = await getDevInfo();
+import { store } from "@/redux";
+
+const getDevKey =  (name: string) => {
+  const { devId } =  store.getState().devInfo;
   return `${devId}_${name}`;
 };
 
-const getPidKey = async (name: string) => {
-  const { productId } = await getDevInfo();
+const getPidKey =  (name: string) => {
+  const { productId } =  store.getState().devInfo;
   return `${productId}_${name}`;
 };
 
-const getUiKey = async (name: string) => {
-  const { uiId } = await getDevInfo();
+const getUiKey =  (name: string) => {
+  const { uiId } =  store.getState().devInfo;
   return `${uiId}_${name}`;
 };
 

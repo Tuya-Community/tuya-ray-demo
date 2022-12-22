@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View } from '@ray-js/components';
 import { utils } from '@ray-js/panel-sdk';
 import res from '@/res';
@@ -9,8 +9,8 @@ import { Button } from '@/components';
 import styles from './index.module.less';
 
 const { addIcon, deleteIcon } = res;
-const { hsv2rgbString, hsv2rgb } = utils;
-const { brightKelvin2rgb, hsv2hex } = colorUtils;
+const { hsv2rgbString } = utils;
+const { brightKelvin2rgb } = colorUtils;
 const MAX_LENGTH = 6;
 const MIN_LENGTH = 3;
 

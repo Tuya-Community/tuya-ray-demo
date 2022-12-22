@@ -5,8 +5,9 @@ import { LampApi } from '@/api';
 import Strings from '@/i18n';
 import { View } from '@ray-js/components';
 import res from '@/res';
-import { useSelector, store, dpUtils } from '@/redux';
+import { useSelector, store } from '@/redux';
 import dpCodes from '@/config/dpCodes';
+import { dpUtils } from '@/utils';
 import _cloneDeep from 'lodash/cloneDeep';
 import { CollectColors, SliderRow, Dialog } from '@/components';
 import styled from './index.module.less';
@@ -24,14 +25,14 @@ const Colour = () => {
       collectColors: cloudState.collectColors,
     })
   );
-  const [hue, setHue] = useState(0);
-  const [saturation, setSaturation] = useState(1000);
-  const [value, setValue] = useState(1000);
-  const [showDialog, setShowDialog] = useState(false);
+  const [hue, setHue] = useState(0);  // 色调
+  const [saturation, setSaturation] = useState(1000); // 饱和度
+  const [value, setValue] = useState(1000); // 明度
+  const [showDialog, setShowDialog] = useState(false); // 颜色重复弹窗
   useEffect(() => {
-    setHue(colour.hue);
-    setSaturation(colour.saturation);
-    setValue(colour.value);
+    setHue(colour?.hue);
+    setSaturation(colour?.saturation);
+    setValue(colour?.value);
   }, [colour]);
   useEffect(() => {
     updateColorIndex();
@@ -39,11 +40,12 @@ const Colour = () => {
   const putDpData = (key: string, dpValue: number, isControl = true) => {
     if (key === 'hue') setHue(dpValue); // 需要实时变更色盘里文字
     if (isControl) {
+      //如果是滑动中，则下发调节dp，间隔300ms一次
       const controlData = { hue, saturation, value, bright: 0, temp: 0 };
       controlData[key] = dpValue;
       dpUtils.putDpData({ [controlCode]: controlData }, { throttle: 300 });
     } else {
-      // 其余色盘都是半受控，松手set
+      // 释放时，下发彩光dp
       if (key === 'saturation') setSaturation(dpValue);
       if (key === 'value') setValue(dpValue);
       const colorData = { hue, saturation, value };
@@ -51,49 +53,16 @@ const Colour = () => {
       dpUtils.putDpData({ [colourCode]: colorData }, { throttle: 300 });
     }
   };
-  // const handleHueChange = (v: number, isControl = true) => {
-  //   setHue(v);
-  //   if (isControl) {
-  //     dpUtils.putDpData(
-  //       { [controlCode]: { hue: v, saturation, value, bright: 0, temp: 0 } },
-  //       { throttle: 300 }
-  //     );
-  //   } else {
-  //     dpUtils.putDpData({ [colourCode]: { hue: v, saturation, value } }, { throttle: 300 });
-  //   }
-  // };
-  // // todo 封装
-  // const handleSatChange = (v: number, isControl = true) => {
-  //   // sat: 饱和度值，isControl：是否为实时调节
-  //   if (isControl) {
-  //     dpUtils.putDpData(
-  //       { [controlCode]: { hue, saturation: v, value, bright: 0, temp: 0 } },
-  //       { throttle: 300 }
-  //     );
-  //   } else {
-  //     setSaturation(v);
-  //     dpUtils.putDpData({ [colourCode]: { hue, saturation: v, value } }, { throttle: 300 });
-  //   }
-  // };
-
-  // const handleBrightChange = (v: number, isControl = true) => {
-  //   if (isControl) {
-  //     dpUtils.putDpData(
-  //       { [controlCode]: { hue, saturation, value: v, bright: 0, temp: 0 } },
-  //       { throttle: 300 }
-  //     );
-  //   } else {
-  //     setValue(v);
-  //     dpUtils.putDpData({ [colourCode]: { hue, saturation, value: v } }, { throttle: 300 });
-  //   }
-  // };
 
   const handleAddColor = () => {
+    //添加收藏颜色
     if (colorIndex > -1) {
+      //如果已有重复，显示重复弹窗
       setShowDialog(true);
     } else {
+      //未重复，加入云端
       const newColorList = [...collectColors, { hue, saturation, value }];
-      LampApi.saveCloudConfig!('collectColors', newColorList).then(res1 => {
+      LampApi.saveCloudConfig!('collectColors', newColorList).then(() => {
         dispatch(updateUi({ colorIndex: newColorList.length - 1 }));
         dispatch(updateCloud({ collectColors: newColorList }));
       });
@@ -101,6 +70,7 @@ const Colour = () => {
   };
 
   const handleDeleteColor = () => {
+    //删除颜色
     const colors: COLOUR[] = _cloneDeep(collectColors);
     if (colorIndex > -1) {
       colors.splice(colorIndex, 1);
@@ -112,9 +82,11 @@ const Colour = () => {
   };
 
   const handleChooseColor = (color: COLOUR) => {
+    //选择颜色，下发对应的彩光值
     dpUtils.putDpData({ [colourCode]: color });
   };
   const updateColorIndex = () => {
+    //当hsv变化时，收藏颜色相应判断是否有相等
     const index = collectColors.findIndex(
       item => item.hue === hue && item.saturation === saturation && item.value === value
     );

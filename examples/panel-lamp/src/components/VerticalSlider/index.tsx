@@ -1,17 +1,12 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-self-compare */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-console */
-import React, { useState } from 'react';
-import { View, Image } from '@ray-js/components';
+import React from 'react';
+import { View } from '@ray-js/components';
 import Slider from '@ray-js/components-ty-slider';
 import colorUtils from '@/utils/color.js';
-// import Slider from '../Slider'
 import styled from './index.module.less';
 
 import Percent from './Percent';
 
-const { brightKelvin2rgb, hsv2RgbString } = colorUtils;
+const { brightKelvin2rgb } = colorUtils;
 interface IProps {
   containerStyle?: React.CSSProperties;
   value: number;
