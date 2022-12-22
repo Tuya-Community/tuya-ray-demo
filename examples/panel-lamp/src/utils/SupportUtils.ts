@@ -1,8 +1,5 @@
 import { devices } from '@/devices';
 import _get from 'lodash/get';
-// import { getDevInfo } from '@/api';
-// import { store } from '@/redux';
-import { store } from '@/redux';
 import dpCodes from '@/config/dpCodes';
 
 /**
@@ -38,7 +35,6 @@ export const supportDp = (code: string) => {
 };
 
 const supportWorkMode = (code: string) => {
-  // const { devInfo } = store.getState();
   const devInfo = devices.socket.getDevInfo();
   const { schema } = devInfo || {};
   if (Array.isArray(schema)) {
@@ -128,10 +124,11 @@ const SupportUtils: ISupportUtils = {
   },
   isSupportCloudTimer(devInfo?: DevInfo) {
     if (!devInfo) {
-      // eslint-disable-next-line no-param-reassign
+      //@ts-ignore
       devInfo = devices.socket.getDevInfo();
     }
     if (devInfo?.panelConfig?.bic) {
+      //@ts-ignore
       const timer = devInfo?.panelConfig?.bic?.find(i => i.code === 'timer');
       if (!timer) {
         return false;
