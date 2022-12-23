@@ -13,5 +13,6 @@
     "BizKit": "3.0.6"
   },
   "baseversion": "2.10.3",
-  "projectname": "public-sdm-template"
+  "projectname": "public-sdm-template",
+  "devMode": true
 }
