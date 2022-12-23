@@ -17,7 +17,7 @@
     "@ray-js/components-ty-slider": "0.2.21",
     "@ray-js/components-ty-switch": "^0.0.8",
     "@ray-js/panel-sdk": "^1.2.2",
-    "@ray-js/ray": "^0.6.30",
+    "@ray-js/ray": "^0.7.5",
     "@ray-js/svg": "^0.0.6",
     "ahooks": "^3.7.1",
     "clsx": "^1.2.1",
@@ -27,7 +27,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@ray-js/cli": "^0.6.30",
+    "@ray-js/cli": "^0.7.5",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "eslint-config-tuya-panel": "^0.4.1",
