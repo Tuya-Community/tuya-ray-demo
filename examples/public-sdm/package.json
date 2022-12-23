@@ -12,16 +12,15 @@
     "start": "ray start --target=tuya"
   },
   "dependencies": {
-    "@ray-js/ray": "^0.6.16",
+    "@ray-js/ray": "^0.7.5",
     "@ray-js/panel-sdk": "^1.2.1",
     "@ray-js/svg": "^0.0.6",
-    "clsx": "^1.2.1",
-    "core-js": "^3.23.5"
+    "clsx": "^1.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^9.0.1",
-    "@ray-js/cli": "^0.6.16",
+    "@ray-js/cli": "^0.7.5",
     "@types/lodash-es": "^4.17.6",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
