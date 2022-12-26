@@ -1,6 +1,6 @@
 [English](README.md) | 简体中文[](README_zh.md)
 
-## 插座面板案例
+## 照明面板案例
 
 - 产品名称：照明面板
 

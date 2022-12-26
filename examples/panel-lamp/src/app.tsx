@@ -45,7 +45,6 @@ class App extends React.Component<Props> {
       }
       dispatch(actions.common.responseUpdateDp(updateDp));
     });
-    devices.socket.onDeviceInfoUpdated
     this.initCloud();
   }
   async initCloud() {
