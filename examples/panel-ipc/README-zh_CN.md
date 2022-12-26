@@ -13,8 +13,6 @@
 ### 依赖
 
 - @ray-js/components-ty-ipc 播放器
-- @ray-js/ray ray
-- redux
 
 ### 小程序kit依赖（以下依赖是kit最低版本）
 
