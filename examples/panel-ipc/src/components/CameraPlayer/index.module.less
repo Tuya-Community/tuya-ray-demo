@@ -1,0 +1,198 @@
+@marginWidth: 70rpx;
+@transition: transform 0.25s ease;
+
+.playWrap {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.playerTop {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 20rpx;
+}
+
+.TimerContent {
+  position: absolute;
+  top: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.RecordTipContent {
+  position: absolute;
+  bottom: 10rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+}
+
+.columnPlayWrap {
+  flex-direction: column;
+}
+
+.playerWrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.selectPlayer {
+  border: 2px solid var(--hover-color);
+}
+
+.rowPlayer {
+  width: 100%;
+  height: 200rpx;
+}
+
+// 展开竖直方式
+.columnPlayer {
+  width: 100%;
+  height: 400rpx;
+}
+
+.fontHover {
+  color: var(--hover-color) !important;
+}
+
+.full {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.fullTopHeaderWrap {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.fullTopHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 0;
+  background: transparent;
+  color: #fff;
+}
+
+.back {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.35rem;
+  font-weight: 400;
+  margin-left: @marginWidth;
+}
+
+.iphoneXBack {
+  margin-left: 30rpx;
+}
+
+.fullTabWrap {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: @marginWidth;
+}
+
+.fullPtz {
+  position: absolute;
+  bottom: 20px;
+}
+
+.fullZoom {
+  position: absolute;
+  top: calc(50vh - 1.8rem);
+  height: 3.6rem;
+}
+
+.fullZoomCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 3.6rem;
+}
+
+.loadModel {
+  position: absolute;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  color: '#fff';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+}
+
+.center {
+  align-items: center;
+}
+
+.hide {
+  display: none !important;
+}
+
+.headerShow {
+  transform: translateY(0);
+  transition: @transition;
+}
+
+.headerHide {
+  transform: translateY(-100%);
+  transition: @transition;
+}
+
+.ptzShow {
+  transform: translateX(0);
+  left: @marginWidth;
+  transition: @transition;
+}
+
+.ptzHide {
+  transform: translateX(-100%);
+  transition: @transition;
+  left: 0;
+}
+
+.zoomShow {
+  transform: translateX(0);
+  right: @marginWidth;
+  transition: @transition;
+}
+
+.zoomHide {
+  transform: translateX(100%);
+  transition: @transition;
+  right: 0;
+}
+
+.twoTalking {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 0.27rem;
+  position: absolute;
+  top: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20rpx;
+  padding: 8rpx 20rpx;
+}
+
+.oneTalking {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
