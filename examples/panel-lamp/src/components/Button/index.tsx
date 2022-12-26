@@ -27,14 +27,8 @@ export const Button = (props: IProps) => {
   const [click, setClick] = useState(false);
   const timer = useRef<any>().current;
   useEffect(() => {
-    // console.log('click', click);
     if (click) {
-      setTimeout(() => {
-        setClick(false);
-      }, 300);
-      // } else {
-      //   timer = null;
-      //   clearTimeout(timer);
+      setClick(false);
     }
   }, [click]);
   const handleClick = () => {
