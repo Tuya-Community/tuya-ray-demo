@@ -1,5 +1,5 @@
 {
-  "projectname": "device-panel",
+  "projectname": "panel-ipc",
   "i18n": false,
   "description": "ray",
   "miniprogramRoot": "./dist/tuya",

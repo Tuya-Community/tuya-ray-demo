@@ -6,7 +6,7 @@ export const devices = {
   /**
    * 此处建议以智能设备的名称作为键名赋值
    */
-  robot: new SmartDeviceModel<SmartDeviceSchema>(),
+  ipc: new SmartDeviceModel<SmartDeviceSchema>(),
 };
 
 Object.keys(devices).forEach((k: keyof typeof devices) => {

@@ -7,5 +7,3 @@ export const routes: Routes = [
     name: 'index',
   },
 ];
-
-export const tabBar = {};

@@ -1,12 +1,12 @@
 import '@ray-js/panel-sdk';
 
-type SmartDeviceSchema = typeof import('@/devices/schema').robotSchema;
+type SmartDeviceSchema = typeof import('@/devices/schema').ipcSchema;
 
 type SmartDevices = {
   /**
    * 此处 TS 类型定义建议以智能设备的名称作为键名赋值
    */
-  robot?: import('@ray-js/panel-sdk').SmartDeviceModel<SmartDeviceSchema>;
+  ipc?: import('@ray-js/panel-sdk').SmartDeviceModel<SmartDeviceSchema>;
 };
 
 declare module '@ray-js/panel-sdk' {
@@ -15,14 +15,14 @@ declare module '@ray-js/panel-sdk' {
     children: React.ReactNode;
   }>;
   export type SmartDeviceInstanceData = {
-    devInfo: ReturnType<SmartDevices['robot']['getDevInfo']>;
-    dpSchema: ReturnType<SmartDevices['robot']['getDpSchema']>;
-    network: ReturnType<SmartDevices['robot']['getNetwork']>;
-    bluetooth: ReturnType<SmartDevices['robot']['getBluetooth']>;
+    devInfo: ReturnType<SmartDevices['ipc']['getDevInfo']>;
+    dpSchema: ReturnType<SmartDevices['ipc']['getDpSchema']>;
+    network: ReturnType<SmartDevices['ipc']['getNetwork']>;
+    bluetooth: ReturnType<SmartDevices['ipc']['getBluetooth']>;
   };
-  export function useProps(): SmartDevices['robot']['model']['props'];
+  export function useProps(): SmartDevices['ipc']['model']['props'];
   export function useProps<Value extends any>(
-    selector: (props?: SmartDevices['robot']['model']['props']) => Value,
+    selector: (props?: SmartDevices['ipc']['model']['props']) => Value,
     equalityFn?: (a: Value, b: Value) => boolean
   ): Value;
   export function useDevice(): SmartDeviceInstanceData;
@@ -30,5 +30,5 @@ declare module '@ray-js/panel-sdk' {
     selector: (device: SmartDeviceInstanceData) => Device,
     equalityFn?: (a: Device, b: Device) => boolean
   ): Device;
-  export function useActions(): SmartDevices['robot']['model']['actions'];
+  export function useActions(): SmartDevices['ipc']['model']['actions'];
 }

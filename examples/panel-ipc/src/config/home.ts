@@ -100,7 +100,7 @@ export const getTabTopConfig = (prop: tabTopProps) => {
   const { isFull, mainDeviceCameraConfig } = ipcCommon;
   const { switchType } = prop;
 
-  const devInfo = devices.robot.getDevInfo();
+  const devInfo = devices.ipc.getDevInfo();
 
   const arr = tabTopConfig
     .filter(item => {
