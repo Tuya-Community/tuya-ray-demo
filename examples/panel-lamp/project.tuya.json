@@ -2,15 +2,16 @@
   "id": "tyzq1kuhx0x1s0tuda",
   "name": "照明小程序模板",
   "type": "panel-app",
-  "ownerType": "tuya-official",
+  "ownerType": "panel-lamp",
+  "devMode":"ray",
   "i18n": false,
   "description": "",
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {
     "BaseKit": "3.0.0",
-    "MiniKit": "3.0.1",
-    "DeviceKit": "3.0.2",
-    "BizKit": "3.0.6"
+    "MiniKit": "3.0.0",
+    "DeviceKit": "3.0.0",
+    "BizKit": "3.0.1"
   },
   "projectname": "照明模板",
   "productId": "lgejlyambe5x6sv6",

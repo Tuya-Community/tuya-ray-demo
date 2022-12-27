@@ -24,7 +24,7 @@ class App extends React.Component<Props> {
   componentDidMount() { }
 
   async onLaunch() {
-    devices.socket.onInitialized(res => {
+    devices.lamp.onInitialized(res => {
       const devInfo = res.getDevInfo();
       //初始化devInfo
       dispatch(
@@ -34,10 +34,10 @@ class App extends React.Component<Props> {
         })
       );
     });
-    devices.socket.onDpDataChange(res => {
+    devices.lamp.onDpDataChange(res => {
       const { deviceId, dps } = res;
       const updateDp = {};
-      if (deviceId === devices.socket.getDevInfo().devId) {
+      if (deviceId === devices.lamp.getDevInfo().devId) {
         Object.keys(dps).forEach(dpItem => {
           const code = getDPCodeById(dpItem);
           updateDp[code] = dps[dpItem];
@@ -78,7 +78,7 @@ class App extends React.Component<Props> {
   render() {
     return (
       <Provider store={store}>
-        <SdmProvider value={devices.socket}>{this.props.children}</SdmProvider>
+        <SdmProvider value={devices.lamp}>{this.props.children}</SdmProvider>
       </Provider>
     );
   }

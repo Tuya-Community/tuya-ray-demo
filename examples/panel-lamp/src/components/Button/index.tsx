@@ -19,7 +19,6 @@ export const Button = (props: IProps) => {
     text,
     disabled = false,
     className,
-    style,
     imgClassName,
     textClassName,
     onClick,
@@ -36,14 +35,12 @@ export const Button = (props: IProps) => {
       return;
     }
     onClick();
-    // setClick(true);
   };
   return (
     <View
       id={id}
       className={className}
       style={{ opacity: click ? 0.5 : 1 }}
-      // @ts-ignore
       onTouchStart={() => setClick(true)}
       onTouchEnd={() => setClick(false)}
       onClick={e => {

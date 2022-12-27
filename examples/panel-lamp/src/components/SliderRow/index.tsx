@@ -23,17 +23,18 @@ export const SliderRow = (props: IProps) => {
   }, [value])
 
   const formatVal = (v: number) => {
+    // 将值转换成百分比
     const percent = Math.min(Math.round(((100 - min) / (max - min) * v + min)), 100);
     return `${percent}%`;
   };
 
   const handleChangeVal = useThrottleFn((v) => {
+    // 滑动时内部改变值
     setPercentVal(v);
   }, { wait: 80 }).run;
 
   return (
     <View className={styles.brightBox} style={style}>
-      {/* 用display:flex，slider动来动去有BUG，暂时先绝对定位解决问题 */}
       {img && <Image src={img} style={{ width: `${imgSize}rpx`, height: `${imgSize}rpx` }} mode="aspectFill" className={styles.icon} />}
       <View className={styles.sliderBox}>
         <Slider

@@ -76,7 +76,7 @@ if (!LampApi.getUiConfig) {
 }
 
 LampApi.getCloudFun = (name: string, defaultValue: any = null) => {
-  const devInfo = devices.socket.getDevInfo();
+  const devInfo = devices.lamp.getDevInfo();
   return _get(devInfo, ['panelConfig', 'fun', name], defaultValue);
 };
 
@@ -136,7 +136,6 @@ const handleSyncCloudData = async (syncCloudData: any, syncLocalData: any) => {
       eventName: 'beginSyncCloudData',
       event: { syncCloudData, syncLocalData },
     });
-    // TYEvent.emit('beginSyncCloudData', { syncCloudData, syncLocalData });
     if (!_isEmpty(syncLocalData)) {
       const cacheData = (await StorageUtils.getDevItem(LOCAL_DATA_KEY)) || {};
       Object.keys(syncLocalData).forEach(key => {
@@ -153,7 +152,6 @@ const handleSyncCloudData = async (syncCloudData: any, syncLocalData: any) => {
           eventName: 'endSyncCloudData',
           event: formateCacheData(cacheData),
         });
-        // TYEvent.emit('endSyncCloudData', formateCacheData(cacheData));
       }
     }
     if (!_isEmpty(syncCloudData)) {
@@ -168,7 +166,6 @@ const handleSyncCloudData = async (syncCloudData: any, syncLocalData: any) => {
               eventName: 'endSyncCloudData',
               event: formateCacheData(d || {}),
             });
-            // TYEvent.emit('endSyncCloudData', formateCacheData(d || {}));
           });
         }
       };
@@ -190,7 +187,6 @@ const handleSyncCloudData = async (syncCloudData: any, syncLocalData: any) => {
                     eventName: 'syncCloudDataError',
                     event: { [key]: target.data },
                   });
-                  // TYEvent.emit('syncCloudDataError', { [key]: target.data });
                   handleEnd();
                 }
               });
@@ -209,7 +205,6 @@ const handleSyncCloudData = async (syncCloudData: any, syncLocalData: any) => {
                     eventName: 'syncCloudDataError',
                     event: { [key]: target.data },
                   });
-                  // TYEvent.emit('syncCloudDataError', { [key]: target.data });
                   handleEnd();
                 }
               });

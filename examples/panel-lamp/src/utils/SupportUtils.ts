@@ -25,7 +25,7 @@ const cache: Record<string, any> = {};
 const { brightCode, tempCode, colourCode, workModeCode } = dpCodes;
 
 export const supportDp = (code: string) => {
-  const devInfo = devices.socket.getDevInfo();
+  const devInfo = devices.lamp.getDevInfo();
   const { schema } = devInfo || {};
   if (Array.isArray(schema)) {
     const schemaRes = schema.find(i => i.code === code);
@@ -35,7 +35,7 @@ export const supportDp = (code: string) => {
 };
 
 const supportWorkMode = (code: string) => {
-  const devInfo = devices.socket.getDevInfo();
+  const devInfo = devices.lamp.getDevInfo();
   const { schema } = devInfo || {};
   if (Array.isArray(schema)) {
     const schemaRes = schema.find(i => i.code === workModeCode);
@@ -88,7 +88,7 @@ const isSupportByDp = (code: string, dpCode: string, isForce: boolean) => {
 
 const SupportUtils: ISupportUtils = {
   isGroupDevice() {
-    const devInfo = devices.socket.getDevInfo();
+    const devInfo = devices.lamp.getDevInfo();
     return !!devInfo.groupId;
   },
   isSupportBright(isForce = false) {
@@ -125,7 +125,7 @@ const SupportUtils: ISupportUtils = {
   isSupportCloudTimer(devInfo?: DevInfo) {
     if (!devInfo) {
       //@ts-ignore
-      devInfo = devices.socket.getDevInfo();
+      devInfo = devices.lamp.getDevInfo();
     }
     if (devInfo?.panelConfig?.bic) {
       //@ts-ignore
@@ -153,7 +153,7 @@ const SupportUtils: ISupportUtils = {
     return cache[code];
   },
   hasCapability(id: number) {
-    const devInfo = devices.socket.getDevInfo();
+    const devInfo = devices.lamp.getDevInfo();
     // eslint-disable-next-line no-bitwise
     return (devInfo?.capability & (1 << id)) > 0;
   },

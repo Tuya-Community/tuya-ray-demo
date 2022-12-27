@@ -17,7 +17,7 @@
   dependencies:
     "@babel/highlight" "^7.10.4"
 
-"@babel/code-frame@^7.0.0", "@babel/code-frame@^7.16.0", "@babel/code-frame@^7.18.6":
+"@babel/code-frame@^7.0.0", "@babel/code-frame@^7.18.6":
   version "7.18.6"
   resolved "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.18.6.tgz#3b25d38c89600baa2dcc219edfa88a74eb2c427a"
   integrity sha512-TDCmlK5eOvH+eH7cdAFlNXeVJqWIQ7gW9tY1GJIpUtFb6CmjVyq2VM3u71bOyR8CRihcCgMUYoDNyLXao3+70Q==
@@ -50,7 +50,7 @@
     json5 "^2.2.1"
     semver "^6.3.0"
 
-"@babel/generator@^7.15.4", "@babel/generator@^7.19.6":
+"@babel/generator@^7.19.6":
   version "7.19.6"
   resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.19.6.tgz#9e481a3fe9ca6261c972645ae3904ec0f9b34a1d"
   integrity sha512-oHGRUQeoX1QrKeJIKVe0hwjGqNnVYsM5Nep5zo0uE0m42sLH+Fsd2pStJ5sRM1bNyTUUoz0pe2lTeMJrb/taTA==
@@ -269,7 +269,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.1.0", "@babel/parser@^7.11.4", "@babel/parser@^7.14.7", "@babel/parser@^7.16.4", "@babel/parser@^7.18.10", "@babel/parser@^7.19.6", "@babel/parser@^7.7.0":
+"@babel/parser@^7.1.0", "@babel/parser@^7.11.4", "@babel/parser@^7.14.7", "@babel/parser@^7.18.10", "@babel/parser@^7.19.6", "@babel/parser@^7.7.0":
   version "7.19.6"
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.19.6.tgz#b923430cb94f58a7eae8facbffa9efd19130e7f8"
   integrity sha512-h1IUp81s2JYJ3mRkdxJgs4UvmSsRvDrx5ICSJbPvtWYv5i1nTBGcBpnog+89rAFMwvvru6E5NUHdBe01UeSzYA==
@@ -1036,7 +1036,7 @@
     "@babel/parser" "^7.18.10"
     "@babel/types" "^7.18.10"
 
-"@babel/traverse@^7.1.0", "@babel/traverse@^7.11.0", "@babel/traverse@^7.15.4", "@babel/traverse@^7.16.3", "@babel/traverse@^7.19.0", "@babel/traverse@^7.19.1", "@babel/traverse@^7.19.4", "@babel/traverse@^7.19.6", "@babel/traverse@^7.7.0":
+"@babel/traverse@^7.1.0", "@babel/traverse@^7.11.0", "@babel/traverse@^7.16.3", "@babel/traverse@^7.19.0", "@babel/traverse@^7.19.1", "@babel/traverse@^7.19.4", "@babel/traverse@^7.19.6", "@babel/traverse@^7.7.0":
   version "7.19.6"
   resolved "https://registry.npmjs.org/@babel/traverse/-/traverse-7.19.6.tgz#7b4c865611df6d99cb131eec2e8ac71656a490dc"
   integrity sha512-6l5HrUCzFM04mfbG09AagtYyR2P0B71B1wN7PfSPiksDPz2k5H9CBC1tcZpz2M8OxbKTPccByoOJ22rUKbpmQQ==
@@ -1052,7 +1052,7 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
-"@babel/types@^7.0.0", "@babel/types@^7.11.0", "@babel/types@^7.15.6", "@babel/types@^7.16.0", "@babel/types@^7.18.10", "@babel/types@^7.18.6", "@babel/types@^7.18.9", "@babel/types@^7.19.0", "@babel/types@^7.19.4", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4", "@babel/types@^7.7.0", "@babel/types@^7.7.4", "@babel/types@^7.8.0":
+"@babel/types@^7.0.0", "@babel/types@^7.11.0", "@babel/types@^7.16.0", "@babel/types@^7.18.10", "@babel/types@^7.18.6", "@babel/types@^7.18.9", "@babel/types@^7.19.0", "@babel/types@^7.19.4", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4", "@babel/types@^7.7.0", "@babel/types@^7.7.4", "@babel/types@^7.8.0":
   version "7.19.4"
   resolved "https://registry.npmjs.org/@babel/types/-/types-7.19.4.tgz#0dd5c91c573a202d600490a35b33246fed8a41c7"
   integrity sha512-M5LK7nAeS6+9j7hAq+b3fQs+pNfUtTGq+yFFfHnauFA8zQtLRfmuipmsKDKKLuyG+wC8ABW43A153YNawNTEtw==
@@ -1226,6 +1226,11 @@
     js-yaml "^3.13.1"
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
+
+"@gar/promisify@^1.0.1":
+  version "1.1.3"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
+  integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
@@ -1520,71 +1525,87 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@npmcli/fs@^1.0.0":
+  version "1.1.1"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@npmcli/fs/-/fs-1.1.1.tgz#72f719fe935e687c56a4faecf3c03d06ba593257"
+  integrity sha512-8KG5RD0GVP4ydEzRn/I4BNDuxDtqVbOdm8675T49OIG/NGhaK0pjPX7ZcDlvKYbA+ulvVK3ztfcF4uBdOxuJbQ==
+  dependencies:
+    "@gar/promisify" "^1.0.1"
+    semver "^7.3.5"
+
+"@npmcli/move-file@^1.0.1":
+  version "1.1.2"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@npmcli/move-file/-/move-file-1.1.2.tgz#1a82c3e372f7cae9253eb66d72543d6b8685c674"
+  integrity sha512-1SUf/Cg2GzGDyaf15aR9St9TWlb+XvbZXWpDx8YKs7MLzMH/BCeopv+y9vzrzgkfykCGuWOlSu3mZhj2+FQcrg==
+  dependencies:
+    mkdirp "^1.0.4"
+    rimraf "^3.0.2"
+
 "@polka/url@^1.0.0-next.20":
   version "1.0.0-next.21"
   resolved "https://registry.npmjs.org/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@ray-core/ali@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/ali/-/ali-0.0.11.tgz#39b2a5a44806fd3b2691c4638f673484ce75db65"
-  integrity sha512-G9BzjBHNXS8+dxJoMvXaf4ESWEBuo7TbxFroYI2h1DbVPKCORpzP/WMvPuQ1VSKnRq4fIvKX9qqSh/mDodVF8A==
+"@ray-core/ali@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/ali/-/ali-0.1.0.tgz#cc7f35d84e88aeed95f1bb3a4dcf31efd2d4db94"
+  integrity sha512-vDnNdfx3+jeOXQvZC9iC7R4lGvEl+4X2NcCooNBPDM+MaKmABQSEpBBTBpnmw0d0DVLQEVrtfT17oaGcmbMY1g==
   dependencies:
-    "@ray-core/shared" "0.0.11"
+    "@ray-core/shared" "0.1.0"
     mini-types "^0.1.1"
 
-"@ray-core/babel-plugin-auto-css-modules@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/babel-plugin-auto-css-modules/-/babel-plugin-auto-css-modules-0.0.11.tgz#d3feb127c4d4b3e186630241df42eb8abea1ca6f"
-  integrity sha512-Joh7nisjQ+p7BebjOnoDjPA/+X85+W9pqZb8MWisCZQswZlEz1xpbKSWmbympw83r3VzxJNmkyOvLB4I15YBhw==
+"@ray-core/babel-plugin-auto-css-modules@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/babel-plugin-auto-css-modules/-/babel-plugin-auto-css-modules-0.1.0.tgz#071ee583f0a5d9b9136471b543fa7b0989bc2d3a"
+  integrity sha512-HnHh7TEJIDcdreXx1DNt+yl7ukzq5xGpAlMsMMwltrmhS13/LEhzBbxCJQpOIRWlWx75BkR/VrB8uZ5j0aaG3A==
   dependencies:
     "@babel/plugin-syntax-top-level-await" "^7.14.5"
     "@babel/traverse" "^7.11.0"
     "@babel/types" "^7.11.0"
 
-"@ray-core/babel-plugin-remax-host-component@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/babel-plugin-remax-host-component/-/babel-plugin-remax-host-component-0.0.11.tgz#e0714499b6d1ba539565279547dc2cab7b7b1f91"
-  integrity sha512-a57vXpHBAOMQ11bfUofQZmqUsGac/KvYOz3bCTKUhqUhAholnePpZh41QTOEYEtjaMXF52llIH+CoiLncFxWvg==
+"@ray-core/babel-plugin-remax-host-component@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/babel-plugin-remax-host-component/-/babel-plugin-remax-host-component-0.1.0.tgz#f37e00f705a61436da558810c7e7d94e2e325b2f"
+  integrity sha512-b745dpQK0CQB0gIj9336G4A4e72qt21ZyLvPWMk/7MHHd7i23tXwrJ5N5ml13TEd3rsptX9vsL4wr0rxl5r3mA==
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/traverse" "^7.11.0"
     "@babel/types" "^7.11.0"
-    "@ray-core/macro" "0.0.11"
-    "@ray-core/shared" "0.0.11"
+    "@ray-core/macro" "0.1.0"
+    "@ray-core/shared" "0.1.0"
 
-"@ray-core/babel-plugin-remax-lifecycle@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/babel-plugin-remax-lifecycle/-/babel-plugin-remax-lifecycle-0.0.11.tgz#aa065a743522d4ad6ebe552b8578f59f127a7fe0"
-  integrity sha512-V3eHYu2wnagUEibJgWuRczonc1qoPzbLGAQVBrdtawVAN3pArUpXMs0VVh4ZuevdvrUUrHsu1HHzY1g3OnUijg==
+"@ray-core/babel-plugin-remax-lifecycle@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/babel-plugin-remax-lifecycle/-/babel-plugin-remax-lifecycle-0.1.0.tgz#91350919a941d82d77fb17767d9b852ec0329b38"
+  integrity sha512-z9YQztvZYBn/9LzSwqh2NvpjEm39sB2vcFYdo7DmA0+1+aZCiiXxpDN8BMTwNcZW/f7h0xsLI9In3SuUKsYdig==
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/traverse" "^7.11.0"
     "@babel/types" "^7.11.0"
-    "@ray-core/shared" "0.0.11"
+    "@ray-core/shared" "0.1.0"
 
-"@ray-core/babel-plugin-remax-regenerator-runtime@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/babel-plugin-remax-regenerator-runtime/-/babel-plugin-remax-regenerator-runtime-0.0.11.tgz#8e0dabdf0fd9ce8562aaa60f77a3860b0e8c40ba"
-  integrity sha512-V4gWb3QfbX+zdimXRebNJNG5Gxxrf5hBrEh96LhcspMpUPpi7I5Da6HmgBsK3saJalwjyr4wHJrVmIAiUHUdbw==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.10.4"
-    "@babel/traverse" "^7.11.0"
-    "@babel/types" "^7.11.0"
-
-"@ray-core/babel-plugin-remax-turbo-render@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/babel-plugin-remax-turbo-render/-/babel-plugin-remax-turbo-render-0.0.11.tgz#d52bb59b159f74b68cc7d3b49f40b944ed786a3c"
-  integrity sha512-aTp7HiYU90dUpgacaiOYPEXXdiAh7XfJbqQN//t7Pt0OkrrToOBIWCa+Cs+IOyGig5MiNwiD2Jkh9A+IqYFtOg==
+"@ray-core/babel-plugin-remax-regenerator-runtime@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/babel-plugin-remax-regenerator-runtime/-/babel-plugin-remax-regenerator-runtime-0.1.0.tgz#69163f9ad4cd114f1bd43a96135c8a28ca99b10e"
+  integrity sha512-1/zP7p4FGaQ8/3FnJ0oGoXLPAYnnfbtC/dYQOoDV1gb8iA/7Z/Qw6dHUtqUIrsWwc1NB7SOsCdRkKbRNeM5y/A==
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/traverse" "^7.11.0"
     "@babel/types" "^7.11.0"
 
-"@ray-core/babel-preset-remax@0.0.11", "@ray-core/babel-preset-remax@^0.0.x":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/babel-preset-remax/-/babel-preset-remax-0.0.11.tgz#f1f4c9bffbd1504f5e314ec6055a1c23f89ce36d"
-  integrity sha512-I5yNE78Ex+OHkMZReFon8Jw0RoNxiw6RxGHirb6h5QxH6gY8MfeyByEdUupzznh1dTzMp2PJN+F58jCV1IXdHw==
+"@ray-core/babel-plugin-remax-turbo-render@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/babel-plugin-remax-turbo-render/-/babel-plugin-remax-turbo-render-0.1.0.tgz#a7dd2aad9e6be9bedbffefec78dbfd47be1d2e7b"
+  integrity sha512-3BOHEccC7cRVCShwFtxc/MjH3j7+YtZ4+spRoqHGEbuf/kW2Osui2emI+3bMnjC35tZDNAOBbQ9Vi9JGNjyJUw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.10.4"
+    "@babel/traverse" "^7.11.0"
+    "@babel/types" "^7.11.0"
+
+"@ray-core/babel-preset-remax@0.1.0", "@ray-core/babel-preset-remax@^0.1.x":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/babel-preset-remax/-/babel-preset-remax-0.1.0.tgz#e5f6116498d698a2945d137ab03122df9a444bce"
+  integrity sha512-32nn4wCUwG3eEUfdGzKGnWn7AfznvqusotlwPQZP/0yt9gFyRNQRI9afoLQjYwzGBL6bV8jFFTVVQGn2zMl8Hg==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-proposal-class-properties" "^7.7.4"
@@ -1596,22 +1617,22 @@
     "@babel/preset-env" "^7.7.4"
     "@babel/preset-react" "^7.7.4"
     "@babel/preset-typescript" "^7.7.4"
-    "@ray-core/babel-plugin-auto-css-modules" "0.0.11"
+    "@ray-core/babel-plugin-auto-css-modules" "0.1.0"
     babel-plugin-auto-import "^1.0.5"
     babel-plugin-macros "^3.1.0"
     lodash "^4.17.15"
 
-"@ray-core/build-store@0.0.11", "@ray-core/build-store@^0.0.x":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/build-store/-/build-store-0.0.11.tgz#264d2310f57d39096eae81ac8ea9551e48989e8c"
-  integrity sha512-O6rPYCop0w2/1mcK9vwDFB+PNKgeqtHkRjfMDIW5vwjMv/wNILQNX8XjJ5U+wKfVTHNREyCouqpluvMd3JHkdg==
+"@ray-core/build-store@0.1.0", "@ray-core/build-store@^0.1.x":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/build-store/-/build-store-0.1.0.tgz#29c0f857158a88781b7c765e35a313bba087f710"
+  integrity sha512-KnCKENwkijWmNNPTbMEzIe0glT62AU0Unr95MMmnfoMiDCsJcdq8tT9J+LvjWjp9jYAuK2G8Q1xXu0GDGbEylQ==
   dependencies:
-    "@ray-core/shared" "0.0.11"
+    "@ray-core/shared" "0.1.0"
 
-"@ray-core/cli@0.0.11", "@ray-core/cli@^0.0.x":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/cli/-/cli-0.0.11.tgz#1f0d3f0f562df918d1e9a376ab25fda6425ca08c"
-  integrity sha512-xUxrpf+wN0u+ZvW+F+qp+1zwscHgc/vsAXSNZWoiHYUJBF6b+LGMZY+Ovc70URckkKq2yFwFRGISMSgRmVYzAA==
+"@ray-core/cli@0.1.0", "@ray-core/cli@^0.1.x":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/cli/-/cli-0.1.0.tgz#08470afaa8b9a873c0d6bd58d4d5bea41c5e60da"
+  integrity sha512-KxQCPRARSPTrjpt9PiVGVlVU8motrS01fgZUkdWNAj4u67Sk7fA21XPTzYvXsM4I/PXzjVQHqqcqK2HfSTJgLg==
   dependencies:
     "@babel/core" "^7.7.4"
     "@babel/helper-module-imports" "^7.7.4"
@@ -1619,23 +1640,23 @@
     "@babel/preset-typescript" "^7.7.4"
     "@babel/register" "^7.7.0"
     "@babel/types" "^7.7.4"
-    "@ray-core/babel-plugin-remax-host-component" "0.0.11"
-    "@ray-core/babel-plugin-remax-lifecycle" "0.0.11"
-    "@ray-core/babel-plugin-remax-regenerator-runtime" "0.0.11"
-    "@ray-core/babel-plugin-remax-turbo-render" "0.0.11"
-    "@ray-core/babel-preset-remax" "0.0.11"
-    "@ray-core/build-store" "0.0.11"
-    "@ray-core/macro" "0.0.11"
-    "@ray-core/plugin-devtools" "0.0.11"
-    "@ray-core/plugin-error-screen" "0.0.11"
-    "@ray-core/postcss-tag" "0.0.11"
-    "@ray-core/shared" "0.0.11"
+    "@ray-core/babel-plugin-remax-host-component" "0.1.0"
+    "@ray-core/babel-plugin-remax-lifecycle" "0.1.0"
+    "@ray-core/babel-plugin-remax-regenerator-runtime" "0.1.0"
+    "@ray-core/babel-plugin-remax-turbo-render" "0.1.0"
+    "@ray-core/babel-preset-remax" "0.1.0"
+    "@ray-core/build-store" "0.1.0"
+    "@ray-core/macro" "0.1.0"
+    "@ray-core/plugin-devtools" "0.1.0"
+    "@ray-core/plugin-error-screen" "0.1.0"
+    "@ray-core/postcss-tag" "0.1.0"
+    "@ray-core/shared" "0.1.0"
     "@remax/postcss-px2units" "^0.2.0"
     address "^1.1.2"
     babel-loader "^8.2.5"
     babel-plugin-module-resolver "^4.0.0"
     chokidar "^3.4.0"
-    copy-webpack-plugin "^11.0.0"
+    copy-webpack-plugin "^6.1.0"
     css-loader "^6.7.1"
     detect-port "^1.3.0"
     dotenv "^8.2.0"
@@ -1643,9 +1664,9 @@
     ejs "^3.0.1"
     express "^4.17.1"
     file-loader "^6.0.0"
+    fs-extra "^11.1.0"
     html-webpack-plugin "^5.5.0"
     htmlparser2 "^4.0.0"
-    less-loader "^11.0.0"
     loader-utils "^2.0.0"
     lodash "^4.17.11"
     mini-css-extract-plugin "^2.6.1"
@@ -1657,6 +1678,7 @@
     remax-stats "^0.1.1"
     resolve "^1.12.0"
     schema-utils "^2.6.1"
+    speed-measure-webpack-plugin "^1.5.0"
     style-loader "^3.3.1"
     webpack "^5.74.0"
     webpack-bundle-analyzer "^4.5.0"
@@ -1673,79 +1695,106 @@
   dependencies:
     react-is "^17.0.2"
 
-"@ray-core/macro@0.0.11", "@ray-core/macro@^0.0.x":
+"@ray-core/framework-shared@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/framework-shared/-/framework-shared-0.1.0.tgz#d4d89a8e0f9d86063aa788e20899064a22c7c699"
+  integrity sha512-W/Krixo2MAr2c3o/p5IJ19x7U80gCmVl4o7OdNIRXJL9HH+WjPoxDRUqRtdXKmNEju8MyZI/9TqXgQSU3tDNxg==
+  dependencies:
+    react-is "^17.0.2"
+
+"@ray-core/macro@0.1.0", "@ray-core/macro@^0.1.x":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/macro/-/macro-0.1.0.tgz#f9f0ebabd9775150dd1b52cb0f33afc1f3bc41d9"
+  integrity sha512-+uCRP34hjJBPH4EPzi1UyLFHa+JhTZvuryx98XqAY3uUPDEEyaEPJ3FH+dCD+t1kBKX8ABc8NIGXUI4lxZulgQ==
+  dependencies:
+    "@ray-core/shared" "0.1.0"
+
+"@ray-core/macro@^0.0.x":
   version "0.0.11"
   resolved "https://registry.npmjs.org/@ray-core/macro/-/macro-0.0.11.tgz#7bfbe12afcb7c02610d4c7a7091edfb539469d60"
   integrity sha512-aZJXN9xtIVEd2TQLrvQOn4KJmpl5bcxTQNbiTMWWGYgUME4KWw2pEhrY2G+1D4fiS3T3kq/Z44ogtiTRKVcWog==
   dependencies:
     "@ray-core/shared" "0.0.11"
 
-"@ray-core/one@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/one/-/one-0.0.11.tgz#96b660c251f41cc234f165e8c5de0dab63f92e54"
-  integrity sha512-4qVNx2BvV+J8yh16L1IYuCbmJ4kOjqo5k8L0L3AqS8vRRoHOHkAo1KZS7h9rU7/2BoKatAx2N8wEUoQ6dfVnFQ==
+"@ray-core/one@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/one/-/one-0.1.0.tgz#8ff26781bdf435eff29ad28e86fd0775f48488a5"
+  integrity sha512-PVKfDuzdDJwDW4WGgkr1EvZy5JOJlaKC+NJ8svzsTJFcBY/Z73Qf3pHBuNUGErXTDSivnRwMQx1C3YD+cZz/eA==
   dependencies:
-    "@ray-core/ali" "0.0.11"
-    "@ray-core/framework-shared" "0.0.11"
-    "@ray-core/runtime" "0.0.11"
-    "@ray-core/toutiao" "0.0.11"
-    "@ray-core/web" "0.0.11"
-    "@ray-core/wechat" "0.0.11"
+    "@ray-core/ali" "0.1.0"
+    "@ray-core/framework-shared" "0.1.0"
+    "@ray-core/runtime" "0.1.0"
+    "@ray-core/toutiao" "0.1.0"
+    "@ray-core/web" "0.1.0"
+    "@ray-core/wechat" "0.1.0"
     clsx "^1.1.0"
     memoize-one "^5.1.1"
     react-autosize-textarea "^7.0.0"
 
-"@ray-core/plugin-devtools@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/plugin-devtools/-/plugin-devtools-0.0.11.tgz#36bdc866967ee1a30f0f4b2920efc4fe49ea1da2"
-  integrity sha512-y3PSQel3rtoWZS5oBU9gqAHR7gECCTZRO6iWpA3AW0cCxXB/6BzNRHayeQKkViiABX6Mwg5Gd0s6D2dq0E6LBA==
+"@ray-core/plugin-devtools@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/plugin-devtools/-/plugin-devtools-0.1.0.tgz#d75ff0233cf7ee97cc09bc704c03bc480e7a2f14"
+  integrity sha512-srjpj/zuN350Heewbzia/x+gVByQpNrAntt2O5sjDWgNurrnP87HJIWhyWSof863sDTBWMpWiSII4ECeQkmjhw==
   dependencies:
-    "@ray-core/shared" "0.0.11"
+    "@ray-core/shared" "0.1.0"
     "@remax/react-devtools-core" "^4.7.1"
     webpack-inject-plugin "^1.5.4"
 
-"@ray-core/plugin-error-screen@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/plugin-error-screen/-/plugin-error-screen-0.0.11.tgz#eadc71e8821c6cf1be97504bd12e08561a8fea04"
-  integrity sha512-EUuPSKRDQxA8ZskRkx8EQveQ1lT4M6tmyy9MPDoo6dvScCZi2dEUpquK7xnbGm80d7v01vZa4Fi9CRQpXFH35g==
+"@ray-core/plugin-error-screen@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/plugin-error-screen/-/plugin-error-screen-0.1.0.tgz#d7dd956df9ddb363a707427a308020b3abe61aaf"
+  integrity sha512-4HzvlS/MPTx+EErJIk2cty0BDYkfMtz8ELldM9qyKMc2QoGZ3bS5wLVOriY+6Gmn3VOu3k6Xs6vtqd5IYnCIug==
   dependencies:
-    "@ray-core/redbox-react" "0.0.11"
-    "@ray-core/shared" "0.0.11"
+    "@ray-core/redbox-react" "0.1.0"
+    "@ray-core/shared" "0.1.0"
     webpack-virtual-modules "^0.4.4"
 
-"@ray-core/postcss-tag@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/postcss-tag/-/postcss-tag-0.0.11.tgz#bbbde4ff8e3041c49a943691b90d331142dbfedf"
-  integrity sha512-S3Sm7nxDD7ycFMbmloNBymyePkouGJ72RmxjtJBo7tMMsYl6ReJ/FTDeraLPyj+q+2ao+fseGLmAYHx3rG7Zzw==
+"@ray-core/postcss-tag@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/postcss-tag/-/postcss-tag-0.1.0.tgz#9a264758a18f8b1f22fd63abe7eae0d52d376c03"
+  integrity sha512-ElbMGj1JUei7WQ574Dt2+6InIlJPajEpcwVxkAu3iXHpOJ/8pcNHBv7oOOF+s0JdX98AEWG+SgcOcW4m7fJjsA==
 
-"@ray-core/ray@^0.0.x":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/ray/-/ray-0.0.11.tgz#be64adff5af467a354a4caa34e05491c569c9613"
-  integrity sha512-JbPGRWqiPSoKghomv0YvK5c9lzqbOFBu3vA4E8FkEfjnltOt5/dpV8r4jlRAXIQoIwrdQsVpt/Qu2rcSaJ6dFg==
+"@ray-core/ray@^0.1.x":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/ray/-/ray-0.1.0.tgz#aec956f2b485f492231639305a7912f87f7a1996"
+  integrity sha512-X68lPKQxrm4D1H3YliK331egZWM6dBBh3pT8kSuPlqVQFpz2FgCMrSHrEkveGi2XYNQt/8vtgqaEDhn6gagFrA==
   dependencies:
-    "@ray-core/ali" "0.0.11"
-    "@ray-core/cli" "0.0.11"
-    "@ray-core/macro" "0.0.11"
-    "@ray-core/one" "0.0.11"
-    "@ray-core/runtime" "0.0.11"
-    "@ray-core/toutiao" "0.0.11"
-    "@ray-core/types" "0.0.11"
-    "@ray-core/web" "0.0.11"
-    "@ray-core/wechat" "0.0.11"
+    "@ray-core/ali" "0.1.0"
+    "@ray-core/cli" "0.1.0"
+    "@ray-core/macro" "0.1.0"
+    "@ray-core/one" "0.1.0"
+    "@ray-core/runtime" "0.1.0"
+    "@ray-core/toutiao" "0.1.0"
+    "@ray-core/types" "0.1.0"
+    "@ray-core/web" "0.1.0"
+    "@ray-core/wechat" "0.1.0"
     mini-types "^0.1.1"
     miniprogram-api-typings "^3.4.3"
 
-"@ray-core/redbox-react@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/redbox-react/-/redbox-react-0.0.11.tgz#12f52a1b167e6571942226e8503cb0f567bd423f"
-  integrity sha512-0dp5d+7GV0M2UqGIR+Tu2eTkfUGUPJ+HSMSzw0MGmRFVa9Naj7PY5TIcwZA04VpsczM7loFlSs+VS5zqZsGUYg==
+"@ray-core/redbox-react@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/redbox-react/-/redbox-react-0.1.0.tgz#d2a489a9985c38f92b7d4a6b2d7f109c063a354c"
+  integrity sha512-bRino/IQTLRleZYBg7NZpRYPy4CHCuLKM+l5jBOY0DUiICboDA0kNf3edMWmbORWVmM7m5YUxptzoqkwP3mN4g==
   dependencies:
     error-stack-parser "^1.3.6"
     object-assign "^4.0.1"
     prop-types "^15.5.4"
     sourcemapped-stacktrace "^1.1.6"
 
-"@ray-core/runtime@0.0.11", "@ray-core/runtime@^0.0.x":
+"@ray-core/runtime@0.1.0", "@ray-core/runtime@^0.1.x":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/runtime/-/runtime-0.1.0.tgz#219b09311db7299c2da1342f609ff71b21f15100"
+  integrity sha512-GDuyfhR09DJFK/vlAe61Y0kWq6Q185ODkBCfUmIVzi0YSuNwSGwr37L46oX/fDbUXsieO2NCej4NShp5WfyqFA==
+  dependencies:
+    "@ray-core/framework-shared" "0.1.0"
+    "@ray-core/shared" "0.1.0"
+    "@ray-core/web" "0.1.0"
+    qs "^6.9.3"
+    react-is "^17.0.2"
+    react-reconciler "0.26.2"
+    scheduler "0.19.1"
+
+"@ray-core/runtime@^0.0.x":
   version "0.0.11"
   resolved "https://registry.npmjs.org/@ray-core/runtime/-/runtime-0.0.11.tgz#a52fbb50c302cce4e4dc05cd8d9c60adbd469517"
   integrity sha512-vkXUDiXtLFpGuC8Y29LAXKEy2nln9Dlr5WdMFSedzWGhdwu36PmuPseH2DWLv5fCgFHcTKamH5iGT/q8D3VWRA==
@@ -1767,14 +1816,33 @@
     "@babel/traverse" "^7.11.0"
     htmlparser2 "^4.1.0"
 
-"@ray-core/toutiao@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-core/toutiao/-/toutiao-0.0.11.tgz#4c1a408ea3d1d925479e77659d68444bb69b3d64"
-  integrity sha512-Njtyf+JCG8uTp2xm8QXtLt7L7Q9Vd6J02+5XHHqaBJ3GS0heBFWbek8oIKkZk+QosKhVQdRCp2VwhSUdjJb6oA==
+"@ray-core/shared@0.1.0", "@ray-core/shared@^0.1.x":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/shared/-/shared-0.1.0.tgz#3553b429df01cca903be2023a5dd1408bbdea6f9"
+  integrity sha512-HsBg4k7T90IuVnJTaDHXqzilqgutUodJL2dxa7ecW6K4C/2UJQRvit7Eq8TaPgLvppK5zq7222HCX1PgROaPGw==
   dependencies:
-    "@ray-core/shared" "0.0.11"
+    "@babel/parser" "^7.11.4"
+    "@babel/traverse" "^7.11.0"
+    htmlparser2 "^4.1.0"
 
-"@ray-core/types@0.0.11", "@ray-core/types@^0.0.x":
+"@ray-core/toutiao@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/toutiao/-/toutiao-0.1.0.tgz#a768db8fb9a13e2e478abef43c0e04ed43efd607"
+  integrity sha512-fdAAeDw8ZHhW3VpUfz/jWRYFo/SuIwyNIrXK2VDR6O+uH2axHPRGS7Ics1I0GS9PoysVNuJLOzlwGdSgAzdgZA==
+  dependencies:
+    "@ray-core/shared" "0.1.0"
+
+"@ray-core/types@0.1.0", "@ray-core/types@^0.1.x":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/types/-/types-0.1.0.tgz#94927c02574a7ba83a26125c82e192e27f687251"
+  integrity sha512-9CbaMuRigT6zUnkQMDk2m5t5ut9guqTyG/hyjKyYfc1oaR6QJdKeWEJ00We+3b1fETSaTOBxcWVYuQoXuE6v2w==
+  dependencies:
+    "@babel/types" "^7.8.0"
+    "@types/react" "^16.9.56"
+    "@types/yargs" "^15.0.0"
+    webpack-chain "^6.4.0"
+
+"@ray-core/types@^0.0.x":
   version "0.0.11"
   resolved "https://registry.npmjs.org/@ray-core/types/-/types-0.0.11.tgz#bd9bfb6099cb5c8700aa83b7afccdd472e85edc7"
   integrity sha512-K/9POnrxf41y6Jg4q+7sT0W2NKDvpBpNTaWOnNEPAYZQJNyrs1dV97Ob9rYs1nmbQn+OPvaHTKDcXxF5bRk9og==
@@ -1797,22 +1865,34 @@
     rmc-pull-to-refresh "^1.0.12"
     umi-hd "^5.0.1"
 
-"@ray-core/wechat@0.0.11", "@ray-core/wechat@^0.0.x":
+"@ray-core/web@0.1.0":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/web/-/web-0.1.0.tgz#9a919cb31ce1bb0256a111b4b68ad5bdcf3fbe7a"
+  integrity sha512-Qc7mypjLkQbR4D4W2oRE7EuKgd1n9KmrmFuM4lZ/V+l4aBfDmc5jKo8tNShixtWuABqB6gj97mwrgx+AaWLQ4A==
+  dependencies:
+    "@loadable/component" "^5.12.0"
+    "@ray-core/framework-shared" "0.1.0"
+    "@remax/react-router-cache-route" "^1.8.4"
+    react-is "^17.0.2"
+    react-router-dom "^5.2.0"
+    rmc-pull-to-refresh "^1.0.12"
+    umi-hd "^5.0.1"
+
+"@ray-core/wechat@0.1.0", "@ray-core/wechat@^0.1.x":
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-core/wechat/-/wechat-0.1.0.tgz#524428d30b67a2d6f5f2e07a63d43e185c38d29f"
+  integrity sha512-UR8amOkHfel+4ChRKOYpjOORXBt14bn1FWNsW2trNB269E/rdloE8HWHIndraqBjqz8tsGnizexNpXiGUhMMIA==
+  dependencies:
+    "@ray-core/shared" "0.1.0"
+    miniprogram-api-typings "^3.4.3"
+
+"@ray-core/wechat@^0.0.x":
   version "0.0.11"
   resolved "https://registry.npmjs.org/@ray-core/wechat/-/wechat-0.0.11.tgz#4d6a49699f4c04e4eaa4d05abef86a4548f1371d"
   integrity sha512-HEzhvWkNNqSnH/55Te9dF1CI2SPWi6n0f8BKMFQbF58+KDK+YyTsxynaOKGQVi3FGBqcWAkfmPh8RC4JtyDSxQ==
   dependencies:
     "@ray-core/shared" "0.0.11"
     miniprogram-api-typings "^3.4.3"
-
-"@ray-js/adapter@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/adapter/-/adapter-0.6.14.tgz#9f76a41195e1267b7e58160c88bfa97aace4544e"
-  integrity sha512-K16MBGf1xgmNY3/a6dNKk5dnSJc1HrUC78jmqtZSwF+/K9dpAD7X3qtFbqAdNy5QjAE4z4z6B1ER4LqWaa9enA==
-  dependencies:
-    "@ray-core/runtime" "^0.0.x"
-    "@ray-core/shared" "^0.0.x"
-    "@ray-core/types" "^0.0.x"
 
 "@ray-js/adapter@^0.6.26":
   version "0.6.26"
@@ -1823,13 +1903,14 @@
     "@ray-core/shared" "^0.0.x"
     "@ray-core/types" "^0.0.x"
 
-"@ray-js/api@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/api/-/api-0.6.14.tgz#b03715c70161e351a4dca80b072a53691b811f4e"
-  integrity sha512-W7q4DpaMtjt3Crkav4i+4xAq4WMieXaGfCvoaeljX2sYLy3S/TuW+kIAwFYJxJf3cqpZsPSy9Yu9Yra+8d2Uiw==
+"@ray-js/adapter@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/adapter/-/adapter-0.6.32.tgz#c4cf360829b454966c54c15377aaf60ed0ff50d7"
+  integrity sha512-5urSF71fWBhlpdPFh3nl3zoUJuCAh8cjZL0cj0ByUwEpxFnkUNP4Dot0gDwbuBNi9mDPo6T/GFMmBKu+Er2ZzA==
   dependencies:
-    "@ray-js/framework" "^0.6.14"
-    "@ray-js/router" "^0.6.14"
+    "@ray-core/runtime" "^0.1.x"
+    "@ray-core/shared" "^0.1.x"
+    "@ray-core/types" "^0.1.x"
 
 "@ray-js/api@^0.6.26":
   version "0.6.26"
@@ -1840,20 +1921,29 @@
     "@ray-js/panel-sdk" "^1.2.1"
     "@ray-js/router" "^0.6.26"
 
-"@ray-js/babel-preset-base@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/babel-preset-base/-/babel-preset-base-0.6.14.tgz#424838494cac52aa084d97694581bd6fe9df0b5c"
-  integrity sha512-E1AH1un2CqAXmtqsNFtgtpxXYJ/1I7U9nBqYzjLorrn6Uk3+ja+SNS+wMQhZoVY1BSWltTPY2S61WPENB3XbOQ==
+"@ray-js/api@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/api/-/api-0.6.32.tgz#0504f077f72ba7ba8fecee1b2f2af07af1936836"
+  integrity sha512-B6DPLv6FGCiWgCMGqw4Y7Vy1ItirsVtnsC9VM2wVeM7HblpR3z2NlTJKiPoIRkVhV+j5Nluuj5xmBhNXZt/6cQ==
+  dependencies:
+    "@ray-js/framework" "^0.6.32"
+    "@ray-js/panel-sdk" "^1.2.2"
+    "@ray-js/router" "^0.6.32"
+
+"@ray-js/babel-preset-base@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/babel-preset-base/-/babel-preset-base-0.6.32.tgz#7cbe08f716cbe8627a5e61b17cc35ee8bf89e1fc"
+  integrity sha512-JoPgtiDk1WJrIHo/+AJBwWfk4aLs4zxIuOuh5nVeyW4oYjuaboROw+WuRcFkOeUzNgHTRfJAWjOVsxNpuxgcxw==
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-transform-runtime" "^7.15.0"
     "@babel/preset-env" "^7.15.4"
     "@babel/preset-typescript" "^7.15.0"
 
-"@ray-js/babel-preset-standard@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/babel-preset-standard/-/babel-preset-standard-0.6.14.tgz#d592e15d1ba9a5a9018211b9270abe6402b3d0d7"
-  integrity sha512-1F5fcbdkHZFU57xjKoM3YVMgtOhRTGCZaBMzJk8uuLZlFz6vARGjoXE4GS3qMwfv/EEQVu3aDUFTkko+TMF6Xw==
+"@ray-js/babel-preset-standard@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/babel-preset-standard/-/babel-preset-standard-0.6.32.tgz#1fbfd0e291c6957b4c5ed8eb3d74bf2803f899cf"
+  integrity sha512-3Me5EbSU+xSdWH8fSEj8h3U95wsxRG95JgYq+udHuHXaaCrfPbZkK3xFW6cZostpPdJe7/bumEsDb1QTe5iygQ==
   dependencies:
     "@babel/plugin-proposal-decorators" "^7.15.4"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.14.5"
@@ -1861,65 +1951,67 @@
     "@babel/plugin-proposal-optional-chaining" "^7.14.5"
     "@babel/plugin-syntax-jsx" "^7.14.5"
     "@babel/preset-react" "^7.14.5"
-    "@ray-js/babel-preset-base" "^0.6.14"
+    "@ray-js/babel-preset-base" "^0.6.32"
     babel-plugin-macros "^3.1.0"
     babel-plugin-minify-dead-code-elimination-while-loop-fixed "^0.3.0"
     babel-plugin-transform-prune-unused-imports "^1.0.1"
 
-"@ray-js/build-plugin-ray@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/build-plugin-ray/-/build-plugin-ray-0.6.14.tgz#cf0cc3d3f6afd333a7a70c7f19e9ab25ccfe24df"
-  integrity sha512-vOKmXdQmN4vVRVgH6yQnpKp7W4anjEtvaCwf7ZUH3CrTJHwhtPk5UrYfn/dcKCUH4+T8CInZVGkUaRWfSLkb4Q==
+"@ray-js/build-plugin-ray@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/build-plugin-ray/-/build-plugin-ray-0.6.32.tgz#04d42234885cefff0dbbdba1f7ac05d807ac39b7"
+  integrity sha512-sSAcy6Hetw4uRMoQy/rL8wMb65MAdQ4sIOec4EnDd2QzWoVf74tOy0oiGbEb35JwyPglKiJMRixxjRmh0eHEeQ==
   dependencies:
-    "@ray-js/shared" "^0.6.14"
+    "@ray-js/shared" "^0.6.32"
     colors "1.4.0"
     fs-extra "^10.0.0"
+    slash "^3.0.0"
 
-"@ray-js/build-plugin-router@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/build-plugin-router/-/build-plugin-router-0.6.14.tgz#1dcff5246b6bca8c3e3d4a7efcf5fd74b3b0d3df"
-  integrity sha512-eSVrfY0syQIBH/UkwYgxkUmkDwD/XiKtORQwOeFpF0NKGIPTKdHoxC4/fg9ft1nHUxcBJoL3iPeK6mbto/HOnQ==
+"@ray-js/build-plugin-router@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/build-plugin-router/-/build-plugin-router-0.6.32.tgz#f52b31ddbf3b899b05a0181303c5ae9142c7ee69"
+  integrity sha512-FnKc/z6WeaW0rRhzE0xTDkoPlaqEtqTI0qrG5yhGhkpIpXor/uaB05ca/rN2U5YreyEBP8d8yQ1JM2RfF964ow==
   dependencies:
-    "@ray-js/shared" "^0.6.14"
+    "@ray-js/shared" "^0.6.32"
     chokidar "^3.5.2"
     colors "1.4.0"
     ejs "^3.1.6"
     fs-extra "^10.0.0"
+    path-to-regexp "^6.2.1"
+    url "^0.11.0"
 
-"@ray-js/builder-component@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/builder-component/-/builder-component-0.6.14.tgz#6e95dffb3743c9f399a589ec3a7a5c5922c05d1d"
-  integrity sha512-VygliHJi9HBhg/AAhdxmtzrd5xWWfRPmyoLEwRKzT2JPTMfHTkP/5ios95UXbzDAvVvP3fldKBD9zLERIsoEmw==
+"@ray-js/builder-component@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/builder-component/-/builder-component-0.6.32.tgz#f2a37a894d3548c7eda8035d0125732a78ae670e"
+  integrity sha512-cnIOrMNe0WZA5LrPm2+ZQNtbBR6IcvSAa6dgC/Y0+21aCBuHJpfMfEqEAXDbiQzsVZRmQdc8YwPGdm8Gj8YdPg==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/traverse" "^7.16.3"
     "@babel/types" "^7.16.0"
-    "@ray-js/babel-preset-standard" "^0.6.14"
-    "@ray-js/env-loader" "^0.6.14"
-    "@ray-js/shared" "^0.6.14"
-    "@ray-js/types" "^0.6.14"
+    "@ray-js/babel-preset-standard" "^0.6.32"
+    "@ray-js/shared" "^0.6.32"
+    "@ray-js/types" "^0.6.32"
     babel-plugin-import "^1.13.3"
     chokidar "^3.5.2"
     colors "1.4.0"
     fs-extra "^10.0.0"
     globby "11.x"
 
-"@ray-js/builder-mp@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/builder-mp/-/builder-mp-0.6.14.tgz#d11b736679167fbf3790dc7a9e17de590ca200bf"
-  integrity sha512-DxcYW48Z0umLZCPmNAR/vDaZFAmf9e3Z4FiXOpI2pT14491ACe5bUYyPbEckO3bnqeCKgRq74kVSQ8138Npxiw==
+"@ray-js/builder-mp@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/builder-mp/-/builder-mp-0.6.32.tgz#2bec03e849be523b827348123aba65244c87b16a"
+  integrity sha512-8k/iTD7w10f1BeDfu4hT8S339SGbygatAXCwhYc+1TaN6HNemPYWlXkCfN/2gz/zYPi4o7AyMbvWU1kU5w9qxA==
   dependencies:
     "@babel/template" "^7.16.0"
     "@babel/traverse" "^7.16.3"
     "@babel/types" "^7.16.0"
-    "@ray-core/babel-preset-remax" "^0.0.x"
-    "@ray-core/build-store" "^0.0.x"
-    "@ray-core/cli" "^0.0.x"
-    "@ray-core/ray" "^0.0.x"
-    "@ray-js/adapter" "^0.6.14"
-    "@ray-js/shared" "^0.6.14"
-    "@ray-js/types" "^0.6.14"
+    "@ray-core/babel-preset-remax" "^0.1.x"
+    "@ray-core/build-store" "^0.1.x"
+    "@ray-core/cli" "^0.1.x"
+    "@ray-core/ray" "^0.1.x"
+    "@ray-js/adapter" "^0.6.32"
+    "@ray-js/shared" "^0.6.32"
+    "@ray-js/types" "^0.6.32"
     babel-loader "^8.2.3"
     babel-plugin-minify-dead-code-elimination "^0.5.1"
     babel-plugin-transform-prune-unused-imports "^1.0.1"
@@ -1935,23 +2027,22 @@
     webpack-chain "^6.5.1"
     webpack-virtual-modules "^0.4.4"
 
-"@ray-js/builder-web@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/builder-web/-/builder-web-0.6.14.tgz#e4d8f203d71b8e7ab9df402ca22b19807a903414"
-  integrity sha512-t/X8u/MB23eOAnUkOFCNTEcRTWnwtJyZ4lNN6J0XNYAcSGn9XfxSZa2REaQJeP9RDZbzrpeOewuC5gPZ8L6ZnQ==
+"@ray-js/builder-web@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/builder-web/-/builder-web-0.6.32.tgz#ce588950e89a5d84c2d45739460cd2e5761a7ae0"
+  integrity sha512-S5CggIK18W1XayUX+B8KWdk/dcNO8bt3MlSI7VvTyc8yLAt1sjdfghTX6792yagZ3mZgCiYJ+bkKchjd/WcnoQ==
   dependencies:
-    "@ray-js/babel-preset-standard" "^0.6.14"
-    "@ray-js/env-loader" "^0.6.14"
-    "@ray-js/shared" "^0.6.14"
-    "@ray-js/types" "^0.6.14"
+    "@ray-js/babel-preset-standard" "^0.6.32"
+    "@ray-js/shared" "^0.6.32"
+    "@ray-js/types" "^0.6.32"
     address "^1.1.2"
     autoprefixer "9.x"
-    camelcase "^6.2.1"
     case-sensitive-paths-webpack-plugin "^2.4.0"
     colors "1.4.0"
     copy-webpack-plugin "^11.0.0"
     css-loader "5.x"
     detect-port "^1.3.0"
+    ejs "^3.1.6"
     fs-extra "^10.0.0"
     html-webpack-plugin "^5.5.0"
     inquirer "^8.2.0"
@@ -1960,6 +2051,7 @@
     postcss-loader "3.x"
     postcss-selector-rename "^2.1.0"
     postcss-units-transform "^1.1.0"
+    slash "^3.0.0"
     style-loader "2.x"
     webpack "^5.74.0"
     webpack-bundle-analyzer "^4.5.0"
@@ -1967,18 +2059,18 @@
     webpack-dev-server "^3.0.0"
     webpackbar "^5.0.2"
 
-"@ray-js/cli@^0.6.13":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/cli/-/cli-0.6.14.tgz#524bd4cedfe61da8cf682abfa66fca32510d4d44"
-  integrity sha512-h4otaes9AQ6/ufwGYLE0cer3fDDPIQcxmKCR1I46LDHbY3stU9z8WTCqQsO2IKASAkE95sCZrgU3GCnMWuH9bA==
+"@ray-js/cli@^0.6.30":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/cli/-/cli-0.6.32.tgz#c8664e031e38da8800bfd6d2d2ff397d3fb6daf3"
+  integrity sha512-tmaqDXA2DYiQIgkh4TwhqQ/BVE8VyxGggiLLAKNuy+h/ih5WlonDUmQIsBu+WFqSGKisEbcdYchG++MeyvDu1Q==
   dependencies:
-    "@ray-js/build-plugin-ray" "^0.6.14"
-    "@ray-js/build-plugin-router" "^0.6.14"
-    "@ray-js/builder-component" "^0.6.14"
-    "@ray-js/builder-mp" "^0.6.14"
-    "@ray-js/builder-web" "^0.6.14"
-    "@ray-js/shared" "^0.6.14"
-    "@ray-js/types" "^0.6.14"
+    "@ray-js/build-plugin-ray" "^0.6.32"
+    "@ray-js/build-plugin-router" "^0.6.32"
+    "@ray-js/builder-component" "^0.6.32"
+    "@ray-js/builder-mp" "^0.6.32"
+    "@ray-js/builder-web" "^0.6.32"
+    "@ray-js/shared" "^0.6.32"
+    "@ray-js/types" "^0.6.32"
     colors "1.4.0"
     commander "^8.2.0"
     webpack-chain "^6.5.1"
@@ -2041,22 +2133,6 @@
   dependencies:
     ahooks "^3.5.2"
 
-"@ray-js/components@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/components/-/components-0.6.14.tgz#9e4d34626f405345df0f26817f93cc7b2830a8ac"
-  integrity sha512-eKE7sjOZmMg32OW04htMaozmIL94DIhr67UWT8U3YbwI/7VnZnRsK9D8oecgjD+faewSrQxA/jOLufVng/NHvQ==
-  dependencies:
-    "@ray-core/macro" "^0.0.x"
-    "@ray-core/wechat" "^0.0.x"
-    "@ray-js/framework-shared" "^0.6.14"
-    ahooks "^3.7.1"
-    clsx "^1.1.1"
-    core-js "^3.19.1"
-    hooks "^0.3.2"
-    param-case "^3.0.4"
-    react "^17.0.2"
-    style-to-object "^0.3.0"
-
 "@ray-js/components@^0.6.26":
   version "0.6.26"
   resolved "https://registry.npmjs.org/@ray-js/components/-/components-0.6.26.tgz#ba7b76b07dd8efaa2ff7267eb3823f8626f94305"
@@ -2074,37 +2150,32 @@
     react "^17.0.2"
     style-to-object "^0.3.0"
 
-"@ray-js/env-loader@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/env-loader/-/env-loader-0.6.14.tgz#f8bb24fa3b053cafe218564da6cb515d1270e675"
-  integrity sha512-DIBps/qW4Yrg9RgavcT2bl0YiHoYLBZllrxH0rJooU8g8KDuNarSVduC9hmfuGieC/NbAQwkSCeHfFMKXROYwg==
+"@ray-js/components@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/components/-/components-0.6.32.tgz#c201dcd768442c877701dd025feff779034e07d6"
+  integrity sha512-5Sw3YUwe3TuDL42yK8K/p7zwfVBpIQfmfw02VRNpdPY0EgEUpck2LRoXg4Ain+ONV6wUd9Xsz0mKPlYAAYwtQg==
   dependencies:
-    "@babel/code-frame" "^7.16.0"
-    "@babel/generator" "^7.15.4"
-    "@babel/parser" "^7.16.4"
-    "@babel/traverse" "^7.15.4"
-    "@babel/types" "^7.15.6"
-    "@ray-js/env" "^0.6.14"
-    loader-utils "^2.0.0"
-    source-map "^0.7.3"
-    webpack "^5.74.0"
-
-"@ray-js/env@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/env/-/env-0.6.14.tgz#73ffd9e971f8fcba4cad455b9c103ee4224b1cdf"
-  integrity sha512-wnmuq6cQLWx3X97ITY0CrOSLylFWqPmeoD2qMst9mwq5wKWog5dyIL8nD0RrDqjbD4iiv874VgBzHJqPEom2JQ==
+    "@ray-core/macro" "^0.1.x"
+    "@ray-core/wechat" "^0.1.x"
+    "@ray-js/adapter" "^0.6.32"
+    "@ray-js/framework-shared" "^0.6.32"
+    ahooks "^3.7.1"
+    clsx "^1.1.1"
+    core-js "^3.19.1"
+    hooks "^0.3.2"
+    param-case "^3.0.4"
+    react "^17.0.2"
+    style-to-object "^0.3.0"
 
 "@ray-js/env@^0.6.26":
   version "0.6.26"
   resolved "https://registry.npmjs.org/@ray-js/env/-/env-0.6.26.tgz#b6ad2233ed63a54d3ec04922629fe2ff725b7345"
   integrity sha512-eXagt/FPxcT5ohq8cxorzXXbD6ZC10WU973Xe0eofmTG1Sp9YIe8vHOt0+KJt/2d9uNAY5krVGc5wF6acxukxQ==
 
-"@ray-js/framework-mp@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/framework-mp/-/framework-mp-0.6.14.tgz#c9b2a94b863d30551863284fb67765b0b44f908b"
-  integrity sha512-9jqLB+s3rQY15IEd1DcghxiTh8CiCemv+yrrjauOXErGMd2Uhh/LoNOtOBhBMZJEycdLw53mibEu+w1fhT1DNA==
-  dependencies:
-    "@ray-js/runtime" "^0.6.14"
+"@ray-js/env@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/env/-/env-0.6.32.tgz#3f00f9abacab745c6b2c3ab7a3108332d905d829"
+  integrity sha512-GmXhZ23va41eGVCO2q58fxEcFMI/rOxSuJUfa0UgitCODf8jKSqoxpZ1xPRrie43ribZP4r8v5q2qK7ZOia7kw==
 
 "@ray-js/framework-mp@^0.6.26":
   version "0.6.26"
@@ -2113,13 +2184,12 @@
   dependencies:
     "@ray-js/runtime" "^0.6.26"
 
-"@ray-js/framework-shared@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/framework-shared/-/framework-shared-0.6.14.tgz#fc97e02075d93a8da3d653f85625a2b0f0a22dd8"
-  integrity sha512-ezThcxHUEKDs6JqSRERazn0V0qrhSx/GUSg7iL+nQkuyx49saE8PRHlQBadSrrcjBQxpMSiKkGfYw5YQoKJpmA==
+"@ray-js/framework-mp@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/framework-mp/-/framework-mp-0.6.32.tgz#b9363a77b2f39dbed87ae0635798454753ffafb7"
+  integrity sha512-raolqSbTO8ZsSiKpg28f/+SaQFhbzTk0t2SPsfAh0P6ni76xi22Kbks84BjlQgIt6NplnGpxL7U+zgtPn275Bg==
   dependencies:
-    "@ray-core/wechat" "^0.0.x"
-    "@ray-js/env" "^0.6.14"
+    "@ray-js/runtime" "^0.6.32"
 
 "@ray-js/framework-shared@^0.6.26":
   version "0.6.26"
@@ -2131,21 +2201,15 @@
     "@ray-js/types" "^0.6.26"
     path-to-regexp "^6.2.1"
 
-"@ray-js/framework@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/framework/-/framework-0.6.14.tgz#f5a028c4b3b455095a76ed38ab6ba94b9cad9d19"
-  integrity sha512-K0VAN6+Sq78F1SUibZgwFV7tkv02fuzclqfji1iLZRSyI8rFMK32b0RQjMpfcolJHxoV6mQ2sC5qu+C1JSb3ag==
+"@ray-js/framework-shared@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/framework-shared/-/framework-shared-0.6.32.tgz#07a8a0e41ad939b1e8916cdc8ce1241f83baa204"
+  integrity sha512-3rrMFfGQtTBTCDowmYZkNOzHaJsYiVBPpWynOzVjaPfXl/992eLzRpqgPNEjMbHIrzRgaeOo8mpxbtwACoue0g==
   dependencies:
-    "@ray-js/framework-mp" "^0.6.14"
-    "@ray-js/framework-shared" "^0.6.14"
-    "@ray-js/library" "^0.6.14"
-    "@ray-js/location" "^0.6.14"
-    "@ray-js/router" "^0.6.14"
-    "@ray-js/runtime" "^0.6.14"
-    clsx "^1.1.1"
-    hoist-non-react-statics "^3.3.2"
-    lodash.get "^4.4.2"
-    tiny-invariant "^1.1.0"
+    "@ray-core/wechat" "^0.1.x"
+    "@ray-js/env" "^0.6.32"
+    "@ray-js/types" "^0.6.32"
+    path-to-regexp "^6.2.1"
 
 "@ray-js/framework@^0.6.26":
   version "0.6.26"
@@ -2158,6 +2222,24 @@
     "@ray-js/location" "^0.6.26"
     "@ray-js/router" "^0.6.26"
     "@ray-js/runtime" "^0.6.26"
+    clsx "^1.1.1"
+    hoist-non-react-statics "^3.3.2"
+    lodash.get "^4.4.2"
+    lodash.set "^4.3.2"
+    slash "^5.0.0"
+    tiny-invariant "^1.1.0"
+
+"@ray-js/framework@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/framework/-/framework-0.6.32.tgz#8cb9181ee8b7ebcc391c8b2628422393bf09349f"
+  integrity sha512-54NHB7PcGErppCIBOoN0vkOJPaaN7ihW/iY6Hxw/oW/6i60fw8o/itf6XZSZAx/dhYqonS5d/X84gAzcNs50vA==
+  dependencies:
+    "@ray-js/framework-mp" "^0.6.32"
+    "@ray-js/framework-shared" "^0.6.32"
+    "@ray-js/library" "^0.6.32"
+    "@ray-js/location" "^0.6.32"
+    "@ray-js/router" "^0.6.32"
+    "@ray-js/runtime" "^0.6.32"
     clsx "^1.1.1"
     hoist-non-react-statics "^3.3.2"
     lodash.get "^4.4.2"
@@ -2229,13 +2311,6 @@
     "@ray-js/components-ty-slider" "^0.2.20"
     "@ray-js/panel-sdk" "^1.1.4"
 
-"@ray-js/library@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/library/-/library-0.6.14.tgz#b9370c9749f7a024432d13dbf0ef166bcc72ad20"
-  integrity sha512-0ZNKC0/xx3TpU+XbusZ80GVCy57lUAuzWd4/xGq5sh/otUIIfijMSlFoZhM9HzZAWKTjfDx+E7NeA7rIr1wydA==
-  dependencies:
-    merge "^2.1.1"
-
 "@ray-js/library@^0.6.26":
   version "0.6.26"
   resolved "https://registry.npmjs.org/@ray-js/library/-/library-0.6.26.tgz#4df1cfa679fecc4816792579f5916e524bba3f00"
@@ -2243,14 +2318,12 @@
   dependencies:
     merge "^2.1.1"
 
-"@ray-js/location@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/location/-/location-0.6.14.tgz#578d465f9db0f6af5d4a2f81f319c0ce633313d8"
-  integrity sha512-KB8HVckc4rhv+Xu/UAaAwo3sCcaf7jW1uoHGhmYRKOq1aC/0Jv0cM/hnK3NZDrYFGepim975qBqWYTomNJsWSA==
+"@ray-js/library@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/library/-/library-0.6.32.tgz#c97ea0fd6cf6eeb8f64e9d57b122f85a3906755e"
+  integrity sha512-n18oHHvjQJi9005bW4vUaI6L31V8AQPocgFV2fZo+FiD8htUK59zRECzJvpZnnwVgDTTbeFm9Nd8b6f6DssfNw==
   dependencies:
-    "@ray-js/library" "^0.6.14"
-    "@ray-js/router" "^0.6.14"
-    "@ray-js/router-mp" "^0.6.14"
+    merge "^2.1.1"
 
 "@ray-js/location@^0.6.26":
   version "0.6.26"
@@ -2260,6 +2333,15 @@
     "@ray-js/library" "^0.6.26"
     "@ray-js/router" "^0.6.26"
     "@ray-js/router-mp" "^0.6.26"
+
+"@ray-js/location@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/location/-/location-0.6.32.tgz#b4001c946def61eb0ed709b745e619eb8b92db55"
+  integrity sha512-QKI+hlzt3oNP/oB1hFQvx4GCSNsd1Bvunbj0x1zr7Gr8jUS5f7/IfR2TigCvJnr95NbBCZ0xK05JpOKkmxqoFg==
+  dependencies:
+    "@ray-js/library" "^0.6.32"
+    "@ray-js/router" "^0.6.32"
+    "@ray-js/router-mp" "^0.6.32"
 
 "@ray-js/panel-base-sdk@^1.1.3":
   version "1.1.3"
@@ -2281,6 +2363,13 @@
   integrity sha512-bG8x9F5wfBAfkC5BFS1iWb+s8FSC8U6hlpDmRdoAxa2TDl29ccE7jWtnUzMW6oBP/QeU00aBk7KIZ0WKDntqzQ==
   dependencies:
     "@ray-js/panel-shared" "workspace:^1.2.0"
+
+"@ray-js/panel-cloud@^1.2.1":
+  version "1.2.2"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/panel-cloud/-/panel-cloud-1.2.2.tgz#0cd62278a43ba0c0e442a309d324219c2cecf3f9"
+  integrity sha512-neFbDMQlsh6yzNdTAlG/bce5vbB6xWVrY7/xfZUM6QQgk/jA5+0goa7yge6OnL/dszkdq8IVA5KER/lXDOxAuQ==
+  dependencies:
+    "@ray-js/panel-shared" "^1.2.2"
 
 "@ray-js/panel-sdk@^1.1.3":
   version "1.1.3"
@@ -2305,6 +2394,15 @@
     "@ray-js/panel-shared" "^1.2.0"
     use-context-selector "^1.4.1"
 
+"@ray-js/panel-sdk@^1.2.2":
+  version "1.2.2"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/panel-sdk/-/panel-sdk-1.2.2.tgz#394df9d533f35202a36d610c4b64b4c70cf07a4e"
+  integrity sha512-KtABqVv44MdDIDNOHQD/gFmaKXPZkVjnPGtGly8EzknnulE/1+WkQ3o2QkuybwULG6EQSPUTPG5kbNqil9SILQ==
+  dependencies:
+    "@ray-js/panel-cloud" "^1.2.1"
+    "@ray-js/panel-shared" "^1.2.1"
+    use-context-selector "^1.4.1"
+
 "@ray-js/panel-shared@^1.2.0", "@ray-js/panel-shared@workspace:^1.2.0":
   version "1.2.0"
   resolved "https://registry.npmjs.org/@ray-js/panel-shared/-/panel-shared-1.2.0.tgz#6bd4c2e48d72fe4c406ac46bdc14979dedc19437"
@@ -2312,14 +2410,12 @@
   dependencies:
     base64-browser "^1.0.1"
 
-"@ray-js/ray@^0.6.13":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/ray/-/ray-0.6.14.tgz#b97e7f26efa9eb7a912980971b3426d7548c0290"
-  integrity sha512-5JYJa/5bL3k+wCc+G5IS5jnugCG/ksCfbPC9unQKR2qZe7S7XO02LoDY8Yvv5gnb+IfvbyxsRf9yBUNFRW5Qyg==
+"@ray-js/panel-shared@^1.2.1", "@ray-js/panel-shared@^1.2.2":
+  version "1.2.2"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/panel-shared/-/panel-shared-1.2.2.tgz#e7071b152270f6be3d72c685e6d62a429c79a4c6"
+  integrity sha512-09XUoLj57a5obv9e6ktyHgq4/1Brd2NIf1GyMNEebfJONPLiQPsfpn/ERwPnSbX905dM51fHFKiCadl9O9u1KA==
   dependencies:
-    "@ray-js/api" "^0.6.14"
-    "@ray-js/components" "^0.6.14"
-    "@ray-js/framework" "^0.6.14"
+    base64-browser "^1.0.1"
 
 "@ray-js/ray@^0.6.14":
   version "0.6.26"
@@ -2330,17 +2426,15 @@
     "@ray-js/components" "^0.6.26"
     "@ray-js/framework" "^0.6.26"
 
-"@ray-js/router-mp@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/router-mp/-/router-mp-0.6.14.tgz#8ae2fba54e2b81e56c696c5c63f3a0defe5001c4"
-  integrity sha512-pZqzWGrCo33j7k5TYM0WUXHT1C+HBt66zIvpHgjGWawCcY7Kg7Rm6VonvzYSmPTPTr629VO/jJ0mXJF8bA3jkA==
+"@ray-js/ray@^0.6.30":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/ray/-/ray-0.6.32.tgz#1c7834b35456840e0036bd92c9a43e240726e3aa"
+  integrity sha512-N0zcrHclsKGQOUAy5ZO1XIN2JPugv7amf9qShEH0cCjJKsnrVGq7eCiKtq6/nRaTJz0ieH1M6NAd4pvxa5R1mg==
   dependencies:
-    "@ray-js/api" "^0.6.14"
-    "@ray-js/env" "^0.6.14"
-    "@ray-js/library" "^0.6.14"
-    "@ray-js/types" "^0.6.14"
-    "@react-navigation/core" "^6.1.0"
-    path-to-regexp "^6.2.0"
+    "@ray-core/macro" "^0.1.x"
+    "@ray-js/api" "^0.6.32"
+    "@ray-js/components" "^0.6.32"
+    "@ray-js/framework" "^0.6.32"
 
 "@ray-js/router-mp@^0.6.26":
   version "0.6.26"
@@ -2355,14 +2449,18 @@
     path-to-regexp "^6.2.0"
     slash "^5.0.0"
 
-"@ray-js/router@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/router/-/router-0.6.14.tgz#7507d9dd525e9b06adc766474933b12d64ed5ab4"
-  integrity sha512-HcNq/LerPOHXF4jjuDveQzJ4sVvoYDgdKW7xfx7IyRqNsvlq0JffOt4ayLrxt5tUSDoH6l6238qnC40QlD2w1g==
+"@ray-js/router-mp@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/router-mp/-/router-mp-0.6.32.tgz#b8126519cc6aee7a2ee269100d937774b1bc46a1"
+  integrity sha512-/JDE9yf2WCxJAKh+Jm5YBK3PU0d2zLfaJpvydXiNwZwbFNpRvg5relq8V3+daXzbePs5jKBcjF0+tWotIeHJaQ==
   dependencies:
-    "@ray-js/library" "^0.6.14"
-    "@ray-js/types" "^0.6.14"
-    history "4.x"
+    "@ray-js/api" "^0.6.32"
+    "@ray-js/env" "^0.6.32"
+    "@ray-js/library" "^0.6.32"
+    "@ray-js/types" "^0.6.32"
+    "@react-navigation/core" "^6.1.0"
+    path-to-regexp "^6.2.0"
+    slash "^5.0.0"
 
 "@ray-js/router@^0.6.26":
   version "0.6.26"
@@ -2373,12 +2471,14 @@
     "@ray-js/types" "^0.6.26"
     history "4.x"
 
-"@ray-js/runtime@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/runtime/-/runtime-0.6.14.tgz#d2efdce8a078ccd42b744b8b9a80f7bac0bb363f"
-  integrity sha512-n1SnNT1LY/dZ/80E8dXzT2VXLoapQ0fCgciXCs5LfxXSYdNEpPmJdQhjatkA+NGTUGvGkkgtzUEzMp2Ed49qOg==
+"@ray-js/router@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/router/-/router-0.6.32.tgz#4725db00471504cf02c224f453827326e6ad9969"
+  integrity sha512-t4j1vgp/Uzp+LoKIYA3GVx8eL0qCgO6nPXpVBh43BVI2JsB7Vayg12Vpk/IuEBKYWv569quDC7+aV6ZrYGB7aA==
   dependencies:
-    "@ray-core/runtime" "^0.0.x"
+    "@ray-js/library" "^0.6.32"
+    "@ray-js/types" "^0.6.32"
+    history "4.x"
 
 "@ray-js/runtime@^0.6.26":
   version "0.6.26"
@@ -2386,6 +2486,13 @@
   integrity sha512-iU14kzxO3TJzelFc1ulV3Oe1yyyQr+Yl+pw0sBhtHwJ3iQv3k9jyHyi0dRocGaqNO1+dcQNuVrNdSW/LV23aug==
   dependencies:
     "@ray-core/runtime" "^0.0.x"
+
+"@ray-js/runtime@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/runtime/-/runtime-0.6.32.tgz#b3ab8eea77adf37a8c111a26529d5993b3a3eb89"
+  integrity sha512-CFoAA0RwNC6kl9q2qYB8nCZGRN9/3+zn81lGtKvz/BgEtc6QjW23bRoDqYQXSYrmiQCe/b1mGrelcEFa/0wKOg==
+  dependencies:
+    "@ray-core/runtime" "^0.1.x"
 
 "@ray-js/sdm-react@beta":
   version "1.1.0-beta.0"
@@ -2396,20 +2503,20 @@
     "@tuya-miniapp/sdm" "^1.1.0-beta.0"
     use-context-selector "^1.4.1"
 
-"@ray-js/shared@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/shared/-/shared-0.6.14.tgz#31ffb7ccb141cfa29551b78700a2e80db3fb949f"
-  integrity sha512-9H/evLXxHizxXR0R2ukuQSV0Qh+uZp/nHzepvEt++b52dZzxnzLnf7PVAt9XJJj9DmyjWdLlYcJEPMj9lFYFjA==
+"@ray-js/shared@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/shared/-/shared-0.6.32.tgz#3a1d95cf9d0fe768113d547f04030348123802cb"
+  integrity sha512-WZ39CLRCpqHej0D3mjHjUwGd2WpDW7EyfMwzwJEvwEbeorS0aj6VDamc993X4EPJCHwmfdC7expoCO2dTRyehQ==
   dependencies:
     "@babel/preset-env" "^7.15.6"
     "@babel/preset-typescript" "^7.15.0"
     "@babel/register" "^7.15.3"
-    "@ray-js/types" "^0.6.14"
+    "@ray-js/types" "^0.6.32"
     change-case "^4.1.2"
     fs-extra "^10.0.0"
     merge "^2.1.1"
     npmlog "^5.0.1"
-    slash "3.x"
+    slash "^3.0.0"
 
 "@ray-js/svg@^0.0.6":
   version "0.0.6"
@@ -2439,17 +2546,17 @@
   resolved "https://registry.npmjs.org/@ray-js/tuya-dp-transform/-/tuya-dp-transform-0.0.2.tgz#41bba42842e3efc570a3a5cecca71c6b13db2357"
   integrity sha512-lOFG43NgCqXgdu5Mo/HP+KtiM0w8vbynojq0gj24jjgEwgrd4kSsFOQks3Il8AYNr2kl9e7p7KSKffW4PjtQuA==
 
-"@ray-js/types@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.npmjs.org/@ray-js/types/-/types-0.6.14.tgz#5399e06fd100964ae2008fd58d10275342eec4ce"
-  integrity sha512-4iqW/swY9DzlDwRIqYEPkBfxMqG+j3rJ11JYxPWGGh6OPg0YNqUCmu4vXN/0U2+WU/xJL05I0oEydFaLlA8eBg==
-  dependencies:
-    path-to-regexp "^6.2.0"
-
 "@ray-js/types@^0.6.26":
   version "0.6.26"
   resolved "https://registry.npmjs.org/@ray-js/types/-/types-0.6.26.tgz#b91f9926e7301d0ce6fa46da932d71f2ba658b46"
   integrity sha512-ulXOrDbFDULZmaiVZQgMORdqdgtakhgm0TlFC7d3uYcBA/Tnbt5HRceUuoERWXL8j1D9TBeIY6POzBRRt9Vjjg==
+  dependencies:
+    path-to-regexp "^6.2.0"
+
+"@ray-js/types@^0.6.32":
+  version "0.6.32"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/@ray-js/types/-/types-0.6.32.tgz#11a5d7faeba16717833cdddef6522a660b1f06b3"
+  integrity sha512-2KIiR4Q792wdMB7tnnYkk1E5Lpg8KWN4U5jxFZO4Q8xOUOvucgXaPqWZGh7sNzu38BfHZRazdIvS2SWhLw0qkw==
   dependencies:
     path-to-regexp "^6.2.0"
 
@@ -3945,6 +4052,30 @@ bytes@3.1.2:
   resolved "https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz#8b0beeb98605adf1b128fa4386403c009e0221a5"
   integrity sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==
 
+cacache@^15.0.5:
+  version "15.3.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/cacache/-/cacache-15.3.0.tgz#dc85380fb2f556fe3dda4c719bfa0ec875a7f1eb"
+  integrity sha512-VVdYzXEn+cnbXpFgWs5hTT7OScegHVmLhJIR8Ufqk3iFD6A6j5iSX1KuBTfNEv4tdJWE2PzA6IVFtcLC7fN9wQ==
+  dependencies:
+    "@npmcli/fs" "^1.0.0"
+    "@npmcli/move-file" "^1.0.1"
+    chownr "^2.0.0"
+    fs-minipass "^2.0.0"
+    glob "^7.1.4"
+    infer-owner "^1.0.4"
+    lru-cache "^6.0.0"
+    minipass "^3.1.1"
+    minipass-collect "^1.0.2"
+    minipass-flush "^1.0.5"
+    minipass-pipeline "^1.2.2"
+    mkdirp "^1.0.3"
+    p-map "^4.0.0"
+    promise-inflight "^1.0.1"
+    rimraf "^3.0.2"
+    ssri "^8.0.1"
+    tar "^6.0.2"
+    unique-filename "^1.1.1"
+
 cache-base@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/cache-base/-/cache-base-1.0.1.tgz#0a7f46416831c8b662ee36fe4e7c59d76f666ab2"
@@ -4019,7 +4150,7 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   resolved "https://registry.npmjs.org/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
-camelcase@^6.0.0, camelcase@^6.2.1:
+camelcase@^6.0.0:
   version "6.3.0"
   resolved "https://registry.npmjs.org/camelcase/-/camelcase-6.3.0.tgz#5685b95eb209ac9c0c177467778c9c84df58ba9a"
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
@@ -4137,6 +4268,11 @@ chokidar@^3.4.0, chokidar@^3.5.2, chokidar@^3.5.3:
     readdirp "~3.6.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+chownr@^2.0.0:
+  version "2.0.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
+  integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
 chrome-trace-event@^1.0.2:
   version "1.0.3"
@@ -4529,6 +4665,23 @@ copy-webpack-plugin@^11.0.0:
     normalize-path "^3.0.0"
     schema-utils "^4.0.0"
     serialize-javascript "^6.0.0"
+
+copy-webpack-plugin@^6.1.0:
+  version "6.4.1"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/copy-webpack-plugin/-/copy-webpack-plugin-6.4.1.tgz#138cd9b436dbca0a6d071720d5414848992ec47e"
+  integrity sha512-MXyPCjdPVx5iiWyl40Va3JGh27bKzOTNY3NjUTrosD2q7dR/cLD0013uqJ3BpFbUjyONINjb6qI7nDIJujrMbA==
+  dependencies:
+    cacache "^15.0.5"
+    fast-glob "^3.2.4"
+    find-cache-dir "^3.3.1"
+    glob-parent "^5.1.1"
+    globby "^11.0.1"
+    loader-utils "^2.0.0"
+    normalize-path "^3.0.0"
+    p-limit "^3.0.2"
+    schema-utils "^3.0.0"
+    serialize-javascript "^5.0.1"
+    webpack-sources "^1.4.3"
 
 core-js-compat@^3.25.1:
   version "3.26.0"
@@ -5743,7 +5896,7 @@ fast-diff@^1.1.2:
   resolved "https://registry.npmjs.org/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
   integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
 
-fast-glob@^3.2.11, fast-glob@^3.2.9:
+fast-glob@^3.2.11, fast-glob@^3.2.4, fast-glob@^3.2.9:
   version "3.2.12"
   resolved "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.12.tgz#7f39ec99c2e6ab030337142da9e0c18f37afae80"
   integrity sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==
@@ -5965,6 +6118,22 @@ fs-extra@^10.0.0:
     jsonfile "^6.0.1"
     universalify "^2.0.0"
 
+fs-extra@^11.1.0:
+  version "11.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/fs-extra/-/fs-extra-11.1.0.tgz#5784b102104433bb0e090f48bfc4a30742c357ed"
+  integrity sha512-0rcTq621PD5jM/e0a3EJoGC/1TC5ZBCERW82LQuwfGnCa1V8w7dpYH1yNu+SLb6E5dkeCBzKEyLGlFrnr+dUyw==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^2.0.0"
+
+fs-minipass@^2.0.0:
+  version "2.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/fs-minipass/-/fs-minipass-2.1.0.tgz#7f5036fdbf12c63c169190cbe4199c852271f9fb"
+  integrity sha512-V/JgOLFCS+R6Vcq0slCuaeWEdNC3ouDlJMNIsacH2VtALiu9mV4LPrHc5cDl8k5aw6J8jwgWWpiTo5RYhmIzvg==
+  dependencies:
+    minipass "^3.0.0"
+
 fs-monkey@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/fs-monkey/-/fs-monkey-1.0.3.tgz#ae3ac92d53bb328efe0e9a1d9541f6ad8d48e2d3"
@@ -6138,7 +6307,7 @@ glob-parent@^3.1.0:
     is-glob "^3.1.0"
     path-dirname "^1.0.0"
 
-glob-parent@^5.1.2, glob-parent@~5.1.2:
+glob-parent@^5.1.1, glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
   integrity sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==
@@ -6665,6 +6834,11 @@ indexes-of@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/indexes-of/-/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
   integrity sha512-bup+4tap3Hympa+JBJUG7XuOsdNQ6fxt0MHyXMKuLBKn0OqsTfvUxkUrroEX1+B2VsSHvCjiIcZVxRtYa4nllA==
+
+infer-owner@^1.0.4:
+  version "1.0.4"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/infer-owner/-/infer-owner-1.0.4.tgz#c4cefcaa8e51051c2a40ba2ce8a3d27295af9467"
+  integrity sha512-IClj+Xz94+d7irH5qRyfJonOdfTzuDaifE6ZPWfx0N0+/ATZCbuTPq2prFl526urkQd90WyUKIh1DfBQ2hMz9A==
 
 inflight@^1.0.4:
   version "1.0.6"
@@ -7795,13 +7969,6 @@ less-loader@7.x:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-less-loader@^11.0.0:
-  version "11.1.0"
-  resolved "https://registry.npmjs.org/less-loader/-/less-loader-11.1.0.tgz#a452384259bdf8e4f6d5fdcc39543609e6313f82"
-  integrity sha512-C+uDBV7kS7W5fJlUjq5mPBeBVhYpTIm5gB09APT9o3n/ILeaXVsiSFTbZpTJCJwQ/Crczfn3DmfQFwxYusWFug==
-  dependencies:
-    klona "^2.0.4"
-
 less@^4.1.1:
   version "4.1.3"
   resolved "https://registry.npmjs.org/less/-/less-4.1.3.tgz#175be9ddcbf9b250173e0a00b4d6920a5b770246"
@@ -8309,10 +8476,53 @@ minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.6:
   resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
   integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
+minipass-collect@^1.0.2:
+  version "1.0.2"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/minipass-collect/-/minipass-collect-1.0.2.tgz#22b813bf745dc6edba2576b940022ad6edc8c617"
+  integrity sha512-6T6lH0H8OG9kITm/Jm6tdooIbogG9e0tLgpY6mphXSm/A9u8Nq1ryBG+Qspiub9LjWlBPsPS3tWQ/Botq4FdxA==
+  dependencies:
+    minipass "^3.0.0"
+
+minipass-flush@^1.0.5:
+  version "1.0.5"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/minipass-flush/-/minipass-flush-1.0.5.tgz#82e7135d7e89a50ffe64610a787953c4c4cbb373"
+  integrity sha512-JmQSYYpPUqX5Jyn1mXaRwOda1uQ8HP5KAT/oDSLCzt1BYRhQU0/hDtsB1ufZfEEzMZ9aAVmsBw8+FWsIXlClWw==
+  dependencies:
+    minipass "^3.0.0"
+
+minipass-pipeline@^1.2.2:
+  version "1.2.4"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/minipass-pipeline/-/minipass-pipeline-1.2.4.tgz#68472f79711c084657c067c5c6ad93cddea8214c"
+  integrity sha512-xuIq7cIOt09RPRJ19gdi4b+RiNvDFYe5JH+ggNvBqGqpQXcru3PcRmOZuHBKWK1Txf9+cQ+HMVN4d6z46LZP7A==
+  dependencies:
+    minipass "^3.0.0"
+
+minipass@^3.0.0, minipass@^3.1.1:
+  version "3.3.6"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/minipass/-/minipass-3.3.6.tgz#7bba384db3a1520d18c9c0e5251c3444e95dd94a"
+  integrity sha512-DxiNidxSEK+tHG6zOIklvNOwm3hvCrbUrdtzY74U6HKTJxvIDfOUL5W5P2Ghd3DTkhhKPYGqeNUIh5qcM4YBfw==
+  dependencies:
+    yallist "^4.0.0"
+
+minipass@^4.0.0:
+  version "4.0.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/minipass/-/minipass-4.0.0.tgz#7cebb0f9fa7d56f0c5b17853cbe28838a8dbbd3b"
+  integrity sha512-g2Uuh2jEKoht+zvO6vJqXmYpflPqzRBT+Th2h01DKh5z7wbY/AZ2gCQ78cP70YoHPyFdY30YBV5WxgLOEwOykw==
+  dependencies:
+    yallist "^4.0.0"
+
 miniprogram-api-typings@^3.4.3:
   version "3.6.0"
   resolved "https://registry.npmjs.org/miniprogram-api-typings/-/miniprogram-api-typings-3.6.0.tgz#1ba29d749ccd07ef710754430c37f45634ea0f76"
   integrity sha512-xwK3PzhhxnfWqDfBikHLdAbj7Wy4F887nBcQrzwuF758Fw2qC4ivpKPL9t0uJZk5QYnU28+NqA7Q3lzYGMHQnA==
+
+minizlib@^2.1.1:
+  version "2.1.2"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/minizlib/-/minizlib-2.1.2.tgz#e90d3466ba209b932451508a11ce3d3632145931"
+  integrity sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg==
+  dependencies:
+    minipass "^3.0.0"
+    yallist "^4.0.0"
 
 mixin-deep@^1.2.0:
   version "1.3.2"
@@ -8328,6 +8538,11 @@ mkdirp@^0.5.1, mkdirp@^0.5.6:
   integrity sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==
   dependencies:
     minimist "^1.2.6"
+
+mkdirp@^1.0.3, mkdirp@^1.0.4:
+  version "1.0.4"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
+  integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
 mrmime@^1.0.0:
   version "1.0.1"
@@ -8759,6 +8974,13 @@ p-limit@^2.0.0, p-limit@^2.2.0:
   integrity sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==
   dependencies:
     p-try "^2.0.0"
+
+p-limit@^3.0.2:
+  version "3.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/p-limit/-/p-limit-3.1.0.tgz#e1daccbe78d0d1388ca18c64fea38e3e57e3706b"
+  integrity sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==
+  dependencies:
+    yocto-queue "^0.1.0"
 
 p-locate@^2.0.0:
   version "2.0.0"
@@ -9533,6 +9755,11 @@ progress@^2.0.0:
   version "2.0.3"
   resolved "https://registry.npmjs.org/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
+
+promise-inflight@^1.0.1:
+  version "1.0.1"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
+  integrity sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==
 
 prompts@^2.0.1:
   version "2.4.2"
@@ -10385,6 +10612,13 @@ sentence-case@^3.0.4:
     tslib "^2.0.3"
     upper-case-first "^2.0.2"
 
+serialize-javascript@^5.0.1:
+  version "5.0.1"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/serialize-javascript/-/serialize-javascript-5.0.1.tgz#7886ec848049a462467a97d3d918ebb2aaf934f4"
+  integrity sha512-SaaNal9imEO737H2c05Og0/8LUXG7EnsZyMa8MzkmuHoELfT6txuj0cMqRj6zfPKnmQ1yasR4PCJc8x+M4JSPA==
+  dependencies:
+    randombytes "^2.1.0"
+
 serialize-javascript@^6.0.0:
   version "6.0.0"
   resolved "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-6.0.0.tgz#efae5d88f45d7924141da8b5c3a7a7e663fefeb8"
@@ -10516,15 +10750,15 @@ sisteransi@^1.0.5:
   resolved "https://registry.npmjs.org/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-slash@3.x, slash@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
-  integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
-
 slash@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
   integrity sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==
+
+slash@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
+  integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
 slash@^4.0.0:
   version "4.0.0"
@@ -10611,6 +10845,11 @@ sockjs@^0.3.21, sockjs@^0.3.24:
     faye-websocket "^0.11.3"
     uuid "^8.3.2"
     websocket-driver "^0.7.4"
+
+source-list-map@^2.0.0:
+  version "2.0.1"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
+  integrity sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==
 
 source-map-js@^1.0.2:
   version "1.0.2"
@@ -10717,6 +10956,13 @@ spdy@^4.0.2:
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
 
+speed-measure-webpack-plugin@^1.5.0:
+  version "1.5.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/speed-measure-webpack-plugin/-/speed-measure-webpack-plugin-1.5.0.tgz#caf2c5bee24ab66c1c7c30e8daa7910497f7681a"
+  integrity sha512-Re0wX5CtM6gW7bZA64ONOfEPEhwbiSF/vz6e2GvadjuaPrQcHTQdRGsD8+BE7iUOysXH8tIenkPCQBEcspXsNg==
+  dependencies:
+    chalk "^4.1.0"
+
 split-on-first@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/split-on-first/-/split-on-first-1.1.0.tgz#f610afeee3b12bce1d0c30425e76398b78249a5f"
@@ -10740,6 +10986,13 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==
+
+ssri@^8.0.1:
+  version "8.0.1"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/ssri/-/ssri-8.0.1.tgz#638e4e439e2ffbd2cd289776d5ca457c4f51a2af"
+  integrity sha512-97qShzy1AiyxvPNIkLWoGua7xoQzzPjQ0HAH4B0rWKo7SZ6USuPcrUiAFrws0UH8RrbWmgq3LMTObhPIHbbBeQ==
+  dependencies:
+    minipass "^3.1.1"
 
 stack-utils@^2.0.2:
   version "2.0.5"
@@ -10999,6 +11252,18 @@ tapable@^2.0.0, tapable@^2.1.1, tapable@^2.2.0:
   version "2.2.1"
   resolved "https://registry.npmjs.org/tapable/-/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
   integrity sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==
+
+tar@^6.0.2:
+  version "6.1.13"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/tar/-/tar-6.1.13.tgz#46e22529000f612180601a6fe0680e7da508847b"
+  integrity sha512-jdIBIN6LTIe2jqzay/2vtYLlBHa3JF42ot3h1dW8Q0PaAG4v8rm0cvpVePtau5C6OKXGGcgO9q2AMNSWxiLqKw==
+  dependencies:
+    chownr "^2.0.0"
+    fs-minipass "^2.0.0"
+    minipass "^4.0.0"
+    minizlib "^2.1.1"
+    mkdirp "^1.0.3"
+    yallist "^4.0.0"
 
 terminal-link@^2.0.0:
   version "2.1.1"
@@ -11324,6 +11589,20 @@ uniq@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/uniq/-/uniq-1.0.1.tgz#b31c5ae8254844a3a8281541ce2b04b865a734ff"
   integrity sha512-Gw+zz50YNKPDKXs+9d+aKAjVwpjNwqzvNpLigIruT4HA9lMZNdMqs9x07kKHB/L9WRzqp4+DlTU5s4wG2esdoA==
+
+unique-filename@^1.1.1:
+  version "1.1.1"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/unique-filename/-/unique-filename-1.1.1.tgz#1d69769369ada0583103a1e6ae87681b56573230"
+  integrity sha512-Vmp0jIp2ln35UTXuryvjzkjGdRyf9b2lTXuSYUiPmzRcl3FDtYqAwOnTJkAngD9SWhnoJzDbTKwaOrZ+STtxNQ==
+  dependencies:
+    unique-slug "^2.0.0"
+
+unique-slug@^2.0.0:
+  version "2.0.2"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/unique-slug/-/unique-slug-2.0.2.tgz#baabce91083fc64e945b0f3ad613e264f7cd4e6c"
+  integrity sha512-zoWr9ObaxALD3DOPfjPSqxt4fnZiWblxHIgeWqW8x7UqDzEtHEQLzji2cuJYQFCU6KmoJikOYAZlrTHHebjx2w==
+  dependencies:
+    imurmurhash "^0.1.4"
 
 universalify@^0.2.0:
   version "0.2.0"
@@ -11662,6 +11941,14 @@ webpack-log@^2.0.0:
     ansi-colors "^3.0.0"
     uuid "^3.3.2"
 
+webpack-sources@^1.4.3:
+  version "1.4.3"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/webpack-sources/-/webpack-sources-1.4.3.tgz#eedd8ec0b928fbf1cbfe994e22d2d890f330a933"
+  integrity sha512-lgTS3Xhv1lCOKo7SA5TjKXMjpSM4sBjNV5+q2bqesbSPs5FjGmU6jjtBSkX9b4qW87vDIsCIlUPOEhbZrMdjeQ==
+  dependencies:
+    source-list-map "^2.0.0"
+    source-map "~0.6.1"
+
 webpack-sources@^3.2.3:
   version "3.2.3"
   resolved "https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.2.3.tgz#2d4daab8451fd4b240cc27055ff6a0c2ccea0cde"
@@ -11961,3 +12248,8 @@ yargs@^16.0.3:
     string-width "^4.2.0"
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
+
+yocto-queue@^0.1.0:
+  version "0.1.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
+  integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==

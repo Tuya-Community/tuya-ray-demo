@@ -4,13 +4,13 @@ import { store } from '@/redux';
 import { devices } from '@/devices';
 
 export const supportDp = (code: string) => {
-  const devInfo = devices.socket.getDevInfo();
+  const devInfo = devices.lamp.getDevInfo();
   const { schema } = devInfo || {};
   return !!schema[code];
 };
 
 export const getDpIdByCode = (dpCode: string) => {
-  const devInfo = devices.socket.getDevInfo();
+  const devInfo = devices.lamp.getDevInfo();
   const { schema } = devInfo || {};
   const schemaMap = schema.reduce((ret, item) => {
     return {
@@ -27,7 +27,7 @@ export const getDpIdByCode = (dpCode: string) => {
   return null;
 };
 export const getDPCodeById = (dpId: string) => {
-  const devInfo = devices.socket.getDevInfo();
+  const devInfo = devices.lamp.getDevInfo();
   const { schema } = devInfo || {};
   const schemaMap = schema.reduce((ret, item) => {
     return {
@@ -54,7 +54,7 @@ export const onDpDataChange = (cb: (res: any) => void) => {
 
 // dp下发原始方法
 export const putDpDataOrigin = (dps: { [dp: string]: any }) => {
-  const devInfo = devices.socket.getDevInfo();
+  const devInfo = devices.lamp.getDevInfo();
   const { groupId } = devInfo;
   const dpIds = {};
   dps &&
