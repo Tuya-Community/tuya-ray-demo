@@ -6,25 +6,37 @@ type SmartDevices = {
   socket?: import('@ray-js/panel-sdk').SmartDeviceModel<SmartDeviceSchema>;
 };
 
+type DevInfo = ReturnType<SmartDevices['socket']['getDevInfo']>;
+
+type DpSchema = ReturnType<SmartDevices['socket']['getDpSchema']>;
+
+type Actions = SmartDevices['socket']['model']['actions'];
+
+type Network = ReturnType<SmartDevices['socket']['getNetwork']>;
+
+type Bluetooth = ReturnType<SmartDevices['socket']['getBluetooth']>;
+
+type Props = SmartDevices['socket']['model']['props'];
+
 module '@ray-js/panel-sdk' {
   export const SdmProvider: React.FC<{
     value: SmartDeviceModel<SmartDeviceSchema>;
     children: React.ReactNode;
   }>;
   export type SmartDeviceInstanceData = {
-    devInfo: ReturnType<SmartDevices['socket']['getDevInfo']>;
-    dpSchema: ReturnType<SmartDevices['socket']['getDpSchema']>;
-    network: ReturnType<SmartDevices['socket']['getNetwork']>;
-    bluetooth: ReturnType<SmartDevices['socket']['getBluetooth']>;
+    devInfo: DevInfo;
+    dpSchema: DpSchema;
+    network: Network;
+    bluetooth: Bluetooth;
   };
-  export function useSdmProps(): SmartDevices['socket']['model']['props'];
+  export function useSdmProps(): Props;
   export function useSdmProps<Value extends any>(
-    selector: (props?: SmartDevices['socket']['model']['props']) => Value,
+    selector: (props?: Props) => Value,
     equalityFn?: (a: Value, b: Value) => boolean
   ): Value;
-  export function useProps(): SmartDevices['socket']['model']['props'];
+  export function useProps(): Props;
   export function useProps<Value extends any>(
-    selector: (props?: SmartDevices['socket']['model']['props']) => Value,
+    selector: (props?: Props) => Value,
     equalityFn?: (a: Value, b: Value) => boolean
   ): Value;
   export function useSdmDevice(): SmartDeviceInstanceData;
@@ -37,5 +49,10 @@ module '@ray-js/panel-sdk' {
     selector: (device: SmartDeviceInstanceData) => Device,
     equalityFn?: (a: Device, b: Device) => boolean
   ): Device;
-  export function useActions(): SmartDevices['socket']['model']['actions'];
+  export function useDpSchema(): DpSchema;
+  export function useDevInfo(
+    selector?: (deviceInfo: DevInfo) => any,
+    equalityFn?: (a: DevInfo, b: DevInfo) => boolean
+  ): DevInfo;
+  export function useActions(): Actions;
 }
