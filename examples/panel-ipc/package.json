@@ -9,13 +9,12 @@
     "start:native": "ray start -t native --verbose",
     "start:tuya": "ray start -t tuya --verbose",
     "build:native": "ray build -t native --verbose",
-    "build:tuya": "ray build -t tuya --verbose",
-    "postinstall": "patch-package --patch-dir node_modules/@ray-js/patches"
+    "build:tuya": "ray build -t tuya --verbose"
   },
   "dependencies": {
     "@ray-js/components-ty-ipc": "^2.1.0",
-    "@ray-js/panel-sdk": "latest",
-    "@ray-js/ray": "latest",
+    "@ray-js/panel-sdk": "^1.2.2",
+    "@ray-js/ray": "^0.7.5",
     "@ray-js/tuya-dp-kit": "^0.0.8",
     "base64-browser": "^1.0.1",
     "classnames": "^2.3.1",
@@ -32,7 +31,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^9.0.1",
-    "@ray-js/cli": "latest",
+    "@ray-js/cli": "^0.7.5",
     "@types/lodash": "^4.14.182",
     "@types/redux-actions": "^2.6.2",
     "@types/redux-logger": "^3.0.9",
