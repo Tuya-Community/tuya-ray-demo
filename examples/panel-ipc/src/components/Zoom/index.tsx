@@ -4,10 +4,8 @@ import Classnames from 'classnames';
 import IconFont from '@/components/Iconfont';
 import { useSelector } from '@/redux';
 import { openShowFullButton, closeShowFullButtonAfter5s } from '@/utils/index';
-import { hooks } from '@ray-js/panel-sdk';
+import { useActions } from '@ray-js/panel-sdk';
 import Styles from './index.module.less';
-
-const { useDpState } = hooks;
 
 const config = [
   {
@@ -28,7 +26,7 @@ const Zoom = () => {
   const [isPut, setIsPut] = useState(null);
   const putType = useRef(null);
 
-  const [, putDpData] = useDpState();
+  const actions = useActions();
 
   const handleClick = ({ type }) => {
     setIsPut(true);
@@ -49,13 +47,13 @@ const Zoom = () => {
       openShowFullButton();
 
       const type = putType.current;
-      putDpData({ zoom_control: type });
+      actions.zoom_control.set(type);
       timeId.current = setInterval(() => {
-        putDpData({ zoom_control: type });
+        actions.zoom_control.set(type);
       }, 1000);
     } else if (!isPut && putType.current) {
       closeShowFullButtonAfter5s();
-      putDpData({ zoom_stop: true });
+      actions.zoom_stop.set(true);
       putType.current = null;
       setIsPut(null);
     }

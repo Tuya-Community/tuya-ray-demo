@@ -110,7 +110,7 @@ export const goAppPage = (pageId: string) => {
     url: pageId,
     success: res => {
       if (res?.result) {
-        const { devId } = devices.robot.getDevInfo();
+        const { devId } = devices.ipc.getDevInfo();
         const { type } = store.getState().theme;
 
         const url = `thingSmart://${pageId}?extra_camera_uuid=${devId}&theme=${

@@ -1,7 +1,7 @@
 /**
  * 智能设备模型的 DP 功能点描述
  */
-export const robotSchema = [
+export const ipcSchema = [
   {
     id: 101,
     code: 'basic_indicator',

@@ -44,7 +44,7 @@ const composeLayout = (Comp: React.ComponentType<any>) => {
       });
 
       setTimeout(() => {
-        const devInfo = devices.robot.getDevInfo();
+        const devInfo = devices.ipc.getDevInfo();
         if (devInfo && devInfo.devId) {
           getCameraConfig(devInfo.devId);
           getPanelApp();

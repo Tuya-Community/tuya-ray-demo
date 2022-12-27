@@ -38,7 +38,7 @@ export const JsonUtil = {
 
 // 预下载面板小程序
 export const getPanelApp = () => {
-  const devInfo = devices.robot.getDevInfo();
+  const devInfo = devices.ipc.getDevInfo();
   preloadPanel({
     devId: devInfo.devId,
     productId: devInfo.productId, // 产品id
@@ -51,7 +51,7 @@ export const getPanelApp = () => {
 export const openPanelApp = () => {
   const { mainDeviceCameraConfig } = store.getState().ipcCommon;
 
-  const devInfo = devices.robot.getDevInfo();
+  const devInfo = devices.ipc.getDevInfo();
 
   openPanel(devInfo.devId, { mainDeviceCameraConfig }, data => {
     const { type } = data;

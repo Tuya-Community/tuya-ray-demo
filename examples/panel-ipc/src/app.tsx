@@ -17,7 +17,7 @@ initPanelEnvironment({ useDefaultOffline: true });
 
 class App extends React.Component<Props> {
   render() {
-    return <SdmProvider value={devices.robot}>{this.props.children}</SdmProvider>;
+    return <SdmProvider value={devices.ipc}>{this.props.children}</SdmProvider>;
   }
 }
 

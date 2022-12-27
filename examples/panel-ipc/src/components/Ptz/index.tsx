@@ -4,10 +4,8 @@ import Classnames from 'classnames';
 import IconFont from '@/components/Iconfont';
 import { useSelector } from '@/redux';
 import { openShowFullButton, closeShowFullButtonAfter5s } from '@/utils/index';
-import { hooks } from '@ray-js/panel-sdk';
+import { useActions } from '@ray-js/panel-sdk';
 import Styles from './index.module.less';
-
-const { useDpState } = hooks;
 
 const ptzConfig = [
   { key: 'arrowTop', type: '0' },
@@ -22,7 +20,7 @@ const Ptz = () => {
   const [isPut, setIsPut] = useState(null);
   const putType = useRef(null);
 
-  const [, putDpData] = useDpState();
+  const actions = useActions();
 
   const handleTouchStart = ({ type }) => {
     setIsPut(true);
@@ -44,15 +42,16 @@ const Ptz = () => {
       openShowFullButton();
 
       const type = putType.current;
-      putDpData({ ptz_control: type });
+      actions.ptz_control.set(type);
       timeId.current = setInterval(() => {
-        putDpData({ ptz_control: type });
+        actions.ptz_control.set(type);
       }, 1000);
     } else if (!isPut && putType.current) {
       // 5s后隐藏全屏按钮
       closeShowFullButtonAfter5s();
 
-      putDpData({ ptz_stop: true });
+      actions.ptz_stop.set(true);
+
       putType.current = null;
       setIsPut(null);
     }

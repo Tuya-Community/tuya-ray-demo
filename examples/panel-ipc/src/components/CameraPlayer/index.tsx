@@ -17,7 +17,7 @@ import { getString } from '@/utils/in18Util';
 import OneTalk from '@/components/OneTalk';
 import { showFullButtonAnd5sHide, closeShowFullButton } from '@/utils/index';
 import _ from '@/utils/loadsh';
-import { useDevInfo, useProps } from '@ray-js/panel-sdk';
+import { useProps, useDevice } from '@ray-js/panel-sdk';
 import Styles from './index.module.less';
 
 interface CameraPlayerProps {
@@ -40,7 +40,7 @@ const CameraPlayer = (props: CameraPlayerProps) => {
   } = useSelector(state => state.ipcCommon);
   const { screenWidth } = useSelector(state => state.appInfo);
   const dpState = useProps(d => d);
-  const devInfo = useDevInfo();
+  const devInfo = useDevice(device => device.devInfo);
 
   const [playerLayout, setPlayerLayout] = useState(0); // 播放器更新尺寸
 
