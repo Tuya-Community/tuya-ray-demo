@@ -25,9 +25,9 @@ const Colour = () => {
       collectColors: cloudState.collectColors,
     })
   );
-  const [hue, setHue] = useState(0);  // 色调
-  const [saturation, setSaturation] = useState(1000); // 饱和度
-  const [value, setValue] = useState(1000); // 明度
+  const [hue, setHue] = useState(colour?.hue);  // 色调
+  const [saturation, setSaturation] = useState(colour?.saturation); // 饱和度
+  const [value, setValue] = useState(colour?.value); // 明度
   const [showDialog, setShowDialog] = useState(false); // 颜色重复弹窗
   useEffect(() => {
     setHue(colour?.hue);

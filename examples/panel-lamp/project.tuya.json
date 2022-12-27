@@ -3,7 +3,7 @@
   "name": "照明小程序模板",
   "type": "panel-app",
   "ownerType": "panel-lamp",
-  "devMode":"ray",
+  "devMode": "ray",
   "i18n": false,
   "description": "",
   "miniprogramRoot": "./dist/tuya",

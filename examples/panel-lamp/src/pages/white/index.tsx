@@ -6,8 +6,9 @@ import { actions } from '@/redux/actions/common';
 import res from '@/res';
 import { useSelector, store } from '@/redux';
 import _cloneDeep from 'lodash/cloneDeep';
+import { LampCirclePicker } from '@ray-js/components-ty-lamp';
 import { LampApi } from '@/api';
-import { Dialog, SliderRow, CollectColors, VerticalSlider, WhiteRing } from '@/components';
+import { Dialog, SliderRow, CollectColors, VerticalSlider } from '@/components';
 import SupportUtils from '@/utils/SupportUtils';
 import { dpUtils } from '@/utils';
 import styled from './index.module.less';
@@ -39,6 +40,7 @@ const White = () => {
     updateWhiteIndex();
   }, [brightness, temperature]);
   const putDpData = (key: string, value: number, isControl = true) => {
+    if (key === 'temp') { setTemp(value); }
     if (isControl) {
       //当滑动时，下发调节dp，时隔300ms
       const controlData = { hue: 0, saturation: 0, value: 0, bright, temp };
@@ -47,7 +49,6 @@ const White = () => {
     } else {
       if (key === 'temp') {
         // 释放时，下发色温
-        setTemp(value);
         dpUtils.putDpData({ [tempCode]: value }, { throttle: 300 });
       }
       if (key === 'bright') {
@@ -104,10 +105,19 @@ const White = () => {
     <View className={styled.container}>
       {isSupportDp(tempCode) ? (
         <>
-          <WhiteRing
+          {/* <WhiteRing
             temperature={temp}
             onMove={v => putDpData('temp', v)}
             onEnd={v => putDpData('temp', v, false)}
+          /> */}
+          <LampCirclePicker
+            canvasId="whiteCircle"
+            temperature={temp}
+            radius={140}
+            innerRingRadius={80}
+            isShowColorTip
+            onTouchMove={v => putDpData('temp', v)}
+            onTouchEnd={v => putDpData('temp', v, false)}
           />
 
           <SliderRow
