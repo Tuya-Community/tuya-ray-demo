@@ -1,0 +1,45 @@
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  .circleBox{
+    position: relative;
+    .circle {
+      border-radius: 50%;
+      overflow: hidden;
+      width: 80rpx;
+      height: 80rpx;
+      position: absolute;
+    }
+  }
+  .icon {
+    width: 30rpx;
+    height: 30rpx;
+  }
+  .deleteIcon{
+    position: absolute;
+    width: 30rpx;
+    height: 6rpx;
+
+  }
+  .left16{
+    margin-left: 36rpx;
+  }
+  .button {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.12);
+    z-index: 2;
+  } 
+  .noBg{
+    position: absolute;
+    background-color: transparent;
+  }
+}
