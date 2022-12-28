@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<metadata>
+Created by FontForge 20170731 at Thu Apr 28 09:14:10 2022
+ By Aleksey,,,
+Created by iconfont
+</metadata>
+<defs>
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face 
+    font-family="iconfont"
+    font-weight="400"
+    font-stretch="normal"
+    units-per-em="1024"
+    panose-1="2 0 5 3 0 0 0 0 0 0"
+    ascent="896"
+    descent="-128"
+    bbox="34 -94 990 862"
+    underline-thickness="0"
+    underline-position="10"
+    unicode-range="U+E61D-E75A"
+  />
+<missing-glyph 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" 
+ />
+    <glyph glyph-name="icon_secai" unicode="&#xe61d;" 
+d="M959 426q-10 112 -73 206q-62 92 -159 145q-100 55 -215 55q-122 0 -226 -61q-101 -60 -161 -161q-61 -104 -61 -226t61 -226q60 -101 161 -161q104 -61 226 -61q30 0 51.5 21.5t21.5 51.5q0 23 -12 41t-32 27q-13 8 -21 22t-8 31q0 26 18.5 44.5t44.5 18.5h183
+q52 1 97 26.5t73 69t31 95.5l1 24q0 12 -1 18zM240 369q-33 0 -56.5 24t-23.5 57.5t23.5 57t57 23.5t57 -23.5t23.5 -57t-23.5 -57.5t-57.5 -24zM387 575q-33 0 -57 23.5t-24 57t24 57.5t57.5 24t57 -24t23.5 -57.5t-23.5 -57t-57.5 -23.5zM637 575q-34 0 -57.5 23.5
+t-23.5 57t23.5 57.5t57 24t57.5 -24t24 -57.5t-24 -57t-57 -23.5zM784 369q-34 0 -57.5 24t-23.5 57.5t23.5 57t57 23.5t57 -23.5t23.5 -57t-23.5 -57.5t-56.5 -24z" />
+    <glyph glyph-name="musicbyinle" unicode="&#xe69a;" 
+d="M934 830q7 -4 7 -12v-665q0 -52 -41.5 -84t-108.5 -32t-108.5 32t-41.5 84t42 84t108 32h83q33 0 33 34v295l-531 -94v-451q0 -51 -41.5 -83.5t-108.5 -32.5t-108 32.5t-41 84t41.5 84t107.5 32.5h83q33 0 33 33v515q0 13 15 17l565 99q8 0 12 -4z" />
+    <glyph glyph-name="power" unicode="&#xe6ac;" 
+d="M512 370q15 0 24.5 10t9.5 26v385q0 17 -9.5 27t-24.5 10t-25 -10t-10 -27v-385q0 -16 10 -26t25 -10zM512 -60q114 0 214 59q96 57 153 153q59 99 59 214q0 93 -40 178q-38 81 -107 141q-12 11 -26.5 10t-24.5 -11.5t-9.5 -25t15.5 -27.5q55 -49 87 -118t32 -147
+q0 -97 -48 -179q-47 -80 -127 -126q-82 -48 -178 -48q-70 -1 -135 26t-115 76.5t-76.5 114.5t-26.5 136q0 78 32 148q31 68 87 117q15 13 15.5 27.5t-9.5 25t-24.5 11.5t-26.5 -10q-69 -60 -107 -141q-40 -85 -40 -178q0 -115 59 -214q57 -96 153 -153q100 -59 214 -59z" />
+    <glyph glyph-name="jinhangzhong-shijian-daojishi-01" unicode="&#xe75a;" 
+d="M512 862q-130 0 -241 -65q-108 -64 -172 -172q-65 -111 -65 -241t65 -241q64 -108 172 -172q111 -65 241 -65t241 65q108 64 172 172q65 111 65 241t-65 241q-64 108 -172 172q-111 65 -241 65zM745 289q-4 -13 -16 -20.5t-26 -3.5l-199 50q-12 3 -19 12t-7 21v196
+q0 14 10 24t24 10t24 -10t10 -24v-169l174 -44q14 -4 21 -16t4 -26z" />
+  </font>
+</defs></svg>

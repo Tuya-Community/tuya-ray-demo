@@ -1,0 +1,74 @@
+.homePage {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100vh;
+
+  .iphoneXPadding {
+    padding-bottom: 20rpx;
+  }
+
+  .tabWrap {
+    width: 100%;
+    background-color: var(--index-footer-bar-bg);
+    padding-bottom: 10rpx;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+  }
+
+  .tabTop {
+    width: 100%;
+    height: 110rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .tabPanel {
+    width: 100%;
+    height: 600rpx;
+  }
+
+  .tabBottom {
+    width: 100%;
+    height: 110rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 22rpx;
+    padding-bottom: 20rpx;
+  }
+
+  .indexTabContent {
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  .indexTabContentShow {
+    height: 710rpx;
+    transition: height 0.25s;
+    opacity: 1;
+  }
+
+  .indexTabContentOpen {
+    height: 0;
+    opacity: 0;
+    transition: height 0.25s;
+    overflow: hidden;
+  }
+
+  .tabBottomItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--index-tab-icon-color);
+    font-size: 24rpx;
+    font-weight: 400;
+  }
+
+  .fontHover {
+    color: var(--hover-color) !important;
+  }
+}

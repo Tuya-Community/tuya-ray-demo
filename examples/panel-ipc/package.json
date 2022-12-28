@@ -1,0 +1,60 @@
+{
+  "name": "panel-ipc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:native": "ray start -t native --verbose",
+    "start:tuya": "ray start -t tuya --verbose",
+    "build:native": "ray build -t native --verbose",
+    "build:tuya": "ray build -t tuya --verbose"
+  },
+  "dependencies": {
+    "@ray-js/components-ty-ipc": "^2.2.0",
+    "@ray-js/panel-sdk": "^1.2.2",
+    "@ray-js/ray": "^0.7.5",
+    "@ray-js/tuya-dp-kit": "^0.0.8",
+    "base64-browser": "^1.0.1",
+    "classnames": "^2.3.1",
+    "deep-object-diff": "^1.1.0",
+    "lodash.debounce": "^4.0.8",
+    "lodash.isequal": "^4.0.8",
+    "react-redux": "^7.2.1",
+    "redux": "^4.1.2",
+    "redux-actions": "^2.6.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.0",
+    "use-immer": "^0.5.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@ray-js/cli": "^0.7.5",
+    "@types/lodash": "^4.14.182",
+    "@types/redux-actions": "^2.6.2",
+    "@types/redux-logger": "^3.0.9",
+    "compressing": "^1.5.1",
+    "core-js": "^3.19.1",
+    "eslint-config-tuya-panel": "^0.4.1",
+    "eslint-plugin-literal-check": "^0.1.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^1.2.0",
+    "lint-staged": "^10.2.11",
+    "prettier": "^1.16.4",
+    "typescript": "^4.4.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "author": "",
+  "license": "ISC"
+}

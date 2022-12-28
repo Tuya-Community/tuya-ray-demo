@@ -1,0 +1,50 @@
+.oneTalk {
+  position: relative;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.talk {
+  background-color: #fefefe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner {
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1rpx solid #fefefe;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.inner1 {
+  animation: scale 2s infinite;
+}
+
+.inner2 {
+  animation: scale 2s infinite;
+  animation-delay: 1.5s;
+}
+
+.inner3 {
+  animation: scale 2s infinite;
+  animation-delay: 1s;
+}
+
+.inner3 {
+  animation: scale 2s infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
