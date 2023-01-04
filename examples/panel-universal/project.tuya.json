@@ -1,5 +1,4 @@
 {
-  "id": "tymwerwdwuxrtilkj5",
   "name": "万能兜底面板",
   "type": "panel-app",
   "devMode": "ray",  
@@ -13,6 +12,5 @@
     "BizKit": "3.0.1",
     "DeviceKit": "3.0.0"
   },
-  "productId": "lm5ixpr9lbkv4xed",
   "baseversion": "2.11.0"
 }

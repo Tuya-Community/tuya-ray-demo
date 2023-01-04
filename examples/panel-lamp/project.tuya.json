@@ -1,5 +1,4 @@
 {
-  "id": "tyzq1kuhx0x1s0tuda",
   "name": "照明小程序模板",
   "type": "panel-app",
   "ownerType": "panel-lamp",
@@ -14,6 +13,5 @@
     "BizKit": "3.0.1"
   },
   "projectname": "照明模板",
-  "productId": "lgejlyambe5x6sv6",
   "baseversion": "2.10.6"
 }
