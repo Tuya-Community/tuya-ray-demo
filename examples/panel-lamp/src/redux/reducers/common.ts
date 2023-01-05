@@ -1,9 +1,6 @@
-import { DEV_INFO_CHANGE, RESPONSE_UPDATE_DP, INIT_DP_STATE } from '@/constant';
-import { SmartDeviceModel, SmartDeviceModelNetwork } from '@tuya-miniapp/sdm';
+import { DEV_INFO_CHANGE, RESPONSE_UPDATE_DP } from '@/constant';
 import { handleActions } from 'redux-actions';
-import { devices } from '@/devices';
 import { actions } from '../actions/common';
-import { store } from '../store';
 
 export type Actions = {
   [K in keyof typeof actions]: ReturnType<typeof actions[K]>;
@@ -17,12 +14,6 @@ const dpState = (state = {}, action) => {
         ...action.payload.state,
       };
     }
-    case INIT_DP_STATE: {
-      return {
-        ...state,
-        ...action.payload,
-      };
-    }
     case RESPONSE_UPDATE_DP: {
       return {
         ...state,
@@ -33,19 +24,7 @@ const dpState = (state = {}, action) => {
       return state;
   }
 };
-const devInfo = (state = {}, action) => {
-  switch (action.type) {
-    case DEV_INFO_CHANGE: {
-      return {
-        ...state,
-        ...action.payload,
-      };
-    }
 
-    default:
-      return state;
-  }
-};
 const uiState = handleActions<any>(
   {
     [actions.updateUi.toString()]: (state, action) => ({
@@ -81,7 +60,6 @@ const cloudState = handleActions<any>(
   }
 );
 export const reducers = {
-  devInfo,
   dpState,
   uiState,
   cloudState,

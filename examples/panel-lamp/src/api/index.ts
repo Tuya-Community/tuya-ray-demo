@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { store, actions as ReduxActions } from '@/redux';
-import { requestCloud } from '@ray-js/ray';
+import { requestCloud, getSystemInfo } from '@ray-js/ray';
 import storage from './storage';
 import LampApiRes from './LampApi';
 
@@ -8,7 +8,7 @@ export const storageUtils = storage;
 export const LampApi = LampApiRes;
 
 
-ty.getSystemInfo({
+getSystemInfo({
   success: params => {
     const { dispatch } = store;
     dispatch(ReduxActions.common.updateCloud({ systemInfo: { ...params } }));

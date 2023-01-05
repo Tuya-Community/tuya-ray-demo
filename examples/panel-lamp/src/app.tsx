@@ -2,8 +2,7 @@ import React from 'react';
 import 'ray';
 import '@/i18n';
 import './app.less';
-import { kit } from '@ray-js/panel-sdk';
-import { SdmProvider } from '@ray-js/sdm-react';
+import { kit, SdmProvider } from '@ray-js/panel-sdk';
 import { devices } from '@/devices';
 import { store, actions } from '@/redux';
 import { Provider } from 'react-redux';
@@ -26,13 +25,18 @@ class App extends React.Component<Props> {
   async onLaunch() {
     devices.lamp.onInitialized(res => {
       const devInfo = res.getDevInfo();
-      //初始化devInfo
+      const { devId, groupId } = devInfo;
+      // 初始化dpState
       dispatch(
         actions.common.devInfoChange({
-          ...devInfo,
           state: formatDevSchema(devInfo).state,
         })
       );
+      LampApi.fetchCloudConfig(devId, groupId).then(cloudData => {
+        if (cloudData && Object.keys(cloudData).length) {
+          this.handleCloudData(cloudData);
+        }
+      });
     });
     devices.lamp.onDpDataChange(res => {
       const { deviceId, dps } = res;
@@ -44,15 +48,6 @@ class App extends React.Component<Props> {
         });
       }
       dispatch(actions.common.responseUpdateDp(updateDp));
-    });
-    this.initCloud();
-  }
-  async initCloud() {
-    // 加载云端配置
-    LampApi.fetchCloudConfig().then(cloudData => {
-      if (cloudData && Object.keys(cloudData).length) {
-        this.handleCloudData(cloudData);
-      }
     });
   }
 

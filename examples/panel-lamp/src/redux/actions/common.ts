@@ -1,21 +1,18 @@
-// src/redux/actions/network.ts
-import { SmartDeviceModelProp } from '@tuya-miniapp/sdm';
+ 
 import { updateDpCreator } from '@ray-js/tuya-dp-kit';
 import {
   DEV_INFO_CHANGE,
   RESPONSE_UPDATE_DP,
   UPDATE_CLOUD,
   UPDATE_UI,
-  INIT_DP_STATE,
 } from '@/constant';
 import { createAction } from 'redux-actions';
 
 const updateDp = updateDpCreator<Partial<DpState>>();
 const updateCloud = createAction(UPDATE_CLOUD);
 const updateUi = createAction(UPDATE_UI);
-const initDp = createAction(INIT_DP_STATE);
 
-type UpdatePayload = Partial<SmartDeviceModelProp>;
+type UpdatePayload = Record<string, any>;
 
 const devInfoChange = (payload: UpdatePayload) => {
   return {
@@ -37,5 +34,4 @@ export const actions = {
   updateDp,
   updateUi,
   updateCloud,
-  initDp,
 };

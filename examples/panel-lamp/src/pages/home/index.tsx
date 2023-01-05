@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { setNavigationBarTitle, setNavigationBarColor, View, Image } from '@ray-js/ray';
-import { useDevice, useProps } from '@ray-js/sdm-react';
 import { ControlBar, TabBar } from '@/components';
 import dpCodes from '@/config/dpCodes';
 import clsx from 'clsx';
@@ -9,17 +8,15 @@ import { dpUtils } from '@/utils';
 import SupportUtils from '@/utils/SupportUtils';
 import { useSelector, store, actions } from '@/redux';
 import { WORKMODE } from '@/config';
-import { hooks } from '@ray-js/panel-sdk';
+import { useDevice } from '@ray-js/panel-sdk';
 import styles from './index.module.less';
 import Colour from '../colour';
 import White from '../white';
 
 const { powerCode, workModeCode } = dpCodes;
-const { useDpState } = hooks;
 const { dispatch } = store;
 
 export function Home() {
-  const prop = useProps();
   const deviceName = useDevice(d => d.devInfo.name);
 
   const { currentTab, power, workMode } = useSelector(({ uiState, dpState }) => ({

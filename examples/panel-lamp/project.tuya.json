@@ -5,7 +5,7 @@
   "ownerType": "panel-lamp",
   "devMode": "ray",
   "i18n": false,
-  "description": "",
+  "description": "照明对外模板",
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {
     "BaseKit": "3.0.0",
