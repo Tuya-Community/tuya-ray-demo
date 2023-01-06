@@ -1,3 +1,6 @@
+/* eslint-disable no-shadow */
+/* eslint-disable consistent-return */
+/* eslint-disable no-param-reassign */
 import { decode } from 'base64-browser';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
@@ -8,16 +11,23 @@ import { devices } from '@/devices';
 
 const sucStyle = 'background: green; color: #fff;';
 const errStyle = 'background: red; color: #fff;';
-
+/**
+ * 同步操作类型
+ */
+enum SyncType {
+  ADD,
+  UPDATE,
+  REMOVE,
+}
 interface Api {
   getCloudFun?(name: string, defaultValue: any): any;
   getUiConfig?(productId: any, timestamp: string): any;
-  getAllCloudConfig?(devId:string,groupId:string): Promise<any>;
+  getAllCloudConfig?(devId: string, groupId: string): Promise<any>;
   saveCloudConfig?(code: string, data: any): Promise<any>;
   deleteCloudConfig?(code: string): Promise<any>;
-  syncCloudConfig?(devId:string,groupId:string): void;
+  syncCloudConfig?(devId: string, groupId: string): void;
   fetchLocalConfig?(): Promise<any>;
-  fetchCloudConfig?(devId:string,groupId:string): Promise<any>;
+  fetchCloudConfig?(devId: string, groupId: string): Promise<any>;
 }
 
 export const LampApi: Api = {};
@@ -77,8 +87,8 @@ LampApi.getCloudFun = (name: string, defaultValue: any = null) => {
 };
 
 LampApi.getAllCloudConfig = (devId: string, groupId: string) => {
-  //@ts-ignore
-   return getDeviceProperty({deviceId:groupId||devId}).then((data)=>{
+  // @ts-ignore
+  return getDeviceProperty({ deviceId: groupId || devId }).then(data => {
     const result: any = {};
     Object.keys(data).forEach(key => {
       try {
@@ -89,17 +99,9 @@ LampApi.getAllCloudConfig = (devId: string, groupId: string) => {
       }
     });
     return result;
-  })
+  });
 };
 
-/**
- * 同步操作类型
- */
-enum SyncType {
-  ADD,
-  UPDATE,
-  REMOVE,
-}
 // 云端数据对应的本地缓存
 const LOCAL_DATA_KEY = 'LOCAL_DATA_KEY';
 const formateCacheData = (data: any) => {
@@ -223,28 +225,32 @@ const syncComplete = async (code: any, data: any) => {
 };
 
 const handleSaveCloudConfig = async (code: string, cacheData: any) => {
-   const { devId, groupId } = devices.lamp.getDevInfo();
-   if (groupId) {
+  const { devId, groupId } = devices.lamp.getDevInfo();
+  if (groupId) {
     setGroupProperty({
       groupId,
       code,
-      value:cacheData,
-      success: ()=>{ syncComplete(code, cacheData) },
-      fail: ()=>{
-        console.log('保存群组数据失败',syncComplete(code, cacheData));
+      value: cacheData,
+      success: () => {
+        syncComplete(code, cacheData);
       },
-    })
-   } else {
-    setDeviceProperty({
-      deviceId:  devId,
-      code,
-      value:cacheData,
-      success: () => { syncComplete(code, cacheData) },
       fail: () => {
-        console.log('保存数据失败',syncComplete(code, cacheData));
+        console.log('保存群组数据失败', syncComplete(code, cacheData));
       },
-    })
-   }
+    });
+  } else {
+    setDeviceProperty({
+      deviceId: devId,
+      code,
+      value: cacheData,
+      success: () => {
+        syncComplete(code, cacheData);
+      },
+      fail: () => {
+        console.log('保存数据失败', syncComplete(code, cacheData));
+      },
+    });
+  }
 };
 
 LampApi.saveCloudConfig = async (code: string, data: any) => {

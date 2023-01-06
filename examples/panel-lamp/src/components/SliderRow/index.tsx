@@ -20,22 +20,32 @@ export const SliderRow = (props: IProps) => {
   const [percentVal, setPercentVal] = useState(value);
   useEffect(() => {
     setPercentVal(value);
-  }, [value])
+  }, [value]);
 
   const formatVal = (v: number) => {
     // 将值转换成百分比
-    const percent = Math.min(Math.round(((100 - min) / (max - min) * v + min)), 100);
+    const percent = Math.min(Math.round(((100 - min) / (max - min)) * v + min), 100);
     return `${percent}%`;
   };
 
-  const handleChangeVal = useThrottleFn((v) => {
-    // 滑动时内部改变值
-    setPercentVal(v);
-  }, { wait: 80 }).run;
+  const handleChangeVal = useThrottleFn(
+    v => {
+      // 滑动时内部改变值
+      setPercentVal(v);
+    },
+    { wait: 80 }
+  ).run;
 
   return (
     <View className={styles.brightBox} style={style}>
-      {img && <Image src={img} style={{ width: `${imgSize}rpx`, height: `${imgSize}rpx` }} mode="aspectFill" className={styles.icon} />}
+      {img && (
+        <Image
+          src={img}
+          style={{ width: `${imgSize}rpx`, height: `${imgSize}rpx` }}
+          mode="aspectFill"
+          className={styles.icon}
+        />
+      )}
       <View className={styles.sliderBox}>
         <Slider
           style={{ width: 500, height: 12, padding: 0, borderRadius: 4 }}
@@ -49,11 +59,11 @@ export const SliderRow = (props: IProps) => {
           max={max}
           step={1}
           value={percentVal}
-          onChange={(v) => {
+          onChange={v => {
             onChange(v);
             handleChangeVal(v);
           }}
-          onAfterChange={(v) => {
+          onAfterChange={v => {
             onRelease(v);
             handleChangeVal(v);
           }}
@@ -71,6 +81,5 @@ SliderRow.defaultProps = {
   imgSize: 40,
   min: 1,
   max: 1000,
-  onRelease: () => { },
+  onRelease: () => null,
 };
-

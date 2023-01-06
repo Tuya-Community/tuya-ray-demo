@@ -7,7 +7,6 @@ import LampApiRes from './LampApi';
 export const storageUtils = storage;
 export const LampApi = LampApiRes;
 
-
 getSystemInfo({
   success: params => {
     const { dispatch } = store;
@@ -18,7 +17,6 @@ getSystemInfo({
   },
 });
 
-const sucStyle = 'background: green; color: #fff;';
 const errStyle = 'background: red; color: #fff;';
 
 export function api(url: string, postData: any, version = '1.0') {

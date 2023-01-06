@@ -27,7 +27,8 @@ export const TabBar = (props: Props) => {
           >
             <Text
               className={styles.tabText}
-              style={{ color: isActive ? '#43AAFF' : 'rgba(255,255,255,.9)' }}>
+              style={{ color: isActive ? '#43AAFF' : 'rgba(255,255,255,.9)' }}
+            >
               {Strings.getLang(tabItem)}
             </Text>
           </View>

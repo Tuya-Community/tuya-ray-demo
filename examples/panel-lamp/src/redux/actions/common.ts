@@ -1,11 +1,5 @@
- 
 import { updateDpCreator } from '@ray-js/tuya-dp-kit';
-import {
-  DEV_INFO_CHANGE,
-  RESPONSE_UPDATE_DP,
-  UPDATE_CLOUD,
-  UPDATE_UI,
-} from '@/constant';
+import { DEV_INFO_CHANGE, RESPONSE_UPDATE_DP, UPDATE_CLOUD, UPDATE_UI } from '@/constant';
 import { createAction } from 'redux-actions';
 
 const updateDp = updateDpCreator<Partial<DpState>>();

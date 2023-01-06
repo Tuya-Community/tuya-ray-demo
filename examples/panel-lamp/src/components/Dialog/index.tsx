@@ -9,7 +9,7 @@ interface DiyModeProps {
 }
 
 export const Dialog = (props: DiyModeProps) => {
-  //弹窗
+  // 弹窗
   const { onClickCancel, title } = props;
 
   return (

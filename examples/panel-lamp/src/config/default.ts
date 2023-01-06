@@ -1,4 +1,3 @@
-
 const defaultColors = [
   { hue: 0, saturation: 1000, value: 1000 },
   { hue: 120, saturation: 1000, value: 1000 },

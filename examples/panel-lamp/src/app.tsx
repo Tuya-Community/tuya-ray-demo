@@ -8,9 +8,10 @@ import { store, actions } from '@/redux';
 import { Provider } from 'react-redux';
 import DefaultVal from '@/config/default';
 import { getDPCodeById } from './utils/dp/putDpData';
-const { defaultColors, defaultWhite } = DefaultVal;
 import { formatDevSchema } from './utils';
-import LampApi from './api/LampApi';
+import Api from './api/LampApi';
+
+const { defaultColors, defaultWhite } = DefaultVal;
 
 const { dispatch } = store;
 const { initPanelEnvironment } = kit;
@@ -20,8 +21,6 @@ interface Props {
 
 initPanelEnvironment({ useDefaultOffline: true });
 class App extends React.Component<Props> {
-  componentDidMount() { }
-
   async onLaunch() {
     devices.lamp.onInitialized(res => {
       const devInfo = res.getDevInfo();
@@ -32,7 +31,7 @@ class App extends React.Component<Props> {
           state: formatDevSchema(devInfo).state,
         })
       );
-      LampApi.fetchCloudConfig(devId, groupId).then(cloudData => {
+      Api.fetchCloudConfig(devId, groupId).then(cloudData => {
         if (cloudData && Object.keys(cloudData).length) {
           this.handleCloudData(cloudData);
         }
@@ -52,7 +51,7 @@ class App extends React.Component<Props> {
   }
 
   handleCloudData(cloudData: any) {
-    //获取云端数据，并放到redux里
+    // 获取云端数据，并放到redux里
     let collectColorList = [...defaultColors];
     let collectWhiteList = [...defaultWhite];
     Object.entries(cloudData).forEach(([code, value]: [string, any]) => {
@@ -70,6 +69,7 @@ class App extends React.Component<Props> {
       })
     );
   }
+
   render() {
     return (
       <Provider store={store}>

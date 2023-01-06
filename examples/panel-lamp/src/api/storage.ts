@@ -1,15 +1,14 @@
-import { devices } from "@/devices";
+import { devices } from '@/devices';
 
-const getDevKey =  (name: string) => {
-  const { devId } =  devices.lamp.getDevInfo();
+const getDevKey = (name: string) => {
+  const { devId } = devices.lamp.getDevInfo();
   return `${devId}_${name}`;
 };
 
-const getPidKey =  (name: string) => {
-  const { productId } =  devices.lamp.getDevInfo();
+const getPidKey = (name: string) => {
+  const { productId } = devices.lamp.getDevInfo();
   return `${productId}_${name}`;
 };
-
 
 export default {
   async setItem(key: string, value: any) {
