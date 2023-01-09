@@ -2,16 +2,16 @@ import React from 'react';
 import 'ray';
 import '@/i18n';
 import './app.less';
-import { kit } from '@ray-js/panel-sdk';
-import { SdmProvider } from '@ray-js/sdm-react';
+import { kit, SdmProvider } from '@ray-js/panel-sdk';
 import { devices } from '@/devices';
 import { store, actions } from '@/redux';
 import { Provider } from 'react-redux';
 import DefaultVal from '@/config/default';
 import { getDPCodeById } from './utils/dp/putDpData';
-const { defaultColors, defaultWhite } = DefaultVal;
 import { formatDevSchema } from './utils';
-import LampApi from './api/LampApi';
+import Api from './api/LampApi';
+
+const { defaultColors, defaultWhite } = DefaultVal;
 
 const { dispatch } = store;
 const { initPanelEnvironment } = kit;
@@ -21,18 +21,21 @@ interface Props {
 
 initPanelEnvironment({ useDefaultOffline: true });
 class App extends React.Component<Props> {
-  componentDidMount() { }
-
   async onLaunch() {
     devices.lamp.onInitialized(res => {
       const devInfo = res.getDevInfo();
-      //初始化devInfo
+      const { devId, groupId } = devInfo;
+      // 初始化dpState
       dispatch(
         actions.common.devInfoChange({
-          ...devInfo,
           state: formatDevSchema(devInfo).state,
         })
       );
+      Api.fetchCloudConfig(devId, groupId).then(cloudData => {
+        if (cloudData && Object.keys(cloudData).length) {
+          this.handleCloudData(cloudData);
+        }
+      });
     });
     devices.lamp.onDpDataChange(res => {
       const { deviceId, dps } = res;
@@ -45,19 +48,10 @@ class App extends React.Component<Props> {
       }
       dispatch(actions.common.responseUpdateDp(updateDp));
     });
-    this.initCloud();
-  }
-  async initCloud() {
-    // 加载云端配置
-    LampApi.fetchCloudConfig().then(cloudData => {
-      if (cloudData && Object.keys(cloudData).length) {
-        this.handleCloudData(cloudData);
-      }
-    });
   }
 
   handleCloudData(cloudData: any) {
-    //获取云端数据，并放到redux里
+    // 获取云端数据，并放到redux里
     let collectColorList = [...defaultColors];
     let collectWhiteList = [...defaultWhite];
     Object.entries(cloudData).forEach(([code, value]: [string, any]) => {
@@ -75,6 +69,7 @@ class App extends React.Component<Props> {
       })
     );
   }
+
   render() {
     return (
       <Provider store={store}>

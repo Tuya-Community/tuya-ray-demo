@@ -1,14 +1,13 @@
 /* eslint-disable no-console */
 import { store, actions as ReduxActions } from '@/redux';
-import { requestCloud } from '@ray-js/ray';
+import { requestCloud, getSystemInfo } from '@ray-js/ray';
 import storage from './storage';
 import LampApiRes from './LampApi';
 
 export const storageUtils = storage;
 export const LampApi = LampApiRes;
 
-
-ty.getSystemInfo({
+getSystemInfo({
   success: params => {
     const { dispatch } = store;
     dispatch(ReduxActions.common.updateCloud({ systemInfo: { ...params } }));
@@ -18,7 +17,6 @@ ty.getSystemInfo({
   },
 });
 
-const sucStyle = 'background: green; color: #fff;';
 const errStyle = 'background: red; color: #fff;';
 
 export function api(url: string, postData: any, version = '1.0') {

@@ -1,13 +1,10 @@
-import { SmartDeviceModel } from '@tuya-miniapp/sdm';
-import { store, actions } from '@/redux'; 
+import { SmartDeviceModel } from '@ray-js/panel-sdk';
+import { SmartDeviceSchema } from '../../typings/sdm';
 
-const { dispatch } = store;
 export const devices = {
   lamp: new SmartDeviceModel<SmartDeviceSchema>(),
 };
- 
 
 Object.keys(devices).forEach((k: keyof typeof devices) => {
   devices[k].init();
 });
- 

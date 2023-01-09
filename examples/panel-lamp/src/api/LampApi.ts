@@ -1,27 +1,33 @@
+/* eslint-disable no-shadow */
+/* eslint-disable consistent-return */
+/* eslint-disable no-param-reassign */
 import { decode } from 'base64-browser';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import _isEqual from 'lodash/isEqual';
-
-import { requestCloud } from '@ray-js/api';
-import { getLaunchOptionsSync } from '@ray-js/api';
-
+import { requestCloud, getDeviceProperty, setGroupProperty, setDeviceProperty } from '@ray-js/api';
 import StorageUtils from './storage';
-import { store } from '@/redux';
 import { devices } from '@/devices';
 
 const sucStyle = 'background: green; color: #fff;';
 const errStyle = 'background: red; color: #fff;';
-
+/**
+ * 同步操作类型
+ */
+enum SyncType {
+  ADD,
+  UPDATE,
+  REMOVE,
+}
 interface Api {
   getCloudFun?(name: string, defaultValue: any): any;
   getUiConfig?(productId: any, timestamp: string): any;
-  getAllCloudConfig?(): Promise<any>;
+  getAllCloudConfig?(devId: string, groupId: string): Promise<any>;
   saveCloudConfig?(code: string, data: any): Promise<any>;
   deleteCloudConfig?(code: string): Promise<any>;
-  syncCloudConfig?(): void;
+  syncCloudConfig?(devId: string, groupId: string): void;
   fetchLocalConfig?(): Promise<any>;
-  fetchCloudConfig?(): Promise<any>;
+  fetchCloudConfig?(devId: string, groupId: string): Promise<any>;
 }
 
 export const LampApi: Api = {};
@@ -80,18 +86,9 @@ LampApi.getCloudFun = (name: string, defaultValue: any = null) => {
   return _get(devInfo, ['panelConfig', 'fun', name], defaultValue);
 };
 
-LampApi.getAllCloudConfig = () => {
+LampApi.getAllCloudConfig = (devId: string, groupId: string) => {
   // @ts-ignore
-  const { deviceId: devId, groupId } = getLaunchOptionsSync().query;
-
-  return api(
-    's.m.dev.property.get',
-    {
-      devId: groupId || devId,
-      bizType: groupId ? 1 : 0,
-    },
-    '2.0'
-  ).then((data: any) => {
+  return getDeviceProperty({ deviceId: groupId || devId }).then(data => {
     const result: any = {};
     Object.keys(data).forEach(key => {
       try {
@@ -101,19 +98,10 @@ LampApi.getAllCloudConfig = () => {
         console.log('========e', e);
       }
     });
-
     return result;
   });
 };
 
-/**
- * 同步操作类型
- */
-enum SyncType {
-  ADD,
-  UPDATE,
-  REMOVE,
-}
 // 云端数据对应的本地缓存
 const LOCAL_DATA_KEY = 'LOCAL_DATA_KEY';
 const formateCacheData = (data: any) => {
@@ -237,21 +225,32 @@ const syncComplete = async (code: any, data: any) => {
 };
 
 const handleSaveCloudConfig = async (code: string, cacheData: any) => {
-  const { deviceId: devId, groupId } = getLaunchOptionsSync().query;
-  console.log('Save to Cloud', cacheData.data);
-  return api(
-    's.m.dev.property.save',
-    {
-      devId: groupId || devId,
-      bizType: groupId ? 1 : 0,
+  const { devId, groupId } = devices.lamp.getDevInfo();
+  if (groupId) {
+    setGroupProperty({
+      groupId,
       code,
-      value: JSON.stringify(cacheData.data),
-    },
-    '3.0'
-  ).then(() => {
-    // 已同步
-    syncComplete(code, cacheData);
-  });
+      value: cacheData,
+      success: () => {
+        syncComplete(code, cacheData);
+      },
+      fail: () => {
+        console.log('保存群组数据失败', syncComplete(code, cacheData));
+      },
+    });
+  } else {
+    setDeviceProperty({
+      deviceId: devId,
+      code,
+      value: cacheData,
+      success: () => {
+        syncComplete(code, cacheData);
+      },
+      fail: () => {
+        console.log('保存数据失败', syncComplete(code, cacheData));
+      },
+    });
+  }
 };
 
 LampApi.saveCloudConfig = async (code: string, data: any) => {
@@ -308,8 +307,8 @@ LampApi.fetchLocalConfig = async () => {
   return null;
 };
 
-LampApi.syncCloudConfig = () => {
-  return LampApi.getAllCloudConfig().then(res => {
+LampApi.syncCloudConfig = (devId: string, groupId: string) => {
+  return LampApi.getAllCloudConfig(devId, groupId).then(res => {
     StorageUtils.getDevItem(LOCAL_DATA_KEY).then((cacheData: any) => {
       cacheData = cacheData || {};
       // 同步数据
@@ -365,10 +364,10 @@ LampApi.syncCloudConfig = () => {
     });
   });
 };
-LampApi.fetchCloudConfig = async () => {
+LampApi.fetchCloudConfig = async (devId: string, groupId: string) => {
   // 获取配置缓存数据
   try {
-    return LampApi.getAllCloudConfig().then(data => {
+    return LampApi.getAllCloudConfig(devId, groupId).then(data => {
       const result: any = {};
       Object.keys(data).forEach(key => {
         const target = data[key];

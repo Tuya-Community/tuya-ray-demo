@@ -25,7 +25,7 @@ const Colour = () => {
       collectColors: cloudState.collectColors,
     })
   );
-  const [hue, setHue] = useState(colour?.hue);  // 色调
+  const [hue, setHue] = useState(colour?.hue); // 色调
   const [saturation, setSaturation] = useState(colour?.saturation); // 饱和度
   const [value, setValue] = useState(colour?.value); // 明度
   const [showDialog, setShowDialog] = useState(false); // 颜色重复弹窗
@@ -40,7 +40,7 @@ const Colour = () => {
   const putDpData = (key: string, dpValue: number, isControl = true) => {
     if (key === 'hue') setHue(dpValue); // 需要实时变更色盘里文字
     if (isControl) {
-      //如果是滑动中，则下发调节dp，间隔300ms一次
+      // 如果是滑动中，则下发调节dp，间隔300ms一次
       const controlData = { hue, saturation, value, bright: 0, temp: 0 };
       controlData[key] = dpValue;
       dpUtils.putDpData({ [controlCode]: controlData }, { throttle: 300 });
@@ -55,12 +55,12 @@ const Colour = () => {
   };
 
   const handleAddColor = () => {
-    //添加收藏颜色
+    // 添加收藏颜色
     if (colorIndex > -1) {
-      //如果已有重复，显示重复弹窗
+      // 如果已有重复，显示重复弹窗
       setShowDialog(true);
     } else {
-      //未重复，加入云端
+      // 未重复，加入云端
       const newColorList = [...collectColors, { hue, saturation, value }];
       LampApi.saveCloudConfig!('collectColors', newColorList).then(() => {
         dispatch(updateUi({ colorIndex: newColorList.length - 1 }));
@@ -70,11 +70,11 @@ const Colour = () => {
   };
 
   const handleDeleteColor = () => {
-    //删除颜色
+    // 删除颜色
     const colors: COLOUR[] = _cloneDeep(collectColors);
     if (colorIndex > -1) {
       colors.splice(colorIndex, 1);
-      LampApi.saveCloudConfig!('collectColors', colors).then(res1 => {
+      LampApi.saveCloudConfig!('collectColors', colors).then(() => {
         dispatch(updateUi({ colorIndex: -1 }));
         dispatch(updateCloud({ collectColors: colors }));
       });
@@ -82,11 +82,11 @@ const Colour = () => {
   };
 
   const handleChooseColor = (color: COLOUR) => {
-    //选择颜色，下发对应的彩光值
+    // 选择颜色，下发对应的彩光值
     dpUtils.putDpData({ [colourCode]: color });
   };
   const updateColorIndex = () => {
-    //当hsv变化时，收藏颜色相应判断是否有相等
+    // 当hsv变化时，收藏颜色相应判断是否有相等
     const index = collectColors.findIndex(
       item => item.hue === hue && item.saturation === saturation && item.value === value
     );

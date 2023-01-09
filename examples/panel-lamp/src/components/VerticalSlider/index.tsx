@@ -12,7 +12,6 @@ interface IProps {
   value: number;
   handleMove: (num: number) => void;
   handleRelease?: (num: number) => void;
-  maxTrackWidth?: number;
   maxTrackRadius?: string;
   minTrackRadius?: string;
 }
@@ -62,9 +61,7 @@ const nilFn = () => null;
 
 VerticalSlider.defaultProps = {
   containerStyle: {},
-  handleRelease: () => { },
-  maxTrackWidth: 622,
+  handleRelease: nilFn,
   maxTrackRadius: '24rpx',
   minTrackRadius: '0rpx 0rpx 24rpx 24rpx',
 };
-

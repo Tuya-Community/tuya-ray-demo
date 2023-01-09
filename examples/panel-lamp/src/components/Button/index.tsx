@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image } from '@ray-js/components';
 
 interface IProps {
   id?: string;
   img?: string;
-  style?: any;
   text?: string;
   disabled?: boolean;
   className?: any;
@@ -24,7 +23,6 @@ export const Button = (props: IProps) => {
     onClick,
   } = props;
   const [click, setClick] = useState(false);
-  const timer = useRef<any>().current;
   useEffect(() => {
     if (click) {
       setClick(false);
@@ -52,4 +50,13 @@ export const Button = (props: IProps) => {
       {text && <Text className={textClassName}>{text}</Text>}
     </View>
   );
+};
+Button.defaultProps = {
+  id: 'button',
+  img: null,
+  text: '',
+  disabled: false,
+  className: 'button',
+  imgClassName: 'buttonImg',
+  textClassName: 'buttonText',
 };

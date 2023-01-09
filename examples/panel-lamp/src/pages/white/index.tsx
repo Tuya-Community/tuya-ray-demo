@@ -29,8 +29,8 @@ const White = () => {
       whiteIndex: uiState.whiteIndex,
     })
   );
-  const [temp, setTemp] = useState(temperature);  // 色温
-  const [bright, setBright] = useState(brightness);  // 亮度
+  const [temp, setTemp] = useState(temperature); // 色温
+  const [bright, setBright] = useState(brightness); // 亮度
   const [showDialog, setShowDialog] = useState(false); // 颜色重复弹窗
 
   useEffect(() => {
@@ -40,9 +40,11 @@ const White = () => {
     updateWhiteIndex();
   }, [brightness, temperature]);
   const putDpData = (key: string, value: number, isControl = true) => {
-    if (key === 'temp') { setTemp(value); }
+    if (key === 'temp') {
+      setTemp(value);
+    }
     if (isControl) {
-      //当滑动时，下发调节dp，时隔300ms
+      // 当滑动时，下发调节dp，时隔300ms
       const controlData = { hue: 0, saturation: 0, value: 0, bright, temp };
       controlData[key] = value;
       dpUtils.putDpData({ [controlCode]: controlData }, { throttle: 300 });

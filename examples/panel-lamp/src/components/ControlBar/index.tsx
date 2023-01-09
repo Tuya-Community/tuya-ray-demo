@@ -15,7 +15,7 @@ export const ControlBar = () => {
     powerVal: dpState[powerCode],
   }));
   const handlePower = () => {
-    //下发开关
+    // 下发开关
     dpUtils.putDpData(
       {
         [powerCode]: !powerVal,
