@@ -1,6 +1,6 @@
 import React from "react";
 
-import { PageContainer, Button } from "@ray-js/ray";
+import { PageContainer, Button, View } from "@ray-js/ray";
 
 export default function Demo() {
 	const [isShow, setIsShow] = React.useState(false);
@@ -15,7 +15,16 @@ export default function Demo() {
 				position="bottom"
 				onClickOverlay={toggleIsShow}
 			>
-				Ray 跨端研发
+				<View
+					style={{
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						height: "300px",
+					}}
+				>
+					Ray 跨端研发
+				</View>
 			</PageContainer>
 		</React.Fragment>
 	);
