@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import { Textarea } from '@ray-js/components';
+import { Textarea } from "@ray-js/ray";
 
 export default function TextareaDemo() {
-  return (
-    <React.Fragment>
-      <Textarea
-        autoHeight
-        style={{ fontSize: 24, color: '#89aaff' }}
-        placeholder='自适应高度...'
-        placeholderStyle={{ color: '#999' }}
-      />
-    </React.Fragment>
-  );
+	return (
+		<React.Fragment>
+			<Textarea
+				autoHeight
+				style={{ fontSize: 24, color: "#89aaff" }}
+				placeholder="自适应高度..."
+				placeholderStyle={{ color: "#999" }}
+			/>
+		</React.Fragment>
+	);
 }

@@ -9,14 +9,14 @@ export const COMPONENTS = [
 			{
 				name: "showTabBar",
 				onClick() {
-					const { showTabBar } = require("@ray-js/api");
+					const { showTabBar } = require("@ray-js/ray");
 					showTabBar({ animation: true });
 				},
 			},
 			{
 				name: "hideTabBar",
 				onClick() {
-					const { hideTabBar } = require("@ray-js/api");
+					const { hideTabBar } = require("@ray-js/ray");
 					hideTabBar({ animation: true });
 				},
 			},
@@ -28,21 +28,21 @@ export const COMPONENTS = [
 			{
 				name: "getCurrentPages",
 				onClick() {
-					const { getCurrentPages } = require("@ray-js/api");
+					const { getCurrentPages } = require("@ray-js/ray");
 					console.log(getCurrentPages());
 				},
 			},
 			{
 				name: "getSystemInfoSync",
 				onClick() {
-					const { getSystemInfoSync } = require("@ray-js/api");
+					const { getSystemInfoSync } = require("@ray-js/ray");
 					console.log("getSystemInfoSync 返回结果", getSystemInfoSync());
 				},
 			},
 			{
 				name: "getSystemInfo",
 				async onClick() {
-					const { getSystemInfo } = require("@ray-js/api");
+					const { getSystemInfo } = require("@ray-js/ray");
 					console.log("getSystemInfo 返回结果", await getSystemInfo());
 				},
 			},
@@ -57,7 +57,7 @@ export const COMPONENTS = [
 				name: "switchTab",
 				path: "/api/redirect-to",
 				onClick() {
-					const { switchTab } = require("@ray-js/api");
+					const { switchTab } = require("@ray-js/ray");
 					switchTab({ url: "/pages/home/index" });
 				},
 			},
@@ -65,7 +65,7 @@ export const COMPONENTS = [
 				name: "navigateTo",
 				path: "/api/redirect-to",
 				onClick() {
-					const { navigateTo } = require("@ray-js/api");
+					const { navigateTo } = require("@ray-js/ray");
 					// ty todo 需要和微信保持统一
 					navigateTo({
 						url: "/api/navigation-back/index",
@@ -76,7 +76,7 @@ export const COMPONENTS = [
 				name: "redirectTo",
 				path: "/api/navigation-back",
 				onClick() {
-					const { navigateTo } = require("@ray-js/api");
+					const { navigateTo } = require("@ray-js/ray");
 					navigateTo({
 						url: "/api/navigation-back/index",
 					});
@@ -86,7 +86,7 @@ export const COMPONENTS = [
 				name: "reLaunch",
 				path: "/api/reLaunch",
 				onClick() {
-					const { reLaunch } = require("@ray-js/api");
+					const { reLaunch } = require("@ray-js/ray");
 					reLaunch({ url: "/api/reLaunch/index" });
 				},
 			},
@@ -99,7 +99,7 @@ export const COMPONENTS = [
 			{
 				name: "showToast",
 				onClick() {
-					const { showToast } = require("@ray-js/api");
+					const { showToast } = require("@ray-js/ray");
 					showToast({
 						title: "成功",
 						// icon: 'success',
@@ -110,7 +110,7 @@ export const COMPONENTS = [
 			{
 				name: "showLoading",
 				onClick() {
-					const { showLoading } = require("@ray-js/api");
+					const { showLoading } = require("@ray-js/ray");
 					showLoading({
 						title: "loading",
 						success() {
@@ -125,7 +125,7 @@ export const COMPONENTS = [
 			{
 				name: "hideLoading",
 				onClick() {
-					const { hideLoading } = require("@ray-js/api");
+					const { hideLoading } = require("@ray-js/ray");
 					hideLoading({
 						success() {
 							console.log("hideLoading success");
@@ -148,7 +148,7 @@ export const COMPONENTS = [
 			{
 				name: "setStorage",
 				onClick() {
-					const { setStorage } = require("@ray-js/api");
+					const { setStorage } = require("@ray-js/ray");
 					setStorage({
 						key: "key",
 						data: "value",
@@ -164,7 +164,7 @@ export const COMPONENTS = [
 			{
 				name: "getStorage",
 				onClick() {
-					const { getStorage, showToast } = require("@ray-js/api");
+					const { getStorage, showToast } = require("@ray-js/ray");
 
 					getStorage({
 						key: "key",
@@ -188,7 +188,7 @@ export const COMPONENTS = [
 			{
 				name: "setClipboardData",
 				onClick() {
-					const { setClipboardData } = require("@ray-js/api");
+					const { setClipboardData } = require("@ray-js/ray");
 
 					setClipboardData({
 						data: "data",
@@ -204,7 +204,7 @@ export const COMPONENTS = [
 			{
 				name: "getClipboardData",
 				onClick() {
-					const { getClipboardData, showToast } = require("@ray-js/api");
+					const { getClipboardData, showToast } = require("@ray-js/ray");
 
 					getClipboardData({
 						success(res) {
@@ -227,7 +227,7 @@ export const COMPONENTS = [
 			{
 				name: "getLangKey",
 				onClick() {
-					const { getLangKey, showToast } = require("@ray-js/api");
+					const { getLangKey, showToast } = require("@ray-js/ray");
 
 					getLangKey({
 						success(res) {
@@ -245,7 +245,7 @@ export const COMPONENTS = [
 			{
 				name: "getLangContent",
 				onClick() {
-					const { getLangContent, showToast } = require("@ray-js/api");
+					const { getLangContent, showToast } = require("@ray-js/ray");
 
 					getLangContent({
 						success(res) {
@@ -268,7 +268,7 @@ export const COMPONENTS = [
 			{
 				name: "getNetworkType",
 				onClick() {
-					const { getNetworkType, showToast } = require("@ray-js/api");
+					const { getNetworkType, showToast } = require("@ray-js/ray");
 
 					getNetworkType({
 						success(res) {
@@ -292,7 +292,7 @@ export const COMPONENTS = [
 				name: "startPullDownRefresh",
 				path: "/api/pulldown",
 				onClick() {
-					const { navigateTo } = require("@ray-js/api");
+					const { navigateTo } = require("@ray-js/ray");
 
 					navigateTo({
 						url: "/api/pulldown/index",

@@ -1,12 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import { Input } from '@ray-js/components';
-import { showToast } from '@ray-js/api';
+import { Input } from "@ray-js/ray";
+import { showToast } from "@ray-js/ray";
 
 export default function () {
-  function handleConfirm(event: any) {
-    showToast({ title: 'confirm click' });
-  }
+	function handleConfirm(event: any) {
+		showToast({ title: "confirm click" });
+	}
 
-  return <Input placeholder='Product Price' type='digit' onConfirm={handleConfirm} />;
+	return (
+		<Input placeholder="Product Price" type="digit" onConfirm={handleConfirm} />
+	);
 }
