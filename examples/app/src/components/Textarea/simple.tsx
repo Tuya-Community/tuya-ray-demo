@@ -29,14 +29,6 @@ export default function TextareaDemo() {
 					console.log("onInput", event);
 				}}
 			/>
-			<Button
-				style={{ marginTop: 24 }}
-				onClick={() => {
-					setFocus((v) => !v);
-				}}
-			>
-				{focus ? "丢焦" : "聚焦"}
-			</Button>
 		</React.Fragment>
 	);
 }
