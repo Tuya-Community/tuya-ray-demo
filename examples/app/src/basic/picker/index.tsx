@@ -1,17 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 
-import Header from '@/common/Header';
-import Code from '@/common/Code';
-import Demo0 from '@/components/Picker/basic';
-import Demo1 from '@/components/Picker/multiSelector';
+import Header from "@/common/Header";
+import Code from "@/common/Code";
+import Demo0 from "@/components/Picker/basic";
+import Demo1 from "@/components/Picker/multiSelector";
 
-import DemoWrapper from '@/common/DemoWrapper';
+import DemoWrapper from "@/common/DemoWrapper";
 
 const PagePreviewer: React.FC = () => {
-  return (
-    <Fragment>
-      <Header title='Picker' description='从底部弹起的滚动选择器' />
-      {/* <Code title='单列'>{`const [current, setCurrent] = React.useState(0);
+	return (
+		<Fragment>
+			<Header title="Picker" description="从底部弹起的滚动选择器" />
+			<Code title="单列">{`const [current, setCurrent] = React.useState(0);
 
 const handlePickerChange = (e) => {
   setCurrent(+e.detail.value);
@@ -19,15 +19,15 @@ const handlePickerChange = (e) => {
 
 const range = ['美国', '中国', '巴西', '日本'];
 return (
-  <Picker onChange={handlePickerChange} range={range}>
+  <Picker onChange={handlePickerChange} range={range} mode='selector'>
     <View>当前选择的是:{range[current]}</View>
   </Picker>);
-      `}</Code> */}
-      <DemoWrapper>
-        <Demo0 />
-      </DemoWrapper>
+      `}</Code>
+			<DemoWrapper>
+				<Demo0 />
+			</DemoWrapper>
 
-      {/* <Code title='多列'>{`const [current, setCurrent] = React.useState([0, 0, 0]);
+			<Code title="多列">{`const [current, setCurrent] = React.useState([0, 0, 0]);
 
 const handlePickerChange = (e) => {
   setCurrent(e.detail.value);
@@ -44,12 +44,12 @@ return (
       当前选择的是:{range[0][+current[0]]}, {range[1][+current[1]]}, {range[2][+current[2]]}
     </View>
   </Picker>
-);`}</Code> */}
-      <DemoWrapper>
-        <Demo1 />
-      </DemoWrapper>
-    </Fragment>
-  );
+);`}</Code>
+			<DemoWrapper>
+				<Demo1 />
+			</DemoWrapper>
+		</Fragment>
+	);
 };
 
 export default PagePreviewer;

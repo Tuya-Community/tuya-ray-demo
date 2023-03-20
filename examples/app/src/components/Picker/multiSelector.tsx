@@ -24,6 +24,7 @@ export default function () {
 			onChange={handlePickerChange}
 			range={range}
 			value={current}
+			mode="multiSelector"
 		>
 			<View style={{ flexDirection: "row" }}>
 				当前选择的是:{range[0][+current[0]]}, {range[1][+current[1]]},{" "}
