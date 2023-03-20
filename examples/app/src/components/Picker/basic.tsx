@@ -1,6 +1,5 @@
 import React from 'react';
-import { Picker } from '@ray-js/components';
-import { View } from '@ray-js/components';
+import { Picker, View } from '@ray-js/ray';
 
 export default function () {
   const [current, setCurrent] = React.useState(0);

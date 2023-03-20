@@ -1,6 +1,6 @@
-import React from 'react';
-import { Switch } from '@ray-js/components';
+import React from "react";
+import { Switch } from "@ray-js/ray";
 
 export default function () {
-  return <Switch checked />;
+	return <Switch checked />;
 }

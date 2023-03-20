@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import { Slider } from '@ray-js/components';
+import { Slider } from "@ray-js/ray";
 
 export default function HorizontalScroll() {
-  return <Slider min={50} max={200} showValue />;
+	return <Slider min={50} max={200} showValue />;
 }
