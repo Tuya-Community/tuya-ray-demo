@@ -14,7 +14,6 @@ export function useSystemInfo() {
     });
   }, []);
 
-  // @ts-ignore
   useAppEvent('onThemeChange', handleThemeChange);
 
   useEffect(() => {

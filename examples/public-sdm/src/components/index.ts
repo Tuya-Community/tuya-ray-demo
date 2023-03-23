@@ -1,2 +1,1 @@
-export { Icon } from './icon';
-export { PowerButton } from './power-button';
+export { TopBar } from './top-bar';

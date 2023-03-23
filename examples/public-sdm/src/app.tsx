@@ -4,8 +4,10 @@ import '@/i18n';
 import './app.less';
 import { kit, SdmProvider } from '@ray-js/panel-sdk';
 import { devices } from '@/devices';
+import composeLayout from './composeLayout';
 
 const { initPanelEnvironment } = kit;
+
 interface Props {
   children: React.ReactNode;
 }
@@ -21,8 +23,8 @@ class App extends React.Component<Props> {
   }
 
   render() {
-    return <SdmProvider value={devices.socket}>{this.props.children}</SdmProvider>;
+    return <SdmProvider value={devices.common}>{this.props.children}</SdmProvider>;
   }
 }
 
-export default App;
+export default composeLayout(App);

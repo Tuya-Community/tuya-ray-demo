@@ -1,3 +1,8 @@
 export default {
-  backgroundColor: '#f2f4f6',
+  backgroundColor: '@bgColor',
+  navigationBarBackgroundColor: '@navBgColor',
+  navigationBarTextStyle: '@navTxtStyle',
+  navigationBarTitleText: 'Home',
+  navigationStyle: 'custom',
+  disableScroll: true,
 };

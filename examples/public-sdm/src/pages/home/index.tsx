@@ -1,6 +1,7 @@
 import React from 'react';
 import { setNavigationBarTitle, View } from '@ray-js/ray';
-import { useDevice } from '@ray-js/panel-sdk';
+import { useDevice, useActions } from '@ray-js/panel-sdk';
+import { TopBar } from '@/components';
 import styles from './index.module.less';
 
 export function Home() {
@@ -10,10 +11,20 @@ export function Home() {
     setNavigationBarTitle({ title: deviceName });
   }, [deviceName]);
 
+  // const actions = useActions();
+
   return (
     <View className={styles.view}>
-      <View className={styles.content}>
-        <View className={styles['space-between']}>Public SDM Template </View>
+      <TopBar />
+      <View
+        className={styles.content}
+        onClick={() => {
+          // actions.switch_1.toggle();
+        }}
+      >
+        <View className={styles['space-between']} style={{ marginTop: '50rpx' }}>
+          Public SDM Template
+        </View>
       </View>
     </View>
   );

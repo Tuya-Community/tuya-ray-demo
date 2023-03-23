@@ -1,0 +1,39 @@
+:root {
+  /* 首页样式 */
+  --index-main-bg: #FFFFFF; // 页面底色
+  --index-title-bg: #FFFFFF; // title背景
+  --index-title-color: #000000E5; // title字体色
+  --index-footer-bar-bg: #FFFFFF; // 底部操作栏底色
+  --index-icon-color: rgba(0, 0, 0, 0.5); // 图标颜色
+
+  // 字体图标
+  .iconfont {
+    margin: 0 !important;
+  }
+
+  button {
+    line-height: normal;
+    background-color: transparent;
+    padding: 0 !important;
+    border-radius: 0;
+  }
+
+  button[disabled] {
+    --index-icon-color: rgba(0, 0, 0, 0.2);
+    color: var(--index-icon-color);
+  }
+}
+
+:root[theme='dark'] {
+  /* 首页样式 */
+  --index-main-bg: #000000; // 页面底色
+  --index-title-bg: #000000; // title背景
+  --index-title-color: #FFFFFF; // title字体色
+  --index-footer-bar-bg: rgb(26, 25, 25); // 底部操作栏底色
+  --index-icon-color: rgba(255, 255, 255, 0.5); // 图标颜色
+
+  button[disabled] {
+    --index-icon-color: rgba(255, 255, 255, 0.2);
+    color: var(--index-icon-color);
+  }
+}
