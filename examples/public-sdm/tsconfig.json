@@ -16,11 +16,11 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "ray": ["node_modules/@ray-js/ray"],
+      "ray": ["./node_modules/@ray-js/ray"],
       "@/*": ["./src/*"]
     },
     "typeRoots": ["./node_modules/@types", "src/typings", "./node_modules/@tuya-miniapp"]
   },
-  "include": ["src/**/*.*", "ray/**/*.*", "src/typings"],
+  "include": ["src/**/*.*", "src/typings"],
   "exclude": ["node_modules", "dist"]
 }
