@@ -1,0 +1,2 @@
+require('blended.config');
+App({});

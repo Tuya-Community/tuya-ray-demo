@@ -1,0 +1,7 @@
+<view class="container">
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <button data-url="home" type="primary" style="margin:20px" bindtap="goToIndex">跳转到 子包 home 页 </button>
+  <button data-url="index" type="primary" style="margin:20px" bindtap="goToIndex">跳转到 子包 index 页 </button>
+</view>
