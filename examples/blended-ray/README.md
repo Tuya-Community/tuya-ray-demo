@@ -1,2 +1,22 @@
-> 注意📢
-> 主包项目（main-project） 与 子包项目（ray-project）`ray start` 最好不要同时运行。否则会出现不可预期的问题
+English | [简体中文](./README-zh_CN.md)
+
+# Project Structure
+```bash
+├── main-project      Ray Project (as main package)
+|    ├── ray.config.ts
+|    └── src
+|        └── pages
+|            ├── home
+|            └── index
+|
+├── miniapp           Native Project (built by ray -- source code dir `main-project`)
+|
+└── ray-project       Ray Project (as sub package)
+    ├── ray.config.ts
+    └── src
+        └── pages
+            ├── home
+            └── index
+```
+> Attention
+> It's best not to exec the command `ray start` or `ray build` at the same time in . Otherwise, unexpected problems may occur
