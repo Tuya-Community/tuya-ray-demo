@@ -1,0 +1,16 @@
+{
+  "name": "插座面板案例",
+  "type": "panel-app",
+  "ownerType": "tuya-official",
+  "i18n": false,
+  "description": "",
+  "miniprogramRoot": "./dist/tuya",
+  "dependencies": {
+    "BaseKit": "3.0.0",
+    "MiniKit": "3.0.0",
+    "DeviceKit": "3.0.0",
+    "BizKit": "3.0.1"
+  },
+  "baseversion": "2.10.4",
+  "devMode": "ray"
+}

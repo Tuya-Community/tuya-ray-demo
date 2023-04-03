@@ -1,6 +1,6 @@
-import React from 'react';
-import { Radio } from '@ray-js/components';
+import React from "react";
+import { Radio } from "@ray-js/ray";
 
 export default function () {
-  return <Radio checked />;
+	return <Radio checked />;
 }

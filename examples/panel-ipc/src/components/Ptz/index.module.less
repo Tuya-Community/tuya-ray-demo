@@ -1,0 +1,120 @@
+
+@beginColor: rgba(85, 131, 245, 0.3) 31.19%;
+@endColor: rgba(85, 131, 245, 0) 99.68%;
+@hoverBorder: 1px solid rgba(85, 131, 245, 1);
+
+.circleWrap {
+  width: var(--ptz-circle-size);
+  height: var(--ptz-circle-size);
+  background: var(--ptz-bg-color);
+  border: 1px solid var(--ptz-border-color);
+  border-radius: 50% !important;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all;
+}
+
+.circleInner {
+  background: var(--index-ptz-circle-bg);
+  width: var(--ptz-circle-inner-size);
+  height: var(--ptz-circle-inner-size);
+  border-radius: 50%;
+  position: relative;
+  z-index: 9;
+}
+
+.fullCircleInner {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.arrowWrap {
+  border-radius: 50%;
+  background-color: var(--index-ptz-bg);
+  display: flex;
+  flex-wrap: wrap;
+  width: var(--ptz-circle-size);
+  height: var(--ptz-circle-size);
+  transform: rotate(45deg);
+  position: absolute;
+  z-index: 1;
+}
+
+
+.arrow {
+  width: var(--ptz-arrow-size);
+  height: var(--ptz-arrow-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--index-tab-icon-color);
+}
+
+.fullArrow {
+  color: #fff !important;
+}
+
+.arrowTopWrap {
+  background: linear-gradient(135deg, @beginColor, @endColor);
+  color: var(--hover-color) !important;
+  border-left: @hoverBorder;
+  border-top: @hoverBorder;
+}
+
+.arrowRightWrap {
+  background: linear-gradient(-135deg, @beginColor, @endColor);
+  color: var(--hover-color) !important;
+  border-right: @hoverBorder;
+  border-top: @hoverBorder;
+}
+
+.arrowBottomWrap {
+  background: linear-gradient(-45deg, @beginColor, @endColor);
+  color: var(--hover-color) !important;
+  border-bottom: @hoverBorder;
+  border-right: @hoverBorder;
+}
+
+.arrowLeftWrap {
+  background: linear-gradient(45deg, @beginColor, @endColor);
+  color: var(--hover-color) !important;
+  border-left: @hoverBorder;
+  border-bottom: @hoverBorder;
+}
+
+.arrowTopButton {
+  border-top-left-radius: var(--ptz-arrow-size) !important;
+}
+
+.arrowRightButton {
+  border-top-right-radius: var(--ptz-arrow-size) !important;
+}
+
+.arrowBottomButton {
+  border-bottom-right-radius: var(--ptz-arrow-size) !important;
+}
+
+.arrowLeftButton {
+  border-bottom-left-radius: var(--ptz-arrow-size) !important;
+}
+
+.arrowTopContent {
+  transform: rotate(-135deg);
+}
+
+.arrowRightContent {
+  transform: rotate(-45deg);
+}
+
+.arrowBottomContent {
+  transform: rotate(45deg);
+}
+
+.arrowLeftContent {
+  transform: rotate(135deg);
+}
+
+.circleWrapHover {
+  border-color: rgba(85, 131, 245, 0.5);
+}

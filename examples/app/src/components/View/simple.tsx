@@ -1,26 +1,26 @@
-import React from 'react';
+import React from "react";
 
-import { View } from '@ray-js/components';
+import { View } from "@ray-js/ray";
 
-import styles from './index.module.less';
+import styles from "./index.module.less";
 
 export default function () {
-  let t = 0;
-  return (
-    <View
-      hoverClassName={styles.hoverView}
-      className={styles.view}
-      onTouchStart={() => {
-        t = Date.now();
-      }}
-      onClick={() => {
-        // showToast({
-        //   title: `${Date.now() - t}ms`,
-        // });
-        console.log(`${Date.now() - t}ms`);
-      }}
-    >
-      按住变色
-    </View>
-  );
+	let t = 0;
+	return (
+		<View
+			hoverClassName={styles.hoverView}
+			className={styles.view}
+			onTouchStart={() => {
+				t = Date.now();
+			}}
+			onClick={() => {
+				// showToast({
+				//   title: `${Date.now() - t}ms`,
+				// });
+				console.log(`${Date.now() - t}ms`);
+			}}
+		>
+			按住变色
+		</View>
+	);
 }

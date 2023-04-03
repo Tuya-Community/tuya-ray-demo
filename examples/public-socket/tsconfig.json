@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "CommonJS",
+    "lib": ["ESNext", "DOM"],
+    "declaration": false,
+    "declarationMap": false,
+    "emitDeclarationOnly": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noEmitOnError": false,
+    "jsx": "react",
+    "baseUrl": "./",
+    "paths": {
+      "ray": ["./node_module/@ray-js/ray"],
+      "@/*": ["./src/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "./typings", "./node_modules/@tuya-miniapp"]
+  },
+  "include": ["src/**/*.*", "ray/**/*.*", "typings"],
+  "exclude": ["node_modules", "dist"]
+}

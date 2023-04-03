@@ -1,0 +1,6 @@
+<!-- <sjs src="./chart.sjs" module="chart" /> -->
+<view class="container">
+  {{chart.foo}}
+  <canvas class="canvasDom" canvas-id="myCanvas" style="width: 100%; height: 250px"></canvas>
+  <button bindtap="draw">重新渲染自定义组件图表</button>
+</view>

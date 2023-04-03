@@ -1,0 +1,98 @@
+:root {
+  --switch-thumb-tint-color: #fff; // switch组件滑块颜色
+  --switch-bg-color: #e5e5e5; // switch组件背景色
+
+  --hover-color: #5583F5; // 按钮点击颜色
+
+  --ptz-circle-size: 4rem; // ptz组件圆盘宽高
+  --ptz-arrow-size: 2rem; // ptz箭头宽高
+  --ptz-circle-inner-size: 1.1rem; // ptz组件内部圆盘宽高
+  --ptz-bg-color: rgba(0, 0, 0, 0.05); // ptz组件背景色
+  --ptz-border-color: rgba(0, 0, 0, 0.1); // ptz组件边框颜色
+
+  --record-tip-font-color: rgba(0, 0, 0, 0.9); // 录制定时组件文字颜色
+  --record-tip-bg-color: #fff; // 录制定时组件背景色
+
+  /* 首页样式 */
+  --index-main-bg: #FFFFFF; // 页面底色
+  --index-title-bg: #FFFFFF; // title背景
+  --index-title-color: #000000E5; // title字体色
+  --index-footer-bar-bg: #FFFFFF; // 底部操作栏底色
+  --index-icon-color: rgba(0, 0, 0, 0.5); // 图标颜色
+  --index-ptz-bg: rgb(243, 242, 242); // ptz方向操作背景
+  --index-tab-icon-color: rgba(0, 0, 0, 0.3); // ptz箭头以及回放相册摇杆icon
+  --index-ptz-circle-bg: rgb(230, 230, 230); // ptz中心圆
+  --index-tab-bottom-text-color: rgb(198, 198, 198); // 操作栏底部字体色
+  --index-zoom-circle-bg: rgba(0, 0, 0, 0.05); // 放大缩小按钮底色
+  --index-zoom-icon-color: rgba(0, 0, 0, 0.3); // 放大缩小图标
+
+  // 字体图标
+  .iconfont {
+    margin: 0 !important;
+  }
+
+  // ptz组件全屏样式
+  .fullPtz {
+    --ptz-bg-color: rgba(0, 0, 0, 0.05);
+    --index-ptz-bg: rgba(0, 0, 0, 0.05);
+    --ptz-border-color: rgba(255, 255, 255, 0.5);
+    --ptz-circle-size: 3rem;
+    --ptz-arrow-size: 1.5rem;
+    --ptz-circle-inner-size: 0.7rem;
+  }
+
+  --zoom-circle-size: 1.1rem; // 焦距组件外圆宽高
+  --zoom-inner-circle-size: 0.48rem; // 焦距组件内圆宽高
+
+  // tab组件全屏样式
+  .fullTabTopButton {
+    --index-icon-color: #fff;
+  }
+
+  button {
+    line-height: normal;
+    background-color: transparent;
+    padding: 0 !important;
+    border-radius: 0;
+  }
+
+  button[disabled] {
+    --index-icon-color: rgba(0, 0, 0, 0.2);
+    color: var(--index-icon-color);
+  }
+}
+
+:root[theme='dark'] {
+  --switch-thumb-tint-color: #fff;
+  --switch-bg-color: rgba(255, 255, 255, 0.3);
+
+  --ptz-bg-color: rgba(255, 255, 255, 0.05);
+  --ptz-border-color: rgba(255, 255, 255, 0.1);
+
+  --record-tip-font-color: rgba(255, 255, 255, 0.9);
+  --record-tip-bg-color: rgba(255, 255, 255, 0.1);
+
+  /* 首页样式 */
+  --index-main-bg: #000000; // 页面底色
+  --index-title-bg: #000000; // title背景
+  --index-title-color: #FFFFFF; // title字体色
+  --index-footer-bar-bg: rgb(26, 25, 25); // 底部操作栏底色
+  --index-icon-color: rgba(255, 255, 255, 0.5); // 图标颜色
+  --index-ptz-bg: rgb(38, 37, 37); // ptz方向操作背景
+  --index-tab-icon-color: rgba(255, 255, 255, 0.3); // ptz箭头以及回放相册摇杆icon
+  --index-ptz-circle-bg: rgb(48, 48, 48); // ptz中心圆
+  --index-tab-bottom-text-color: rgb(68, 68, 68); // 操作栏底部字体色
+  --index-zoom-circle-bg: rgba(255, 255, 255, 0.05); // 放大缩小按钮底色
+  --index-zoom-icon-color: rgba(255, 255, 255, 0.3); // 放大缩小图标
+
+  .fullPtz {
+    --ptz-bg-color: rgba(0, 0, 0, 0.05);
+    --ptz-border-color: rgba(255, 255, 255, 0.5);
+    --index-ptz-bg: rgba(0, 0, 0, 0.05);
+  }
+
+  button[disabled] {
+    --index-icon-color: rgba(255, 255, 255, 0.2);
+    color: var(--index-icon-color);
+  }
+}

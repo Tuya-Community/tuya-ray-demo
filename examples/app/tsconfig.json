@@ -15,12 +15,12 @@
     "noEmitOnError": false,
     "jsx": "react",
     "paths": {
-      "ray": ["./.ray"],
+      "ray": ["./node_module/@ray-js/ray"],
       "@/*": ["./src/*"],
       "@/components/*": ["./src/components/*"]
     },
     "types": []
   },
-  "include": ["src/**/*.*", ".ray/**/*.*", "typings"],
+  "include": ["src/**/*.*", "typings"],
   "exclude": ["node_modules", "dist", "public"]
 }

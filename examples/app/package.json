@@ -3,39 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "@ray-js/cli": "latest",
-    "@ray-js/patches": "latest",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "core-js": "^3.19.1",
     "patch-package": "^6.4.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "webpack-chain": "^6.5.1"
+    "webpack-chain": "^6.5.1",
+    "@ray-js/cli": "^0.9.8"
   },
   "dependencies": {
-    "@ray-js/api": "latest",
-    "@ray-js/components": "latest",
-    "@ray-js/framework": "latest",
-    "@ray-js/ray-components-plus": "latest",
-    "@ray-js/router": "latest",
-    "@ray-js/router-mp": "latest",
-    "@ray-js/runtime": "latest",
-    "@ray-js/types": "latest",
-    "@tuya-miniapp/base-kit": "^2.1.2",
-    "@tuya-miniapp/mini-kit": "^2.3.7",
-    "@tuya-miniapp/ty-kit": "^2.0.7",
+    "@ray-js/ray": "^0.9.8",
     "react-motion": "^0.5.2"
   },
   "scripts": {
-    "build:tuya": "ray build --target=tuya",
-    "build:wechat": "ray build --target=wechat",
-    "build:web": "ray build --target=web",
-    "build:native": "ray build --target=native",
-    "start:tuya": "ray start --target=tuya",
-    "start:wechat": "ray start --target=wechat",
-    "start:web": "ray start --target=web",
-    "start:native": "ray start --target=native",
-    "postinstall": "patch-package --patch-dir node_modules/@ray-js/patches"
+    "build": "ray build --target=tuya",
+    "start": "ray start --target=tuya"
   }
 }

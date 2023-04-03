@@ -1,13 +1,11 @@
-import { useAtomValue } from 'jotai/utils';
 import React from 'react';
-
-import { selectDevInfoAtom, selectDpStateAtom } from '@/atoms';
-import { publishDps } from '@ray-js/api';
+import { hooks } from '@ray-js/panel-sdk';
 import { Text, View } from '@ray-js/components';
-
 import Strings from '@/i18n';
 import { ItemView } from '../item-view';
 import styles from './index.module.less';
+
+const { useDpState } = hooks;
 
 export interface DpItemProps {
   item: DpSchema;
@@ -15,8 +13,7 @@ export interface DpItemProps {
 }
 
 export const DpItem: React.FC<DpItemProps> = ({ item, hostname }) => {
-  const devInfo = useAtomValue(selectDevInfoAtom);
-  const dpState = useAtomValue(selectDpStateAtom);
+  const [dpState, setDpState] = useDpState();
 
   const dpCode = item?.code;
   const dpValue = dpState?.[dpCode];
@@ -38,7 +35,7 @@ export const DpItem: React.FC<DpItemProps> = ({ item, hostname }) => {
             : null,
         }}
       >
-        <Text className={styles.headName}>{item.name}</Text>
+        <Text className={styles.headName}>{Strings.getDpName(item.code, item.name)}</Text>
         <Text className={styles.headValue}>{headValue}</Text>
       </View>
       <View className={styles.content}>
@@ -46,12 +43,7 @@ export const DpItem: React.FC<DpItemProps> = ({ item, hostname }) => {
           item={item}
           dpValue={dpValue}
           onChange={value => {
-            publishDps({
-              deviceId: devInfo?.devId,
-              dps: {
-                [item.id]: value,
-              },
-            } as any);
+            setDpState({ [item.code]: value });
           }}
         />
       </View>

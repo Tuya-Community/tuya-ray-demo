@@ -136,9 +136,7 @@ Ray 框架中设备控制、 小程序基本能力、 涂鸦特有能力等都�
 
 ## 依赖说明
 
-- @ray-js/components: Ray 跨端基础组件库
-- @ray-js/framework: Ray 跨端框架主包
-- @ray-js/panel-service: 一系列可能在你开发控制设备面板业务的时候需要用到的云端服务。
-- @ray-js/ray-panel-wrapper: Ray 跨端面板的业务增强包裹组件，内置了一些设备面板通用的功能，如设备离线后自动展示离线弹窗。
+- @ray-js/ray: Ray 跨端框架主包
+- @ray-js/panel-sdk: 一系列可能在你开发控制设备面板业务的时候需要用到的工具库。
 - fast-deep-equal: 对象深比较库，用于 jotai 的 selectAtom，提高渲染性能
 - jotai: 原子化的 React 状态管理库
