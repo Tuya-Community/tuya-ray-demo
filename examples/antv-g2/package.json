@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "@ray-js/cli": "^0.6.17",
+    "@ray-js/cli": "^0.10.6",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "core-js": "^3.19.1",
@@ -13,17 +13,7 @@
   },
   "dependencies": {
     "@antv/f2": "^4.0.38",
-    "@ray-js/ray": "^0.6.17",
+    "@ray-js/ray": "^0.10.6",
     "@tuya-miniapp/rjs-adapter": "^1.0.3"
-  },
-  "scripts": {
-    "build:tuya": "ray build --target=tuya",
-    "build:wechat": "ray build --target=wechat",
-    "build:web": "ray build --target=web",
-    "build:native": "ray build --target=native",
-    "start:tuya": "ray start --target=tuya",
-    "start:wechat": "ray start --target=wechat",
-    "start:web": "ray start --target=web",
-    "start:native": "ray start --target=native"
   }
 }

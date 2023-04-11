@@ -10,10 +10,10 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webpack-chain": "^6.5.1",
-    "@ray-js/cli": "^0.9.8"
+    "@ray-js/cli": "^0.10.6"
   },
   "dependencies": {
-    "@ray-js/ray": "^0.9.8",
+    "@ray-js/ray": "^0.10.6",
     "react-motion": "^0.5.2"
   },
   "scripts": {
