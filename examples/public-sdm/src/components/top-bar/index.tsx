@@ -1,12 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Text, View } from '@ray-js/ray';
 import { useDevice } from '@ray-js/panel-sdk';
-import { useSelector } from '@/redux';
+import { selectSystemInfoByKey } from '@/redux/modules/systemInfoSlice';
 
 import Styles from './index.module.less';
 
 export const TopBar = () => {
-  const { statusBarHeight } = useSelector(state => state.appInfo);
+  const statusBarHeight = useSelector(selectSystemInfoByKey('statusBarHeight'));
   const devInfo = useDevice(device => device.devInfo);
 
   return (
