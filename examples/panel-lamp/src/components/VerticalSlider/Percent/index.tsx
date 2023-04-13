@@ -1,9 +1,8 @@
 /* eslint-disable no-self-compare */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
-import React, { useState } from 'react';
-import { View, Text } from '@ray-js/components';
-import Slider from '@ray-js/components-ty-slider';
+import React from 'react';
+import { View, Text } from '@ray-js/ray';
 
 import style from './index.module.less';
 import './iconfont/iconfont.css';

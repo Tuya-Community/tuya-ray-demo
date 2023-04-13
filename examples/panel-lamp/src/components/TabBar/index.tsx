@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from '@ray-js/components';
+import { View, Text } from '@ray-js/ray';
 import Strings from '@/i18n';
 import styles from './index.module.less';
 

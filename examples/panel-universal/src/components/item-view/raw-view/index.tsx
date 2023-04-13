@@ -1,4 +1,4 @@
-import { Textarea } from '@ray-js/components';
+import { Textarea } from '@ray-js/ray';
 import React from 'react';
 
 export const RawView: React.FC<ItemViewProps> = ({ item, dpValue, onChange }) => {

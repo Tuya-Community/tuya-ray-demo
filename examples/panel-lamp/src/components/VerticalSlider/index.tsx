@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from '@ray-js/components';
+import { View } from '@ray-js/ray';
 import Slider from '@ray-js/components-ty-slider';
 import colorUtils from '@/utils/color.js';
 import styled from './index.module.less';

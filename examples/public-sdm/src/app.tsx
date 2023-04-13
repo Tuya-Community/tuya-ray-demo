@@ -2,11 +2,10 @@ import React from 'react';
 import 'ray';
 import '@/i18n';
 import './app.less';
-import { kit, SdmProvider } from '@ray-js/panel-sdk';
+import { SdmProvider } from '@ray-js/panel-sdk';
+import { initPanelEnvironment } from '@ray-js/ray';
 import { devices } from '@/devices';
 import composeLayout from './composeLayout';
-
-const { initPanelEnvironment } = kit;
 
 interface Props {
   children: React.ReactNode;

@@ -5,7 +5,7 @@ import { decode } from 'base64-browser';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
 import _isEqual from 'lodash/isEqual';
-import { requestCloud, getDeviceProperty, setGroupProperty, setDeviceProperty } from '@ray-js/api';
+import { requestCloud, getDeviceProperty, setGroupProperty, setDeviceProperty } from '@ray-js/ray';
 import StorageUtils from './storage';
 import { devices } from '@/devices';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import res from '@/res';
-import { View, Image } from '@ray-js/components';
+import { View, Image } from '@ray-js/ray';
 import dpCodes from '@/config/dpCodes';
 import { Button } from '@/components';
 import { dpUtils } from '@/utils';

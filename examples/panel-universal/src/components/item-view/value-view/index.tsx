@@ -1,4 +1,4 @@
-import { Slider } from '@ray-js/components';
+import { Slider } from '@ray-js/ray';
 import React from 'react';
 
 export const ValueView: React.FC<ItemViewProps> = ({ item, dpValue, onChange }) => {

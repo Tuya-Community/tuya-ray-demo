@@ -1,6 +1,6 @@
 import React from 'react';
 import { hooks } from '@ray-js/panel-sdk';
-import { Text, View } from '@ray-js/components';
+import { Text, View } from '@ray-js/ray';
 import Strings from '@/i18n';
 import { ItemView } from '../item-view';
 import styles from './index.module.less';

@@ -1,15 +1,15 @@
 import { actions, store } from '@/redux';
 import Global from '@/config/global';
 import Storage from '@/api/storage';
-import { exitMiniProgram } from '@ray-js/ray';
-import { decode } from 'base64-browser';
-import { devices } from '@/devices';
-import {
+import { 
+  exitMiniProgram,   
   preloadPanel as rayPreloadPanel,
   getSystemInfoSync,
   getCurrentPages,
-  navigateToMiniProgram,
-} from '@ray-js/api';
+  navigateToMiniProgram 
+} from '@ray-js/ray';
+import { decode } from 'base64-browser';
+import { devices } from '@/devices';
 
 export const JsonUtil = {
   parseJSON(str) {

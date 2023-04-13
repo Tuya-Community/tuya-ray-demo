@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View } from '@ray-js/components';
+import { View } from '@ray-js/ray';
 import Strings from '@/i18n';
 import dpCodes from '@/config/dpCodes';
 import { actions } from '@/redux/actions/common';

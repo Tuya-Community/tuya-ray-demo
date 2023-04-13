@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Text, View } from '@ray-js/components';
+import { Button, Text, View } from '@ray-js/ray';
 import Strings from '@/i18n';
 import { getArray } from '@/utils/array';
 

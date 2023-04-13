@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { showNotification, hideNotification } from '@ray-js/api';
+import { showNotification, hideNotification } from '@ray-js/ray';
 import { parseNumToArr } from '@/utils';
 import { getArray } from '@/utils/array';
 import { getFaultStrings } from '@/utils/getFaultStrings';

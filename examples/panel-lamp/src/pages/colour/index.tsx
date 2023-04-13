@@ -3,7 +3,7 @@ import { actions } from '@/redux/actions/common';
 import { LampHuePicker } from '@ray-js/components-ty-lamp';
 import { LampApi } from '@/api';
 import Strings from '@/i18n';
-import { View } from '@ray-js/components';
+import { View } from '@ray-js/ray';
 import res from '@/res';
 import { useSelector, store } from '@/redux';
 import dpCodes from '@/config/dpCodes';

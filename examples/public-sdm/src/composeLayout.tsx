@@ -1,7 +1,7 @@
-import { actions, store } from '@/redux';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { getSystemInfoSync } from '@ray-js/ray';
+import { actions, store } from '@/redux';
 import './styles/index.less';
 
 interface Props {

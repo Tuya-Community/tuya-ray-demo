@@ -1,6 +1,6 @@
 import React from 'react';
 import { setNavigationBarTitle, View } from '@ray-js/ray';
-import { useDevice, useActions } from '@ray-js/panel-sdk';
+import { useDevice } from '@ray-js/panel-sdk';
 import { TopBar } from '@/components';
 import styles from './index.module.less';
 

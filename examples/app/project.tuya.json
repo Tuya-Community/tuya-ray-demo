@@ -2,12 +2,13 @@
   "projectname": "Ray 官方demo",
   "i18n": false,
   "description": "",
-  "baseversion": "2.10.18",
   "miniprogramRoot": "./dist/tuya",
   "devMode": "ray",
   "dependencies": {
-    "BaseKit": "3.0.1",
-    "MiniKit": "3.0.0",
-    "TYKit": "2.4.12"
-  }
+    "BaseKit": "3.0.0",
+    "MiniKit": "3.0.1",
+    "DeviceKit": "3.0.2",
+    "BizKit": "3.0.6"
+  },
+  "baseversion": "2.10.3"
 }

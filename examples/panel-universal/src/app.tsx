@@ -1,7 +1,7 @@
 import React from 'react';
 import 'ray';
 import '@/i18n';
-import { kit } from '@ray-js/panel-sdk';
+import { initPanelEnvironment } from '@ray-js/ray';
 
 const { initPanelEnvironment } = kit;
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image } from '@ray-js/components';
+import { View, Text, Image } from '@ray-js/ray';
 
 interface IProps {
   id?: string;

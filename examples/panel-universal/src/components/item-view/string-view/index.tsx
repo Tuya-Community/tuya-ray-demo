@@ -1,4 +1,4 @@
-import { Input } from '@ray-js/components';
+import { Input } from '@ray-js/ray';
 import React from 'react';
 
 export const StringView: React.FC<ItemViewProps> = ({ item, dpValue, onChange }) => {

@@ -1,6 +1,6 @@
-import { ScrollView, Text } from '@ray-js/components';
+import { ScrollView, Text, getAssetHostname } from '@ray-js/ray';
 // import { router, usePageEvent } from 'ray';
-import { hooks, service } from '@ray-js/panel-sdk';
+import { hooks } from '@ray-js/panel-sdk';
 import React, { useEffect, useState } from 'react';
 import { DpItem } from '@/components/dpItem';
 import { getArray } from '@/utils/array';
@@ -35,7 +35,7 @@ export function Home() {
   const [hostname, setHostname] = useState<string>();
 
   useEffect(() => {
-    service.getAssetHostname().then(setHostname);
+    getAssetHostname().then(setHostname);
   }, []);
 
   return (

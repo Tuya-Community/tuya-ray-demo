@@ -1,4 +1,4 @@
-import { Switch } from '@ray-js/components';
+import { Switch } from '@ray-js/ray';
 import React from 'react';
 
 export const BoolView: React.FC<ItemViewProps> = ({ item, dpValue, onChange }) => {

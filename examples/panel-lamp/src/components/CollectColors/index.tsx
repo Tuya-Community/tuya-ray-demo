@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
-import { View } from '@ray-js/components';
+import { View } from '@ray-js/ray';
 import { utils } from '@ray-js/panel-sdk';
 import res from '@/res';
 import { useUnmount } from 'ahooks';
