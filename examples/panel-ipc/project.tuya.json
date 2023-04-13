@@ -3,12 +3,11 @@
   "i18n": false,
   "description": "",
   "miniprogramRoot": "./dist/tuya",
-  "devMode": "ray",
   "dependencies": {
     "BaseKit": "3.0.0",
     "MiniKit": "3.0.0",
     "DeviceKit": "3.0.0",
     "BizKit": "3.0.1"
   },
-  "baseversion": "2.10.1"
+  "baseversion": "2.10.21"
 }
