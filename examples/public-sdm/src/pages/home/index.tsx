@@ -1,16 +1,10 @@
 import React from 'react';
-import { setNavigationBarTitle, View } from '@ray-js/ray';
+import {  View } from '@ray-js/ray';
 import { useDevice } from '@ray-js/panel-sdk';
 import { TopBar } from '@/components';
 import styles from './index.module.less';
 
 export function Home() {
-  const deviceName = useDevice(d => d.devInfo.name);
-
-  React.useEffect(() => {
-    setNavigationBarTitle({ title: deviceName });
-  }, [deviceName]);
-
   // const actions = useActions();
 
   return (
