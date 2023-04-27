@@ -3,8 +3,6 @@ import 'ray';
 import '@/i18n';
 import { initPanelEnvironment } from '@ray-js/ray';
 
-const { initPanelEnvironment } = kit;
-
 interface Props {
   children: React.ReactNode;
 }
