@@ -41,6 +41,7 @@ export const tuya = {
     backgroundColor: '@bgColor',
     navigationBarTitleText: '双目摄像头',
     navigationBarBackgroundColor: '@navBgColor',
+    // app<5.10配置右上角“点点点”设备详情跳转
     systemMenus: [
       {
         key: 'system_setting',
@@ -48,6 +49,12 @@ export const tuya = {
         isShow: true,
       },
     ],
+  },
+  // app>=5.10配置右上角“点点点”设备详情跳转
+  functionalPages: {
+    settings: {
+      appid: 'tycryc71qaug8at6yt',
+    },
   },
   routers: ['camera_playback_panel', 'ipc_album_panel'],
 };
