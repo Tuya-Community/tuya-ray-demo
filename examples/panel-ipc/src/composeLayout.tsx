@@ -34,6 +34,14 @@ const composeLayout = (Comp: React.ComponentType<any>) => {
       dispatch(actions.common.systemInfo(systemInfo));
       dispatch(actions.theme.toggleTheme({ type: theme }));
 
+      // app>=5.10监听右上角“点点点”设备详情跳转事件
+      ty.onAppMore(e => {
+        if (!holdUp()) {
+          openPanelApp();
+        }
+      });
+
+      // app<5.10监听右上角“点点点”设备详情跳转事件
       ty.onAppEvent(e => {
         if (!holdUp()) {
           // 打开设置二级页
