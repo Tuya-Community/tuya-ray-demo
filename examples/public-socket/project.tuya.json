@@ -11,6 +11,7 @@
     "DeviceKit": "3.0.0",
     "BizKit": "3.0.1"
   },
-  "baseversion": "2.10.4",
-  "devMode": "ray"
+  "baseversion": "2.12.2",
+  "devMode": "ray",
+  "projectname": "public-socket"
 }
