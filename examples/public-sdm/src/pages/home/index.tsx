@@ -1,6 +1,5 @@
 import React from 'react';
-import {  View } from '@ray-js/ray';
-import { useDevice } from '@ray-js/panel-sdk';
+import { View } from '@ray-js/ray';
 import { TopBar } from '@/components';
 import styles from './index.module.less';
 
