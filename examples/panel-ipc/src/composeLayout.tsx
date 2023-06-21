@@ -34,7 +34,7 @@ const composeLayout = (Comp: React.ComponentType<any>) => {
       dispatch(actions.common.systemInfo(systemInfo));
       dispatch(actions.theme.toggleTheme({ type: theme }));
 
-      // app>=5.10监听右上角“点点点”设备详情跳转事件
+      // app>=5.10监听右上角“点点点”设备详情跳转事件：基础库baseversion需要>=2.12.0，且需要使用开发者工具真机二维码调试，别用调试二维码！！！
       ty.onAppMore(e => {
         if (!holdUp()) {
           openPanelApp();

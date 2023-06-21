@@ -53,7 +53,7 @@ export const tuya = {
   // app>=5.10配置右上角“点点点”设备详情跳转
   functionalPages: {
     settings: {
-      appid: 'tycryc71qaug8at6yt',
+      appid: 'tycryc71qaug8at6yt', // 这个小程序id写死不需要更改！！！
     },
   },
   routers: ['camera_playback_panel', 'ipc_album_panel'],
