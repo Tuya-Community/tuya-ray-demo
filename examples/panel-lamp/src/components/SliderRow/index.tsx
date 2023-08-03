@@ -16,7 +16,7 @@ interface IProps {
 }
 
 export const SliderRow = (props: IProps) => {
-  const { img, value, imgSize, style, onChange, onRelease, min, max } = props;
+  const { img, value, imgSize, style, onChange, onRelease, min = 0, max } = props;
   const [percentVal, setPercentVal] = useState(value);
   useEffect(() => {
     setPercentVal(value);
@@ -25,7 +25,8 @@ export const SliderRow = (props: IProps) => {
   const formatVal = (v: number) => {
     // 将值转换成百分比
     const percent = Math.min(Math.round(((100 - min) / (max - min)) * v + min), 100);
-    return `${percent}%`;
+    const minPercent = Math.min(Math.round(((100 - min) / (max - min)) * min + min), 100);
+    return `${Number.isNaN(percent) ? minPercent : percent}%`;
   };
 
   const handleChangeVal = useThrottleFn(

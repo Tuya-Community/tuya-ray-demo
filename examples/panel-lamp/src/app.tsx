@@ -4,9 +4,9 @@ import '@/i18n';
 import './app.less';
 import { SdmProvider } from '@ray-js/panel-sdk';
 import { initPanelEnvironment } from '@ray-js/ray';
+import { Provider } from 'react-redux';
 import { devices } from '@/devices';
 import { store, actions } from '@/redux';
-import { Provider } from 'react-redux';
 import DefaultVal from '@/config/default';
 import { getDPCodeById } from './utils/dp/putDpData';
 import { formatDevSchema } from './utils';
@@ -22,6 +22,7 @@ interface Props {
 initPanelEnvironment({ useDefaultOffline: true });
 class App extends React.Component<Props> {
   async onLaunch() {
+    devices.lamp.init();
     devices.lamp.onInitialized(res => {
       const devInfo = res.getDevInfo();
       const { devId, groupId } = devInfo;
