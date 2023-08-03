@@ -17,10 +17,6 @@ class App extends React.Component<Props> {
     console.log('=== App did mount');
   }
 
-  onLaunch() {
-    console.info('=== App onLaunch');
-  }
-
   render() {
     return <SdmProvider value={devices.common}>{this.props.children}</SdmProvider>;
   }
