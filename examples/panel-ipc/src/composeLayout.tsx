@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // import { initDevInfo } from '@/api';
-import { actions, store } from '@/redux';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { getSystemInfoSync } from '@ray-js/ray';
+import { actions, store } from '@/redux';
 import { getCameraConfig } from '@/api/atop';
 import './styles/index.less';
 import { setOrientation, holdUp } from '@/utils/util';
@@ -27,7 +27,8 @@ const composeLayout = (Comp: React.ComponentType<any>) => {
   const { dispatch } = store;
   return class PanelComponent extends Component<Props, State> {
     async onLaunch(object: any) {
-      console.log('app onLaunch: ', object);
+      console.info('=== App onLaunch', object);
+      devices.ipc.init();
       const systemInfo = getSystemInfoSync();
       const { theme } = systemInfo;
 
