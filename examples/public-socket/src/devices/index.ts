@@ -8,7 +8,3 @@ export const devices = {
     ? new SmartGroupModel<typeof import('./schema').defaultSchema>()
     : new SmartDeviceModel<typeof import('./schema').defaultSchema>(),
 };
-
-Object.keys(devices).forEach((k: keyof typeof devices) => {
-  devices[k].init();
-});

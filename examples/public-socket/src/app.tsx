@@ -18,6 +18,10 @@ class App extends React.Component<Props> {
 
   onLaunch() {
     console.info('=== App onLaunch');
+    devices.socket.init();
+    devices.socket.onInitialized(d => {
+      console.log('=== onInitialized', d);
+    });
   }
 
   render() {
