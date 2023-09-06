@@ -2,20 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { LampHuePicker } from '@ray-js/components-ty-lamp';
 import { View } from '@ray-js/ray';
 import _ from 'lodash-es';
-import { useStructuredActions, useStructuredProps } from '@ray-js/panel-sdk';
+import { useDevice, useStructuredActions, useStructuredProps } from '@ray-js/panel-sdk';
 import { LampApi } from '@/api';
 import Strings from '@/i18n';
 import res from '@/res';
 import { CollectColors, SliderRow, Dialog } from '@/components';
-import styled from './index.module.less';
 import { useSelector, store } from '@/redux';
 import { actions } from '@/redux/actions/common';
+import styled from './index.module.less';
 
 const { satIcon, brightIcon } = res;
 const { dispatch } = store;
 const { updateUi, updateCloud } = actions;
 
 const Colour = () => {
+  const dpSchema = useDevice(device => device.dpSchema);
   const { collectColors, colorIndex } = useSelector(({ uiState, cloudState }: any) => ({
     colorIndex: uiState.colorIndex,
     collectColors: cloudState.collectColors,
@@ -37,7 +38,7 @@ const Colour = () => {
   }, [hue, saturation, value]);
   const putDpData = (key: string, dpValue: number, isControl = true) => {
     if (key === 'hue') setHue(dpValue); // 需要实时变更色盘里文字
-    if (isControl) {
+    if (isControl && dpSchema.control_data) {
       // 如果是滑动中，则下发调节dp，间隔300ms一次
       const controlData = { hue, saturation, value, bright: 0, temp: 0 };
       controlData[key] = dpValue;

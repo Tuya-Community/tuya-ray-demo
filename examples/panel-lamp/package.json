@@ -20,7 +20,7 @@
     "@ray-js/components-ty-lamp": "1.7.10-beta-8",
     "@ray-js/components-ty-slider": "0.2.19",
     "@ray-js/components-ty-switch": "^0.0.7",
-    "@ray-js/panel-sdk": "^1.7.0-beta.1",
+    "@ray-js/panel-sdk": "^1.7.0-beta.2",
     "@ray-js/ray": "^1.2.9",
     "@ray-js/svg": "^0.0.6",
     "ahooks": "^3.7.1",

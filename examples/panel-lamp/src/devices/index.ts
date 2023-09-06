@@ -9,6 +9,9 @@ export const dpKit = createDpKit<SmartDeviceSchema>({ protocols });
 
 const options = {
   interceptors: dpKit.interceptors,
+  // logConfig: {
+  //   level: 'VERBOSE' as const,
+  // },
 };
 
 export const devices = {
