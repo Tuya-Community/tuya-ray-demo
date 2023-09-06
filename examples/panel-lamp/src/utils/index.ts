@@ -1,7 +1,4 @@
 import Strings from '@/i18n';
-import dpUtils from './dp';
-
-export { dpUtils };
 
 export const formatColorText = (hue: number): string => {
   const degree = hue || 0;
@@ -32,23 +29,4 @@ export const formatColorText = (hue: number): string => {
     text = Strings.getLang('color_red');
   }
   return text;
-};
-
-export const formatDevSchema = devInfo => {
-  const { dps, schema } = devInfo;
-  const result_schema = {};
-  const result_state = {};
-  for (let i = 0; i < schema.length; i++) {
-    const { code, id, property, type } = schema[i];
-    const define = {
-      dptype: type,
-      id: `${id}`,
-      ...property,
-    };
-
-    result_state[code] = dps[id];
-    result_schema[code] = define;
-    delete define.property;
-  }
-  return { state: result_state, schema: result_schema };
 };

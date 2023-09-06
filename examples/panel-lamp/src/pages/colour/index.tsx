@@ -1,34 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { actions } from '@/redux/actions/common';
 import { LampHuePicker } from '@ray-js/components-ty-lamp';
+import { View } from '@ray-js/ray';
+import _ from 'lodash-es';
+import { useStructuredActions, useStructuredProps } from '@ray-js/panel-sdk';
 import { LampApi } from '@/api';
 import Strings from '@/i18n';
-import { View } from '@ray-js/ray';
 import res from '@/res';
-import { useSelector, store } from '@/redux';
-import dpCodes from '@/config/dpCodes';
-import { dpUtils } from '@/utils';
-import _cloneDeep from 'lodash/cloneDeep';
 import { CollectColors, SliderRow, Dialog } from '@/components';
 import styled from './index.module.less';
+import { useSelector, store } from '@/redux';
+import { actions } from '@/redux/actions/common';
 
 const { satIcon, brightIcon } = res;
 const { dispatch } = store;
-const { colourCode, controlCode } = dpCodes;
 const { updateUi, updateCloud } = actions;
 
 const Colour = () => {
-  const { colour, collectColors, colorIndex } = useSelector(
-    ({ dpState, uiState, cloudState }: any) => ({
-      colour: dpState[colourCode],
-      colorIndex: uiState.colorIndex,
-      collectColors: cloudState.collectColors,
-    })
-  );
+  const { collectColors, colorIndex } = useSelector(({ uiState, cloudState }: any) => ({
+    colorIndex: uiState.colorIndex,
+    collectColors: cloudState.collectColors,
+  }));
+  const colour = useStructuredProps(props => props.colour_data);
+  const dpActions = useStructuredActions();
   const [hue, setHue] = useState(colour?.hue); // 色调
   const [saturation, setSaturation] = useState(colour?.saturation); // 饱和度
   const [value, setValue] = useState(colour?.value); // 明度
   const [showDialog, setShowDialog] = useState(false); // 颜色重复弹窗
+
   useEffect(() => {
     setHue(colour?.hue);
     setSaturation(colour?.saturation);
@@ -43,14 +41,14 @@ const Colour = () => {
       // 如果是滑动中，则下发调节dp，间隔300ms一次
       const controlData = { hue, saturation, value, bright: 0, temp: 0 };
       controlData[key] = dpValue;
-      dpUtils.putDpData({ [controlCode]: controlData }, { throttle: 300 });
+      dpActions.control_data.set(controlData);
     } else {
       // 释放时，下发彩光dp
       if (key === 'saturation') setSaturation(dpValue);
       if (key === 'value') setValue(dpValue);
       const colorData = { hue, saturation, value };
       colorData[key] = dpValue;
-      dpUtils.putDpData({ [colourCode]: colorData }, { throttle: 300 });
+      dpActions.colour_data.set(colorData, { throttle: 300 });
     }
   };
 
@@ -71,7 +69,7 @@ const Colour = () => {
 
   const handleDeleteColor = () => {
     // 删除颜色
-    const colors: COLOUR[] = _cloneDeep(collectColors);
+    const colors: COLOUR[] = _.cloneDeep(collectColors);
     if (colorIndex > -1) {
       colors.splice(colorIndex, 1);
       LampApi.saveCloudConfig!('collectColors', colors).then(() => {
@@ -82,8 +80,7 @@ const Colour = () => {
   };
 
   const handleChooseColor = (color: COLOUR) => {
-    // 选择颜色，下发对应的彩光值
-    dpUtils.putDpData({ [colourCode]: color });
+    dpActions.colour_data.set(color);
   };
   const updateColorIndex = () => {
     // 当hsv变化时，收藏颜色相应判断是否有相等

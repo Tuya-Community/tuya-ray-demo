@@ -2,8 +2,6 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import { reducers as commonReducers } from './reducers/common';
-import { createDpKitMiddleware } from '@ray-js/tuya-dp-kit';
-import dpUtils from '@/utils/dp';
 
 const reducers = {
   ...commonReducers,
@@ -21,17 +19,8 @@ const logger = createLogger({
   collapsed: true,
   duration: true,
 });
-const dpKitMiddleware = createDpKitMiddleware({
-  putDeviceData: data => {
-    return dpUtils.putDpDataOrigin(data);
-  },
-  rawDpMap: dpUtils.dpMaps,
-  sendDpOption: {},
-});
 
-const middleware = isDebuggingInChrome
-  ? [thunk, logger, dpKitMiddleware]
-  : [thunk, dpKitMiddleware];
+const middleware = isDebuggingInChrome ? [thunk, logger] : [thunk];
 
 function configureStore(initialState?: Partial<ReduxState>) {
   const appliedMiddleware = applyMiddleware(...middleware);

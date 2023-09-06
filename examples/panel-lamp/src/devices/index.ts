@@ -1,6 +1,16 @@
 import { SmartDeviceModel } from '@ray-js/panel-sdk';
-import { SmartDeviceSchema } from '../../typings/sdm';
+import { createDpKit } from '@ray-js/panel-sdk/lib/sdm/interceptors/dp-kit';
+import { protocols } from '@/devices/protocols';
+import { lampSchema } from '@/devices/schema';
+
+type SmartDeviceSchema = typeof lampSchema;
+
+export const dpKit = createDpKit<SmartDeviceSchema>({ protocols });
+
+const options = {
+  interceptors: dpKit.interceptors,
+};
 
 export const devices = {
-  lamp: new SmartDeviceModel<SmartDeviceSchema>(),
+  lamp: new SmartDeviceModel<SmartDeviceSchema>(options),
 };

@@ -1,34 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { View } from '@ray-js/ray';
-import Strings from '@/i18n';
-import dpCodes from '@/config/dpCodes';
-import { actions } from '@/redux/actions/common';
-import res from '@/res';
-import { useSelector, store } from '@/redux';
-import _cloneDeep from 'lodash/cloneDeep';
+import _ from 'lodash-es';
 import { LampCirclePicker } from '@ray-js/components-ty-lamp';
+import { useActions, useDevice, useProps, useStructuredActions } from '@ray-js/panel-sdk';
+import Strings from '@/i18n';
+import res from '@/res';
 import { LampApi } from '@/api';
 import { Dialog, SliderRow, CollectColors, VerticalSlider } from '@/components';
-import SupportUtils from '@/utils/SupportUtils';
-import { dpUtils } from '@/utils';
+import { devices } from '@/devices';
+import { useSelector, store } from '@/redux';
+import { actions } from '@/redux/actions/common';
 import styled from './index.module.less';
 
 const { updateUi, updateCloud } = actions;
 const { dispatch } = store;
 
-const { brightCode, tempCode, controlCode } = dpCodes;
 const { brightIcon } = res;
-const { isSupportDp } = SupportUtils;
 
 const White = () => {
-  const { brightness, temperature, collectWhites, whiteIndex } = useSelector(
-    ({ dpState, uiState, cloudState }: any) => ({
-      brightness: dpState[brightCode],
-      temperature: dpState[tempCode],
-      collectWhites: cloudState.collectWhites,
-      whiteIndex: uiState.whiteIndex,
-    })
-  );
+  const { collectWhites, whiteIndex } = useSelector(({ uiState, cloudState }: any) => ({
+    collectWhites: cloudState.collectWhites,
+    whiteIndex: uiState.whiteIndex,
+  }));
+  const dpActions = useActions();
+  const dpStruActions = useStructuredActions();
+  const dpSchema = useDevice(device => device.dpSchema);
+  const brightness = useProps(props => props.bright_value);
+  const temperature = useProps(props => props.temp_value);
   const [temp, setTemp] = useState(temperature); // 色温
   const [bright, setBright] = useState(brightness); // 亮度
   const [showDialog, setShowDialog] = useState(false); // 颜色重复弹窗
@@ -47,16 +45,15 @@ const White = () => {
       // 当滑动时，下发调节dp，时隔300ms
       const controlData = { hue: 0, saturation: 0, value: 0, bright, temp };
       controlData[key] = value;
-      dpUtils.putDpData({ [controlCode]: controlData }, { throttle: 300 });
+      dpStruActions.control_data.set(controlData, { throttle: 300 });
     } else {
       if (key === 'temp') {
         // 释放时，下发色温
-        dpUtils.putDpData({ [tempCode]: value }, { throttle: 300 });
+        dpActions.temp_value.set(value, { throttle: 300 });
       }
       if (key === 'bright') {
         // 释放时，下发亮度
-        setBright(value);
-        dpUtils.putDpData({ [brightCode]: value }, { throttle: 300 });
+        dpActions.bright_value.set(value, { throttle: 300 });
       }
     }
   };
@@ -87,7 +84,7 @@ const White = () => {
 
   const handleDeleteWhite = () => {
     // 删除收藏白光
-    const whites: WHITE[] = _cloneDeep(collectWhites);
+    const whites: WHITE[] = _.cloneDeep(collectWhites);
     if (whiteIndex > -1) {
       whites.splice(whiteIndex, 1);
       LampApi.saveCloudConfig!('collectWhites', whites).then(res1 => {
@@ -100,12 +97,12 @@ const White = () => {
   const handleChooseWhite = (value: WHITE) => {
     // 选中收藏白光，下发色温、亮度
     const { temperature: t, brightness: b } = value;
-    dpUtils.putDpData({ [tempCode]: t, [brightCode]: b });
+    devices.lamp.publishDps({ temp_value: t, bright_value: b });
   };
 
   return (
     <View className={styled.container}>
-      {isSupportDp(tempCode) ? (
+      {dpSchema.temp_value ? (
         <>
           {/* <WhiteRing
             temperature={temp}
