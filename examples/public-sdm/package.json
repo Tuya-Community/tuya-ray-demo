@@ -10,7 +10,7 @@
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
-    "@ray-js/panel-sdk": "^1.5.0",
+    "@ray-js/panel-sdk": "^1.7.0-beta.1",
     "@ray-js/ray": "^1.2.7",
     "@reduxjs/toolkit": "^1.9.3",
     "clsx": "^1.2.1",
