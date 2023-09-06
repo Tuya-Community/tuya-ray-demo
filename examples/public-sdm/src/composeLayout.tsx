@@ -8,7 +8,6 @@ import store from './redux';
 
 import './styles/index.less';
 
-
 interface Props {
   devInfo: DevInfo;
   // eslint-disable-next-line react/require-default-props
