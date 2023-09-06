@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { getSystemInfoSync } from '@ray-js/ray';
-import { actions, store } from '@/redux';
-import './styles/index.less';
 import { devices } from './devices';
+import { updateThemeType } from './redux/modules/themeSlice';
+import { initializeSystemInfo } from './redux/modules/systemInfoSlice';
+import store from './redux';
+
+import './styles/index.less';
 
 interface Props {
   devInfo: DevInfo;
@@ -23,8 +26,9 @@ const composeLayout = (SubComp: React.ComponentType<any>) => {
       devices.common.init();
       const systemInfo = getSystemInfoSync();
       const { theme } = systemInfo;
-      dispatch(actions.common.systemInfo(systemInfo));
-      dispatch(actions.theme.toggleTheme({ type: theme }));
+
+      dispatch(initializeSystemInfo(systemInfo));
+      dispatch(updateThemeType(theme));
     }
 
     render() {
