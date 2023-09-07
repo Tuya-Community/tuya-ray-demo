@@ -2324,10 +2324,10 @@
   dependencies:
     "@ray-js/panel-shared" "^1.3.0"
 
-"@ray-js/panel-sdk@^1.7.0-beta.1":
-  version "1.7.0-beta.1"
-  resolved "https://registry.npmjs.org/@ray-js/panel-sdk/-/panel-sdk-1.7.0-beta.1.tgz#1437a17bc50df57fc59c4c596a8305f0c68fd528"
-  integrity sha512-tnAOKy8SuRlF+upLgtJXW5qLvkuJ6eWpjygJxrW4Psea341SKpx9pji2W8C1W+fxLnlzBHyqvp8uhTX28Dzr2w==
+"@ray-js/panel-sdk@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.npmjs.org/@ray-js/panel-sdk/-/panel-sdk-1.7.0.tgz#ffc05a2c7d134337c903e1dfde25f50d379a7735"
+  integrity sha512-7XH5pqeTlEbftyyjL17a5YR2WA1JKI27Lzv2kcpTh0T331u//9OtTjEqeDvsF5NxaW/ovTTHB0dSzLaLRUO+7Q==
   dependencies:
     "@ray-core/runtime" "^0.3.6"
     "@ray-js/panel-cloud" "^1.3.3"

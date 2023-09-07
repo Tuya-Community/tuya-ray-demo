@@ -2581,10 +2581,10 @@
     "@ray-js/panel-shared" "^1.2.0"
     use-context-selector "^1.4.1"
 
-"@ray-js/panel-sdk@^1.7.0-beta.2":
-  version "1.7.0-beta.2"
-  resolved "https://registry.npmjs.org/@ray-js/panel-sdk/-/panel-sdk-1.7.0-beta.2.tgz#b2a7fd60b15b612909ed938ade384cd019090f56"
-  integrity sha512-WF2klkTTi5LHwekLs/kcy+mF0JVoC+33nz2QRTjto4RiMoIYh1lY1NWCJp+HRVu68HvgBOcmEYaphJo3/G7b6Q==
+"@ray-js/panel-sdk@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.npmjs.org/@ray-js/panel-sdk/-/panel-sdk-1.7.0.tgz#ffc05a2c7d134337c903e1dfde25f50d379a7735"
+  integrity sha512-7XH5pqeTlEbftyyjL17a5YR2WA1JKI27Lzv2kcpTh0T331u//9OtTjEqeDvsF5NxaW/ovTTHB0dSzLaLRUO+7Q==
   dependencies:
     "@ray-core/runtime" "^0.3.6"
     "@ray-js/panel-cloud" "^1.3.3"
