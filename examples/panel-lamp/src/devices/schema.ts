@@ -1,4 +1,7 @@
-export const defaultSchema = [
+import _ from 'lodash-es';
+import { GetSmartDeviceModelDpSchema } from '@ray-js/panel-sdk';
+
+export const lampSchema = [
   {
     attr: 641,
     canTrigger: true,
@@ -113,3 +116,7 @@ export const defaultSchema = [
     type: 'obj',
   },
 ] as const;
+
+export const lampSchemaMap = _.keyBy(lampSchema, 'code') as GetSmartDeviceModelDpSchema<
+  typeof lampSchema
+>;

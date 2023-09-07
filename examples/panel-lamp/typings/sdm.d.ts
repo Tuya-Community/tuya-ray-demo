@@ -1,24 +1,29 @@
-import { ProductName } from '@/constants';
-type SmartDeviceSchema = typeof import('@/devices/schema').socketSchema;
+import '@ray-js/panel-sdk';
+import { GetStructuredDpState, GetStructuredActions } from '@ray-js/panel-sdk';
 
-type SmartDevices = {
-  socket?: import('@tuya-miniapp/sdm').SmartDeviceModel<SmartDeviceSchema>;
-};
+type SmartDeviceSchema = typeof import('@/devices/schema').lampSchema;
+type SmartDeviceStructuredProtocols = typeof import('@/devices/protocols').protocols;
+type SmartDevices = import('@ray-js/panel-sdk').SmartDeviceModel<SmartDeviceSchema>;
 
-declare module '@ray-js/sdm-react' {
+declare module '@ray-js/panel-sdk' {
   export const SdmProvider: React.FC<{
     value: SmartDeviceModel<SmartDeviceSchema>;
     children: React.ReactNode;
   }>;
   export type SmartDeviceInstanceData = {
-    devInfo: ReturnType<SmartDevices[ProductName]['getDevInfo']>;
-    dpSchema: ReturnType<SmartDevices[ProductName]['getDpSchema']>;
-    network: ReturnType<SmartDevices[ProductName]['getNetwork']>;
-    bluetooth: ReturnType<SmartDevices[ProductName]['getBluetooth']>;
+    devInfo: ReturnType<SmartDevices['getDevInfo']>;
+    dpSchema: ReturnType<SmartDevices['getDpSchema']>;
+    network: ReturnType<SmartDevices['getNetwork']>;
+    bluetooth: ReturnType<SmartDevices['getBluetooth']>;
   };
-  export function useProps(): SmartDevices[ProductName]['model']['props'];
+  export function useProps(): SmartDevices['model']['props'];
   export function useProps<Value extends any>(
-    selector: (props?: SmartDevices[ProductName]['model']['props']) => Value,
+    selector: (props?: SmartDevices['model']['props']) => Value,
+    equalityFn?: (a: Value, b: Value) => boolean
+  ): Value;
+  export function useStructuredProps(): GetStructuredDpState<SmartDeviceStructuredProtocols>;
+  export function useStructuredProps<Value extends any>(
+    selector: (props?: GetStructuredDpState<SmartDeviceStructuredProtocols>) => Value,
     equalityFn?: (a: Value, b: Value) => boolean
   ): Value;
   export function useDevice(): SmartDeviceInstanceData;
@@ -26,5 +31,6 @@ declare module '@ray-js/sdm-react' {
     selector: (device: SmartDeviceInstanceData) => Device,
     equalityFn?: (a: Device, b: Device) => boolean
   ): Device;
-  export function useActions(): SmartDevices[ProductName]['model']['actions'];
+  export function useActions(): SmartDevices['model']['actions'];
+  export function useStructuredActions(): GetStructuredActions<SmartDeviceStructuredProtocols>;
 }

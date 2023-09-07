@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { transform } from './transform';
 
-export default class XyFormatter {
+export default class ControlFormatter {
   uuid: string;
   defaultValue: {
     hue: number;

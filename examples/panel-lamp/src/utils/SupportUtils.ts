@@ -1,6 +1,6 @@
 import { devices } from '@/devices';
-import _get from 'lodash/get';
-import dpCodes from '@/config/dpCodes';
+import { lampSchemaMap } from '@/devices/schema';
+import _ from 'lodash-es';
 
 /**
  * 功能支持工具类
@@ -22,8 +22,6 @@ interface ISupportUtils {
 
 const cache: Record<string, any> = {};
 
-const { brightCode, tempCode, colourCode, workModeCode } = dpCodes;
-
 export const supportDp = (code: string) => {
   const devInfo = devices.lamp.getDevInfo();
   const { schema } = devInfo || {};
@@ -38,11 +36,11 @@ const supportWorkMode = (code: string) => {
   const devInfo = devices.lamp.getDevInfo();
   const { schema } = devInfo || {};
   if (Array.isArray(schema)) {
-    const schemaRes = schema.find(i => i.code === workModeCode);
+    const schemaRes = schema.find(i => i.code === lampSchemaMap.work_mode.code);
     const workModeRange: string[] = schemaRes?.property?.range || [];
     return workModeRange.includes(code);
   }
-  const workModeRange: string[] = _get(schema?.[workModeCode], 'range') || [];
+  const workModeRange: string[] = _.get(schema?.[lampSchemaMap.work_mode.code], 'range') || [];
   return workModeRange.includes(code);
 };
 
@@ -92,13 +90,28 @@ const SupportUtils: ISupportUtils = {
     return !!devInfo.groupId;
   },
   isSupportBright(isForce = false) {
-    return isSupportByDpAndWorkMode('isSupportBright', brightCode, 'white', isForce);
+    return isSupportByDpAndWorkMode(
+      'isSupportBright',
+      lampSchemaMap.bright_value.code,
+      'white',
+      isForce
+    );
   },
   isSupportTemp(isForce = false) {
-    return isSupportByDpAndWorkMode('isSupportTemp', tempCode, 'white', isForce);
+    return isSupportByDpAndWorkMode(
+      'isSupportTemp',
+      lampSchemaMap.temp_value.code,
+      'white',
+      isForce
+    );
   },
   isSupportColour(isForce = false) {
-    return isSupportByDpAndWorkMode('isSupportColour', colourCode, 'colour', isForce);
+    return isSupportByDpAndWorkMode(
+      'isSupportColour',
+      lampSchemaMap.colour_data.code,
+      'colour',
+      isForce
+    );
   },
 
   isSupportWhite(isForce = false) {
@@ -124,11 +137,12 @@ const SupportUtils: ISupportUtils = {
   },
   isSupportCloudTimer(devInfo?: DevInfo) {
     if (!devInfo) {
-      //@ts-ignore
+      // @ts-ignore
+      // eslint-disable-next-line no-param-reassign
       devInfo = devices.lamp.getDevInfo();
     }
     if (devInfo?.panelConfig?.bic) {
-      //@ts-ignore
+      // @ts-ignore
       const timer = devInfo?.panelConfig?.bic?.find(i => i.code === 'timer');
       if (!timer) {
         return false;

@@ -1830,13 +1830,6 @@
   dependencies:
     react-is "^17.0.2"
 
-"@ray-core/framework-shared@0.2.10":
-  version "0.2.10"
-  resolved "https://registry.npmjs.org/@ray-core/framework-shared/-/framework-shared-0.2.10.tgz#4f80b5c457b9b8882bdfbbdaeba2206bacf62cad"
-  integrity sha512-wa3kRkC8jyXyd2aXWHTZpyOmlI7utGZCpNLXv/PwQoIrHlzYQoCVVk0BjHKfiYEBcRCOccOQZXf0H5VovSOXUQ==
-  dependencies:
-    react-is "^17.0.2"
-
 "@ray-core/framework-shared@0.3.6":
   version "0.3.6"
   resolved "https://registry.npmjs.org/@ray-core/framework-shared/-/framework-shared-0.3.6.tgz#fb2105e6b646331958cc8b063858883c19a2f96b"
@@ -1849,7 +1842,7 @@
   resolved "https://registry.npmjs.org/@ray-core/html2mini-plugin/-/html2mini-plugin-0.0.8.tgz#16e66152160067a1cb9e97b863488221f3bf2c5a"
   integrity sha512-606zx97Qai83VNle0pBO+Dk4SigDD9fJO0CU0CZqrJcFFViyNmseAX8DuwlSSh13mDCKPJIIA+HoECziXDX/rw==
 
-"@ray-core/htmlparser2@4.1.1", "@ray-core/htmlparser2@^4.1.0", "@ray-core/htmlparser2@^4.1.1":
+"@ray-core/htmlparser2@4.1.1", "@ray-core/htmlparser2@^4.1.1":
   version "4.1.1"
   resolved "https://registry.npmjs.org/@ray-core/htmlparser2/-/htmlparser2-4.1.1.tgz#253096d15364b345bfe801b5fccdd238a940a4b9"
   integrity sha512-o24MecQfgxJCQLJA/m8sn6kuOIIHQ4eKC+bQGtQWMXbzCBw63+fJfl+/N1G4js6ApPEkivZ/Qdy+AdcDLHRilg==
@@ -1938,9 +1931,9 @@
     prop-types "^15.5.4"
     sourcemapped-stacktrace "^1.1.6"
 
-"@ray-core/runtime@0.3.6", "@ray-core/runtime@^0.3.5":
+"@ray-core/runtime@0.3.6", "@ray-core/runtime@^0.3.5", "@ray-core/runtime@^0.3.6":
   version "0.3.6"
-  resolved "https://registry.npmjs.org/@ray-core/runtime/-/runtime-0.3.6.tgz#7f391d0d1574f8f6f3832e10eaf7ed944cbae9c3"
+  resolved "https://registry.npmmirror.com/@ray-core/runtime/-/runtime-0.3.6.tgz#7f391d0d1574f8f6f3832e10eaf7ed944cbae9c3"
   integrity sha512-72Q6dAHooBDb2pqtdZP1+eJTE9pQwneIsPN7tlBRnOeQjoxFUvK68DEgfRG83//epSX7YR2+mkZ+VYVqFruvVA==
   dependencies:
     "@ray-core/framework-shared" "0.3.6"
@@ -1966,19 +1959,6 @@
     react-reconciler "0.26.2"
     scheduler "0.19.1"
 
-"@ray-core/runtime@^0.2.9":
-  version "0.2.10"
-  resolved "https://registry.npmjs.org/@ray-core/runtime/-/runtime-0.2.10.tgz#c878ec555e04882c1d4c564125d220054b689cd9"
-  integrity sha512-2kMJbIRvKGZCm1nRgXxEKeWc3PtMDWdrYCO4PBnCWKvkrtYXee85AdUHSH4H01XekWhX5sJjJRHOijWlKx8UoQ==
-  dependencies:
-    "@ray-core/framework-shared" "0.2.10"
-    "@ray-core/shared" "0.2.10"
-    "@ray-core/web" "0.2.10"
-    qs "^6.9.3"
-    react-is "^17.0.2"
-    react-reconciler "0.26.2"
-    scheduler "0.19.1"
-
 "@ray-core/shared@0.0.11", "@ray-core/shared@^0.0.x":
   version "0.0.11"
   resolved "https://registry.npmjs.org/@ray-core/shared/-/shared-0.0.11.tgz#b7e65f55e164cff8ce76c23c8547319cb22c76ba"
@@ -1987,15 +1967,6 @@
     "@babel/parser" "^7.11.4"
     "@babel/traverse" "^7.11.0"
     htmlparser2 "^4.1.0"
-
-"@ray-core/shared@0.2.10":
-  version "0.2.10"
-  resolved "https://registry.npmjs.org/@ray-core/shared/-/shared-0.2.10.tgz#9ee1ca207a48483adbd512341060c1102fb7da00"
-  integrity sha512-Xn30C8k6LQrHGsxPCVaqV2fn8OBFBSSYkp8aAG2AIrPbjVaAvKaHu8ylvSvEoDFqVjmG4AZMdQ+HM9xG8kIowg==
-  dependencies:
-    "@babel/parser" "^7.11.4"
-    "@babel/traverse" "^7.11.0"
-    "@ray-core/htmlparser2" "^4.1.0"
 
 "@ray-core/shared@0.3.6", "@ray-core/shared@^0.3.5":
   version "0.3.6"
@@ -2040,19 +2011,6 @@
   dependencies:
     "@loadable/component" "^5.12.0"
     "@ray-core/framework-shared" "0.0.11"
-    "@remax/react-router-cache-route" "^1.8.4"
-    react-is "^17.0.2"
-    react-router-dom "^5.2.0"
-    rmc-pull-to-refresh "^1.0.12"
-    umi-hd "^5.0.1"
-
-"@ray-core/web@0.2.10":
-  version "0.2.10"
-  resolved "https://registry.npmjs.org/@ray-core/web/-/web-0.2.10.tgz#13fab3b20df4787e05a656ac32704e8d29c4a634"
-  integrity sha512-LSv7JAzRLE93qJ/LQHcqxy65QWjxUh/eJw6pqGBtWqIKIqtfRGuTQREzwgYr3p44dGotht+X3ZYP2+Of7rdnTQ==
-  dependencies:
-    "@loadable/component" "^5.12.0"
-    "@ray-core/framework-shared" "0.2.10"
     "@remax/react-router-cache-route" "^1.8.4"
     react-is "^17.0.2"
     react-router-dom "^5.2.0"
@@ -2600,10 +2558,10 @@
   dependencies:
     "@ray-js/panel-shared" "workspace:^1.2.0"
 
-"@ray-js/panel-cloud@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.npmjs.org/@ray-js/panel-cloud/-/panel-cloud-1.3.2.tgz#2b050b415dad6c55ce2b75fbaa290c614717abd5"
-  integrity sha512-Bwgy0ngfeSD7pKAhMNYxlI101GN5cOH6w9NMnS+XnroiWJ4dx1b0KU3BkbGlZdg3JIsfcA6JfSn/D9zCemA+mQ==
+"@ray-js/panel-cloud@^1.3.3":
+  version "1.3.3"
+  resolved "https://registry.npmjs.org/@ray-js/panel-cloud/-/panel-cloud-1.3.3.tgz#3d22252fc7c6e347b2baa3164d524121ccd53e88"
+  integrity sha512-FVyKicjt+jzoBWfN1xtCVFJ8uOsD1SJvsEIlL+rmiRHbnNpcVh17xHSowpQSh/nLNx1TqecUIYeO5yycrkmjnA==
   dependencies:
     "@ray-js/panel-shared" "^1.3.0"
 
@@ -2623,14 +2581,17 @@
     "@ray-js/panel-shared" "^1.2.0"
     use-context-selector "^1.4.1"
 
-"@ray-js/panel-sdk@^1.4.2":
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/@ray-js/panel-sdk/-/panel-sdk-1.5.0.tgz#561c0c49cf48fe37c2e70f268176b81997607eeb"
-  integrity sha512-wHnRgjyK+wloulIpXSI2Yf9jyWFJLwxUHShfh7bVhYJMmQlqotOaD5lr4gMYSIuKXy6k0/6W/FxluZrJGV2Dww==
+"@ray-js/panel-sdk@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.npmjs.org/@ray-js/panel-sdk/-/panel-sdk-1.7.0.tgz#ffc05a2c7d134337c903e1dfde25f50d379a7735"
+  integrity sha512-7XH5pqeTlEbftyyjL17a5YR2WA1JKI27Lzv2kcpTh0T331u//9OtTjEqeDvsF5NxaW/ovTTHB0dSzLaLRUO+7Q==
   dependencies:
-    "@ray-core/runtime" "^0.2.9"
-    "@ray-js/panel-cloud" "^1.3.2"
+    "@ray-core/runtime" "^0.3.6"
+    "@ray-js/panel-cloud" "^1.3.3"
     "@ray-js/panel-shared" "^1.3.0"
+    "@ray-js/tuya-dp-transform" "^0.0.2"
+    events "^3.3.0"
+    lodash-es "^4.17.21"
     use-context-selector "^1.4.1"
 
 "@ray-js/panel-shared@^1.2.0", "@ray-js/panel-shared@workspace:^1.2.0":
@@ -2756,18 +2717,6 @@
     htm "3.1.1"
     preact "10.10.0"
     preact-render-to-string "5.2.1"
-
-"@ray-js/tuya-dp-kit@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.npmjs.org/@ray-js/tuya-dp-kit/-/tuya-dp-kit-0.0.8.tgz#5374eba332dd300ceb7c01de615da6944b23e138"
-  integrity sha512-jTAwjlbCpu928W191OrGy937L1S9rlYysT8jzzuW3bEuXZ/HX27UETfcx+rkysrZom8wGpwDo4pV7uTtDKQZWw==
-  dependencies:
-    "@ray-js/tuya-dp-transform" "^0.0.2"
-    "@reduxjs/toolkit" "^1.8.4"
-    lodash.debounce "^4.0.8"
-    lodash.isequal "^4.5.0"
-    lodash.throttle "^4.1.1"
-    redux "^4.1.2"
 
 "@ray-js/tuya-dp-transform@^0.0.2":
   version "0.0.2"
@@ -2903,16 +2852,6 @@
   integrity sha512-idJotMEzHc3haWsCh7EvnnZMKxvaS4YF/x2UyFBkNFiEFUaEo/1ioQU6qqmVLspdEv4bI/dLm97hQo7qD8Yl7Q==
   dependencies:
     nanoid "^3.1.23"
-
-"@reduxjs/toolkit@^1.8.4":
-  version "1.9.0"
-  resolved "https://registry.npmjs.org/@reduxjs/toolkit/-/toolkit-1.9.0.tgz#76b264fcea677d256b18f86cc77e00743a9e02b0"
-  integrity sha512-ak11IrjYcUXRqlhNPwnz6AcvA2ynJTu8PzDbbqQw4a3xR4KZtgiqbNblQD+10CRbfK4+5C79SOyxnT9dhBqFnA==
-  dependencies:
-    immer "^9.0.16"
-    redux "^4.2.0"
-    redux-thunk "^2.4.2"
-    reselect "^4.1.7"
 
 "@remax/postcss-px2units@^0.2.0":
   version "0.2.1"
@@ -6032,9 +5971,9 @@ eventemitter3@^4.0.0:
   resolved "https://registry.npmjs.org/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
 
-events@^3.2.0:
+events@^3.2.0, events@^3.3.0:
   version "3.3.0"
-  resolved "https://registry.npmjs.org/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
+  resolved "https://registry.npmmirror.com/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
   integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
 
 eventsource@^2.0.2:
@@ -7052,11 +6991,6 @@ image-size@~0.5.0:
   version "0.5.5"
   resolved "https://registry.npmjs.org/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
   integrity sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==
-
-immer@^9.0.16:
-  version "9.0.16"
-  resolved "https://registry.npmjs.org/immer/-/immer-9.0.16.tgz#8e7caab80118c2b54b37ad43e05758cdefad0198"
-  integrity sha512-qenGE7CstVm1NrHQbMh8YaSzTZTFNP3zPqr3YU0S0UY441j4bJTg4A2Hh5KAhwgaiU6ZZ1Ar6y/2f4TblnMReQ==
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -8423,11 +8357,6 @@ lodash.get@^4.4.2:
   resolved "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
   integrity sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==
 
-lodash.isequal@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.npmjs.org/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
-  integrity sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==
-
 lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.npmjs.org/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
@@ -8457,11 +8386,6 @@ lodash.templatesettings@^4.0.0:
   integrity sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
   dependencies:
     lodash._reinterpolate "^3.0.0"
-
-lodash.throttle@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
-  integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
 
 lodash.truncate@^4.4.2:
   version "4.4.2"
@@ -10343,7 +10267,7 @@ redux-thunk@^2.4.2:
   resolved "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.4.2.tgz#b9d05d11994b99f7a91ea223e8b04cf0afa5ef3b"
   integrity sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==
 
-redux@^4.0.0, redux@^4.1.2, redux@^4.2.0:
+redux@^4.0.0, redux@^4.2.0:
   version "4.2.0"
   resolved "https://registry.npmjs.org/redux/-/redux-4.2.0.tgz#46f10d6e29b6666df758780437651eeb2b969f13"
   integrity sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==
@@ -10490,11 +10414,6 @@ reselect@^4.0.0:
   version "4.1.6"
   resolved "https://registry.npmjs.org/reselect/-/reselect-4.1.6.tgz#19ca2d3d0b35373a74dc1c98692cdaffb6602656"
   integrity sha512-ZovIuXqto7elwnxyXbBtCPo9YFEr3uJqj2rRbcOOog1bmu2Ag85M4hixSwFWyaBMKXNgvPaJ9OSu9SkBPIeJHQ==
-
-reselect@^4.1.7:
-  version "4.1.7"
-  resolved "https://registry.npmjs.org/reselect/-/reselect-4.1.7.tgz#56480d9ff3d3188970ee2b76527bd94a95567a42"
-  integrity sha512-Zu1xbUt3/OPwsXL46hvOOoQrap2azE7ZQbokq61BQfiXvhewsKDwhMeZjTX9sX0nvw1t/U5Audyn1I9P/m9z0A==
 
 resize-observer-polyfill@^1.5.1:
   version "1.5.1"

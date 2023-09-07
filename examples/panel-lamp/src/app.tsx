@@ -5,11 +5,9 @@ import './app.less';
 import { SdmProvider } from '@ray-js/panel-sdk';
 import { initPanelEnvironment } from '@ray-js/ray';
 import { Provider } from 'react-redux';
-import { devices } from '@/devices';
+import { devices, dpKit } from '@/devices';
 import { store, actions } from '@/redux';
 import DefaultVal from '@/config/default';
-import { getDPCodeById } from './utils/dp/putDpData';
-import { formatDevSchema } from './utils';
 import Api from './api/LampApi';
 
 const { defaultColors, defaultWhite } = DefaultVal;
@@ -24,30 +22,14 @@ class App extends React.Component<Props> {
   async onLaunch() {
     devices.lamp.init();
     devices.lamp.onInitialized(res => {
+      dpKit.init(devices.lamp);
       const devInfo = res.getDevInfo();
       const { devId, groupId } = devInfo;
-      // 初始化dpState
-      dispatch(
-        actions.common.devInfoChange({
-          state: formatDevSchema(devInfo).state,
-        })
-      );
       Api.fetchCloudConfig(devId, groupId).then(cloudData => {
         if (cloudData && Object.keys(cloudData).length) {
           this.handleCloudData(cloudData);
         }
       });
-    });
-    devices.lamp.onDpDataChange(res => {
-      const { deviceId, dps } = res;
-      const updateDp = {};
-      if (deviceId === devices.lamp.getDevInfo().devId) {
-        Object.keys(dps).forEach(dpItem => {
-          const code = getDPCodeById(dpItem);
-          updateDp[code] = dps[dpItem];
-        });
-      }
-      dispatch(actions.common.responseUpdateDp(updateDp));
     });
   }
 

@@ -1,28 +1,8 @@
-import { DEV_INFO_CHANGE, RESPONSE_UPDATE_DP } from '@/constant';
 import { handleActions } from 'redux-actions';
 import { actions } from '../actions/common';
 
 export type Actions = {
   [K in keyof typeof actions]: ReturnType<typeof actions[K]>;
-};
-
-const dpState = (state = {}, action) => {
-  switch (action.type) {
-    case DEV_INFO_CHANGE: {
-      return {
-        ...state,
-        ...action.payload.state,
-      };
-    }
-    case RESPONSE_UPDATE_DP: {
-      return {
-        ...state,
-        ...action.payload,
-      };
-    }
-    default:
-      return state;
-  }
 };
 
 const uiState = handleActions<any>(
@@ -60,7 +40,6 @@ const cloudState = handleActions<any>(
   }
 );
 export const reducers = {
-  dpState,
   uiState,
   cloudState,
 };

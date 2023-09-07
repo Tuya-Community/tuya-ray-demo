@@ -1,29 +1,28 @@
 import React, { useEffect } from 'react';
 import { setNavigationBarTitle, setNavigationBarColor, View, Image } from '@ray-js/ray';
-import { ControlBar, TabBar } from '@/components';
-import dpCodes from '@/config/dpCodes';
 import clsx from 'clsx';
+import { useActions, useDevice, useProps } from '@ray-js/panel-sdk';
+import { ControlBar, TabBar } from '@/components';
 import Res from '@/res';
-import { dpUtils } from '@/utils';
 import SupportUtils from '@/utils/SupportUtils';
 import { useSelector, store, actions } from '@/redux';
-import { WORKMODE } from '@/config';
-import { useDevice } from '@ray-js/panel-sdk';
+import { WORK_MODE } from '@/constant/workMode';
 import styles from './index.module.less';
 import Colour from '../colour';
 import White from '../white';
 
-const { powerCode, workModeCode } = dpCodes;
 const { dispatch } = store;
 
 export function Home() {
   const deviceName = useDevice(d => d.devInfo.name);
 
-  const { currentTab, power, workMode } = useSelector(({ uiState, dpState }) => ({
+  const { currentTab } = useSelector(({ uiState }) => ({
     currentTab: uiState.currentTab,
-    power: dpState[powerCode],
-    workMode: dpState[workModeCode],
   }));
+
+  const dpActions = useActions();
+  const power = useProps(props => props.switch_led);
+  const workMode = useProps(props => props.work_mode);
 
   useEffect(() => {
     // 把导航栏切换成黑色
@@ -55,16 +54,16 @@ export function Home() {
     // 根据当前支持的dp展示tab
     const tabs = [];
     if (SupportUtils.isSupportColour()) {
-      tabs.push(WORKMODE.colour);
+      tabs.push(WORK_MODE.colour);
     }
     if (SupportUtils.isSupportWhite()) {
-      tabs.push(WORKMODE.white);
+      tabs.push(WORK_MODE.white);
     }
     return tabs;
   };
   const handleChangeTab = (val: string) => {
     // 切换tab,对应下发工作模式
-    dpUtils.putDpData({ [workModeCode]: val }, { checkRepeat: false });
+    dpActions.work_mode.set(val, { checkRepeat: false });
   };
   const supportColorAndWhite = initTabs().length === 2;
   return (
