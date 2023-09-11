@@ -3,7 +3,7 @@ export const transform = function* transform(value) {
   let result = 0;
   let length;
   // eslint-disable-next-line prettier/prettier
-  for (; true;) {
+  for (; true; ) {
     length = yield result;
     result = value.substr(start, length);
     if (start + length >= value.length) {

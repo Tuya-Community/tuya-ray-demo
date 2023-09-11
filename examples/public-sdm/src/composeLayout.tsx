@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { getSystemInfoSync } from '@ray-js/ray';
-import { actions, store } from '@/redux';
+import { devices, dpKit } from './devices';
+import { updateThemeType } from './redux/modules/themeSlice';
+import { initializeSystemInfo } from './redux/modules/systemInfoSlice';
+import store from './redux';
 import './styles/index.less';
 
 interface Props {
@@ -18,12 +21,14 @@ const composeLayout = (SubComp: React.ComponentType<any>) => {
   const { dispatch } = store;
   return class PanelComponent extends Component<Props, State> {
     async onLaunch(object: any) {
-      console.log('app onLaunch: ', object);
+      console.log('=== App onLaunch', object);
+      devices.common.init();
+      devices.common.onInitialized(device => dpKit.init(device));
       const systemInfo = getSystemInfoSync();
       const { theme } = systemInfo;
 
-      dispatch(actions.common.systemInfo(systemInfo));
-      dispatch(actions.theme.toggleTheme({ type: theme }));
+      dispatch(initializeSystemInfo(systemInfo));
+      dispatch(updateThemeType(theme));
     }
 
     render() {

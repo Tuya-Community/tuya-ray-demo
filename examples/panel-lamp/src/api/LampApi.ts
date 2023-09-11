@@ -1,10 +1,8 @@
 /* eslint-disable no-shadow */
 /* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
+import _ from 'lodash-es';
 import { decode } from 'base64-browser';
-import _get from 'lodash/get';
-import _isEmpty from 'lodash/isEmpty';
-import _isEqual from 'lodash/isEqual';
 import { requestCloud, getDeviceProperty, setGroupProperty, setDeviceProperty } from '@ray-js/ray';
 import StorageUtils from './storage';
 import { devices } from '@/devices';
@@ -83,7 +81,7 @@ if (!LampApi.getUiConfig) {
 
 LampApi.getCloudFun = (name: string, defaultValue: any = null) => {
   const devInfo = devices.lamp.getDevInfo();
-  return _get(devInfo, ['panelConfig', 'fun', name], defaultValue);
+  return _.get(devInfo, ['panelConfig', 'fun', name], defaultValue);
 };
 
 LampApi.getAllCloudConfig = (devId: string, groupId: string) => {
@@ -119,12 +117,12 @@ const formateCacheData = (data: any) => {
 };
 
 const handleSyncCloudData = async (syncCloudData: any, syncLocalData: any) => {
-  if (!_isEmpty(syncCloudData) || !_isEmpty(syncLocalData)) {
+  if (!_.isEmpty(syncCloudData) || !_.isEmpty(syncLocalData)) {
     ty.emitChannel({
       eventName: 'beginSyncCloudData',
       event: { syncCloudData, syncLocalData },
     });
-    if (!_isEmpty(syncLocalData)) {
+    if (!_.isEmpty(syncLocalData)) {
       const cacheData = (await StorageUtils.getDevItem(LOCAL_DATA_KEY)) || {};
       Object.keys(syncLocalData).forEach(key => {
         const { type } = syncLocalData[key];
@@ -135,14 +133,14 @@ const handleSyncCloudData = async (syncCloudData: any, syncLocalData: any) => {
         }
       });
       StorageUtils.setDevItem(LOCAL_DATA_KEY, cacheData);
-      if (_isEmpty(syncCloudData)) {
+      if (_.isEmpty(syncCloudData)) {
         ty.emitChannel({
           eventName: 'endSyncCloudData',
           event: formateCacheData(cacheData),
         });
       }
     }
-    if (!_isEmpty(syncCloudData)) {
+    if (!_.isEmpty(syncCloudData)) {
       // 同步数据到云端
       const codes = Object.keys(syncCloudData);
       let total = codes.length;
@@ -208,7 +206,7 @@ const syncComplete = async (code: any, data: any) => {
   const cacheData: any = StorageUtils.getDevItem(LOCAL_DATA_KEY) || {};
   const target = cacheData[code];
   // 校验数据是否被动过
-  if (_isEqual(data, target)) {
+  if (_.isEqual(data, target)) {
     switch (data.type) {
       case SyncType.ADD:
       case SyncType.UPDATE:

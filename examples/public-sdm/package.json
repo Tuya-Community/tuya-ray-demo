@@ -10,14 +10,12 @@
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
-    "@ray-js/panel-sdk": "^1.5.0",
+    "@ray-js/panel-sdk": "^1.7.0",
     "@ray-js/ray": "^1.2.7",
+    "@reduxjs/toolkit": "^1.9.3",
     "clsx": "^1.2.1",
     "react-redux": "^7.2.1",
-    "redux": "^4.1.2",
-    "redux-actions": "^2.6.5",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.4.0"
+    "redux-logger": "^3.0.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
