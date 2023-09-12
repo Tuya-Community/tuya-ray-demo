@@ -5,7 +5,7 @@ import '@/i18n';
 import './app.less';
 import { SdmProvider } from '@ray-js/panel-sdk';
 import { initPanelEnvironment } from '@ray-js/ray';
-import RayErrorCatch from '@ray-js/ray-error-catch';
+import RayErrorCatch, { Utils } from '@ray-js/ray-error-catch';
 import { Provider } from 'react-redux';
 import { devices, dpKit } from '@/devices';
 import { store, actions } from '@/redux';
@@ -15,6 +15,8 @@ import Api from './api/LampApi';
 const { defaultColors, defaultWhite } = DefaultVal;
 
 const { dispatch } = store;
+
+const { Logger } = Utils;
 interface Props {
   children: React.ReactNode;
 }
@@ -33,6 +35,10 @@ class App extends React.Component<Props> {
         }
       });
     });
+    // 添加自定义的日志打印
+    Logger.info('添加提示等级自定义日志打印');
+    Logger.warn('添加警告等级自定义日志打印');
+    Logger.error('添加错误等级自定义日志打印');
   }
 
   handleCloudData(cloudData: any) {
