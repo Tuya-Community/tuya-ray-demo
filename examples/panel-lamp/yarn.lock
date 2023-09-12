@@ -3775,10 +3775,10 @@
   dependencies:
     base64-browser "^1.0.1"
 
-"@ray-js/ray-error-catch@^0.0.10-beta-1":
-  version "0.0.10-beta-1"
-  resolved "https://registry.npmjs.org/@ray-js/ray-error-catch/-/ray-error-catch-0.0.10-beta-1.tgz#e310efc41cfbdaa2ccee571e842f828b742da1be"
-  integrity sha512-Z6ljxOPc+mW9KBPXO8/wil8na7m0+yRrdsuVFn0oXRPyWFSqBZ1iN2wnydNKV8Xhuwm/PgbthR9jO5wiVzakEQ==
+"@ray-js/ray-error-catch@^0.0.11-beta-1":
+  version "0.0.11-beta-1"
+  resolved "https://registry.npmjs.org/@ray-js/ray-error-catch/-/ray-error-catch-0.0.11-beta-1.tgz#ab32edc4b6229c57123f56f7ca891dafec4e5be4"
+  integrity sha512-1GOe6zsdA77MEyf/wDVG6K0CpNS+x2n4JwY3NWfsyKoE5iY95lT27Wy/kdiT3yISUvnuoBP5Yfo/rUCYVgbCWg==
 
 "@ray-js/ray@^0.6.14":
   version "0.6.26"

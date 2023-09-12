@@ -25,7 +25,7 @@
     "@ray-js/components-ty-switch": "^0.0.7",
     "@ray-js/panel-sdk": "^1.7.0",
     "@ray-js/ray": "^1.2.9",
-    "@ray-js/ray-error-catch": "^0.0.10-beta-1",
+    "@ray-js/ray-error-catch": "^0.0.11-beta-1",
     "@ray-js/svg": "^0.0.6",
     "ahooks": "^3.7.1",
     "base64-browser": "^1.0.1",
