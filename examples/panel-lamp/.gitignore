@@ -1,3 +1,7 @@
 node_modules
-.ray
-dist
+/dist
+/.ray
+/.vscode
+/typings
+.DS_Store
+.idea

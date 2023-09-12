@@ -1,29 +1,78 @@
 import React, { useEffect } from 'react';
-import { setNavigationBarTitle, setNavigationBarColor, View, Image } from '@ray-js/ray';
+import {
+  setNavigationBarTitle,
+  setNavigationBarColor,
+  View,
+  Image,
+  Text,
+  ScrollView,
+} from '@ray-js/ray';
 import clsx from 'clsx';
-import { useActions, useDevice, useProps } from '@ray-js/panel-sdk';
-import { ControlBar, TabBar } from '@/components';
+import {
+  useDevice,
+  useActions,
+  useProps,
+  useStructuredActions,
+  useStructuredProps,
+} from '@ray-js/panel-sdk';
+import { router } from 'ray';
+import { ControlBar, Button } from '@/components';
 import Res from '@/res';
 import SupportUtils from '@/utils/SupportUtils';
 import { useSelector, store, actions } from '@/redux';
-import { WORK_MODE } from '@/constant/workMode';
+import Strings from '@/i18n';
+import dpCodes from '@/config/dpCodes';
 import styles from './index.module.less';
-import Colour from '../colour';
-import White from '../white';
+import Dimmer from '../Dimmer';
+import useThrottleFn from '@/hooks/useThrottleFn';
 
 const { dispatch } = store;
-
+const {
+  brightCode,
+  temperatureCode,
+  controlCode,
+  workModeCode,
+  colourCode,
+  powerMemoryCode,
+  doNotDisturbCode,
+  toningGradCode,
+  dimmingGradCode,
+  switchGradientCode,
+} = dpCodes;
 export function Home() {
   const deviceName = useDevice(d => d.devInfo.name);
 
-  const { currentTab } = useSelector(({ uiState }) => ({
-    currentTab: uiState.currentTab,
-  }));
-
+  const { currentTab, colorBrightCheckValue, colorTempCheckValue, systemInfo } = useSelector(
+    ({ uiState, cloudState }) => ({
+      currentTab: uiState.currentTab,
+      colorBrightCheckValue: cloudState.colorBrightCheckValue,
+      colorTempCheckValue: cloudState.colorTempCheckValue,
+      systemInfo: cloudState.systemInfo,
+    })
+  );
   const dpActions = useActions();
+  const dpStructuredActions = useStructuredActions();
+  const colour = useStructuredProps(props => props.colour_data);
+  const brightness = useProps(props => props.bright_value);
+  const temperature = useProps(props => props.temp_value);
   const power = useProps(props => props.switch_led);
   const workMode = useProps(props => props.work_mode);
 
+  const moreFuncs = [
+    {
+      code: 'powerMemory',
+      hidden: false,
+      // hidden: !SupportUtils.isSupportDp(powerMemoryCode),
+    },
+    {
+      code: 'doNotDisturb',
+      hidden: false,
+    },
+    {
+      code: 'switchGradient',
+      hidden: false,
+    },
+  ].filter(item => !item.hidden);
   useEffect(() => {
     // 把导航栏切换成黑色
     setNavigationBarColor({
@@ -39,51 +88,96 @@ export function Home() {
   React.useEffect(() => {
     setNavigationBarTitle({ title: deviceName });
   }, [deviceName]);
-  const renderPage = () => {
-    // 切换tab，渲染对应的组件
-    switch (currentTab) {
-      case 'colour':
-        return <Colour />;
-      case 'white':
-        return <White />;
-      default:
-        return <Colour />;
-    }
-  };
-  const initTabs = () => {
-    // 根据当前支持的dp展示tab
-    const tabs = [];
-    if (SupportUtils.isSupportColour()) {
-      tabs.push(WORK_MODE.colour);
-    }
-    if (SupportUtils.isSupportWhite()) {
-      tabs.push(WORK_MODE.white);
-    }
-    return tabs;
-  };
+
   const handleChangeTab = (val: string) => {
     // 切换tab,对应下发工作模式
-    dpActions.work_mode.set(val, { checkRepeat: false });
+    dpActions[workModeCode].set(val, { checkRepeat: false, throttle: 300 });
   };
-  const supportColorAndWhite = initTabs().length === 2;
+
+  const handleColorChange = (isColour, data) => {
+    if (!SupportUtils.isSupportDp(controlCode)) return;
+    let controlData = {};
+    if (isColour) {
+      const { hue, saturation, value } = data;
+      controlData = { hue, saturation, value, bright: 0, temp: 0 };
+    } else {
+      const { brightness: bright, temperature: temp } = data;
+      controlData = { hue: 0, saturation: 0, value: 0, bright, temp };
+    }
+    dpStructuredActions[controlCode].set(controlData, { throttle: 300 });
+  };
+
+  const putColorData = (code, value) => {
+    if (code === colourCode) {
+      dpStructuredActions[code].set(value, { throttle: 300 });
+    } else {
+      dpActions[code].set(value, { throttle: 300 });
+    }
+  };
+  const handleReleaseWhite = value => {
+    dpActions[brightCode].set(value[brightCode], { throttle: 300 });
+    dpActions[temperatureCode].set(value[temperatureCode], { throttle: 300 });
+  };
+
+  const handleJump = useThrottleFn(
+    code => {
+      router.push(`/${code}`);
+    },
+    { wait: 80 }
+  ).run;
+  const renderMore = () => {
+    return (
+      <View className={styles.moreContainer}>
+        <Text className={styles.title}>{Strings.getLang('more')}</Text>
+        <View className={styles.row}>
+          {moreFuncs.map((item, index) => {
+            return (
+              <Button
+                key={item.code}
+                className={clsx(styles.greyCard, styles.item)}
+                style={{ marginRight: moreFuncs.length > 1 && index === 0 ? 16 : 0 }}
+                onClick={() => handleJump(item.code)}
+              >
+                <Text className={styles.funcTitle}>{Strings.getLang(item.code)}</Text>
+                <Image
+                  style={{ width: 48, height: 48, marginRight: 12 }}
+                  src={Res[`setting_${item.code}`]}
+                />
+              </Button>
+            );
+          })}
+        </View>
+      </View>
+    );
+  };
   return (
-    <View className={styles.view}>
+    <View className={styles.view} style={{ paddingTop: systemInfo?.statusBarHeight * 2 }}>
       {/* 根据开关显示不同的页面状态 */}
       {power ? (
-        <>
-          <View
-            className={styles.flexCenter}
-            style={{ marginBottom: supportColorAndWhite ? 0 : 140 }}
-          >
-            {supportColorAndWhite && (
-              <TabBar activeTab={currentTab} tabs={initTabs()} onClick={handleChangeTab} />
-            )}
-          </View>
-          {renderPage()}
-        </>
+        <ScrollView
+          scrollY
+          refresherTriggered
+          style={{ height: `calc(100vh - 206rpx - ${systemInfo?.statusBarHeight * 2}rpx)` }}
+        >
+          <View className={styles.devName}>{deviceName}</View>
+          <Dimmer
+            mode={workMode}
+            colour={colour}
+            brightness={brightness}
+            temperature={temperature}
+            isSupportKelvin={colorTempCheckValue}
+            isSupportThousand={colorBrightCheckValue}
+            handleModeChange={handleChangeTab}
+            onChange={handleColorChange}
+            onRelease={putColorData}
+            onReleaseWhite={handleReleaseWhite}
+          />
+          {renderMore()}
+          <View style={{ height: 60 }} />
+        </ScrollView>
       ) : (
         <View className={clsx(styles.flexCenter, styles.flex1)}>
-          <Image src={Res.powerOff} style={{ width: 550, height: 550 }} />
+          <Image src={Res.power_off} style={{ width: 550, height: 550 }} />
         </View>
       )}
       <ControlBar />

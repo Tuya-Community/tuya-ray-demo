@@ -4,13 +4,14 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  // margin-top: 25rpx;
   .circleBox{
     position: relative;
     .circle {
       border-radius: 50%;
       overflow: hidden;
-      width: 80rpx;
-      height: 80rpx;
+      width: 84rpx;
+      height: 84rpx;
       position: absolute;
     }
   }
@@ -22,14 +23,16 @@
     position: absolute;
     width: 30rpx;
     height: 6rpx;
-
+  }
+  .add {
+    position: absolute;
   }
   .left16{
-    margin-left: 36rpx;
+    margin-left: 24rpx;
   }
   .button {
-    width: 80rpx;
-    height: 80rpx;
+    width: 84rpx;
+    height: 84rpx;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
@@ -42,4 +45,13 @@
     position: absolute;
     background-color: transparent;
   }
+}
+.right16{
+  margin-right: 24rpx;
+}
+.colorRow {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }

@@ -13,9 +13,21 @@ const uiState = handleActions<any>(
     }),
   },
   {
+    isUserMode: true,
     colorIndex: -1,
     whiteIndex: -1,
-    currentTab: 'colour',
+    currentTab: 'dimmer',
+    customCloudAction: {},
+    sliderLoading: true,
+    themeColor: '#1082FE',
+    customColor: {
+      colorMode: 0, // 白光模式
+      hue: 0,
+      saturation: 0,
+      value: 0,
+      brightness: 1000,
+      temperature: 1000,
+    },
   }
 );
 
@@ -37,8 +49,16 @@ const cloudState = handleActions<any>(
       { temperature: 500, brightness: 1000 },
       { temperature: 1000, brightness: 1000 },
     ],
+    groupTab: 'colour',
+    colorTempCheckValue: false,
+    colorBrightCheckValue: false,
+    // hasLoadRhythm: false,
+    // localMessage: {}, // name lon lat
+    // rhythms: [], // 3个数组
+    // rhythmsMessage: {}, // power,mode,isEnable
   }
 );
+
 export const reducers = {
   uiState,
   cloudState,
