@@ -3775,6 +3775,11 @@
   dependencies:
     base64-browser "^1.0.1"
 
+"@ray-js/ray-error-catch@^0.0.10-beta-1":
+  version "0.0.10-beta-1"
+  resolved "https://registry.npmjs.org/@ray-js/ray-error-catch/-/ray-error-catch-0.0.10-beta-1.tgz#e310efc41cfbdaa2ccee571e842f828b742da1be"
+  integrity sha512-Z6ljxOPc+mW9KBPXO8/wil8na7m0+yRrdsuVFn0oXRPyWFSqBZ1iN2wnydNKV8Xhuwm/PgbthR9jO5wiVzakEQ==
+
 "@ray-js/ray@^0.6.14":
   version "0.6.26"
   resolved "https://registry.npmjs.org/@ray-js/ray/-/ray-0.6.26.tgz#df6dc321ef9cf0c297075fba060042a5652383e9"
@@ -4378,25 +4383,7 @@
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
 
-"@types/react@*":
-  version "18.0.25"
-  resolved "https://registry.npmjs.org/@types/react/-/react-18.0.25.tgz#8b1dcd7e56fe7315535a4af25435e0bb55c8ae44"
-  integrity sha512-xD6c0KDT4m7n9uD4ZHi02lzskaiqcBxf4zi+tXZY98a04wvc0hi/TcCPC2FOESZi51Nd7tlUeOJY8RofL799/g==
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/react@^16.9.56":
-  version "16.14.32"
-  resolved "https://registry.npmjs.org/@types/react/-/react-16.14.32.tgz#d4e4fe5ece3c27fcb4608b1f4a614f7dec881392"
-  integrity sha512-hvEy4vGVADbtj/U6+CA5SRC5QFIjdxD7JslAie8EuAYZwhYY9bgforpXNyF1VFzhnkEOesDy1278t1wdjN74cw==
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/react@^17", "@types/react@^17.0.24":
+"@types/react@*", "@types/react@^16.9.56", "@types/react@^17", "@types/react@^17.0.24":
   version "17.0.50"
   resolved "https://registry.npmjs.org/@types/react/-/react-17.0.50.tgz#39abb4f7098f546cfcd6b51207c90c4295ee81fc"
   integrity sha512-ZCBHzpDb5skMnc1zFXAXnL3l1FAdi+xZvwxK+PkglMmBrwjpp9nKaWuEvrGnSifCJmBFGxZOOFuwC6KH/s0NuA==

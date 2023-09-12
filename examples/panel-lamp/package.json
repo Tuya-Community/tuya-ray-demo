@@ -14,6 +14,9 @@
     "build:native": "ray build -t native --verbose",
     "build:tuya": "ray build -t tuya --verbose"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "@ray-js/components-ty-actionsheet": "^0.0.17",
     "@ray-js/components-ty-cell": "^0.0.12",
@@ -22,6 +25,7 @@
     "@ray-js/components-ty-switch": "^0.0.7",
     "@ray-js/panel-sdk": "^1.7.0",
     "@ray-js/ray": "^1.2.9",
+    "@ray-js/ray-error-catch": "^0.0.10-beta-1",
     "@ray-js/svg": "^0.0.6",
     "ahooks": "^3.7.1",
     "base64-browser": "^1.0.1",
@@ -68,5 +72,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "resolutions": {
+    "@types/react": "^17.0.24"
   }
 }

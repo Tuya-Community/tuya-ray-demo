@@ -1,9 +1,11 @@
 import React from 'react';
+// eslint-disable-next-line import/no-unresolved
 import 'ray';
 import '@/i18n';
 import './app.less';
 import { SdmProvider } from '@ray-js/panel-sdk';
 import { initPanelEnvironment } from '@ray-js/ray';
+import RayErrorCatch from '@ray-js/ray-error-catch';
 import { Provider } from 'react-redux';
 import { devices, dpKit } from '@/devices';
 import { store, actions } from '@/redux';
@@ -55,9 +57,11 @@ class App extends React.Component<Props> {
 
   render() {
     return (
-      <Provider store={store}>
-        <SdmProvider value={devices.lamp}>{this.props.children}</SdmProvider>
-      </Provider>
+      <RayErrorCatch>
+        <Provider store={store}>
+          <SdmProvider value={devices.lamp}>{this.props.children}</SdmProvider>
+        </Provider>
+      </RayErrorCatch>
     );
   }
 }
