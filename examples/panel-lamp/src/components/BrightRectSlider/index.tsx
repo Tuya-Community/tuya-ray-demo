@@ -72,7 +72,6 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
   // }, 300)
 
   const formatText = useThrottleFn((v) => {
-    console.log('getDpIdByCode(brightCode)===', getDpIdByCode(brightCode));
     setCurrentVal(v);
     if (isSupportThousand) {
       ty.device.dpTranslateAdvancedCapability({

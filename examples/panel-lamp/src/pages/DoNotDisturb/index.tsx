@@ -47,7 +47,6 @@ const DoNotDisturb = () => {
   ).run;
   const handleSwitchPress = useThrottleFn(
     v => {
-      console.log('handleSwitchPress===', v?.value);
       setCurrentVal(v?.value);
     },
     { wait: 80 }

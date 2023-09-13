@@ -5,13 +5,12 @@ import { Button, Image, Text, View } from '@ray-js/ray';
 import { getLaunchOptionsSync } from '@ray-js/api';
 import React, { useEffect, useState } from 'react';
 import useThrottleFn from '@/hooks/useThrottleFn';
+import { getDpIdByCode, formatPercent } from '@/utils';
 import { OpacitySlider } from '@/components';
-// import { getDpIdByCode } from '@/utils/dp/putDpData';
 import dpCodes from '@/config/dpCodes';
 import SupportUtils from '@/utils/SupportUtils';
 import colorUtils from '@/utils/color.js';
 import Strings from '@/i18n';
-import { formatPercent } from '@/utils';
 import styles from './index.module.less';
 
 const { brightKelvin2rgb } = colorUtils;
@@ -56,7 +55,7 @@ export function TempSlider(props: IProps) {
             {
               dpCode: temperatureCode,
               dpValue: v,
-              // dpId: getDpIdByCode(temperatureCode),
+              dpId: getDpIdByCode(temperatureCode),
             },
           ],
           type: SupportUtils.isGroupDevice() ? '5' : '6',

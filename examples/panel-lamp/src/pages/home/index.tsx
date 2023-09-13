@@ -61,16 +61,18 @@ export function Home() {
   const moreFuncs = [
     {
       code: 'powerMemory',
-      hidden: false,
-      // hidden: !SupportUtils.isSupportDp(powerMemoryCode),
+      hidden: !SupportUtils.isSupportDp(powerMemoryCode),
     },
     {
       code: 'doNotDisturb',
-      hidden: false,
+      hidden: !SupportUtils.isSupportDp(doNotDisturbCode),
     },
     {
       code: 'switchGradient',
-      hidden: false,
+      hidden:
+        !SupportUtils.isSupportDp(switchGradientCode) ||
+        !SupportUtils.isSupportDp(toningGradCode) ||
+        !SupportUtils.isSupportDp(dimmingGradCode),
     },
   ].filter(item => !item.hidden);
   useEffect(() => {
@@ -153,13 +155,14 @@ export function Home() {
   return (
     <View className={styles.view} style={{ paddingTop: systemInfo?.statusBarHeight * 2 }}>
       {/* 根据开关显示不同的页面状态 */}
+      <View className={styles.devName}>{deviceName}</View>
+
       {power ? (
         <ScrollView
           scrollY
           refresherTriggered
           style={{ height: `calc(100vh - 206rpx - ${systemInfo?.statusBarHeight * 2}rpx)` }}
         >
-          <View className={styles.devName}>{deviceName}</View>
           <Dimmer
             mode={workMode}
             colour={colour}
