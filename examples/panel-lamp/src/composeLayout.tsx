@@ -85,23 +85,18 @@ const composeLayout = (Comp: React.ComponentType<any>) => {
               // 高级亮度转换
               getAdvanceHigh()
                 .then(brightRes => {
-                  console.log('高级亮度转换11111');
                   dispatch(actions.common.updateCloud({ colorBrightCheckValue: brightRes }));
-                  dispatch(actions.common.updateUi({ sliderLoading: false }));
                 })
                 .catch(err => {
                   console.warn('getAdvanceHigh fail===', err);
-                  dispatch(actions.common.updateUi({ sliderLoading: false }));
                 });
             },
             fail: (res: any) => {
               console.warn('requestAdvancedCapability fail====', res);
-              dispatch(actions.common.updateUi({ sliderLoading: false }));
             },
           });
         },
         fail: err => {
-          dispatch(actions.common.updateUi({ sliderLoading: false }));
           console.warn('getCurrentHomeInfo fail===', err);
         },
       });

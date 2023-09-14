@@ -21,4 +21,9 @@ export const routes: Routes = [
     path: '/pages/DoNotDisturb/index',
     name: 'doNotDisturb',
   },
+  {
+    route: '/customColor',
+    path: '/pages/PowerMemory/CustomColor/index',
+    name: 'customColor',
+  },
 ];

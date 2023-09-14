@@ -50,6 +50,9 @@ export default {
     sub_label_doNotDisturb: 'Turn on the light twice in a row',
     tip_doNotDisturb:
       'After turning on the do not disturb mode. When the power is turned on after a power failure, the lamp will not be disturbed when the lamp is suddenly turned on. It needs to be switched on and off twice within 5s to normally turn on the lamp.',
+    hue: 'H',
+    saturation: 'S',
+    value: 'V',
   },
   zh: {
     colour: '彩光',
@@ -99,5 +102,8 @@ export default {
     sub_label_doNotDisturb: '连续2次开关才能启动灯',
     tip_doNotDisturb:
       '开启停电勿扰模式后。停电后通电，灯具不会突然亮灯产生惊扰，需要在5s内连续开关两次才能正常开启灯具。',
+    hue: 'H',
+    saturation: 'S',
+    value: 'V',
   },
 };

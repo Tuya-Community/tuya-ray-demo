@@ -1,34 +1,25 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
-import { Button, Image, Text, View } from '@ray-js/ray';
+import { View } from '@ray-js/ray';
 import _cloneDeep from 'lodash/cloneDeep';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { utils, useProps, useActions } from '@ray-js/panel-sdk';
-import { useMemoizedFn } from 'ahooks';
-import { actions, store, useSelector } from '@/redux';
-import { OpacitySlider, TabBar, CollectColors, BrightRectSlider } from '@/components';
+import { TempSlider, TabBar, CollectColors, BrightRectSlider, ColorRow } from '@/components';
 import dpCodes from '@/config/dpCodes';
 import SupportUtils from '@/utils/SupportUtils';
 import Strings from '@/i18n';
 import useThrottleFn from '@/hooks/useThrottleFn';
-import TempSlider from '@/components/TempSlider';
 import styles from './index.module.less';
 
-const { hsv2rgbString, hsv2rgb, rgb2hsv } = utils;
+const { hsv2rgbString } = utils;
 
-const { dispatch } = store;
-const { brightCode, temperatureCode, colourCode, powerCode, workModeCode } = dpCodes;
-const { isSupportDp, isSupportColour } = SupportUtils;
+const { brightCode, temperatureCode, colourCode, workModeCode } = dpCodes;
 
 interface IColour {
   hue: number;
   saturation: number;
   value: number;
-}
-interface IDimmer extends IColour {
-  brightness: number;
-  temperature: number;
 }
 
 interface IProps {
@@ -37,6 +28,7 @@ interface IProps {
   temperature: number;
   brightness: number;
   colour: IColour;
+  canEdit?: boolean;
   isSupportThousand?: boolean;
   isSupportKelvin?: boolean;
   handleModeChange?: (v) => void;
@@ -45,8 +37,7 @@ interface IProps {
   onChange?: (isColor: boolean, value) => void;
   setScrollEnabled?: (v) => void;
 }
-let timer1;
-let timer2;
+
 const Dimmer = (props: IProps) => {
   const {
     mode,
@@ -56,6 +47,7 @@ const Dimmer = (props: IProps) => {
     colour,
     isSupportThousand,
     isSupportKelvin,
+    canEdit = true,
     handleModeChange,
     onRelease,
     onChange,
@@ -66,10 +58,40 @@ const Dimmer = (props: IProps) => {
   const dpActions = useActions();
   const power = useProps(props => props.switch_led);
   const workMode = useProps(props => props.work_mode);
-  const themeColor = useSelector(state => state.uiState.themeColor);
 
-  const [color, setColor] = useState({ H: 0, S: 1000, V: 1000 });
+  // HSV默认的slider配置
+  const hsvConfigs = useMemo(() => {
+    return [
+      {
+        value: colour?.hue,
+        min: 0,
+        max: 360,
+        label: Strings.getLang('hue'),
+        bg:
+          'linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(90.01deg, #FF0000 0.01%, #F8CB0E 12.14%, #80FE06 21.83%, #08FB2B 32.75%, #04FAFC 46.38%, #0243FC 58.38%, #8700F9 70.04%, #FC00EF 80.06%, #F00A5B 89.92%, #FF0000 99.99%)',
+      },
+      {
+        value: colour?.saturation,
+        min: 0,
+        max: 1000,
+        label: Strings.getLang('saturation'),
+        bg: `linear-gradient(90deg, rgba(255, 255, 255, 0), ${hsv2rgbString(
+          colour?.hue,
+          100,
+          100
+        )})`,
+      },
+      {
+        value: colour?.value,
+        min: 10,
+        max: 1000,
+        label: Strings.getLang('value'),
+        bg: 'linear-gradient(90deg, rgba(255, 255, 255, 0), #FFF)',
+      },
+    ];
+  }, [colour]);
 
+  // 如果模式不在调光，自动切成白/彩光
   useEffect(() => {
     const tabs = initWorkModeTabs();
     if (!tabs.includes(mode)) {
@@ -77,25 +99,7 @@ const Dimmer = (props: IProps) => {
     }
   }, [mode]);
 
-  useEffect(() => {
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      timer1 = null;
-      timer2 = null;
-    };
-  }, []);
-  useEffect(() => {
-    // dp彩光更新
-    if (
-      SupportUtils.isSupportDp(colourCode) &&
-      (colour.hue !== color.H || colour.saturation !== color.S || colour.value !== color.V)
-    ) {
-      const { hue: H, saturation: S, value: V } = colour;
-      setColor({ H, S, V });
-    }
-  }, [colour]);
-
+  // 根据当前workMode自适应
   useEffect(() => {
     if (workMode === 'colour' && !SupportUtils.isSupportDp(colourCode)) {
       dpActions[workModeCode].set('white');
@@ -108,6 +112,7 @@ const Dimmer = (props: IProps) => {
     }
   }, [workMode]);
 
+  // 根据支持的路数生成tabBar
   const initWorkModeTabs = () => {
     const tabs = [];
     if (SupportUtils.isSupportDp(temperatureCode) || SupportUtils.isSupportDp(brightCode)) {
@@ -121,15 +126,16 @@ const Dimmer = (props: IProps) => {
 
   const handleChange = useThrottleFn(
     (key, value) => {
+      // slider调节时页面不能滑动
       setScrollEnabled?.(false);
       if (key === 'temp') onChange?.(false, { temperature: value, brightness });
       else onChange?.(false, { temperature, brightness: value });
     },
     { wait: 80 }
   ).run;
-
   const handleWhiteRelease = useThrottleFn(
     (code, value) => {
+      setScrollEnabled?.(true);
       onRelease?.(code, value);
     },
     { wait: 80 }
@@ -148,103 +154,60 @@ const Dimmer = (props: IProps) => {
           />
         )}
         {/* 亮度 */}
-        <BrightRectSlider
-          isUserMode={false}
-          sliderId="brightRectSlider"
-          value={brightness}
-          isSupportThousand={isSupportThousand}
-          maxTrackWidth="calc(100vw - 48px)"
-          sliderHeight={54}
-          onChange={bright => handleChange('bright', bright)}
-          onRelease={bright => handleWhiteRelease(brightCode, bright)}
-        />
+        {SupportUtils.isSupportDp(brightCode) && (
+          <BrightRectSlider
+            isUserMode={false}
+            sliderId="brightRectSlider"
+            value={brightness}
+            isSupportThousand={isSupportThousand}
+            maxTrackWidth="calc(100vw - 48px)"
+            sliderHeight={54}
+            onChange={bright => handleChange('bright', bright)}
+            onRelease={bright => handleWhiteRelease(brightCode, bright)}
+          />
+        )}
       </View>
     );
   };
 
-  const renderColour = useMemoizedFn(() => {
-    const hsvConfigs = [
-      {
-        value: color?.H,
-        min: 0,
-        max: 360,
-        label: Strings.getLang('H'),
-        bg:
-          'linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(90.01deg, #FF0000 0.01%, #F8CB0E 12.14%, #80FE06 21.83%, #08FB2B 32.75%, #04FAFC 46.38%, #0243FC 58.38%, #8700F9 70.04%, #FC00EF 80.06%, #F00A5B 89.92%, #FF0000 99.99%)',
-      },
-      {
-        value: color?.S,
-        min: 0,
-        max: 1000,
-        label: Strings.getLang('S'),
-        bg: `linear-gradient(90deg, rgba(255, 255, 255, 0), ${hsv2rgbString(color?.H, 100, 100)})`,
-      },
-      {
-        value: color?.V,
-        min: 10,
-        max: 1000,
-        label: Strings.getLang('V'),
-        bg: 'linear-gradient(90deg, rgba(255, 255, 255, 0), #FFF)',
-      },
-    ];
-    return (
-      <View>
-        <View className={styles.typeTitle}>{Strings.getLang('HSV')}</View>
-        {hsvConfigs.map(item => {
-          const { value: v, min, max, label, bg } = item;
-          return renderColorRow(v, min, max, label, bg);
-        })}
-      </View>
-    );
-  });
-
-  const renderColorRow = (value, min, max, label, background) => {
-    return (
-      <View key={label} className={styles.colorRow}>
-        <View className={styles.inputBox}>
-          <Text className={styles.label}>{label}：</Text>
-          <View className={styles.input} style={{ color: themeColor }}>{`${Math.max(
-            min,
-            value
-          )}`}</View>
+  const renderColour = () => {
+    if (SupportUtils.isSupportDp(colourCode))
+      return (
+        <View>
+          <View className={styles.typeTitle}>{Strings.getLang('HSV')}</View>
+          {hsvConfigs.map(item => {
+            const { value: v, min, max, label, bg } = item;
+            return (
+              <ColorRow
+                key={label}
+                value={`${v}`}
+                min={min}
+                max={max}
+                label={label}
+                background={bg}
+                onMove={changeColorRow}
+                onEnd={endColorRow}
+              />
+            );
+          })}
         </View>
-        <OpacitySlider
-          value={Math.max(min, value)}
-          min={min}
-          max={max}
-          trackStyle={{
-            width: 'calc(100vw - 123px - 2px)',
-            border: '1px solid #000',
-          }}
-          onTouchMove={v => changeColorRow(v, label)}
-          onTouchEnd={v => endColorRow(v, label)}
-          background={background}
-          thumbStyle={{
-            backgroundColor: label === 'H' ? hsv2rgbString(value, 100, 100) : 'transparent',
-          }}
-        />
-      </View>
-    );
+      );
+    return <></>;
   };
 
   const changeColorRow = useThrottleFn(
     (v, type) => {
-      console.log('colour change===', v, type);
       setScrollEnabled?.(false);
-      const newColorData = { ...color, [type]: v };
-      setColor({ ...color, [type]: v });
-      const { H, S, V } = newColorData;
-      onChange?.(true, { hue: H, saturation: S, value: V });
+      const newColorData = { ...colour, [type]: v };
+      onChange?.(true, newColorData);
     },
     { wait: 80 }
   ).run;
 
   const endColorRow = (v, type) => {
-    console.log('colour end===', v, type);
-    const newColorData = { ...color, [type]: v };
-    const { H: hue, S: saturation, V: value } = newColorData;
-    setColor(newColorData);
-    onRelease?.(colourCode, { hue, saturation, value });
+    setScrollEnabled?.(true);
+    const newColorData = { ...colour, [type]: v };
+    onRelease?.(colourCode, newColorData);
   };
 
   const chooseCollect = data => {
@@ -254,7 +217,6 @@ const Dimmer = (props: IProps) => {
     } else {
       onReleaseWhite?.({ [brightCode]: bright, [temperatureCode]: temp });
     }
-    // dpUtils.putDpData(cmd);
   };
 
   return (
@@ -270,7 +232,7 @@ const Dimmer = (props: IProps) => {
       )}
       <CollectColors
         style={{ justifyContent: 'start', width: '100%', margin: '32rpx 0' }}
-        showAdd={power}
+        showAdd={power && canEdit}
         isColor={mode === 'colour'}
         colourData={colour}
         brightness={brightness}
@@ -282,4 +244,4 @@ const Dimmer = (props: IProps) => {
   );
 };
 
-export default Dimmer;
+export default React.memo(Dimmer);

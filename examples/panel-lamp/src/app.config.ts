@@ -11,7 +11,8 @@ export const thing = {
     "pages/Home/index",
     "pages/PowerMemory/index",
     "pages/SwitchGradient/index",
-    "pages/DoNotDisturb/index"
+    "pages/DoNotDisturb/index",
+    "pages/PowerMemory/CustomColor/index"
   ]
 };
 

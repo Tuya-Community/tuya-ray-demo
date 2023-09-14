@@ -175,7 +175,7 @@ export function Home() {
             onRelease={putColorData}
             onReleaseWhite={handleReleaseWhite}
           />
-          {renderMore()}
+          {moreFuncs.length > 0 && renderMore()}
           <View style={{ height: 60 }} />
         </ScrollView>
       ) : (

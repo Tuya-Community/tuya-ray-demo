@@ -5,19 +5,17 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
 import React, { useEffect, useState, useRef } from 'react';
-import { View, Image, Text } from '@ray-js/ray';
+import { View, Text } from '@ray-js/ray';
 import { getLaunchOptionsSync } from '@ray-js/api';
 import SupportUtils from '@/utils/SupportUtils';
 import { getDpIdByCode, formatPercent } from '@/utils';
-import res from '@/res';
 import Strings from '@/i18n';
 import dpCodes from '@/config/dpCodes';
 import useThrottleFn from '@/hooks/useThrottleFn';
 import colorUtils from '@/utils/color.js';
 import { useSelector, store, actions } from '@/redux';
-import SjsSlider from './Slider';
 import styles from './index.module.less';
-import { Button, OpacitySlider } from '@/components';
+import { OpacitySlider } from '@/components';
 
 const { brightKelvin2rgb } = colorUtils;
 const { dispatch } = store;
@@ -52,7 +50,6 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
     maxTrackWidth,
     maxTrackRadius = 24,
     isSupportThousand,
-    sliderId,
     isUserMode = true,
     onChange,
     onRelease,
@@ -60,19 +57,10 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
   } = props;
 
   const [textVal, setTextVal] = useState('');
-  const [currentVal, setCurrentVal] = useState(value);
-  const sliderLoading = useSelector(state => state.uiState.sliderLoading);
   const themeColor = useSelector(state => state.uiState.themeColor);
   const move = useRef(false);
 
-  // useTimeout(() => {
-  //   if (sliderLoading !== true) {
-  //     formatText(value);
-  //   }
-  // }, 300)
-
   const formatText = useThrottleFn((v) => {
-    setCurrentVal(v);
     if (isSupportThousand) {
       ty.device.dpTranslateAdvancedCapability({
         resId: groupId || devId,
@@ -88,27 +76,19 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
           setTextVal(r?.advancedCapability?.[0]?.translatedValue
             ? `${r?.advancedCapability?.[0]?.translatedValue}${r?.advancedCapability[0]?.unit}`
             : `${formatPercent(v, { min, max, minPercent: 1 })}%`);
-          dispatch(actions.common.updateUi({ sliderLoading: false }));
         },
         fail: err => {
           setTextVal(`${formatPercent(v, { min, max, minPercent: 1 })}%`);
-          dispatch(actions.common.updateUi({ sliderLoading: false }));
         },
       });
     } else {
       setTextVal(`${formatPercent(v, { min, max, minPercent: 1 })}%`);
-      dispatch(actions.common.updateUi({ sliderLoading: false }));
     }
   }, { wait: 100 }).run;
 
   useEffect(() => {
-    if (sliderLoading !== true) {
-      formatText(value);
-    }
-    if (!move.current && currentVal !== value) {
-      setCurrentVal(value);
-    }
-  }, [value, sliderLoading])
+    formatText(value);
+  }, [value])
 
   const handleSliderMove = (v) => {
     formatText(v);

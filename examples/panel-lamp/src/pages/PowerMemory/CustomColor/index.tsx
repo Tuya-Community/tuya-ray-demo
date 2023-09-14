@@ -1,34 +1,28 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
-import { Image, Text, View } from '@ray-js/components';
-import WhiteDimmer from '@/components/WhiteDimmer';
-import { actions, store, useSelector } from '@/redux';
 import { router } from 'ray';
-import Button from '@/components/Button';
-import colorUtils from '@/utils/color.js';
 import React, { useEffect, useState } from 'react';
+import { hideMenuButton, setNavigationBarColor, showMenuButton, View } from '@ray-js/ray';
+import { useStructuredActions } from '@ray-js/panel-sdk';
+import { actions, store, useSelector } from '@/redux';
 import dpCodes from '@/config/dpCodes';
-import SupportUtils from '@/utils/dp/support';
 import Strings from '@/i18n';
-import { dpUtils } from '@/utils';
-import TopBar from '@/components/TopBar';
-import config from '@/config/default';
-import res from '@/res';
-import { hideMenuButton, setNavigationBarColor } from '@ray-js/ray';
+import Dimmer from '../../Dimmer';
+import { TopBar } from '@/components';
 import styles from './index.module.less';
+import useThrottleFn from '@/hooks/useThrottleFn';
 
 const { dispatch } = store;
-const { brightKelvin2rgb } = colorUtils;
-const { brightCode, memoryCode } = dpCodes;
-const { isSupportDp } = SupportUtils;
-export function PowerMemory() {
-  const memoryPower = useSelector(state => state.dpState[memoryCode]);
+const { brightCode, colourCode, temperatureCode, powerMemoryCode } = dpCodes;
+
+export function CustomColor() {
   const safeArea = useSelector(state => state.cloudState.systemInfo?.safeArea);
   const customColor = useSelector(state => state.uiState.customColor);
   const [newCustomColor, setNewCustomColor] = useState(customColor);
+  const dpActions = useStructuredActions();
   useEffect(() => {
     setNavigationBarColor({
-      frontColor: '#000000',
+      frontColor: '#ffffff',
       backgroundColor: 'transparent',
       animation: {
         duration: 300,
@@ -36,25 +30,59 @@ export function PowerMemory() {
       },
     });
     hideMenuButton();
+    return () => {
+      showMenuButton();
+    };
   }, []);
+
   const backToHome = () => {
     router.back();
   };
-  const handleWhiteChange = (key: string, value: number) => {
-    const result = { ...newCustomColor };
-    result[key] = value;
+
+  const handleColorRelease = (key: string, value: any) => {
+    let result;
+    if (key === colourCode) {
+      result = { ...newCustomColor, ...value };
+    } else if (key === brightCode) {
+      result = { ...newCustomColor, brightness: value };
+    } else {
+      result = { ...newCustomColor, temperature: value };
+    }
     setNewCustomColor(result);
+  };
+  const handleWhiteRelease = (value: any) => {
+    const result = {
+      ...newCustomColor,
+      brightness: value[brightCode],
+      temperature: value[temperatureCode],
+    };
+    setNewCustomColor(result);
+  };
+  const handlePowerModeChange = v => {
+    // 断电记忆切换白彩光
+    setNewCustomColor({ ...newCustomColor, colorMode: +(v === 'colour') });
   };
   const handleSave = () => {
     router.back();
-    dispatch(
-      actions.common.updateUi({
-        customColor: newCustomColor,
-      })
-    );
+    const { colorMode, hue, saturation, value, brightness, temperature } = newCustomColor;
+    let newColor;
+    if (colorMode === 0) {
+      newColor = { brightness, temperature, hue: 0, saturation: 0, value: 0, colorMode };
+    } else {
+      newColor = { brightness: 0, temperature: 0, hue, saturation, value, colorMode };
+    }
+    dpActions[powerMemoryCode].set({ ...newColor, mode: 2 }, { throttle: 300 });
+    // dpUtils.putDpData({ [powerMemoryCode]: { ...newColor, mode: 2 } }, { throttle: 300 });
+    dispatch(actions.common.updateUi({ customColor: newColor }));
   };
+  const handleColorChange = useThrottleFn(
+    (isColor, v) => {
+      setNewCustomColor({ ...newCustomColor, ...v, mode: isColor ? 1 : 0 });
+    },
+    { wait: 80 }
+  ).run;
   return (
-    <View style={{ paddingTop: safeArea?.top ? safeArea?.top * 2 : 40 }} className={styles.view}>
+    <View style={{ paddingTop: safeArea?.top }} className={styles.view}>
       <TopBar
         handleCancel={backToHome}
         cancelType="icon"
@@ -62,16 +90,24 @@ export function PowerMemory() {
         handleSave={handleSave}
       />
 
-      <View className={styles.box}>
-        <WhiteDimmer
-          style={{ padding: '48rpx 32rpx' }}
-          brightness={customColor.brightness}
-          temperature={customColor.temperature}
-          onRelease={handleWhiteChange}
-        />
-      </View>
+      <Dimmer
+        canEdit={false}
+        style={{ marginTop: 48 }}
+        mode={newCustomColor?.colorMode === 0 ? 'white' : 'colour'}
+        handleModeChange={handlePowerModeChange}
+        colour={{
+          hue: newCustomColor?.hue,
+          saturation: newCustomColor?.saturation,
+          value: newCustomColor?.value,
+        }}
+        brightness={newCustomColor?.brightness}
+        temperature={newCustomColor?.temperature}
+        onChange={handleColorChange}
+        onRelease={handleColorRelease}
+        onReleaseWhite={handleWhiteRelease}
+      />
     </View>
   );
 }
 
-export default PowerMemory;
+export default React.memo(CustomColor);

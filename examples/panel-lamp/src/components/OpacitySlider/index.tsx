@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { View, Text } from '@ray-js/ray';
 import { useDebounceFn } from 'ahooks';
+import res from '@/res';
 import { formatPercent } from '@/utils';
 import { useSelector } from '@/redux';
 import styles from './index.module.less';
@@ -123,6 +124,8 @@ export function OpacitySlider(props: IProps) {
           width: `${646}rpx`,
           height: `${56}rpx`,
           borderRadius: `${28}rpx`,
+          backgroundImage: showMask ? `url(${res.sliderMask})` : 'none',
+          backgroundSize: 'cover',
           ...trackStyle,
         }}
       >
@@ -152,7 +155,7 @@ export function OpacitySlider(props: IProps) {
           thumbEndStyle={{
             width: 68,
             height: 68,
-            border: '8rpx solid #fff',
+            border: `8rpx solid #fff`,
             borderRadius: '50%',
             boxShadow: 'rgb(255 255 255 / 10%) 0px 0px 1px',
             background: `${disable ? '#000' : 'transparent'}`,

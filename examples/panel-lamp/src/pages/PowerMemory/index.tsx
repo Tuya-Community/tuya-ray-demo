@@ -4,14 +4,8 @@ import { Image, Text, View } from '@ray-js/components';
 import { router } from 'ray';
 import React, { useEffect, useState } from 'react';
 import { useTriggerChildrenFunction } from '@ray-js/lamp-module-schedule';
-import { hideMenuButton, setNavigationBarColor } from '@ray-js/ray';
-import {
-  useDevice,
-  useActions,
-  useProps,
-  useStructuredActions,
-  useStructuredProps,
-} from '@ray-js/panel-sdk';
+import { hideMenuButton, setNavigationBarColor, showMenuButton } from '@ray-js/ray';
+import { useStructuredActions, useStructuredProps } from '@ray-js/panel-sdk';
 import { useDebounceFn } from 'ahooks';
 import { actions, store, useSelector } from '@/redux';
 import { Button, TopBar } from '@/components';
@@ -35,7 +29,7 @@ export function PowerMemory() {
   const customColor = useSelector(state => state.uiState.customColor);
   useEffect(() => {
     setNavigationBarColor({
-      frontColor: '#000000',
+      frontColor: '#ffffff',
       backgroundColor: 'transparent',
       animation: {
         duration: 300,
@@ -43,6 +37,9 @@ export function PowerMemory() {
       },
     });
     hideMenuButton();
+    return () => {
+      showMenuButton();
+    };
   }, []);
 
   useEffect(() => {
@@ -66,7 +63,7 @@ export function PowerMemory() {
   };
   const handleEdit = () => {
     setMode('2');
-    router.push('/CustomColor');
+    router.push('/customColor');
   };
   const handleSave = useDebounceFn(
     () => {
@@ -85,11 +82,7 @@ export function PowerMemory() {
     { wait: 100 }
   ).run;
   return (
-    <View
-      // style={{ paddingTop: 200 }}
-      style={{ paddingTop: safeArea?.top ? safeArea?.top * 2 : 40 }}
-      className={styles.view}
-    >
+    <View style={{ paddingTop: safeArea?.top }} className={styles.view}>
       <TopBar
         handleCancel={backToHome}
         cancelType="icon"

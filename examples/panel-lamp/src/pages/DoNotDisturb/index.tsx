@@ -1,28 +1,36 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
-import { Image, Text, View, Switch, hideMenuButton, setNavigationBarColor } from '@ray-js/ray';
+import {
+  Image,
+  View,
+  Switch,
+  hideMenuButton,
+  setNavigationBarColor,
+  showMenuButton,
+} from '@ray-js/ray';
 import { router } from 'ray';
 import React, { useEffect, useState } from 'react';
-import { useDevice, useActions, useProps } from '@ray-js/panel-sdk';
+import { useActions, useProps } from '@ray-js/panel-sdk';
 import Res from '@/res';
-import { actions, store, useSelector } from '@/redux';
-import { Button, TopBar } from '@/components';
+import { store, useSelector } from '@/redux';
+import { TopBar } from '@/components';
 import dpCodes from '@/config/dpCodes';
 import Strings from '@/i18n';
 import styles from './index.module.less';
 import useThrottleFn from '@/hooks/useThrottleFn';
+import { isIphoneX } from '@/utils';
 
 const { dispatch } = store;
 const { doNotDisturbCode } = dpCodes;
 
 const DoNotDisturb = () => {
-  const safeArea = useSelector(state => state.cloudState.systemInfo?.safeArea);
+  const systemInfo = useSelector(state => state.cloudState.systemInfo);
   const dpActions = useActions();
   const doNotDisturb = useProps(props => props[doNotDisturbCode]);
   const [currentVal, setCurrentVal] = useState(doNotDisturb);
   useEffect(() => {
     setNavigationBarColor({
-      frontColor: '#000000',
+      frontColor: '#ffffff',
       backgroundColor: 'transparent',
       animation: {
         duration: 300,
@@ -30,6 +38,9 @@ const DoNotDisturb = () => {
       },
     });
     hideMenuButton();
+    return () => {
+      showMenuButton();
+    };
   }, []);
   useEffect(() => {
     setCurrentVal(doNotDisturb);
@@ -52,7 +63,13 @@ const DoNotDisturb = () => {
     { wait: 80 }
   ).run;
   return (
-    <View style={{ paddingTop: safeArea?.top * 2 }} className={styles.view}>
+    <View
+      style={{
+        paddingTop: systemInfo?.safeArea?.top,
+        paddingBottom: isIphoneX(systemInfo) ? 120 : 60,
+      }}
+      className={styles.view}
+    >
       <TopBar
         handleCancel={backToHome}
         cancelType="icon"

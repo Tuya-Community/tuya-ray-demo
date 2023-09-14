@@ -3,7 +3,7 @@
 import { Image, Text, View, Input } from '@ray-js/components';
 import { router } from 'ray';
 import React, { useEffect, useState } from 'react';
-import { hideMenuButton, setNavigationBarColor } from '@ray-js/ray';
+import { hideMenuButton, setNavigationBarColor, showMenuButton } from '@ray-js/ray';
 import {
   useDevice,
   useActions,
@@ -38,7 +38,7 @@ const SwitchGradient = () => {
   });
   useEffect(() => {
     setNavigationBarColor({
-      frontColor: '#000000',
+      frontColor: '#ffffff',
       backgroundColor: 'transparent',
       animation: {
         duration: 300,
@@ -46,7 +46,11 @@ const SwitchGradient = () => {
       },
     });
     hideMenuButton();
+    return () => {
+      showMenuButton();
+    };
   }, []);
+
   useEffect(() => {
     setGradientState({
       on: switchGradient?.on ?? 0,
@@ -87,7 +91,7 @@ const SwitchGradient = () => {
   ).run;
 
   return (
-    <View style={{ paddingTop: safeArea?.top * 2 }} className={styles.view}>
+    <View style={{ paddingTop: safeArea?.top }} className={styles.view}>
       <TopBar
         handleCancel={backToHome}
         cancelType="icon"
