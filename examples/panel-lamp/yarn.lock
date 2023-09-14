@@ -3599,10 +3599,10 @@
   dependencies:
     base64-browser "^1.0.1"
 
-"@ray-js/ray-error-catch@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@ray-js/ray-error-catch/-/ray-error-catch-0.0.11.tgz#9dc704e1a1e735a8750edeb071f8fa06447ddc2d"
-  integrity sha512-lFWVjZ9MGDju7z36Tdn7hegv1HYFgKQ64rS+nb2P/pMbuV7y6kznHVC+7sebmmcDpGOGomyvJJnO7Nni4iZFMw==
+"@ray-js/ray-error-catch@^0.0.19":
+  version "0.0.19"
+  resolved "https://registry.npmjs.org/@ray-js/ray-error-catch/-/ray-error-catch-0.0.19.tgz#500a3bb7982a4526e46bbc95aba2b7986d9a2a96"
+  integrity sha512-nyNzBKgMYjitHO8iIgJEX8J5Vn3r+cA6V7uT+dMfwUjKc9dGS6Va6OrXirl561ajWTl5TBBWeTI/19TIFZLfmQ==
 
 "@ray-js/ray@^1.2.9":
   version "1.3.7"
