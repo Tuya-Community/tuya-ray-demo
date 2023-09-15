@@ -66,7 +66,7 @@ const Dimmer = (props: IProps) => {
         value: colour?.hue,
         min: 0,
         max: 360,
-        label: Strings.getLang('hue'),
+        label: 'hue',
         bg:
           'linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(90.01deg, #FF0000 0.01%, #F8CB0E 12.14%, #80FE06 21.83%, #08FB2B 32.75%, #04FAFC 46.38%, #0243FC 58.38%, #8700F9 70.04%, #FC00EF 80.06%, #F00A5B 89.92%, #FF0000 99.99%)',
       },
@@ -74,7 +74,7 @@ const Dimmer = (props: IProps) => {
         value: colour?.saturation,
         min: 0,
         max: 1000,
-        label: Strings.getLang('saturation'),
+        label: 'saturation',
         bg: `linear-gradient(90deg, rgba(255, 255, 255, 0), ${hsv2rgbString(
           colour?.hue,
           100,
@@ -85,7 +85,7 @@ const Dimmer = (props: IProps) => {
         value: colour?.value,
         min: 10,
         max: 1000,
-        label: Strings.getLang('value'),
+        label: 'value',
         bg: 'linear-gradient(90deg, rgba(255, 255, 255, 0), #FFF)',
       },
     ];
@@ -156,6 +156,7 @@ const Dimmer = (props: IProps) => {
         {/* 亮度 */}
         {SupportUtils.isSupportDp(brightCode) && (
           <BrightRectSlider
+            min={10}
             isUserMode={false}
             sliderId="brightRectSlider"
             value={brightness}
@@ -180,7 +181,7 @@ const Dimmer = (props: IProps) => {
             return (
               <ColorRow
                 key={label}
-                value={`${v}`}
+                value={v}
                 min={min}
                 max={max}
                 label={label}

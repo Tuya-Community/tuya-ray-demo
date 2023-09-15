@@ -34,7 +34,6 @@ export function CustomColor() {
       showMenuButton();
     };
   }, []);
-
   const backToHome = () => {
     router.back();
   };
@@ -71,8 +70,6 @@ export function CustomColor() {
     } else {
       newColor = { brightness: 0, temperature: 0, hue, saturation, value, colorMode };
     }
-    dpActions[powerMemoryCode].set({ ...newColor, mode: 2 }, { throttle: 300 });
-    // dpUtils.putDpData({ [powerMemoryCode]: { ...newColor, mode: 2 } }, { throttle: 300 });
     dispatch(actions.common.updateUi({ customColor: newColor }));
   };
   const handleColorChange = useThrottleFn(
@@ -82,7 +79,7 @@ export function CustomColor() {
     { wait: 80 }
   ).run;
   return (
-    <View style={{ paddingTop: safeArea?.top }} className={styles.view}>
+    <View style={{ paddingTop: safeArea?.top * 2 }} className={styles.view}>
       <TopBar
         handleCancel={backToHome}
         cancelType="icon"

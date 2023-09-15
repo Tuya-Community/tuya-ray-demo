@@ -1,25 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-console */
-import { Image, Text, View, Input } from '@ray-js/components';
 import { router } from 'ray';
 import React, { useEffect, useState } from 'react';
-import { hideMenuButton, setNavigationBarColor, showMenuButton } from '@ray-js/ray';
-import {
-  useDevice,
-  useActions,
-  useProps,
-  useStructuredActions,
-  useStructuredProps,
-} from '@ray-js/panel-sdk';
-import { actions, store, useSelector } from '@/redux';
-import { Button, TopBar, Stepper } from '@/components';
+import { hideMenuButton, setNavigationBarColor, showMenuButton, Text, View } from '@ray-js/ray';
+import { useActions, useProps, useStructuredActions, useStructuredProps } from '@ray-js/panel-sdk';
+import { useSelector } from '@/redux';
+import { TopBar, Stepper } from '@/components';
 import dpCodes from '@/config/dpCodes';
 import Strings from '@/i18n';
 import styles from './index.module.less';
 import useThrottleFn from '@/hooks/useThrottleFn';
 import SupportUtils from '@/utils/SupportUtils';
 
-const { dispatch } = store;
 const { switchGradientCode, toningGradCode, dimmingGradCode } = dpCodes;
 
 const SwitchGradient = () => {
@@ -91,7 +81,7 @@ const SwitchGradient = () => {
   ).run;
 
   return (
-    <View style={{ paddingTop: safeArea?.top }} className={styles.view}>
+    <View style={{ paddingTop: safeArea?.top * 2 }} className={styles.view}>
       <TopBar
         handleCancel={backToHome}
         cancelType="icon"
@@ -106,8 +96,9 @@ const SwitchGradient = () => {
                 className={styles.singleSwitch}
                 key={item}
                 style={{
-                  borderBottom: `1px solid ${item === 'on' ? 'rgba(255,255,255,.1)' : 'transparent'
-                    }`,
+                  borderBottom: `1px solid ${
+                    item === 'on' ? 'rgba(255,255,255,.1)' : 'transparent'
+                  }`,
                 }}
               >
                 <View className={styles.row}>

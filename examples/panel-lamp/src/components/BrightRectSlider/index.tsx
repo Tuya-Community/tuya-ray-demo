@@ -126,6 +126,8 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
         <OpacitySlider
           disable={disable}
           showMask
+          min={10}
+          max={1000}
           textValue={textVal}
           value={Math.max(min, value)}
           trackStyle={{ width: maxTrackWidth, height: `${sliderHeight}rpx` }}

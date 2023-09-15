@@ -1,9 +1,5 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable no-self-compare */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-console */
-import React, { useState } from 'react';
-import { View, Text } from '@ray-js/components';
+import React from 'react';
+import { View, Text } from '@ray-js/ray';
 
 import Strings from '@/i18n';
 import styles from './index.module.less';
@@ -121,4 +117,7 @@ TabBar.defaultProps = {
   padding: 8,
   marginBottom: 4,
   onClick: nilFn,
+  activeBgColor: '#fff',
+  style: {},
+  disable: false,
 };

@@ -37,7 +37,7 @@ export default class PowerMemoryFormatter {
 
   parser(val = '') {
     if (!val) {
-      console.log('数据有问题，无法解析');
+      console.log('数据有问题，无法解析', val);
       return this.defaultValue;
     }
 

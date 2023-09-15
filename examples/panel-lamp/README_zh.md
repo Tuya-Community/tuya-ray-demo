@@ -20,8 +20,6 @@
    bright_value,
    temp_value,
    colour_data,
-   scene_data,
-   countdown,
    control_data,
    ```
 

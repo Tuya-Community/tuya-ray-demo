@@ -1,11 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
-import { Image, Text, View } from '@ray-js/components';
 import { router } from 'ray';
 import React, { useEffect, useState } from 'react';
-import { useTriggerChildrenFunction } from '@ray-js/lamp-module-schedule';
-import { hideMenuButton, setNavigationBarColor, showMenuButton } from '@ray-js/ray';
-import { useStructuredActions, useStructuredProps } from '@ray-js/panel-sdk';
+import { utils, useStructuredActions, useStructuredProps } from '@ray-js/panel-sdk';
+import {
+  hideMenuButton,
+  setNavigationBarColor,
+  showMenuButton,
+  Image,
+  Text,
+  View,
+} from '@ray-js/ray';
 import { useDebounceFn } from 'ahooks';
 import { actions, store, useSelector } from '@/redux';
 import { Button, TopBar } from '@/components';
@@ -18,12 +23,14 @@ import styles from './index.module.less';
 
 const { dispatch } = store;
 const { defaultMemoryMode } = config;
-const { brightKelvin2rgb, hsv2hex } = colorUtils;
+const { brightKelvin2rgb } = colorUtils;
 const { powerMemoryCode } = dpCodes;
+const { hsv2rgbString } = utils;
 
 export function PowerMemory() {
   const safeArea = useSelector(state => state.cloudState.systemInfo?.safeArea);
   const dpActions = useStructuredActions();
+  const dpProps = useStructuredProps(props => props);
   const powerMemory = useStructuredProps(props => props[powerMemoryCode]);
   const [mode, setMode] = useState(`${powerMemory?.mode}` ?? '1');
   const customColor = useSelector(state => state.uiState.customColor);
@@ -43,16 +50,11 @@ export function PowerMemory() {
   }, []);
 
   useEffect(() => {
-    if (
-      powerMemory &&
-      powerMemory?.brightness !== 0 &&
-      !Number.isNaN(powerMemory?.brightness) &&
-      !Number.isNaN(powerMemory?.temperature)
-    ) {
-      const { brightness, temperature } = powerMemory;
+    if (powerMemory) {
+      const { brightness, temperature, hue, saturation, value } = powerMemory;
       dispatch(
         actions.common.updateUi({
-          customColor: { brightness: brightness ?? 1000, temperature: temperature ?? 1000 },
+          customColor: { brightness, temperature, hue, saturation, value },
         })
       );
     }
@@ -69,20 +71,15 @@ export function PowerMemory() {
     () => {
       const newMemory = {
         mode: +mode,
-        hue: 0,
-        saturation: 0,
-        value: 0,
         ...customColor,
       };
       dpActions[powerMemoryCode].set(newMemory, { checkRepeat: false });
-      // dpUtils.putDpData({ [memoryCode]: newMemory }, { checkRepeat: false });
-      // dispatch(actions.common.updateDp({ [memoryCode]: newMemory }));
       router.back();
     },
     { wait: 100 }
   ).run;
   return (
-    <View style={{ paddingTop: safeArea?.top }} className={styles.view}>
+    <View style={{ paddingTop: safeArea?.top * 2 }} className={styles.view}>
       <TopBar
         handleCancel={backToHome}
         cancelType="icon"
@@ -95,6 +92,11 @@ export function PowerMemory() {
       <View className={styles.box}>
         {defaultMemoryMode.map(item => {
           const isActive = mode === item.mode;
+          const { colorMode, brightness, temperature, hue, saturation, value } = customColor;
+          const bg =
+            colorMode === 0
+              ? brightKelvin2rgb(brightness, temperature)
+              : hsv2rgbString(hue, saturation / 10, value / 10);
           return (
             <View
               key={item.mode}
@@ -118,10 +120,7 @@ export function PowerMemory() {
                   <View
                     className={styles.icon}
                     style={{
-                      backgroundColor: brightKelvin2rgb(
-                        customColor.brightness,
-                        customColor.temperature
-                      ),
+                      backgroundColor: bg,
                       border: '1px solid rgba(0, 0, 0, 0.1)',
                       borderRadius: 28,
                     }}

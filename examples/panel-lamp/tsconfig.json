@@ -16,8 +16,8 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "ray": ["./.ray"],
-      "@/*": ["./src/*"]
+      "ray": ["./node_module/@ray-js/ray"],
+      "@/*": ["./src/*"],
     },
     "typeRoots": ["./node_modules/@types", "./typings", "./node_modules/@tuya-miniapp"]
   },

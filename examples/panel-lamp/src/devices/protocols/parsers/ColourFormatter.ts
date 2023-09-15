@@ -38,9 +38,9 @@ export default class ColorFormatter {
       return generator.next(4);
     };
     const res = {
-      hue: step4().value,
-      saturation: step4().value,
-      value: step4().value,
+      hue: parseInt(`${step4().value}`, 16),
+      saturation: parseInt(`${step4().value}`, 16),
+      value: parseInt(`${step4().value}`, 16),
     };
     console.log('value', value, res);
     return res;

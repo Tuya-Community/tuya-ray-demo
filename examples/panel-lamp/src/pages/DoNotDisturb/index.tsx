@@ -65,7 +65,7 @@ const DoNotDisturb = () => {
   return (
     <View
       style={{
-        paddingTop: systemInfo?.safeArea?.top,
+        paddingTop: systemInfo?.safeArea?.top * 2,
         paddingBottom: isIphoneX(systemInfo) ? 120 : 60,
       }}
       className={styles.view}

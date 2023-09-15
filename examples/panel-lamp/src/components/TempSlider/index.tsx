@@ -20,7 +20,6 @@ interface IProps {
   onTouchEnd?: (v) => void;
 }
 const { deviceId: devId, groupId } = getLaunchOptionsSync().query;
-console.log('devId===', devId, groupId);
 const { temperatureCode } = dpCodes;
 
 export const TempSlider = React.memo((props: IProps) => {

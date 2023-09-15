@@ -90,7 +90,7 @@ export function OpacitySlider(props: IProps) {
   const [controllerValue, setControllerValue] = useState(wait ? -1 : value);
 
   useEffect(() => {
-    if (!isMove.current) {
+    if (!isMove.current && value !== controllerValue) {
       updateControlVal(value);
     }
   }, [value]);
@@ -124,8 +124,6 @@ export function OpacitySlider(props: IProps) {
           width: `${646}rpx`,
           height: `${56}rpx`,
           borderRadius: `${28}rpx`,
-          backgroundImage: showMask ? `url(${res.sliderMask})` : 'none',
-          backgroundSize: 'cover',
           ...trackStyle,
         }}
       >
@@ -135,7 +133,7 @@ export function OpacitySlider(props: IProps) {
           max={max - min}
           closed={false}
           disable={disable}
-          end={controllerValue + min}
+          end={controllerValue - min}
           step={1}
           enableTouch
           maxRangeOffset={38}

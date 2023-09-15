@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { store, actions as ReduxActions } from '@/redux';
+import { getLaunchOptionsSync } from '@ray-js/api';
 import { requestCloud, getSystemInfo } from '@ray-js/ray';
 import { getAnonymityNameStr, parseJSON } from '@/utils';
 import storage from './storage';

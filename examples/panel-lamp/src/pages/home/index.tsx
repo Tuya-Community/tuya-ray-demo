@@ -111,7 +111,7 @@ export function Home() {
 
   const putColorData = (code, value) => {
     if (code === colourCode) {
-      dpStructuredActions[code].set(value, { throttle: 300 });
+      dpStructuredActions[code].set(value, { throttle: 300, immediate: true });
     } else {
       dpActions[code].set(value, { throttle: 300 });
     }

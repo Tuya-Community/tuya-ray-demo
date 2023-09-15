@@ -53,22 +53,18 @@ const composeLayout = (Comp: React.ComponentType<any>) => {
 
       ty.home.getCurrentHomeInfo({
         success: homeInfo => {
-          console.log('getCurrentHomeInfo===', homeInfo);
           ty.device.requestAdvancedCapability({
             resId: devInfo?.groupId || devInfo?.devId,
             dpCodes: SupportUtils.isSupportTemp() ? [brightCode, temperatureCode] : [brightCode],
             type: SupportUtils.isGroupDevice() ? '5' : '6',
             spaceId: +homeInfo?.homeId,
             success: async (res: any) => {
-              console.log('requestAdvancedCapability==== success', res);
               // 高级色温转换
               getTempKelvinPower()
                 .then(tempRes => {
-                  console.log('是否配置高级色温', tempRes);
                   if (tempRes) {
                     getTempKelvin()
                       .then(tempColorList => {
-                        console.log('色温列表', tempColorList);
                         if (JSON.stringify(tempColorList) !== '{}') {
                           dispatch(actions.common.updateCloud({ colorTempCheckValue: true }));
                         }

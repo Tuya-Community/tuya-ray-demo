@@ -1,11 +1,10 @@
 /* eslint-disable react/require-default-props */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-console */
-import { Text, View } from '@ray-js/components';
+import { Text, View } from '@ray-js/ray';
 import _cloneDeep from 'lodash/cloneDeep';
 import React, { useEffect, useState, useRef } from 'react';
 import { utils } from '@ray-js/panel-sdk';
 import useThrottleFn from '@/hooks/useThrottleFn';
+import Strings from '@/i18n';
 import { OpacitySlider } from '@/components';
 import { useSelector } from '@/redux';
 import styles from './index.module.less';
@@ -13,7 +12,7 @@ import styles from './index.module.less';
 const { hsv2rgbString } = utils;
 
 interface IProps {
-  value: string;
+  value: string | number;
   min: number;
   max: number;
   label: string;
@@ -48,6 +47,7 @@ export const ColorRow = React.memo((props: IProps) => {
 
   const handleEnd = v => {
     if (v !== currentVal) setCurrentVal(v);
+
     timer.current = setTimeout(() => {
       isMove.current = false;
     }, 200);
@@ -57,7 +57,7 @@ export const ColorRow = React.memo((props: IProps) => {
   return (
     <View key={label} className={styles.colorRow}>
       <View className={styles.inputBox}>
-        <Text className={styles.label}>{label}：</Text>
+        <Text className={styles.label}>{Strings.getLang(label)}：</Text>
         <View className={styles.input} style={{ color: themeColor }}>
           {currentVal}
         </View>
@@ -74,7 +74,7 @@ export const ColorRow = React.memo((props: IProps) => {
         onTouchEnd={handleEnd}
         background={background}
         thumbStyle={{
-          backgroundColor: label === 'H' ? hsv2rgbString(currentVal, 100, 100) : 'transparent',
+          backgroundColor: label === 'hue' ? hsv2rgbString(currentVal, 100, 100) : 'transparent',
         }}
       />
     </View>
