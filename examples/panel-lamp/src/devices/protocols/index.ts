@@ -21,7 +21,7 @@ export const protocols = {
       defaultValue: 1,
     },
   ],
-  [controlCode]: dpParser.controlTransformer,
+  [controlCode]: dpParser.ControlTransformer,
   [switchGradientCode]: dpParser.SwitchGradientTransformer,
   [powerMemoryCode]: dpParser.PowerMemoryTransformer,
 };

@@ -37,15 +37,23 @@ export default class SwitchGradientFormatter {
     }
     const generator = transform(val);
     generator.next();
-    // 版本
     const version = parseInt(`${generator.next(2).value}`, 16);
     const onStr = generator.next(6).value;
     const on = parseInt(`${onStr}`, 16);
     const offStr = generator.next(6).value;
     const off = parseInt(`${offStr}`, 16);
     return {
+      /**
+       * 版本号 0x00 初始版本
+       */
       version,
+      /**
+       * 开灯渐变时长
+       */
       on,
+      /**
+       * 关灯渐变时长
+       */
       off,
     };
   }
@@ -65,7 +73,6 @@ export default class SwitchGradientFormatter {
     const versionStr = this.to16(version, 2);
     const onStr = this.to16(on, 6);
     const offStr = this.to16(off, 6);
-    // console.log('control', data, '->>', `01 ${hStr} ${sStr} ${vStr} ${bStr} ${tStr}`);
     return `${versionStr}${onStr}${offStr}`;
   }
 }

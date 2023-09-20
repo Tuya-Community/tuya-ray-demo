@@ -6,15 +6,15 @@ import _cloneDeep from 'lodash/cloneDeep';
 import React, { useEffect, useMemo } from 'react';
 import { utils, useProps, useActions } from '@ray-js/panel-sdk';
 import { TempSlider, TabBar, CollectColors, BrightRectSlider, ColorRow } from '@/components';
-import dpCodes from '@/config/dpCodes';
 import SupportUtils from '@/utils/SupportUtils';
 import Strings from '@/i18n';
+import { lampSchemaMap } from '@/devices/schema';
 import useThrottleFn from '@/hooks/useThrottleFn';
 import styles from './index.module.less';
 
 const { hsv2rgbString } = utils;
 
-const { brightCode, temperatureCode, colourCode, workModeCode } = dpCodes;
+const { bright_value, temp_value, colour_data } = lampSchemaMap;
 
 interface IColour {
   hue: number;
@@ -101,24 +101,24 @@ const Dimmer = (props: IProps) => {
 
   // 根据当前workMode自适应
   useEffect(() => {
-    if (workMode === 'colour' && !SupportUtils.isSupportDp(colourCode)) {
-      dpActions[workModeCode].set('white');
+    if (workMode === 'colour' && !SupportUtils.isSupportDp(colour_data.code)) {
+      dpActions.work_mode.set('white');
     } else if (
       workMode === 'white' &&
-      !SupportUtils.isSupportDp(temperatureCode) &&
-      !SupportUtils.isSupportDp(brightCode)
+      !SupportUtils.isSupportDp(temp_value.code) &&
+      !SupportUtils.isSupportDp(bright_value.code)
     ) {
-      dpActions[workModeCode].set('colour');
+      dpActions.work_mode.set('colour');
     }
   }, [workMode]);
 
   // 根据支持的路数生成tabBar
   const initWorkModeTabs = () => {
     const tabs = [];
-    if (SupportUtils.isSupportDp(temperatureCode) || SupportUtils.isSupportDp(brightCode)) {
+    if (SupportUtils.isSupportDp(temp_value.code) || SupportUtils.isSupportDp(bright_value.code)) {
       tabs.push('white');
     }
-    if (SupportUtils.isSupportDp(colourCode)) {
+    if (SupportUtils.isSupportDp(colour_data.code)) {
       tabs.push('colour');
     }
     return tabs;
@@ -144,27 +144,26 @@ const Dimmer = (props: IProps) => {
   const renderWhite = () => {
     return (
       <View>
-        {SupportUtils.isSupportDp(temperatureCode) && (
+        {SupportUtils.isSupportDp(temp_value.code) && (
           <TempSlider
             isSupportKelvin={isSupportKelvin}
             value={temperature}
             trackStyle={{ width: 'calc(100vw - 48px)' }}
             onTouchMove={temp => handleChange('temp', temp)}
-            onTouchEnd={temp => handleWhiteRelease(temperatureCode, temp)}
+            onTouchEnd={temp => handleWhiteRelease(temp_value.code, temp)}
           />
         )}
         {/* 亮度 */}
-        {SupportUtils.isSupportDp(brightCode) && (
+        {SupportUtils.isSupportDp(bright_value.code) && (
           <BrightRectSlider
             min={10}
             isUserMode={false}
-            sliderId="brightRectSlider"
             value={brightness}
             isSupportThousand={isSupportThousand}
             maxTrackWidth="calc(100vw - 48px)"
             sliderHeight={54}
             onChange={bright => handleChange('bright', bright)}
-            onRelease={bright => handleWhiteRelease(brightCode, bright)}
+            onRelease={bright => handleWhiteRelease(bright_value.code, bright)}
           />
         )}
       </View>
@@ -172,7 +171,7 @@ const Dimmer = (props: IProps) => {
   };
 
   const renderColour = () => {
-    if (SupportUtils.isSupportDp(colourCode))
+    if (SupportUtils.isSupportDp(colour_data.code))
       return (
         <View>
           <View className={styles.typeTitle}>{Strings.getLang('HSV')}</View>
@@ -208,15 +207,15 @@ const Dimmer = (props: IProps) => {
   const endColorRow = (v, type) => {
     setScrollEnabled?.(true);
     const newColorData = { ...colour, [type]: v };
-    onRelease?.(colourCode, newColorData);
+    onRelease?.(colour_data.code, newColorData);
   };
 
   const chooseCollect = data => {
     const { hue, saturation, value, brightness: bright, temperature: temp } = data;
     if (mode === 'colour') {
-      onRelease?.(colourCode, { hue, saturation, value });
+      onRelease?.(colour_data.code, { hue, saturation, value });
     } else {
-      onReleaseWhite?.({ [brightCode]: bright, [temperatureCode]: temp });
+      onReleaseWhite?.({ [bright_value.code]: bright, [temp_value.code]: temp });
     }
   };
 

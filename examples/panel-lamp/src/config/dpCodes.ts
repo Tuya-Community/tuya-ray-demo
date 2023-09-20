@@ -19,4 +19,4 @@ export default {
   wakeupModeCode: 'wakeup_mode',
   sleepModeCode: 'sleep_mode',
   curveCode: 'dim_curve', // 调光曲线
-};
+} as const;

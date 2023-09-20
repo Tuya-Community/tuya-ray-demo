@@ -12,26 +12,25 @@ import {
   View,
 } from '@ray-js/ray';
 import { useDebounceFn } from 'ahooks';
+import { lampSchemaMap } from '@/devices/schema';
 import { actions, store, useSelector } from '@/redux';
 import { Button, TopBar } from '@/components';
 import colorUtils from '@/utils/color.js';
-import dpCodes from '@/config/dpCodes';
 import Strings from '@/i18n';
 import config from '@/config/default';
 import res from '@/res';
 import styles from './index.module.less';
 
+const { power_memory } = lampSchemaMap;
 const { dispatch } = store;
 const { defaultMemoryMode } = config;
 const { brightKelvin2rgb } = colorUtils;
-const { powerMemoryCode } = dpCodes;
 const { hsv2rgbString } = utils;
 
 export function PowerMemory() {
   const safeArea = useSelector(state => state.cloudState.systemInfo?.safeArea);
   const dpActions = useStructuredActions();
-  const dpProps = useStructuredProps(props => props);
-  const powerMemory = useStructuredProps(props => props[powerMemoryCode]);
+  const powerMemory = useStructuredProps(props => props[power_memory.code]);
   const [mode, setMode] = useState(`${powerMemory?.mode}` ?? '1');
   const customColor = useSelector(state => state.uiState.customColor);
   useEffect(() => {
@@ -73,7 +72,7 @@ export function PowerMemory() {
         mode: +mode,
         ...customColor,
       };
-      dpActions[powerMemoryCode].set(newMemory, { checkRepeat: false });
+      dpActions.power_memory.set(newMemory, { checkRepeat: false });
       router.back();
     },
     { wait: 100 }

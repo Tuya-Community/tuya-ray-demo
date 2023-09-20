@@ -53,12 +53,33 @@ export default class PowerMemoryFormatter {
     const brightness = step4();
     const temperature = step4();
     return {
+      /**
+       * 版本号 0x00 初始版本
+       */
       version: Number.isNaN(version) ? 0 : version,
+      /**
+       * 模式 0x00-0x02 0-初始默认值 1-恢复记忆值 2-用户定制
+       */
       mode: Number.isNaN(mode) ? 0 : mode,
+      /**
+       * 色相 0-360
+       */
       hue: Number.isNaN(hue) ? 0 : hue,
+      /**
+       * 饱和度 0-1000
+       */
       saturation: Number.isNaN(saturation) ? 0 : saturation,
+      /**
+       * 彩光亮度 10-1000
+       */
       value: Number.isNaN(value) ? 0 : value,
+      /**
+       * 白光亮度 10-1000
+       */
       brightness: Number.isNaN(brightness) ? 0 : brightness,
+      /**
+       * 色温 10-1000
+       */
       temperature: Number.isNaN(temperature) ? 0 : temperature,
     };
   }

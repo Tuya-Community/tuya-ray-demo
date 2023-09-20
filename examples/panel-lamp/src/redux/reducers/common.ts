@@ -52,10 +52,6 @@ const cloudState = handleActions<any>(
     groupTab: 'colour',
     colorTempCheckValue: false,
     colorBrightCheckValue: false,
-    // hasLoadRhythm: false,
-    // localMessage: {}, // name lon lat
-    // rhythms: [], // 3个数组
-    // rhythmsMessage: {}, // power,mode,isEnable
   }
 );
 

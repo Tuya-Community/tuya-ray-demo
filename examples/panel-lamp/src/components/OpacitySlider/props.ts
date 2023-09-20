@@ -37,12 +37,6 @@ export interface IProps {
    */
   value: number;
   /**
-   * @description.zh slider 展示的颜色值 对应hsv的hue
-   * @description.en slider value
-   * @default 0
-   */
-  hue: number; // 0 - 359 
-  /**
    * @description.zh slider 手指点击时触发
    * @description.en slider Value changes
    * @default () => {}
@@ -68,6 +62,7 @@ export interface IProps {
 export const defaultProps: IProps = {
   value: 1,
   trackStyle: {},
+  background:'transparent',
   style:{},
   min: 0,
   max: 1000,

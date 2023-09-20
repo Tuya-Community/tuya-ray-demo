@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   setNavigationBarTitle,
   setNavigationBarColor,
@@ -16,40 +16,39 @@ import {
   useStructuredProps,
 } from '@ray-js/panel-sdk';
 import { router } from 'ray';
+import { lampSchemaMap } from '@/devices/schema';
 import { ControlBar, Button } from '@/components';
 import Res from '@/res';
+import { devices } from '@/devices';
 import SupportUtils from '@/utils/SupportUtils';
 import { useSelector, store, actions } from '@/redux';
 import Strings from '@/i18n';
-import dpCodes from '@/config/dpCodes';
+import useThrottleFn from '@/hooks/useThrottleFn';
 import styles from './index.module.less';
 import Dimmer from '../Dimmer';
-import useThrottleFn from '@/hooks/useThrottleFn';
 
 const { dispatch } = store;
+
 const {
-  brightCode,
-  temperatureCode,
-  controlCode,
-  workModeCode,
-  colourCode,
-  powerMemoryCode,
-  doNotDisturbCode,
-  toningGradCode,
-  dimmingGradCode,
-  switchGradientCode,
-} = dpCodes;
+  control_data,
+  white_gradi_time,
+  switch_gradient,
+  colour_gradi_time,
+  colour_data,
+  power_memory,
+  do_not_disturb,
+} = lampSchemaMap;
 export function Home() {
   const deviceName = useDevice(d => d.devInfo.name);
 
-  const { currentTab, colorBrightCheckValue, colorTempCheckValue, systemInfo } = useSelector(
-    ({ uiState, cloudState }) => ({
-      currentTab: uiState.currentTab,
+  const { colorBrightCheckValue, colorTempCheckValue, systemInfo } = useSelector(
+    ({ cloudState }) => ({
       colorBrightCheckValue: cloudState.colorBrightCheckValue,
       colorTempCheckValue: cloudState.colorTempCheckValue,
       systemInfo: cloudState.systemInfo,
     })
   );
+  const [scrollEnabled, setScrollEnabled] = useState(true);
   const dpActions = useActions();
   const dpStructuredActions = useStructuredActions();
   const colour = useStructuredProps(props => props.colour_data);
@@ -61,18 +60,18 @@ export function Home() {
   const moreFuncs = [
     {
       code: 'powerMemory',
-      hidden: !SupportUtils.isSupportDp(powerMemoryCode),
+      hidden: !SupportUtils.isSupportDp(power_memory.code),
     },
     {
       code: 'doNotDisturb',
-      hidden: !SupportUtils.isSupportDp(doNotDisturbCode),
+      hidden: !SupportUtils.isSupportDp(do_not_disturb.code),
     },
     {
       code: 'switchGradient',
       hidden:
-        !SupportUtils.isSupportDp(switchGradientCode) ||
-        !SupportUtils.isSupportDp(toningGradCode) ||
-        !SupportUtils.isSupportDp(dimmingGradCode),
+        !SupportUtils.isSupportDp(switch_gradient.code) &&
+        !SupportUtils.isSupportDp(white_gradi_time.code) &&
+        !SupportUtils.isSupportDp(colour_gradi_time.code),
     },
   ].filter(item => !item.hidden);
   useEffect(() => {
@@ -87,18 +86,18 @@ export function Home() {
     // 根据workMode切换对应显示页面
     dispatch(actions.common.updateUi({ currentTab: workMode }));
   }, [workMode]);
-  React.useEffect(() => {
+  useEffect(() => {
     setNavigationBarTitle({ title: deviceName });
   }, [deviceName]);
 
   const handleChangeTab = (val: string) => {
     // 切换tab,对应下发工作模式
-    dpActions[workModeCode].set(val, { checkRepeat: false, throttle: 300 });
+    dpActions.work_mode.set(val, { checkRepeat: false, throttle: 300 });
   };
 
   const handleColorChange = (isColour, data) => {
-    if (!SupportUtils.isSupportDp(controlCode)) return;
-    let controlData = {};
+    if (!SupportUtils.isSupportDp(control_data.code)) return;
+    let controlData = { hue: 0, saturation: 0, value: 0, bright: 0, temp: 0 };
     if (isColour) {
       const { hue, saturation, value } = data;
       controlData = { hue, saturation, value, bright: 0, temp: 0 };
@@ -106,19 +105,19 @@ export function Home() {
       const { brightness: bright, temperature: temp } = data;
       controlData = { hue: 0, saturation: 0, value: 0, bright, temp };
     }
-    dpStructuredActions[controlCode].set(controlData, { throttle: 300 });
+    dpStructuredActions.control_data.set(controlData, { throttle: 300 });
   };
 
   const putColorData = (code, value) => {
-    if (code === colourCode) {
+    if (code === colour_data.code) {
       dpStructuredActions[code].set(value, { throttle: 300, immediate: true });
     } else {
       dpActions[code].set(value, { throttle: 300 });
     }
   };
+
   const handleReleaseWhite = value => {
-    dpActions[brightCode].set(value[brightCode], { throttle: 300 });
-    dpActions[temperatureCode].set(value[temperatureCode], { throttle: 300 });
+    devices.lamp.publishDps(value, { throttle: 300 });
   };
 
   const handleJump = useThrottleFn(
@@ -127,6 +126,7 @@ export function Home() {
     },
     { wait: 80 }
   ).run;
+
   const renderMore = () => {
     return (
       <View className={styles.moreContainer}>
@@ -159,11 +159,12 @@ export function Home() {
 
       {power ? (
         <ScrollView
-          scrollY
+          scrollY={scrollEnabled}
           refresherTriggered
-          style={{ height: `calc(100vh - 206rpx - ${systemInfo?.statusBarHeight * 2}rpx)` }}
+          style={{ height: `calc(100vh - 320rpx - ${systemInfo?.statusBarHeight * 2}rpx)` }}
         >
           <Dimmer
+            setScrollEnabled={setScrollEnabled}
             mode={workMode}
             colour={colour}
             brightness={brightness}

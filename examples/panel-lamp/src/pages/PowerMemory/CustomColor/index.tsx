@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { hideMenuButton, setNavigationBarColor, showMenuButton, View } from '@ray-js/ray';
 import { useStructuredActions } from '@ray-js/panel-sdk';
 import { actions, store, useSelector } from '@/redux';
-import dpCodes from '@/config/dpCodes';
+import { lampSchemaMap } from '@/devices/schema';
 import Strings from '@/i18n';
 import Dimmer from '../../Dimmer';
 import { TopBar } from '@/components';
@@ -13,13 +13,12 @@ import styles from './index.module.less';
 import useThrottleFn from '@/hooks/useThrottleFn';
 
 const { dispatch } = store;
-const { brightCode, colourCode, temperatureCode, powerMemoryCode } = dpCodes;
+const { bright_value, colour_data, temp_value } = lampSchemaMap;
 
 export function CustomColor() {
   const safeArea = useSelector(state => state.cloudState.systemInfo?.safeArea);
   const customColor = useSelector(state => state.uiState.customColor);
   const [newCustomColor, setNewCustomColor] = useState(customColor);
-  const dpActions = useStructuredActions();
   useEffect(() => {
     setNavigationBarColor({
       frontColor: '#ffffff',
@@ -40,9 +39,9 @@ export function CustomColor() {
 
   const handleColorRelease = (key: string, value: any) => {
     let result;
-    if (key === colourCode) {
+    if (key === colour_data.code) {
       result = { ...newCustomColor, ...value };
-    } else if (key === brightCode) {
+    } else if (key === bright_value.code) {
       result = { ...newCustomColor, brightness: value };
     } else {
       result = { ...newCustomColor, temperature: value };
@@ -52,8 +51,8 @@ export function CustomColor() {
   const handleWhiteRelease = (value: any) => {
     const result = {
       ...newCustomColor,
-      brightness: value[brightCode],
-      temperature: value[temperatureCode],
+      brightness: value[bright_value.code],
+      temperature: value[temp_value.code],
     };
     setNewCustomColor(result);
   };

@@ -2,7 +2,6 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { View, Text } from '@ray-js/ray';
 import { useDebounceFn } from 'ahooks';
-import res from '@/res';
 import { formatPercent } from '@/utils';
 import { useSelector } from '@/redux';
 import styles from './index.module.less';

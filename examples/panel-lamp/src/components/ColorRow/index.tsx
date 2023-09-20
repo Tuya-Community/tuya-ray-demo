@@ -18,7 +18,7 @@ interface IProps {
   label: string;
   background?: string;
   onMove?: (v: string, label: string) => void;
-  onEnd: (v: string, label: string) => void;
+  onEnd: (v: string, label: string) => void
 }
 export const ColorRow = React.memo((props: IProps) => {
   const themeColor = useSelector(state => state.uiState.themeColor);

@@ -4,27 +4,27 @@ import { hideMenuButton, setNavigationBarColor, showMenuButton, Text, View } fro
 import { useActions, useProps, useStructuredActions, useStructuredProps } from '@ray-js/panel-sdk';
 import { useSelector } from '@/redux';
 import { TopBar, Stepper } from '@/components';
-import dpCodes from '@/config/dpCodes';
 import Strings from '@/i18n';
 import styles from './index.module.less';
 import useThrottleFn from '@/hooks/useThrottleFn';
+import { lampSchemaMap } from '@/devices/schema';
 import SupportUtils from '@/utils/SupportUtils';
 
-const { switchGradientCode, toningGradCode, dimmingGradCode } = dpCodes;
+const { switch_gradient, white_gradi_time, colour_gradi_time } = lampSchemaMap;
 
 const SwitchGradient = () => {
   const safeArea = useSelector(state => state.cloudState.systemInfo?.safeArea);
   const dpActions = useActions();
   const dpStructuredActions = useStructuredActions();
-  const switchGradient = useStructuredProps(props => props[switchGradientCode]);
+  const switchGradient = useStructuredProps(props => props[switch_gradient.code]);
   const dpProps = useProps(props => props);
-  const toningGradient = useProps(props => props[toningGradCode]);
-  const dimmingGradient = useProps(props => props[dimmingGradCode]);
+  const toningGradient = useProps(props => props[white_gradi_time.code]);
+  const dimmingGradient = useProps(props => props[colour_gradi_time.code]);
   const [gradientState, setGradientState] = useState({
     on: 0,
     off: 0,
-    [toningGradCode]: 0,
-    [dimmingGradCode]: 0,
+    [white_gradi_time.code]: 0,
+    [colour_gradi_time.code]: 0,
   });
   useEffect(() => {
     setNavigationBarColor({
@@ -45,8 +45,8 @@ const SwitchGradient = () => {
     setGradientState({
       on: switchGradient?.on ?? 0,
       off: switchGradient?.off ?? 0,
-      [toningGradCode]: toningGradient ?? 0,
-      [dimmingGradCode]: dimmingGradient ?? 0,
+      [white_gradi_time.code]: toningGradient ?? 0,
+      [colour_gradi_time.code]: dimmingGradient ?? 0,
     });
   }, [switchGradient, toningGradient, dimmingGradient]);
 
@@ -54,7 +54,7 @@ const SwitchGradient = () => {
     router.back();
   };
 
-  const gradientConfig = [toningGradCode, dimmingGradCode].filter(item =>
+  const gradientConfig = [white_gradi_time.code, colour_gradi_time.code].filter(item =>
     SupportUtils.isSupportDp(item)
   );
   const switchGradientState = ['on', 'off'];
@@ -65,15 +65,15 @@ const SwitchGradient = () => {
   };
   const handleSave = useThrottleFn(
     () => {
-      if (SupportUtils.isSupportDp(switchGradientCode)) {
+      if (SupportUtils.isSupportDp(switch_gradient.code)) {
         const { on, off } = gradientState;
-        dpStructuredActions[switchGradientCode].set({ on, off }, { throttle: 300 });
+        dpStructuredActions.switch_gradient.set({ version: 0, on, off }, { throttle: 300 });
       }
-      if (SupportUtils.isSupportDp(toningGradCode)) {
-        dpActions[toningGradCode].set(gradientState[toningGradCode], { throttle: 300 });
+      if (SupportUtils.isSupportDp(white_gradi_time.code)) {
+        dpActions.white_gradi_time.set(gradientState[white_gradi_time.code], { throttle: 300 });
       }
-      if (SupportUtils.isSupportDp(dimmingGradCode)) {
-        dpActions[dimmingGradCode].set(gradientState[dimmingGradCode], { throttle: 300 });
+      if (SupportUtils.isSupportDp(colour_gradi_time.code)) {
+        dpActions.colour_gradi_time.set(gradientState[colour_gradi_time.code], { throttle: 300 });
       }
       router.back();
     },
@@ -89,7 +89,7 @@ const SwitchGradient = () => {
         handleSave={handleSave}
       />
       <View className={styles.scroll}>
-        {SupportUtils.isSupportDp(switchGradientCode) && (
+        {SupportUtils.isSupportDp(switch_gradient.code) && (
           <View className={styles.box}>
             {switchGradientState.map(item => (
               <View

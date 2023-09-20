@@ -1,25 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/require-default-props */
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-self-compare */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-console */
 import React, { useEffect, useState, useRef } from 'react';
 import { View, Text } from '@ray-js/ray';
-import { getLaunchOptionsSync } from '@ray-js/api';
-import SupportUtils from '@/utils/SupportUtils';
-import { getDpIdByCode, formatPercent } from '@/utils';
+import { formatPercent } from '@/utils';
 import Strings from '@/i18n';
-import dpCodes from '@/config/dpCodes';
 import useThrottleFn from '@/hooks/useThrottleFn';
 import colorUtils from '@/utils/color.js';
-import { useSelector, store, actions } from '@/redux';
+import { useSelector } from '@/redux';
 import styles from './index.module.less';
 import { OpacitySlider } from '@/components';
 
 const { brightKelvin2rgb } = colorUtils;
-const { dispatch } = store;
-const { brightCode } = dpCodes;
 interface BrightRectSliderProps {
   disable?: boolean;
   value: number;
@@ -30,14 +20,9 @@ interface BrightRectSliderProps {
   min?: number;
   max?: number;
   maxTrackWidth?: string;
-  maxTrackRadius?: string;
-  sliderId?: string;
-  isSupportThousand?: boolean;
   onRelease?: (num: number) => void;
   onChange?: (num: number) => void;
 }
-
-const { deviceId: devId, groupId } = getLaunchOptionsSync().query;
 
 export const BrightRectSlider = (props: BrightRectSliderProps) => {
   const {
@@ -48,8 +33,6 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
     max = 1000,
     sliderHeight,
     maxTrackWidth,
-    maxTrackRadius = 24,
-    isSupportThousand,
     isUserMode = true,
     onChange,
     onRelease,
@@ -60,47 +43,31 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
   const themeColor = useSelector(state => state.uiState.themeColor);
   const move = useRef(false);
 
-  const formatText = useThrottleFn((v) => {
-    if (isSupportThousand) {
-      ty.device.dpTranslateAdvancedCapability({
-        resId: groupId || devId,
-        dps: [
-          {
-            dpCode: brightCode,
-            dpValue: Math.max(10, v ?? 1000),
-            dpId: getDpIdByCode(brightCode),
-          },
-        ],
-        type: SupportUtils.isGroupDevice() ? '5' : '6',
-        success: r => {
-          setTextVal(r?.advancedCapability?.[0]?.translatedValue
-            ? `${r?.advancedCapability?.[0]?.translatedValue}${r?.advancedCapability[0]?.unit}`
-            : `${formatPercent(v, { min, max, minPercent: 1 })}%`);
-        },
-        fail: err => {
-          setTextVal(`${formatPercent(v, { min, max, minPercent: 1 })}%`);
-        },
-      });
-    } else {
+  const formatText = useThrottleFn(
+    v => {
       setTextVal(`${formatPercent(v, { min, max, minPercent: 1 })}%`);
-    }
-  }, { wait: 100 }).run;
+    },
+    { wait: 100 }
+  ).run;
 
   useEffect(() => {
     formatText(value);
-  }, [value])
+  }, [value]);
 
-  const handleSliderMove = (v) => {
+  const handleSliderMove = v => {
     formatText(v);
     onChange?.(v);
     move.current = true;
-  }
+  };
 
-  const handleSliderEnd = useThrottleFn(v => {
-    formatText(v);
-    onRelease?.(v);
-    move.current = false;
-  }, { wait: 80 }).run;
+  const handleSliderEnd = useThrottleFn(
+    v => {
+      formatText(v);
+      onRelease?.(v);
+      move.current = false;
+    },
+    { wait: 80 }
+  ).run;
 
   const renderTextRow = () => {
     return (
@@ -125,7 +92,6 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
       <View className={styles.container} style={{ ...containerStyle, opacity: disable ? 0.4 : 1 }}>
         <OpacitySlider
           disable={disable}
-          showMask
           min={10}
           max={1000}
           textValue={textVal}
@@ -138,10 +104,5 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
         />
       </View>
     </View>
-
   );
 };
-
-
-
-

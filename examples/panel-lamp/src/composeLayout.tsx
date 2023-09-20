@@ -2,16 +2,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { LampApi, getAdvanceHigh, getTempKelvin, getTempKelvinPower } from '@/api';
-import SupportUtils from '@/utils/SupportUtils';
-import dpCodes from './config/dpCodes';
+import { LampApi } from '@/api';
 import DefaultVal from '@/config/default';
 import { actions, store } from '@/redux';
 import './styles/index.less';
 import { devices, dpKit } from '@/devices';
 
 const { defaultColors, defaultWhite } = DefaultVal;
-const { brightCode, temperatureCode } = dpCodes;
 
 interface Props {
   devInfo: DevInfo;
@@ -50,52 +47,6 @@ const composeLayout = (Comp: React.ComponentType<any>) => {
 
       const { devId, groupId } = devInfo;
       ty.showLoading({ title: '' });
-
-      ty.home.getCurrentHomeInfo({
-        success: homeInfo => {
-          ty.device.requestAdvancedCapability({
-            resId: devInfo?.groupId || devInfo?.devId,
-            dpCodes: SupportUtils.isSupportTemp() ? [brightCode, temperatureCode] : [brightCode],
-            type: SupportUtils.isGroupDevice() ? '5' : '6',
-            spaceId: +homeInfo?.homeId,
-            success: async (res: any) => {
-              // 高级色温转换
-              getTempKelvinPower()
-                .then(tempRes => {
-                  if (tempRes) {
-                    getTempKelvin()
-                      .then(tempColorList => {
-                        if (JSON.stringify(tempColorList) !== '{}') {
-                          dispatch(actions.common.updateCloud({ colorTempCheckValue: true }));
-                        }
-                      })
-                      .catch(err => {
-                        console.log('API: getTempKelvin Err', err);
-                      });
-                  }
-                })
-                .catch(err => {
-                  console.log('API: getTempKelvinPower Err', err);
-                });
-
-              // 高级亮度转换
-              getAdvanceHigh()
-                .then(brightRes => {
-                  dispatch(actions.common.updateCloud({ colorBrightCheckValue: brightRes }));
-                })
-                .catch(err => {
-                  console.warn('getAdvanceHigh fail===', err);
-                });
-            },
-            fail: (res: any) => {
-              console.warn('requestAdvancedCapability fail====', res);
-            },
-          });
-        },
-        fail: err => {
-          console.warn('getCurrentHomeInfo fail===', err);
-        },
-      });
     }
 
     handleCloudData(cloudData: any) {

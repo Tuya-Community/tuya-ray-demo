@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-console */
 import {
   Image,
   View,
@@ -12,21 +10,20 @@ import { router } from 'ray';
 import React, { useEffect, useState } from 'react';
 import { useActions, useProps } from '@ray-js/panel-sdk';
 import Res from '@/res';
-import { store, useSelector } from '@/redux';
+import { useSelector } from '@/redux';
 import { TopBar } from '@/components';
-import dpCodes from '@/config/dpCodes';
 import Strings from '@/i18n';
 import styles from './index.module.less';
 import useThrottleFn from '@/hooks/useThrottleFn';
+import { lampSchemaMap } from '@/devices/schema';
 import { isIphoneX } from '@/utils';
 
-const { dispatch } = store;
-const { doNotDisturbCode } = dpCodes;
+const { do_not_disturb } = lampSchemaMap;
 
 const DoNotDisturb = () => {
   const systemInfo = useSelector(state => state.cloudState.systemInfo);
   const dpActions = useActions();
-  const doNotDisturb = useProps(props => props[doNotDisturbCode]);
+  const doNotDisturb = useProps(props => props[do_not_disturb.code]);
   const [currentVal, setCurrentVal] = useState(doNotDisturb);
   useEffect(() => {
     setNavigationBarColor({
@@ -51,7 +48,7 @@ const DoNotDisturb = () => {
 
   const handleSave = useThrottleFn(
     () => {
-      dpActions[doNotDisturbCode].set(currentVal, { throttle: 300 });
+      dpActions.do_not_disturb.set(currentVal, { throttle: 300 });
       router.back();
     },
     { wait: 100 }

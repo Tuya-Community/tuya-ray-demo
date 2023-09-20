@@ -23,7 +23,6 @@ export const Stepper = (props: IProps) => {
   }, [value]);
   const handleAdd = useThrottleFn(
     () => {
-      console.log('add==', Math.min(max, +currentVal + step));
       setCurrentVal(Math.min(max, +currentVal + step));
       onChange?.(Math.min(max, +currentVal + step));
     },
@@ -31,14 +30,12 @@ export const Stepper = (props: IProps) => {
   ).run;
   const handleMinus = useThrottleFn(
     () => {
-      console.log('minues==', Math.min(max, +currentVal + step));
       setCurrentVal(Math.max(min, +currentVal - step));
       onChange?.(Math.max(min, +currentVal - step));
     },
     { wait: 80 }
   ).run;
   const handleInputChange = v => {
-    console.log('v===', v?.detail?.value, max, min);
     let newVal = v?.detail?.value;
     if (newVal > max) {
       newVal = max;

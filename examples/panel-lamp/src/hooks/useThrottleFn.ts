@@ -1,6 +1,5 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { throttle } from 'lodash';
-import useUnmount from './useUnmount';
 import useCreation from './useCreation';
 
 type Fn = (...args: any) => any;
@@ -32,9 +31,11 @@ function useThrottleFn<T extends Fn>(fn: T, options?: ThrottleOptions) {
     []
   );
 
-  useUnmount(() => {
-    throttled.cancel();
-  });
+  useEffect(() => {
+    return () => {
+      throttled.cancel();
+    };
+  }, []);
 
   return {
     run: (throttled as unknown) as T,

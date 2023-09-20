@@ -33,7 +33,6 @@ export default class ControlFormatter {
   parser(val = '') {
     // 自定义解析
     const { length } = val;
-    console.log('val', val);
     if (!length) {
       console.log('数据有问题，无法解析');
       return this.defaultValue;
@@ -48,11 +47,29 @@ export default class ControlFormatter {
     const temp = parseInt(`${generator.next(4).value}`, 16);
     const bright = parseInt(`${generator.next(4).value}`, 16);
     return {
+      /**
+       * 模式: 0跳变、1呼吸, 0x0-0x1
+       */
       mode,
+      /**
+       * 色度: 0-360
+       */
       hue,
+      /**
+       * 饱和: 0-1000
+       */
       saturation,
+      /**
+       * 明度: 0-1000
+       */
       value,
+      /**
+       * 白光亮度: 0-1000
+       */
       temp,
+      /**
+       * 色温值: 0-1000
+       */
       bright,
     };
   }

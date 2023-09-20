@@ -56,48 +56,6 @@ export const getAnonymityNameStr = () => {
   return decode('dHV5YQ==');
 };
 
-export const parseJSON = (str: string) => {
-  let rst;
-  if (str && {}.toString.call(str) === '[object String]') {
-    // 当JSON字符串解析
-    try {
-      rst = JSON.parse(str);
-    } catch (e) {
-      // 出错，用eval继续解析JSON字符串
-      try {
-        // eslint-disable-next-line
-        rst = eval(`(${str})`);
-      } catch (e2) {
-        // 当成普通字符串
-        rst = str;
-      }
-    }
-  } else {
-    rst = typeof str === 'undefined' ? {} : str;
-  }
-
-  return rst;
-};
-
-export const getDpIdByCode = (dpCode: string) => {
-  const devInfo = devices.lamp.getDevInfo();
-
-  const { schema = [] } = devInfo;
-  const schemaMap = schema.reduce((ret, item) => {
-    return {
-      ...ret,
-      [item.code]: item.id,
-    };
-  }, {});
-  if (typeof dpCode === 'string') {
-    if (!schemaMap[dpCode]) {
-      return null;
-    }
-    return schemaMap[dpCode];
-  }
-  return null;
-};
-
 export const isIphoneX = info => {
   // 判断当前机型是否有顶部栏
   if (info.platform === 'ios' && info?.screenHeight >= 812) {

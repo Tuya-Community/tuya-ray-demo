@@ -4,7 +4,6 @@ import bright_icon from './bright_icon.png';
 import add_icon from './add_icon.png';
 import delete_icon from './delete_icon.png';
 import power_off from './power_off.png';
-import load_icon from './load_icon.png';
 import power_memory_0 from './power_memory_0.png';
 import power_memory_1 from './power_memory_1.png';
 import setting_doNotDisturb from './setting_doNotDisturb.png';
@@ -24,7 +23,6 @@ export default {
   add_icon,
   delete_icon,
   power_off,
-  load_icon,
   power_memory_0,
   power_memory_1,
   do_not_disturb_lamp,
