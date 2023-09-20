@@ -41,13 +41,9 @@ const {
 export function Home() {
   const deviceName = useDevice(d => d.devInfo.name);
 
-  const { colorBrightCheckValue, colorTempCheckValue, systemInfo } = useSelector(
-    ({ cloudState }) => ({
-      colorBrightCheckValue: cloudState.colorBrightCheckValue,
-      colorTempCheckValue: cloudState.colorTempCheckValue,
-      systemInfo: cloudState.systemInfo,
-    })
-  );
+  const { systemInfo } = useSelector(({ cloudState }) => ({
+    systemInfo: cloudState.systemInfo,
+  }));
   const [scrollEnabled, setScrollEnabled] = useState(true);
   const dpActions = useActions();
   const dpStructuredActions = useStructuredActions();
@@ -86,6 +82,7 @@ export function Home() {
     // 根据workMode切换对应显示页面
     dispatch(actions.common.updateUi({ currentTab: workMode }));
   }, [workMode]);
+
   useEffect(() => {
     setNavigationBarTitle({ title: deviceName });
   }, [deviceName]);
@@ -95,7 +92,7 @@ export function Home() {
     dpActions.work_mode.set(val, { checkRepeat: false, throttle: 300 });
   };
 
-  const handleColorChange = (isColour, data) => {
+  const handleColorChange = (isColour: boolean, data: any) => {
     if (!SupportUtils.isSupportDp(control_data.code)) return;
     let controlData = { hue: 0, saturation: 0, value: 0, bright: 0, temp: 0 };
     if (isColour) {
@@ -108,7 +105,7 @@ export function Home() {
     dpStructuredActions.control_data.set(controlData, { throttle: 300 });
   };
 
-  const putColorData = (code, value) => {
+  const putColorData = (code: string, value: any) => {
     if (code === colour_data.code) {
       dpStructuredActions[code].set(value, { throttle: 300, immediate: true });
     } else {
@@ -116,12 +113,12 @@ export function Home() {
     }
   };
 
-  const handleReleaseWhite = value => {
+  const handleReleaseWhite = (value: any) => {
     devices.lamp.publishDps(value, { throttle: 300 });
   };
 
   const handleJump = useThrottleFn(
-    code => {
+    (code: string) => {
       router.push(`/${code}`);
     },
     { wait: 80 }
@@ -169,8 +166,6 @@ export function Home() {
             colour={colour}
             brightness={brightness}
             temperature={temperature}
-            isSupportKelvin={colorTempCheckValue}
-            isSupportThousand={colorBrightCheckValue}
             handleModeChange={handleChangeTab}
             onChange={handleColorChange}
             onRelease={putColorData}

@@ -21,7 +21,7 @@
     "@ray-js/components-ty-slider": "0.2.19",
     "@ray-js/components-ty-switch": "^0.0.7",
     "@ray-js/panel-sdk": "^1.7.0",
-    "@ray-js/ray": "^1.3.8",
+    "@ray-js/ray": "^1.4.0",
     "@ray-js/ray-error-catch": "^0.0.19",
     "@ray-js/svg": "^0.0.6",
     "ahooks": "^3.7.1",

@@ -13,7 +13,6 @@ const uiState = handleActions<any>(
     }),
   },
   {
-    isUserMode: true,
     colorIndex: -1,
     whiteIndex: -1,
     currentTab: 'dimmer',
@@ -50,8 +49,6 @@ const cloudState = handleActions<any>(
       { temperature: 1000, brightness: 1000 },
     ],
     groupTab: 'colour',
-    colorTempCheckValue: false,
-    colorBrightCheckValue: false,
   }
 );
 

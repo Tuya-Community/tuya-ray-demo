@@ -48,26 +48,3 @@ export function api(url: string, postData: any, version = '1.0') {
     });
   });
 }
-
-/**
- * 获取高级能力
- * @param bizId 单设备/群组id
- * @param bizType 0-单设备/1-群组
- * @param abilityCodes  高级能力code列表(多个以英文逗号隔开)
- * @returns
- */
-export const getHighPower = (bizId: string, bizType: 0 | 1, abilityCodes: string) => {
-  return new Promise((resolve, reject) => {
-    requestCloud({
-      api: `${getAnonymityNameStr()}.m.light.high.power.get`,
-      version: '1.2',
-      data: { bizId, bizType, abilityCodes },
-      success(res) {
-        resolve(res);
-      },
-      fail(err) {
-        reject(err);
-      },
-    });
-  });
-};

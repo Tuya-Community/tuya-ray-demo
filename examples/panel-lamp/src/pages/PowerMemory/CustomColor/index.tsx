@@ -72,7 +72,7 @@ export function CustomColor() {
     dispatch(actions.common.updateUi({ customColor: newColor }));
   };
   const handleColorChange = useThrottleFn(
-    (isColor, v) => {
+    (isColor: boolean, v: any) => {
       setNewCustomColor({ ...newCustomColor, ...v, mode: isColor ? 1 : 0 });
     },
     { wait: 80 }

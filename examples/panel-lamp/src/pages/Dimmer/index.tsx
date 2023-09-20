@@ -29,8 +29,6 @@ interface IProps {
   brightness: number;
   colour: IColour;
   canEdit?: boolean;
-  isSupportThousand?: boolean;
-  isSupportKelvin?: boolean;
   handleModeChange?: (v) => void;
   onRelease: (code, value) => void;
   onReleaseWhite: (cmd) => void;
@@ -45,8 +43,6 @@ const Dimmer = (props: IProps) => {
     temperature,
     brightness,
     colour,
-    isSupportThousand,
-    isSupportKelvin,
     canEdit = true,
     handleModeChange,
     onRelease,
@@ -146,7 +142,6 @@ const Dimmer = (props: IProps) => {
       <View>
         {SupportUtils.isSupportDp(temp_value.code) && (
           <TempSlider
-            isSupportKelvin={isSupportKelvin}
             value={temperature}
             trackStyle={{ width: 'calc(100vw - 48px)' }}
             onTouchMove={temp => handleChange('temp', temp)}
@@ -156,10 +151,8 @@ const Dimmer = (props: IProps) => {
         {/* 亮度 */}
         {SupportUtils.isSupportDp(bright_value.code) && (
           <BrightRectSlider
-            min={10}
-            isUserMode={false}
             value={brightness}
-            isSupportThousand={isSupportThousand}
+            min={10}
             maxTrackWidth="calc(100vw - 48px)"
             sliderHeight={54}
             onChange={bright => handleChange('bright', bright)}

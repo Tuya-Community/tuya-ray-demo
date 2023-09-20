@@ -136,7 +136,7 @@ const SwitchGradient = () => {
                   step={200}
                   max={10000}
                   min={0}
-                  value={dpProps[item]}
+                  value={`${dpProps[item]}`}
                   onChange={v => handleGradientChange(item, v)}
                 />
               </View>

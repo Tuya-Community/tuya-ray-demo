@@ -14,9 +14,7 @@ interface BrightRectSliderProps {
   disable?: boolean;
   value: number;
   sliderHeight?: number;
-  isUserMode?: boolean;
   containerStyle?: React.CSSProperties;
-  step?: number;
   min?: number;
   max?: number;
   maxTrackWidth?: string;
@@ -28,12 +26,10 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
   const {
     containerStyle,
     value,
-    step,
     min = 10,
     max = 1000,
     sliderHeight,
     maxTrackWidth,
-    isUserMode = true,
     onChange,
     onRelease,
     disable = false,
@@ -88,7 +84,7 @@ export const BrightRectSlider = (props: BrightRectSliderProps) => {
 
   return (
     <View>
-      {!isUserMode && renderTextRow()}
+      {renderTextRow()}
       <View className={styles.container} style={{ ...containerStyle, opacity: disable ? 0.4 : 1 }}>
         <OpacitySlider
           disable={disable}

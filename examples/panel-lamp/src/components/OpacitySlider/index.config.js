@@ -9,7 +9,7 @@ export const wechat = {
 };
 
 export const native = {
-  backgroundColor: 'transparent',
+  backgroundColor: '#000000',
   isBleOfflineOverlay: false,
   useSafeAreaView: true,
   navigationBarTitleText: 'Ray 跨端组件',
