@@ -1,0 +1,88 @@
+.dimmerBox{
+  margin: 0 16rpx 16rpx 16rpx;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 48rpx;
+  padding: 48rpx 32rpx;
+  background-color: #191919;
+  width: calc(100vw - 32rpx);
+  position: relative;
+  .disableBox{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    left: 0;
+    bottom: 0;
+    border-radius: 24px;
+    background: rgba(0,0,0,.4);
+  }
+  .textRow{
+    display: flex;
+    justify-content: start;
+    margin: 32rpx 0 32rpx 0rpx;
+    .label{
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 19px;
+      color: #fff;
+      opacity: .9;
+    }
+    .value{
+      font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: 0px;
+        text-align: left; 
+        opacity: .9;
+    }
+  }
+  .typeTitle{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 32rpx;
+  }
+  .line{
+    width: calc(100vw - 16px);
+    height: 1px;
+    background-color: rgba(255,255,255,.1);
+    margin: 32rpx 0 48rpx -16px;
+  }
+  .colorRow {
+    margin-bottom: 16rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .inputBox{
+      border: 1px solid #FFFFFF1A;
+      min-width: 136rpx;
+      background-color: #000;
+      border-radius: 24px;
+      opacity: .7;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14rpx 16rpx;
+      height: 68rpx;
+      .label{
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        text-align: left;
+        color: #fff;
+      }
+      .input{
+        padding: 0;
+        flex: 1;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 19px;
+        text-align: center; 
+        border: none;
+        background-color: transparent !important;
+      }
+    }
+  }
+}

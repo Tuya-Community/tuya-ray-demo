@@ -1,35 +1,45 @@
-.row{
+.row {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   position: relative;
-  .circleBox{
+
+  .circleBox {
     position: relative;
+
     .circle {
       border-radius: 50%;
       overflow: hidden;
-      width: 80rpx;
-      height: 80rpx;
+      width: 84rpx;
+      height: 84rpx;
       position: absolute;
     }
   }
-  .icon {
-    width: 30rpx;
-    height: 30rpx;
-  }
-  .deleteIcon{
-    position: absolute;
-    width: 30rpx;
-    height: 6rpx;
 
+  .icon {
+    width: 32rpx;
+    height: 32rpx;
   }
-  .left16{
-    margin-left: 36rpx;
+
+  .deleteIcon {
+    position: absolute;
+    width: 32rpx;
+    height: 8rpx;
+    filter: brightness(0);
   }
+
+  .add {
+    position: absolute;
+  }
+
+  .left16 {
+    margin-left: 24rpx;
+  }
+
   .button {
-    width: 80rpx;
-    height: 80rpx;
+    width: 84rpx;
+    height: 84rpx;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
@@ -37,9 +47,21 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0.12);
     z-index: 2;
-  } 
-  .noBg{
+  }
+
+  .noBg {
     position: absolute;
     background-color: transparent;
   }
+}
+
+.right16 {
+  margin-right: 24rpx;
+}
+
+.colorRow {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }

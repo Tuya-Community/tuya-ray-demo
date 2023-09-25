@@ -8,7 +8,11 @@ export const thing = {
     "navigationBarTextStyle": "black"
   },
   "pages": [
-    "pages/home/index"
+    "pages/Home/index",
+    "pages/PowerMemory/index",
+    "pages/SwitchGradient/index",
+    "pages/DoNotDisturb/index",
+    "pages/PowerMemory/CustomColor/index"
   ]
 };
 

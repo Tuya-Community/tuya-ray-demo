@@ -1,7 +1,9 @@
 import dpParser from './parsers';
+import dpCodes from '@/config/dpCodes';
+const { colourCode, switchGradientCode, controlCode, powerMemoryCode } = dpCodes;
 
 export const protocols = {
-  colour_data: [
+  [colourCode]: [
     {
       name: 'hue' as const,
       bytes: 2,
@@ -19,5 +21,7 @@ export const protocols = {
       defaultValue: 1,
     },
   ],
-  control_data: dpParser.controlTransformer,
+  [controlCode]: dpParser.ControlTransformer,
+  [switchGradientCode]: dpParser.SwitchGradientTransformer,
+  [powerMemoryCode]: dpParser.PowerMemoryTransformer,
 };
