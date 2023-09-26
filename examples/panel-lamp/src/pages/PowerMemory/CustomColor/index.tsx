@@ -3,14 +3,13 @@
 import { router } from 'ray';
 import React, { useEffect, useState } from 'react';
 import { hideMenuButton, setNavigationBarColor, showMenuButton, View } from '@ray-js/ray';
-import { useStructuredActions } from '@ray-js/panel-sdk';
 import { actions, store, useSelector } from '@/redux';
 import { lampSchemaMap } from '@/devices/schema';
 import Strings from '@/i18n';
-import Dimmer from '../../Dimmer';
 import { TopBar } from '@/components';
-import styles from './index.module.less';
 import useThrottleFn from '@/hooks/useThrottleFn';
+import Dimmer from '../../Dimmer';
+import styles from './index.module.less';
 
 const { dispatch } = store;
 const { bright_value, colour_data, temp_value } = lampSchemaMap;

@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import { store, actions as ReduxActions } from '@/redux';
 import { requestCloud, getSystemInfo } from '@ray-js/ray';
-import { getAnonymityNameStr } from '@/utils';
 import storage from './storage';
 import LampApiRes from './LampApi';
 

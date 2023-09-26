@@ -6,8 +6,8 @@ import Strings from '@/i18n';
 import useThrottleFn from '@/hooks/useThrottleFn';
 import colorUtils from '@/utils/color.js';
 import { useSelector } from '@/redux';
-import styles from './index.module.less';
 import { OpacitySlider } from '@/components';
+import styles from './index.module.less';
 
 const { brightKelvin2rgb } = colorUtils;
 interface BrightRectSliderProps {

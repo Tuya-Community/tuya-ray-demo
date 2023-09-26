@@ -52,8 +52,8 @@ const Dimmer = (props: IProps) => {
   } = props;
 
   const dpActions = useActions();
-  const power = useProps(props => props.switch_led);
-  const workMode = useProps(props => props.work_mode);
+  const power = useProps(p => p.switch_led);
+  const workMode = useProps(p => p.work_mode);
 
   // HSV默认的slider配置
   const hsvConfigs = useMemo(() => {

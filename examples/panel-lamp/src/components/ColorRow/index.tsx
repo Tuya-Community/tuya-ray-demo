@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 import { Text, View } from '@ray-js/ray';
-import _cloneDeep from 'lodash/cloneDeep';
 import React, { useEffect, useState, useRef } from 'react';
 import { utils } from '@ray-js/panel-sdk';
 import useThrottleFn from '@/hooks/useThrottleFn';
@@ -18,7 +17,7 @@ interface IProps {
   label: string;
   background?: string;
   onMove?: (v: string, label: string) => void;
-  onEnd: (v: string, label: string) => void
+  onEnd: (v: string, label: string) => void;
 }
 export const ColorRow = React.memo((props: IProps) => {
   const themeColor = useSelector(state => state.uiState.themeColor);

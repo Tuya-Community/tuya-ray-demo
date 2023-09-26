@@ -2,7 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 import _cloneDeep from 'lodash/cloneDeep';
-import { View, ScrollView, showModal } from '@ray-js/ray';
+import { View, showModal } from '@ray-js/ray';
 import { utils } from '@ray-js/panel-sdk';
 import { useUnmount } from 'ahooks';
 import clsx from 'clsx';
@@ -14,8 +14,8 @@ import { LampApi } from '@/api';
 import SupportUtils from '@/utils/SupportUtils';
 import { store, actions } from '@/redux';
 import dpCodes from '@/config/dpCodes';
-import styles from './index.module.less';
 import { Button } from '@/components';
+import styles from './index.module.less';
 
 const { add_icon, delete_icon } = res;
 const { dispatch } = store;
@@ -154,14 +154,14 @@ export const CollectColors = (props: IProps) => {
             const isActive = index === activeIndex;
             const bg = isColor
               ? hsv2rgbString(
-                item.hue,
-                item.saturation / 10,
-                (200 + 800 * (item.value / 1000)) / 10
-              )
+                  item.hue,
+                  item.saturation / 10,
+                  (200 + 800 * (item.value / 1000)) / 10
+                )
               : brightKelvin2rgb(
-                200 + 800 * (item.brightness / 1000),
-                SupportUtils.isSupportDp(temperatureCode) ? item.temperature : 1000
-              );
+                  200 + 800 * (item.brightness / 1000),
+                  SupportUtils.isSupportDp(temperatureCode) ? item.temperature : 1000
+                );
             return (
               <View
                 key={index}

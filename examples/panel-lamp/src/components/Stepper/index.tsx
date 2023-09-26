@@ -1,11 +1,11 @@
 /* eslint-disable react/require-default-props */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Input, Image } from '@ray-js/ray';
 import { useUpdateEffect } from 'ahooks';
 import { Button } from '@/components';
-import styles from './index.module.less';
 import Res from '@/res';
 import useThrottleFn from '@/hooks/useThrottleFn';
+import styles from './index.module.less';
 
 interface IProps {
   style?: React.CSSProperties;

@@ -1,6 +1,5 @@
 import Strings from '@/i18n';
 import { decode } from 'base64-browser';
-import { devices } from '@/devices';
 
 export const formatColorText = (hue: number): string => {
   const degree = hue || 0;
