@@ -43,12 +43,11 @@ const getConfigFromAtop = (devId: string): Promise<{ success: boolean; [name: st
           ty.device.getCameraConfigInfo({
             devId,
             success: res => {
-              console.log(res, 'Config Success')
+              console.log(res, 'Config Success');
               resolve({
                 success: true,
                 ...res,
               });
-             
             },
             fail: err => {
               console.log(err, 'Config Fail');
@@ -56,7 +55,7 @@ const getConfigFromAtop = (devId: string): Promise<{ success: boolean; [name: st
                 success: false,
               });
             },
-          })
+          });
         }
       })
       .catch(() => {
