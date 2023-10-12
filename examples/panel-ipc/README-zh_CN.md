@@ -4,11 +4,11 @@
 
 ## 模板简介
 
-可基于此模板快速搭建一个支持ipc基本功能的小程序
+可基于此模板快速搭建一个支持 ipc 基本功能的小程序
 
 ### App 版本支持
 
-4.5.0及以上版本
+4.5.0 及以上版本
 
 ### 依赖
 
@@ -24,7 +24,7 @@
 
 ## 功能介绍
 
-- 主题：支持明、暗两种主题（跟随App）
+- 主题：支持明、暗两种主题（跟随 App）
 - 基础功能：预览、录制、截屏、对讲
 - 扩展功能：回放、相册
 - 其他功能：摄像头设置、云台、变焦
@@ -33,7 +33,7 @@
 
 ### 接口
 
-- tuya.m.rtc.config.get 1.0 摄像头配置信息
+- ty.device.getCameraConfigInfo 摄像头配置信息
 
 ### 播放器引入
 
@@ -54,5 +54,5 @@ import { IpcPlayer as Player } from '@ray-js/components-ty-ipc';
       privateState={dpState.basic_private || false} // 隐私模式
     />
   )}
-</View>
+</View>;
 ```

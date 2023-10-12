@@ -31,7 +31,7 @@ English | [简体中文](./README-zh_CN.md)
 
 ### interface
 
-- tuya.m.rtc.config.get 1.0 camera configuration information
+- ty.device.getCameraConfigInfo camera configuration information
 
 ### Player import
 
@@ -52,5 +52,5 @@ import { IpcPlayer as Player } from '@ray-js/components-ty-ipc';
       privateState={dpState.basic_private || false}
     />
   )}
-</View>
+</View>;
 ```
