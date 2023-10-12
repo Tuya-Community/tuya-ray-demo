@@ -40,21 +40,23 @@ const getConfigFromAtop = (devId: string): Promise<{ success: boolean; [name: st
             ...res1,
           });
         } else {
-          // tuya.m.rtc.config.get
-          api(getAnonymityNameStr() + '.m.rtc.config.get', {
+          ty.device.getCameraConfigInfo({
             devId,
-          })
-            .then((res: Record<string, any>) => {
+            success: res => {
+              console.log(res, 'Config Success')
               resolve({
                 success: true,
                 ...res,
               });
-            })
-            .catch(err => {
+             
+            },
+            fail: err => {
+              console.log(err, 'Config Fail');
               resolve({
                 success: false,
               });
-            });
+            },
+          })
         }
       })
       .catch(() => {
