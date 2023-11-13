@@ -16,13 +16,18 @@ export const PowerButton = React.memo<Props>(props => {
 
   const actions = useActions();
 
+  const action = actions[dpCode] as DpBooleanAction;
+
+  const handleTogglePower = React.useCallback(() => {
+    action.toggle();
+  }, []);
+
   if (!dpCode || typeof value !== 'boolean') {
     return null;
   }
 
-  const action = actions[dpCode] as DpBooleanAction;
   return (
-    <View className={styles['power-button']} onClick={action.toggle}>
+    <View className={styles['power-button']} onClick={handleTogglePower}>
       <View
         className={clsx(styles['power-button-content'], {
           [`${styles['power-button-off']}`]: !value,
