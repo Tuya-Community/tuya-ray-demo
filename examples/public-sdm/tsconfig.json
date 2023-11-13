@@ -19,7 +19,12 @@
       "ray": ["./node_modules/@ray-js/ray"],
       "@/*": ["./src/*"]
     },
-    "typeRoots": ["./node_modules/@types", "src/typings", "./node_modules/@tuya-miniapp"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "src/typings",
+      "./node_modules/@tuya-miniapp",
+      "./typings"
+    ]
   },
   "include": ["src/**/*.*", "src/typings"],
   "exclude": ["node_modules", "dist"]

@@ -1,10 +1,10 @@
 import React from 'react';
 import { router } from 'ray';
 import { useBoolean } from 'ahooks';
+import { useProps, useActions, useDevice } from '@ray-js/panel-sdk';
 import { ControllerBar, CountdownActionSheet } from '@/components';
 import { icons } from '@/res';
 import Strings from '@/i18n';
-import { useProps, useActions, useDevice } from '@ray-js/panel-sdk';
 
 export const HomeBottom = React.memo(() => {
   const { dpSchema } = useDevice();
