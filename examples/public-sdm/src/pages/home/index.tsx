@@ -1,6 +1,7 @@
 import React from 'react';
-import { View } from '@ray-js/ray';
+import { Text, View } from '@ray-js/ray';
 import { TopBar } from '@/components';
+import { IconFont } from '@/components/icon-font';
 import styles from './index.module.less';
 
 export function Home() {
@@ -16,7 +17,8 @@ export function Home() {
         }}
       >
         <View className={styles['space-between']} style={{ marginTop: '50rpx' }}>
-          Public SDM Template
+          <Text>Public SDM Template</Text>
+          <IconFont icon="sun" />
         </View>
       </View>
     </View>
