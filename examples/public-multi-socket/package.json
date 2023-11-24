@@ -1,0 +1,58 @@
+{
+  "name": "public-sdm-template",
+  "version": "1.0.0",
+  "description": "Panel SDM Template",
+  "main": "index.js",
+  "private": true,
+  "author": "Tuya.inc",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
+  },
+  "dependencies": {
+    "@antv/f2": "3.8.13",
+    "@ray-js/components-ty-actionsheet": "^0.0.24",
+    "@ray-js/components-ty-cell": "^0.0.19",
+    "@ray-js/components-ty-slider": "^0.2.35",
+    "@ray-js/components-ty-switch": "^0.1.0",
+    "@ray-js/multi-socket-switch": "^0.0.3-beta-3",
+    "@ray-js/panel-sdk": "^1.9.0",
+    "@ray-js/ray": "^1.4.17",
+    "@ray-js/svg": "^0.1.8",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@tuya-miniapp/rjs-adapter": "^1.0.4",
+    "clsx": "^1.2.1",
+    "dayjs": "^1.11.10",
+    "react-redux": "^7.2.1",
+    "redux-logger": "^3.0.6"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@ray-js/cli": "^1.4.17",
+    "@types/lodash-es": "^4.17.6",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "core-js": "^3.29.1",
+    "eslint-config-tuya-panel": "^0.4.1",
+    "husky": "^1.2.0",
+    "lint-staged": "^10.2.11",
+    "typescript": "^4.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS --config commitlint.config.js",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

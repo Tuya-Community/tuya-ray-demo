@@ -1,0 +1,120 @@
+import F2 from '@antv/f2';
+import { windowAdapter, documentAdapter } from '@tuya-miniapp/rjs-adapter';
+
+
+const noop = () => {};
+
+const EMPTY_OBJ = {};
+
+function createDocument() {
+  const doc = {
+    createElement: () => ({
+      style: {},
+    }),
+    getElementById: () => {},
+  };
+  return Object.assign(EMPTY_OBJ, doc);
+}
+
+const document = createDocument();
+
+const navigator = {
+  userAgent: '',
+};
+
+const window = {
+  document,
+  navigator,
+  addEventListener: noop,
+  removeEventListener: noop,
+};
+
+function copyProperties(target = {}, source = {}) {
+  Object.keys(source).forEach(propName => {
+    target[propName] = source[propName]
+  });
+}
+windowAdapter(() => window)
+documentAdapter(() => document)
+
+let chart = null
+
+export default Render({
+    async initChart(systemInfo, rect,padding) {
+        if (chart) {
+            chart.destroy()
+        }
+        const { pixelRatio } = systemInfo
+        const canvas = await getCanvasById('chartCanvas')
+        console.log('canvas', canvas)
+        console.log('canvas.width', canvas.width)
+        console.log('canvas.height', canvas.height)
+        chart = new F2.Chart({
+            el: canvas,
+            pixelRatio,
+            width: rect ? rect.width : canvas.width,
+            height: rect ? rect.height : canvas.height,
+            padding,
+        })
+
+    },
+    async drawChart(systemInfo, data) {
+        if (!chart) {
+            await this.initChart(systemInfo);
+        }
+        console.log(11111, data)
+        chart.clear();
+    chart.source(data);
+    chart.axis('time', {
+      line: null,
+      label(txt, index, total) {
+        const color = index % 2 === 1 ? 'transparent' : 'rgba(0, 0, 0, 0.3)';
+        return {
+          text: txt,
+          fontSize: 10,
+          lineHeight: 14,
+          fill: color,
+        };
+      },
+    });
+
+    chart.axis('value', {
+      label(txt, index, total) {
+        return {
+          text: txt,
+          fontSize: 10,
+          lineHeight: 14,
+          fill: 'rgba(0, 0, 0, 0.3)',
+        };
+      },
+    });
+
+    chart.legend(false);
+
+    chart
+      .area({
+        connectNulls: false,
+      })
+      .position('time*value')
+      .shape('smooth')
+      .color('code', (code) => `l(90) 0:#FD546E 1:#FFFFFF`)
+      .style({
+        fillOpacity: 1,
+      });
+
+    chart
+      .line({
+        connectNulls: false,
+      })
+      .position('time*value')
+      .shape('smooth')
+      .color('code', (code) => '#FD546E')
+      .style({
+        lineWidth: 2,
+      });
+
+    chart.render();
+    console.log('222222')
+    },
+  
+})

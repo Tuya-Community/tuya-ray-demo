@@ -1,0 +1,3 @@
+<canvas class="chart-canvas"
+    style="{{style}};opacity:{{loading?0:1}};"
+    canvas-id="chartCanvas" />
