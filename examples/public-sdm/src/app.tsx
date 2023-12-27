@@ -1,12 +1,14 @@
+/* eslint-disable import/no-duplicates */
 import React from 'react';
 import 'ray';
-import Strings from '@/i18n';
+import '@/i18n';
 import '@/res/iconfont/iconfont.css';
 import './app.less';
 import { SdmProvider } from '@ray-js/panel-sdk';
 import { initPanelEnvironment } from '@ray-js/ray';
 import RayErrorCatch from '@ray-js/ray-error-catch';
 import { devices } from '@/devices';
+import Strings from '@/i18n';
 import composeLayout from './composeLayout';
 
 interface Props {
