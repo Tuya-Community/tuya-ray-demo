@@ -1,10 +1,11 @@
 import React from 'react';
 import 'ray';
-import '@/i18n';
+import Strings from '@/i18n';
 import '@/res/iconfont/iconfont.css';
 import './app.less';
 import { SdmProvider } from '@ray-js/panel-sdk';
 import { initPanelEnvironment } from '@ray-js/ray';
+import RayErrorCatch from '@ray-js/ray-error-catch';
 import { devices } from '@/devices';
 import composeLayout from './composeLayout';
 
@@ -19,7 +20,15 @@ class App extends React.Component<Props> {
   }
 
   render() {
-    return <SdmProvider value={devices.common}>{this.props.children}</SdmProvider>;
+    return (
+      <RayErrorCatch
+        errorTitle={Strings.getLang('errorTitle')}
+        errorText={Strings.getLang('errorText')}
+        submitText={Strings.getLang('submitText')}
+      >
+        <SdmProvider value={devices.common}>{this.props.children}</SdmProvider>
+      </RayErrorCatch>
+    );
   }
 }
 
