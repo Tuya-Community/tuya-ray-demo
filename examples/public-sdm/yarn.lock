@@ -3403,6 +3403,11 @@
   dependencies:
     base64-browser "^1.0.1"
 
+"@ray-js/ray-error-catch@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.npmjs.org/@ray-js/ray-error-catch/-/ray-error-catch-0.0.20.tgz#4fe4236c7dafe50ba2648687380c3c9c63e3322a"
+  integrity sha512-zZ2itHvgJr9GDIaib+MPNLsbTuJ8AbEFDK2p1D3jHC/WdTXtYHrFp8ADp5WgOn45VSeSyLgaP+ZElkjceGsz7A==
+
 "@ray-js/ray@^1.4.17":
   version "1.4.17"
   resolved "https://registry.npmjs.org/@ray-js/ray/-/ray-1.4.17.tgz#76460d1e7e6d607ca6ca14b8ea9e8f25150c6901"
