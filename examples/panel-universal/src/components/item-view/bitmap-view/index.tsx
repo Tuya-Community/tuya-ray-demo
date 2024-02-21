@@ -5,7 +5,7 @@ import { getArray } from '@/utils/array';
 import { getFaultStrings } from '@/utils/getFaultStrings';
 
 export const BitmapView: React.FC<ItemViewProps> = ({ item, dpValue }) => {
-  const labels = getArray(item?.property?.label);
+  const labels = getArray(item?.property?.label as string[]);
   const value = parseNumToArr(labels, dpValue);
 
   const options = labels.map((label, index) => ({

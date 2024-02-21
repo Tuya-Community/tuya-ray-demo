@@ -1,3 +1,5 @@
+import { DpSchema } from '@ray-js/panel-sdk';
+
 declare module '*.png';
 
 declare module '*.module.less' {
@@ -13,10 +15,10 @@ declare global {
     devToolsExtension?: () => any;
     __DEV__: boolean;
   }
-}
 
-interface ItemViewProps {
-  item: DpSchema;
-  dpValue: any;
-  onChange(dpValue: any): void;
+  interface ItemViewProps {
+    item: DpSchema;
+    dpValue: any;
+    onChange(dpValue: any): void;
+  }
 }

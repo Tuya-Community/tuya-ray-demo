@@ -1,16 +1,13 @@
 import { ScrollView, Text, getAssetHostname } from '@ray-js/ray';
 // import { router, usePageEvent } from 'ray';
-import { hooks } from '@ray-js/panel-sdk';
+import { useDpSchema } from '@ray-js/panel-sdk';
 import React, { useEffect, useState } from 'react';
 import { DpItem } from '@/components/dpItem';
-import { getArray } from '@/utils/array';
 import styles from './index.module.less';
 
-const { useDevInfo } = hooks;
-
 export function Home() {
-  const devInfo = useDevInfo();
-  const items = getArray(devInfo?.schema);
+  const schema = useDpSchema();
+  const items = Object.values(schema);
 
   // usePageEvent('onShow', () => {
   //   console.log('=== home onShow');
@@ -39,7 +36,7 @@ export function Home() {
   }, []);
 
   return (
-    <ScrollView className={styles.container}>
+    <ScrollView refresherTriggered={false} className={styles.container}>
       {items.map(item => (
         <DpItem hostname={hostname} item={item} key={item.code} />
       ))}
