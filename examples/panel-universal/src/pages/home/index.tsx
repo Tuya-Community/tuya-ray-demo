@@ -1,6 +1,6 @@
 import { ScrollView, Text, getAssetHostname } from '@ray-js/ray';
 // import { router, usePageEvent } from 'ray';
-import { useDpSchema } from '@ray-js/panel-sdk';
+import { useDevInfo, useDpSchema } from '@ray-js/panel-sdk';
 import React, { useEffect, useState } from 'react';
 import { DpItem } from '@/components/dpItem';
 import styles from './index.module.less';
@@ -8,6 +8,9 @@ import styles from './index.module.less';
 export function Home() {
   const schema = useDpSchema();
   const items = Object.values(schema);
+
+  const devInfo = useDevInfo();
+  console.log('devInfo:', devInfo);
 
   // usePageEvent('onShow', () => {
   //   console.log('=== home onShow');
