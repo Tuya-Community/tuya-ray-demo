@@ -13,11 +13,11 @@ initPanelEnvironment({ useDefaultOffline: true });
 
 let value = null;
 
-class App extends React.Component<Props, { modal: InstanceType<typeof SmartDeviceModel> }> {
+class App extends React.Component<Props, { model: InstanceType<typeof SmartDeviceModel> }> {
   constructor(props) {
     super(props);
     this.state = {
-      modal: null,
+      model: null,
     };
   }
 
@@ -31,15 +31,15 @@ class App extends React.Component<Props, { modal: InstanceType<typeof SmartDevic
       value.init();
       value.onInitialized(() => {
         this.setState({
-          modal: value,
+          model: value,
         });
       });
     }
   }
 
   render() {
-    if (this.state.modal) {
-      return <SdmProvider value={this.state.modal}>{this.props.children}</SdmProvider>;
+    if (this.state.model) {
+      return <SdmProvider value={this.state.model}>{this.props.children}</SdmProvider>;
     }
     return <Empty title={Strings.getLang('needDeviceId')} />;
   }
