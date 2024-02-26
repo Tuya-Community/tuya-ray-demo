@@ -1,11 +1,9 @@
 import React from 'react';
-import { hooks } from '@ray-js/panel-sdk';
-import { Text, View } from '@ray-js/ray';
+import { DpSchema, useActions, useProps } from '@ray-js/panel-sdk';
 import Strings from '@/i18n';
+import { Text, View } from '@ray-js/ray';
 import { ItemView } from '../item-view';
 import styles from './index.module.less';
-
-const { useDpState } = hooks;
 
 export interface DpItemProps {
   item: DpSchema;
@@ -13,10 +11,9 @@ export interface DpItemProps {
 }
 
 export const DpItem: React.FC<DpItemProps> = ({ item, hostname }) => {
-  const [dpState, setDpState] = useDpState();
-
   const dpCode = item?.code;
-  const dpValue = dpState?.[dpCode];
+  const dpValue = useProps(state => state[dpCode]);
+  const actions = useActions<DeviceSchema>();
 
   let headValue = dpValue;
   if (item?.property?.type === 'value') {
@@ -43,7 +40,7 @@ export const DpItem: React.FC<DpItemProps> = ({ item, hostname }) => {
           item={item}
           dpValue={dpValue}
           onChange={value => {
-            setDpState({ [item.code]: value });
+            actions[dpCode].set(value);
           }}
         />
       </View>

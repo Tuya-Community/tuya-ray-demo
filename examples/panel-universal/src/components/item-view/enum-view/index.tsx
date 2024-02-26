@@ -9,7 +9,7 @@ import styles from './index.module.less';
 export const EnumView: React.FC<ItemViewProps> = ({ item, dpValue, onChange }) => {
   return (
     <View className={styles.container}>
-      {getArray(item?.property?.range).map(rangeItem => (
+      {getArray(item?.property?.range as string[]).map(rangeItem => (
         <Button
           key={rangeItem}
           className={styles.item}

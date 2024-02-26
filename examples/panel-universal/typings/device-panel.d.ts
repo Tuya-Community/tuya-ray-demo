@@ -14,57 +14,6 @@ type GetTTTEventListenerParams<Fn> = Parameters<GetTTTEventListener<Fn>>['0'];
 type TTTCommonErrorCode = GetTTTFailData<typeof ty.device.getDeviceInfo>;
 
 /**
- * 功能点描述信息
- */
-interface DpSchema {
-  attr: number;
-  canTrigger: boolean;
-  /**
-   * 功能点标识码，如 switch
-   */
-  code: string;
-  defaultRecommend: boolean;
-  editPermission: boolean;
-  executable: boolean;
-  extContent: string;
-  iconname: string;
-  /**
-   * 功能点 ID
-   */
-  id: number;
-  /**
-   * 功能点模式类型
-   * rw: 可下发可上报（可读可写）
-   * ro: 只可上报（仅可读）
-   * wr: 只可下发（仅可写）
-   */
-  mode: 'rw' | 'ro' | 'wr';
-  /**
-   * 功能点名称，一般用于语音等场景
-   */
-  name: string;
-  /**
-   * 功能点属性
-   */
-  property: {
-    /**
-     * 功能点类型
-     */
-    type: 'bool' | 'value' | 'enum' | 'bitmap' | 'string' | 'raw';
-    range?: string[];
-    label?: string[];
-    maxlen: number;
-    unit: string;
-    min: number;
-    max: number;
-    scale: number;
-    step: number;
-    [key: string]: number | string | string[];
-  };
-  type: string;
-}
-
-/**
  * 设备信息
  */
 type DevInfo = Omit<ty.device.DeviceInfo, 'schema'> & { schema: DpSchema[] };
@@ -97,3 +46,5 @@ type BluetoothAdapterStateChangeHandler = GetTTTEventListener<
 type BluetoothState = GetTTTEventListenerParams<
   typeof import('@ray-js/api').onBluetoothAdapterStateChange
 >;
+
+type DeviceSchema = typeof import('../src/devices/schema').defaultSchema;

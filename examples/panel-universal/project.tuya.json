@@ -1,10 +1,10 @@
 {
   "name": "万能兜底面板",
   "type": "panel-app",
-  "devMode": "ray",  
+  "devMode": "ray",
   "ownerType": "tuya-official",
   "i18n": false,
-  "description": "项目描述",
+  "description": "123",
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {
     "BaseKit": "3.0.0",
@@ -12,5 +12,6 @@
     "BizKit": "3.0.1",
     "DeviceKit": "3.0.0"
   },
-  "baseversion": "2.11.0"
+  "baseversion": "2.11.0",
+  "projectname": "万能面板"
 }

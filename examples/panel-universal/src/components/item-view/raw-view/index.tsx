@@ -6,7 +6,7 @@ export const RawView: React.FC<ItemViewProps> = ({ item, dpValue, onChange }) =>
     <Textarea
       disabled={item.mode === 'ro'}
       value={dpValue}
-      onConfirm={event => onChange(event.value)}
+      onInput={event => onChange(event.value)}
     />
   );
 };
