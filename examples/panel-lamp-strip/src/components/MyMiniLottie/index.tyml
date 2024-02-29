@@ -1,0 +1,11 @@
+<view 
+    class="container" 
+    style="{{prop.containerStyle}}"
+>
+    <canvas
+        type="2d" 
+        id="{{prop.canvasId}}"
+        canvas-id="{{prop.canvasId}}" 
+        style="{{prop.canvasStyle}}"
+    ></canvas>
+</view>
