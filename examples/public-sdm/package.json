@@ -7,6 +7,8 @@
   "author": "Tuya.inc",
   "license": "MIT",
   "scripts": {
+    "start": "ray start --target tuya --bundler=webpack",
+    "build": "ray build --target tuya --bundler=webpack",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
