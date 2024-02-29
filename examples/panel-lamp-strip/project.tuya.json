@@ -1,0 +1,17 @@
+{
+  "name": "照明小程序模板",
+  "type": "panel-app",
+  "ownerType": "panel-lamp",
+  "devMode": "ray",
+  "i18n": true,
+  "description": "照明灯带模板_panel-stripe",
+  "miniprogramRoot": "./dist/tuya",
+  "dependencies": {
+    "BaseKit": "3.3.13",
+    "MiniKit": "3.1.0",
+    "DeviceKit": "3.4.0",
+    "BizKit": "3.3.1"
+  },
+  "projectname": "幻彩灯带模版",
+  "baseversion": "2.12.18"
+}

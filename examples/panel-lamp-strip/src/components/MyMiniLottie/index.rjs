@@ -1,0 +1,31 @@
+import lottie from 'lottie-miniapp';
+
+export default Render({
+  async renderLottie(props) {
+    let canvas5 = await getCanvasById(props.canvasId);
+    if (!canvas5) {
+      console.warn(props.canvasId, 'canvas5 not found');
+      return;
+    }
+    let canvasContext = canvas5.getContext('2d');
+    const logicalWidth = canvas5.width;
+    const logicalHeight = canvas5.height;
+
+    canvas5.width = logicalWidth * props.scaleValue;
+    canvas5.height = logicalHeight * props.scaleValue;
+
+    canvas5.style.width = logicalWidth + 'px';
+    canvas5.style.height = logicalHeight + 'px';
+    canvasContext.scale(props.scaleValue, props.scaleValue);
+    lottie.loadAnimation({
+      renderer: 'canvas', // 只支持canvas
+      loop: true,
+      autoplay: true,
+      animationData: props.lottieSource,
+      rendererSettings: {
+        canvas: canvas5,
+        context: canvasContext,
+      },
+    });
+  },
+});

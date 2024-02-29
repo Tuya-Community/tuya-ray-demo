@@ -1,0 +1,477 @@
+import { getCollisionCheck } from '../../pages/Dimmer/DimmerStrip/utils';
+
+const INTERVAL = 30;
+
+export default Render({
+  canvasContext: null,
+  canvas: null,
+  canvasId: null,
+  canvasWidth: 0,
+  canvasHeight: 0,
+  border: 1,
+  interval: Date.now(),
+  async render(id, data, rest) {
+    const { canvasWidth = 375, canvasHeight = 200, width = 8, gradient = false } = rest;
+    this.canvasId = id;
+    if (!this.canvas) {
+      this.canvas = await getCanvasById(this.canvasId);
+    }
+    this.addEventListeners(this.canvas);
+    if (!this.canvas) {
+      console.error('render canvas not found');
+      return;
+    }
+    const ctx = this.canvas.getContext('2d');
+    this.canvasContext = ctx;
+    this.canvasWidth = canvasWidth;
+    this.canvasHeight = canvasHeight;
+    this.canvasContext.imageSmoothingEnabled = true;
+    // 获取canvas的位置
+    this.canvasRect = this.canvas.getBoundingClientRect();
+    this.width = width;
+    this.data = data.map(i => {
+      return {
+        ...i,
+        collisionCheck: getCollisionCheck[i.type],
+      };
+    });
+    this.renderStrip(ctx, data, gradient);
+  },
+  renderStrip(ctx, data, gradient) {
+    if (gradient) {
+      this.renderStripGradient(ctx, data, gradient);
+      return;
+    }
+    this.renderStripNoGradient(ctx, data);
+  },
+  findCollisionData(x, y) {
+    let index = -1;
+    let find = false;
+    this.data.forEach((i, idx) => {
+      if (find) {
+        return;
+      }
+      if (i.collisionCheck && i.collisionCheck(i, x, y)) {
+        index = idx;
+        find = true;
+      }
+    });
+    return index; // 灯珠的索引
+  },
+  touchmove(e) {
+    // 节流 防止频繁绘制导致的性能问题
+    if (this.interval + INTERVAL > Date.now()) {
+      return;
+    }
+    this.interval = Date.now();
+    const touche = e.touches[0];
+    const rect = this.canvasRect;
+    const offsetX = rect.left;
+    const offsetY = rect.top;
+    const x = touche.clientX - offsetX;
+    const y = touche.clientY - offsetY;
+    const index = this.findCollisionData(x, y);
+    if (index === -1) {
+      return;
+    }
+    this.callMethod('touchmove', {
+      index,
+    });
+  },
+
+  touchend(e) {
+    const touche = e.changedTouches[0];
+    if (!touche) {
+      console.warn('touchend touche not found');
+      return;
+    }
+    const rect = this.canvasRect;
+    const offsetX = rect.left;
+    const offsetY = rect.top;
+    const x = touche.clientX - offsetX;
+    const y = touche.clientY - offsetY;
+    const index = this.findCollisionData(x, y);
+    if (index === -1) {
+      return;
+    }
+    this.callMethod('touchend', {
+      index,
+    });
+  },
+  addEventListeners() {
+    if (!this.canvas) {
+      console.warn('addEventListeners this.canvas not found');
+      return;
+    }
+    this.canvas.addEventListener('touchmove', this.touchmove, false);
+    this.canvas.addEventListener('touchend', this.touchend, false);
+  },
+  removeEventListeners() {
+    if (!this.canvas) {
+      console.warn('removeEventListeners this.canvas not found');
+      return;
+    }
+    this.canvas.removeEventListener('touchmove', this.touchmove, false);
+    this.canvas.removeEventListener('touchend', this.touchend, false);
+  },
+  renderLineCircle(ctx, _data) {
+    const isGradient = false;
+    const {
+      x,
+      y,
+      length,
+      endX,
+      endY,
+      width,
+      diameter = 44,
+      border = 1.5,
+      borderColor = '#fff',
+      preColor,
+      color = 'red',
+      nextColor,
+      checked = true,
+      onOff = true, // 开关
+    } = _data;
+    const innerWidth = onOff ? width - 2 * border : width - 2 * (border + 1);
+    const radius = diameter / 2;
+    const centerX = x + length;
+    const centerY = y + radius;
+    if (checked || !onOff) {
+      // ------ 外层 border -----
+      // 外层直线
+      const outerColor = onOff ? borderColor : '#333333';
+      ctx.strokeStyle = outerColor;
+      ctx.lineWidth = width;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + length, y);
+
+      // 外层 圆形
+      ctx.moveTo(x + length, y);
+      ctx.arc(centerX, centerY, radius, -90 * (Math.PI / 180), 0, false);
+      ctx.stroke();
+    }
+    // 内层
+    let innerStrokeColor = color;
+    ctx.beginPath();
+    ctx.strokeStyle = onOff ? innerStrokeColor : '#000000';
+    ctx.lineWidth = checked || !onOff ? innerWidth : width;
+    ctx.lineCap = 'round';
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + length, y);
+
+    ctx.moveTo(x + length, y);
+    ctx.arc(centerX, centerY, radius, -90 * (Math.PI / 180), 0, false);
+    ctx.stroke();
+  },
+
+  renderLineUp(ctx, _data, isGradient = false) {
+    const {
+      x,
+      y,
+      length,
+      endX,
+      endY,
+      width = 8,
+      diameter = 44,
+      borderColor = '#fff',
+      border = 1.5,
+      preColor,
+      color = 'red',
+      nextColor,
+      checked = true,
+      onOff = true,
+    } = _data;
+    const innerWidth = onOff ? width - 2 * border : width - 2 * (border + 1);
+    // 外层 border
+    if (checked || !onOff) {
+      const outerColor = onOff ? borderColor : '#333333';
+      ctx.strokeStyle = outerColor;
+      ctx.lineWidth = width;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(endX, endY);
+      ctx.stroke();
+    }
+    // 内层
+    let innerStrokeColor = color;
+    // 颜色渐变 isGradient
+    if (isGradient) {
+      // 颜色渐变
+      if (preColor && nextColor) {
+        const gradient = ctx.createLinearGradient(x, y, endX, endY);
+        gradient.addColorStop(0, preColor);
+        gradient.addColorStop(1, color);
+        innerStrokeColor = gradient;
+      }
+    }
+    ctx.lineWidth = checked || !onOff ? innerWidth : width;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(endX, endY);
+    ctx.strokeStyle = onOff ? innerStrokeColor : '#000000';
+    ctx.stroke();
+  },
+  renderLineDown(ctx, _data, isGradient = false) {
+    const {
+      x,
+      y,
+      length,
+      endX,
+      endY,
+      width = 8,
+      diameter = 44,
+      borderColor = '#fff',
+      border = 1.5,
+      preColor,
+      color = 'red',
+      nextColor,
+      checked = true,
+      onOff = true,
+    } = _data;
+    const innerWidth = onOff ? width - 2 * border : width - 2 * (border + 1);
+    // 外层 border
+    if (checked || !onOff) {
+      const outerColor = onOff ? borderColor : '#333333';
+      ctx.strokeStyle = outerColor;
+      ctx.lineWidth = width;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(endX, endY);
+      ctx.stroke();
+    }
+    // 内层
+    let innerStrokeColor = color;
+    // 颜色渐变 isGradient
+    if (isGradient) {
+      // 颜色渐变
+      if (preColor && nextColor) {
+        const gradient = ctx.createLinearGradient(x, y, endX, endY);
+        gradient.addColorStop(0, preColor);
+        gradient.addColorStop(1, color);
+        innerStrokeColor = gradient;
+      }
+    }
+    ctx.lineWidth = checked || !onOff ? innerWidth : width;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(endX, endY);
+    ctx.strokeStyle = onOff ? innerStrokeColor : '#000000';
+    ctx.stroke();
+  },
+  renderBottomCircle(ctx, _data, isGradient = false) {
+    const {
+      x,
+      y,
+      length,
+      endX,
+      endY,
+      width = 8,
+      diameter = 44,
+      borderColor = '#fff',
+      border = 1.5,
+      preColor,
+      color = 'red',
+      nextColor,
+      checked = true,
+      onOff = true,
+    } = _data;
+
+    const innerWidth = onOff ? width - 2 * border : width - 2 * (border + 1);
+    const radius = diameter / 2;
+    const centerX = (x + endX) / 2;
+    const centerY = y;
+    // 外层 border
+    if (checked || !onOff) {
+      const outerColor = onOff ? borderColor : '#333333';
+      ctx.strokeStyle = outerColor;
+      ctx.lineWidth = width;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.arc(centerX, centerY, radius, -180 * (Math.PI / 180), 0, true);
+      ctx.stroke();
+    }
+    // 内层
+    let innerStrokeColor = color;
+    // 颜色渐变 isGradient
+    if (isGradient) {
+      // 颜色渐变
+      if (preColor && nextColor) {
+        const gradient = ctx.createLinearGradient(x, y, x + radius * 2, y);
+        gradient.addColorStop(0, preColor);
+        gradient.addColorStop(1, color);
+        innerStrokeColor = gradient;
+      } else {
+        innerStrokeColor = color;
+      }
+    }
+    ctx.strokeStyle = onOff ? innerStrokeColor : '#000000';
+    ctx.lineWidth = checked || !onOff ? innerWidth : width;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.arc(centerX, centerY, radius, -180 * (Math.PI / 180), 0, true);
+    ctx.stroke();
+  },
+  renderTopCircle(ctx, _data, isGradient = false) {
+    const {
+      x,
+      y,
+      length,
+      endX,
+      endY,
+      width = 8,
+      diameter = 44,
+      borderColor = '#fff',
+      border = 1.5,
+      preColor,
+      color = 'red',
+      nextColor,
+      checked = true,
+      onOff = true,
+    } = _data;
+
+    const innerWidth = onOff ? width - 2 * border : width - 2 * (border + 1);
+    const radius = diameter / 2;
+    const centerX = (x + endX) / 2;
+    const centerY = y;
+    // 外层 border
+    if (checked || !onOff) {
+      const outerColor = onOff ? borderColor : '#333333';
+      ctx.strokeStyle = outerColor;
+      ctx.lineWidth = width;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.arc(centerX, centerY, radius, -180 * (Math.PI / 180), 0, false);
+      ctx.stroke();
+    }
+    // 内层
+    let innerStrokeColor = color;
+    // 颜色渐变 isGradient
+    if (isGradient) {
+      // 颜色渐变
+      if (preColor && nextColor) {
+        const gradient = ctx.createLinearGradient(x, y, x + radius * 2, y);
+        gradient.addColorStop(0, preColor);
+        gradient.addColorStop(1, color);
+        innerStrokeColor = gradient;
+      } else {
+        innerStrokeColor = color;
+      }
+    }
+    ctx.strokeStyle = onOff ? innerStrokeColor : '#000000';
+    ctx.lineWidth = checked || !onOff ? innerWidth : width;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.arc(centerX, centerY, radius, -180 * (Math.PI / 180), 0, false);
+    ctx.stroke();
+  },
+  renderCircleLine(ctx, _data, isGradient = false) {
+    const {
+      x,
+      y,
+      endX,
+      endY,
+      length,
+      width,
+      diameter = 44,
+      border = 1.5,
+      borderColor = '#fff',
+      preColor,
+      color = 'red',
+      nextColor,
+      checked = true,
+      onOff = true,
+    } = _data;
+    const innerWidth = onOff ? width - 2 * border : width - 2 * (border + 1);
+    const radius = diameter / 2;
+    const centerX = x + radius;
+    const centerY = y;
+    // ------ 外层 border -----
+    // 外层直线
+    // 外层 圆形
+    if (checked || !onOff) {
+      const outerColor = onOff ? borderColor : '#333333';
+      ctx.strokeStyle = outerColor;
+      ctx.lineWidth = width;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y + radius);
+      ctx.arc(centerX, centerY, radius, 90 * (Math.PI / 180), 180 * (Math.PI / 180), false);
+      ctx.stroke();
+      // 圆形
+      ctx.moveTo(x + radius, y + radius);
+      ctx.lineTo(endX, endY);
+      ctx.stroke();
+    }
+    // 内层
+    let innerStrokeColor = color;
+    // 颜色渐变 isGradient
+    if (isGradient) {
+      // 颜色渐变
+      if (preColor && !nextColor) {
+        const gradient = ctx.createLinearGradient(x + radius, y + radius, endX, endY);
+        gradient.addColorStop(0, preColor);
+        gradient.addColorStop(1, color);
+        innerStrokeColor = gradient;
+      } else {
+        innerStrokeColor = color;
+      }
+    }
+    ctx.strokeStyle = onOff ? innerStrokeColor : '#000000';
+    ctx.lineWidth = checked || !onOff ? innerWidth : width;
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y + radius);
+    ctx.arc(centerX, centerY, radius, 90 * (Math.PI / 180), 180 * (Math.PI / 180), false);
+    ctx.stroke();
+
+    ctx.moveTo(x + radius, y + radius);
+    ctx.lineTo(endX, endY);
+    ctx.stroke();
+  },
+  renderStripNoGradient(ctx, data) {
+    this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    data.forEach(element => {
+      const { type } = element;
+      if (type === 'lineCircle') {
+        this.renderLineCircle(ctx, element);
+      } else if (type === 'bottomCircle') {
+        this.renderBottomCircle(ctx, element);
+      } else if (type === 'topCircle') {
+        this.renderTopCircle(ctx, element);
+      } else if (type === 'lineUp') {
+        this.renderLineUp(ctx, element);
+      } else if (type === 'lineDown') {
+        this.renderLineDown(ctx, element);
+      } else if (type === 'circleLine') {
+        this.renderCircleLine(ctx, element);
+      }
+    });
+  },
+  renderStripGradient(ctx, data, isGradient = true) {
+    this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    data.forEach(element => {
+      const { type } = element;
+      if (type === 'lineCircle') {
+        this.renderLineCircle(ctx, element, isGradient);
+      } else if (type === 'bottomCircle') {
+        this.renderBottomCircle(ctx, element, isGradient);
+      } else if (type === 'topCircle') {
+        this.renderTopCircle(ctx, element, isGradient);
+      } else if (type === 'lineUp') {
+        this.renderLineUp(ctx, element, isGradient);
+      } else if (type === 'lineDown') {
+        this.renderLineDown(ctx, element, isGradient);
+      } else if (type === 'circleLine') {
+        this.renderCircleLine(ctx, element, isGradient);
+      }
+    });
+  },
+});

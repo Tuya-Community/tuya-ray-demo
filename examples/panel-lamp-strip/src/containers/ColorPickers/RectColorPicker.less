@@ -1,0 +1,66 @@
+.colorPickerWrapper {
+  position: relative;
+  left: -4rpx;
+  top: -5px;
+  width: 692rpx;
+  height: 202px;
+  justify-content: center;
+  &.closed {
+    .ray-js_lamp_rect_picker_color_mask {
+      top: 0;
+      z-index: 1 !important;
+      background-color: rgba(0, 0, 0, .5) !important;
+      height: 208px !important;
+    }
+  }
+  .maskWrapper {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    z-index: 10001;
+    width: 696rpx;
+    height: 220px;
+    padding-bottom: 120rpx;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 26rpx;
+    overflow: hidden;
+  }
+  .maskIcon {
+    width: 120rpx;
+    height: 60px;
+  }
+  .maskTip {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .slider1__rayui-touch-slider_wrap {
+    padding: 0;
+    width: 688rpx;
+  }
+
+  .slider1__rayui-touch-slider-bar {
+    border-radius: 0 !important;
+  }
+
+  & > .rayui-touch-slider {
+    position: absolute;
+    top: 162px;
+  }
+
+  .rayui-touch-slider_wrap {
+    .rayui-touch-slider {
+      height: 40px !important;
+      margin: 0;
+      width: 686rpx;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.blockPickerWrapper {
+  position: relative;
+  height: 196.5px;
+  top: -1px;
+  .maskWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+    width: 696rpx;
+    height: 220px;
+    padding-bottom: 80rpx;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .maskIcon {
+    width: 120rpx;
+    height: 120rpx;
+  }
+  .maskTip {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+  }
+  .container {
+    position: relative;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+  }
+  .slider1__rayui-touch-slider_wrap {
+    position: relative;
+    padding: 0;
+  }
+  .slider1__rayui-touch-slider-bar {
+    border-radius: 0 !important;
+  }
+  .rayui-touch-slider_wrap {
+    .rayui-touch-slider {
+      overflow: hidden;
+      height: 40px !important;
+      margin: 0;
+      border-radius: 0 0 12px 12px;
+      width: 686rpx;
+      flex-grow: initial;
+    }
+  }
+}
+
+.blockPickerWrapper > .rayui-touch-slider {
+  margin-top: -8px;
+}
