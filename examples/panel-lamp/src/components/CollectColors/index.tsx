@@ -1,27 +1,30 @@
-/* eslint-disable react/require-default-props */
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
-import _cloneDeep from 'lodash/cloneDeep';
-import { View, showModal } from '@ray-js/ray';
-import { utils } from '@ray-js/panel-sdk';
+import _ from 'lodash-es';
+import { View, showModal, showToast } from '@ray-js/ray';
+import { utils, useSupport } from '@ray-js/panel-sdk';
 import { useUnmount } from 'ahooks';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import Strings from '@/i18n';
-import res from '@/res';
-import colorUtils from '@/utils/color.js';
-import { LampApi } from '@/api';
-import SupportUtils from '@/utils/SupportUtils';
-import { store, actions } from '@/redux';
-import dpCodes from '@/config/dpCodes';
 import { Button } from '@/components';
+import { devices } from '@/devices';
+import { CLOUD_DATA_KEYS_MAP } from '@/constant';
+import { ReduxState, useAppDispatch } from '@/redux';
+import {
+  selectActiveIndex,
+  updateColorIndex,
+  updateWhiteIndex,
+} from '@/redux/modules/uiStateSlice';
+import {
+  selectCollectColors,
+  updateCollectColors,
+  updateCollectWhites,
+} from '@/redux/modules/cloudStateSlice';
 import styles from './index.module.less';
 
-const { add_icon, delete_icon } = res;
-const { dispatch } = store;
-const { temperatureCode } = dpCodes;
-const { hsv2rgbString } = utils;
-const { brightKelvin2rgb } = colorUtils;
+const { hsv2rgbString, brightKelvin2rgb } = utils;
+
 const MAX_LENGTH = 8;
 const MIN_LENGTH = 3;
 
@@ -31,10 +34,10 @@ interface IProps {
   addStyle?: React.CSSProperties;
   disable?: boolean;
   isColor: boolean;
-  colourData: any;
+  colourData: COLOUR;
   brightness: number;
   temperature: number;
-  chooseColor: (v: any) => void;
+  chooseColor: (v: COLOUR & WHITE) => void;
   addColor?: () => void;
   deleteColor?: (v: any) => void;
 }
@@ -54,73 +57,89 @@ export const CollectColors = (props: IProps) => {
     style,
   } = props;
   const [animate, setAnimate] = useState(false);
-  const { collectColours, collectWhites, colorIndex, whiteIndex } = useSelector(
-    ({ uiState, cloudState, dpState }: any) => ({
-      collectWhites: cloudState.collectWhites,
-      collectColours: cloudState.collectColors,
-      whiteIndex: uiState.whiteIndex,
-      colorIndex: uiState.colorIndex,
-    })
-  );
-  const activeIndex = isColor ? colorIndex : whiteIndex;
-  const collectColors = isColor ? collectColours : collectWhites;
+  const support = useSupport();
+  const dispatch = useAppDispatch();
+  const activeIndex = useSelector((state: ReduxState) => selectActiveIndex(state, isColor));
+  const collectColors = useSelector((state: ReduxState) => selectCollectColors(state, isColor));
 
   useEffect(() => {
     if (isColor) {
-      const newColorIndex = collectColours?.findIndex(item => {
+      const newColorIndex = collectColors?.findIndex(item => {
         const { hue: h, saturation: s, value: v } = item;
         const { hue, saturation, value } = colourData;
         return h === hue && saturation === s && value === v;
       });
-      newColorIndex !== colorIndex &&
-        dispatch(actions.common.updateUi({ colorIndex: newColorIndex }));
-    } else {
-      const newWhiteIndex = collectWhites?.findIndex(item => {
+      newColorIndex !== activeIndex && dispatch(updateColorIndex(newColorIndex));
+    } else if (support.isSupportTemp()) {
+      const newWhiteIndex = collectColors?.findIndex(item => {
         const { brightness: b, temperature: t } = item;
         return b === brightness && t === temperature;
       });
-      newWhiteIndex !== whiteIndex &&
-        dispatch(actions.common.updateUi({ whiteIndex: newWhiteIndex }));
+      newWhiteIndex !== activeIndex && dispatch(updateWhiteIndex(newWhiteIndex));
+    } else {
+      const newWhiteIndex = collectColors?.findIndex(item => {
+        const { brightness: b } = item;
+        return b === brightness;
+      });
+      newWhiteIndex !== activeIndex && dispatch(updateWhiteIndex(newWhiteIndex));
     }
-  }, [colourData, temperature, brightness, isColor]);
+  }, [colourData, temperature, brightness, isColor, collectColors]);
 
   useUnmount(() => {
     setAnimate(false);
   });
+
   const handleAddColor = () => {
     if (activeIndex > -1) {
       showModal({
         title: Strings.getLang('repeatColor'),
+        cancelText: Strings.getLang('cancel'),
+        confirmText: Strings.getLang('confirm'),
       });
     } else {
       const newList = [...collectColors, isColor ? { ...colourData } : { brightness, temperature }];
-      LampApi.saveCloudConfig!(`collect${isColor ? 'Colors' : 'Whites'}`, newList).then(res1 => {
-        dispatch(
-          actions.common.updateUi(
-            isColor ? { colorIndex: newList.length - 1 } : { whiteIndex: newList.length - 1 }
-          )
-        );
-        dispatch(
-          actions.common.updateCloud(
-            isColor ? { collectColors: newList } : { collectWhites: newList }
-          )
-        );
-      });
+      const storageKey = isColor
+        ? CLOUD_DATA_KEYS_MAP.collectColors
+        : CLOUD_DATA_KEYS_MAP.collectWhites;
+      devices.lamp.model.abilities.storage
+        .set(storageKey, newList)
+        .then(() => {
+          if (isColor) {
+            dispatch(updateColorIndex(newList.length - 1));
+            dispatch(updateCollectColors(newList as ReduxState['cloudState']['collectColors']));
+          } else {
+            dispatch(updateWhiteIndex(newList.length - 1));
+            dispatch(updateCollectWhites(newList as ReduxState['cloudState']['collectWhites']));
+          }
+        })
+        .catch(err => {
+          showToast({ title: Strings.getLang('addColorFailed') });
+          console.log('storage.save addColor failed', err);
+        });
     }
     addColor?.();
   };
   const handleDeleteColor = item => {
-    const newList = _cloneDeep(collectColors);
+    const newList = _.cloneDeep(collectColors);
     if (activeIndex > -1) {
       newList.splice(activeIndex, 1);
-      LampApi.saveCloudConfig!(`collect${isColor ? 'Colors' : 'Whites'}`, newList).then(res1 => {
-        dispatch(actions.common.updateUi(isColor ? { colorIndex: -1 } : { whiteIndex: -1 }));
-        dispatch(
-          actions.common.updateCloud(
-            isColor ? { collectColors: newList } : { collectWhites: newList }
-          )
-        );
-      });
+      const storageKey = isColor
+        ? CLOUD_DATA_KEYS_MAP.collectColors
+        : CLOUD_DATA_KEYS_MAP.collectWhites;
+      devices.lamp.model.abilities.storage
+        .set(storageKey, newList)
+        .then(() => {
+          if (isColor) {
+            dispatch(updateColorIndex(-1));
+            dispatch(updateCollectColors(newList as ReduxState['cloudState']['collectColors']));
+          } else {
+            dispatch(updateWhiteIndex(-1));
+            dispatch(updateCollectWhites(newList as ReduxState['cloudState']['collectWhites']));
+          }
+        })
+        .catch(err => {
+          console.log('storage.save deleteColor failed', err);
+        });
     }
     deleteColor?.(item);
   };
@@ -128,15 +147,20 @@ export const CollectColors = (props: IProps) => {
   const handleChoose = (item, index) => {
     if (!disable) {
       chooseColor(item);
-      dispatch(actions.common.updateUi(isColor ? { colorIndex: index } : { whiteIndex: index }));
+      if (isColor) dispatch(updateColorIndex(index));
+      else dispatch(updateWhiteIndex(index));
       setAnimate(true);
     }
   };
+
+  let isAddEnabled = collectColors.length < MAX_LENGTH && showAdd;
+  if (!isColor && !support.isSupportTemp()) isAddEnabled = false; // 白光仅支持亮度的情况下不支持添加
+
   return (
     <View className={styles.row} style={style}>
-      {collectColors.length < MAX_LENGTH && showAdd && (
+      {isAddEnabled && (
         <Button
-          img={add_icon}
+          img="/images/add_icon.png"
           imgClassName={styles.icon}
           className={clsx(styles.button, styles.add)}
           style={addStyle}
@@ -146,11 +170,11 @@ export const CollectColors = (props: IProps) => {
       <View
         className={styles.colorRow}
         style={{
-          marginLeft: collectColors.length < MAX_LENGTH && showAdd ? 108 : 0,
+          marginLeft: isAddEnabled ? 108 : 0,
         }}
       >
         <View style={{ display: 'flex' }}>
-          {collectColors.map((item, index) => {
+          {collectColors?.map((item, index) => {
             const isActive = index === activeIndex;
             const bg = isColor
               ? hsv2rgbString(
@@ -160,7 +184,8 @@ export const CollectColors = (props: IProps) => {
                 )
               : brightKelvin2rgb(
                   200 + 800 * (item.brightness / 1000),
-                  SupportUtils.isSupportDp(temperatureCode) ? item.temperature : 1000
+                  support.isSupportTemp() ? item.temperature : 1000,
+                  { kelvinMin: 4000, kelvinMax: 8000 }
                 );
             return (
               <View
@@ -184,7 +209,7 @@ export const CollectColors = (props: IProps) => {
                 />
                 {index + 1 > MIN_LENGTH && isActive && (
                   <Button
-                    img={delete_icon}
+                    img="/images/delete_icon.png"
                     imgClassName={styles.deleteIcon}
                     className={clsx(styles.button, styles.noBg)}
                     onClick={() => handleDeleteColor(item)}

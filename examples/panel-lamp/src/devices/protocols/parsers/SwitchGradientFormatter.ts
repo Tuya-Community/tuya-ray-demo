@@ -1,9 +1,8 @@
-import dpCodes from '@/config/dpCodes';
-/* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { lampSchemaMap } from '@/devices/schema';
 import { transform } from './transform';
 
-const { switchGradientCode } = dpCodes;
+const { switch_gradient } = lampSchemaMap;
+
 export default class SwitchGradientFormatter {
   uuid: string;
   defaultValue: {
@@ -12,7 +11,7 @@ export default class SwitchGradientFormatter {
     off: number;
   };
 
-  constructor(uuid = switchGradientCode, defaultValue = null) {
+  constructor(uuid = switch_gradient.code, defaultValue = null) {
     this.defaultValue = {
       version: 0,
       on: 800,
@@ -32,7 +31,8 @@ export default class SwitchGradientFormatter {
     // 自定义解析
     const { length } = val;
     if (!length) {
-      console.log('数据有问题，无法解析');
+      // eslint-disable-next-line no-console
+      console.log(`DP ${this.uuid} 出现异常数据 %s，无法解析`, val);
       return this.defaultValue;
     }
     const generator = transform(val);

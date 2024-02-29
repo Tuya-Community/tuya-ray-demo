@@ -2,7 +2,6 @@
 import React from 'react';
 import { Text, View, Image } from '@ray-js/ray';
 import strings from '@/i18n';
-import res from '@/res';
 import { Button } from '@/components';
 import styles from './index.module.less';
 
@@ -31,7 +30,7 @@ export const TopBar = (props: IProps) => {
         {cancelType === 'text' ? (
           <Text className={styles.text}>{strings.getLang('cancel')}</Text>
         ) : (
-          <Image src={res.icon_back} style={{ width: 48, height: 48 }} />
+          <Image src="/images/icon_back.png" style={{ width: 48, height: 48 }} />
         )}
       </Button>
       <Text className={styles.title}>{title}</Text>

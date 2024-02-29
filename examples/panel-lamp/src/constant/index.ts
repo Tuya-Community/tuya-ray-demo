@@ -1,2 +1,7 @@
-export const UPDATE_CLOUD = 'UPDATE_CLOUD';
-export const UPDATE_UI = 'UPDATE_UI';
+/**
+ * 当前设备支持缓存的云端数据
+ */
+export const CLOUD_DATA_KEYS_MAP = {
+  collectColors: 'collectColors',
+  collectWhites: 'collectWhites',
+};

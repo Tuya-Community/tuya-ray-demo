@@ -1,21 +1,4 @@
-/* eslint-disable no-console */
-import { store, actions as ReduxActions } from '@/redux';
-import { requestCloud, getSystemInfo } from '@ray-js/ray';
-import storage from './storage';
-import LampApiRes from './LampApi';
-
-export const storageUtils = storage;
-export const LampApi = LampApiRes;
-
-getSystemInfo({
-  success: params => {
-    const { dispatch } = store;
-    dispatch(ReduxActions.common.updateCloud({ systemInfo: { ...params } }));
-  },
-  fail: params => {
-    console.log('getSystemInfo_Erro', params);
-  },
-});
+import { requestCloud } from '@ray-js/ray';
 
 const errStyle = 'background: red; color: #fff;';
 

@@ -1,10 +1,8 @@
 /* eslint-disable react/require-default-props */
 import React, { useState } from 'react';
 import { View, Input, Image } from '@ray-js/ray';
-import { useUpdateEffect } from 'ahooks';
+import { useUpdateEffect, useThrottleFn } from 'ahooks';
 import { Button } from '@/components';
-import Res from '@/res';
-import useThrottleFn from '@/hooks/useThrottleFn';
 import styles from './index.module.less';
 
 interface IProps {
@@ -50,7 +48,7 @@ export const Stepper = (props: IProps) => {
   return (
     <View className={styles.row} style={style}>
       <Button disabled={+value <= min} className={styles.actionButton} onClick={handleMinus}>
-        <Image style={{ height: 4 }} className={styles.icon} src={Res.delete_icon} />
+        <Image style={{ height: 4 }} className={styles.icon} src="/images/delete_icon.png" />
       </Button>
       <Input
         className={styles.input}
@@ -59,7 +57,7 @@ export const Stepper = (props: IProps) => {
         type="number"
       />
       <Button disabled={+value >= max} className={styles.actionButton} onClick={handleAdd}>
-        <Image className={styles.icon} src={Res.add_icon} />
+        <Image className={styles.icon} src="/images/add_icon.png" />
       </Button>
     </View>
   );

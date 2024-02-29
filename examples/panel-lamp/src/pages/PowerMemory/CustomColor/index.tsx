@@ -1,95 +1,106 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-console */
-import { router } from 'ray';
 import React, { useEffect, useState } from 'react';
-import { hideMenuButton, setNavigationBarColor, showMenuButton, View } from '@ray-js/ray';
-import { actions, store, useSelector } from '@/redux';
+import { router, View } from '@ray-js/ray';
+import { useSelector } from 'react-redux';
+import { useThrottleFn } from 'ahooks';
 import { lampSchemaMap } from '@/devices/schema';
 import Strings from '@/i18n';
-import { TopBar } from '@/components';
-import useThrottleFn from '@/hooks/useThrottleFn';
-import Dimmer from '../../Dimmer';
+import { TopBar, Dimmer } from '@/components';
+import { useSystemInfo } from '@/hooks/useSystemInfo';
+import { useHideMenuButton } from '@/hooks/useHideMenuButton';
+import { useAppDispatch } from '@/redux';
+import { selectCustomColor, updateCustomColor } from '@/redux/modules/uiStateSlice';
 import styles from './index.module.less';
 
-const { dispatch } = store;
 const { bright_value, colour_data, temp_value } = lampSchemaMap;
 
 export function CustomColor() {
-  const safeArea = useSelector(state => state.cloudState.systemInfo?.safeArea);
-  const customColor = useSelector(state => state.uiState.customColor);
+  const { safeArea } = useSystemInfo();
+  const dispatch = useAppDispatch();
+  const customColor = useSelector(selectCustomColor);
   const [newCustomColor, setNewCustomColor] = useState(customColor);
-  useEffect(() => {
-    setNavigationBarColor({
-      frontColor: '#ffffff',
-      backgroundColor: 'transparent',
-      animation: {
-        duration: 300,
-        timingFunc: 'linear',
-      },
-    });
-    hideMenuButton();
-    return () => {
-      showMenuButton();
-    };
-  }, []);
-  const backToHome = () => {
-    router.back();
-  };
 
-  const handleColorRelease = (key: string, value: any) => {
-    let result;
-    if (key === colour_data.code) {
-      result = { ...newCustomColor, ...value };
-    } else if (key === bright_value.code) {
-      result = { ...newCustomColor, brightness: value };
-    } else {
-      result = { ...newCustomColor, temperature: value };
-    }
-    setNewCustomColor(result);
-  };
-  const handleWhiteRelease = (value: any) => {
-    const result = {
-      ...newCustomColor,
-      brightness: value[bright_value.code],
-      temperature: value[temp_value.code],
-    };
-    setNewCustomColor(result);
-  };
-  const handlePowerModeChange = v => {
-    // 断电记忆切换白彩光
-    setNewCustomColor({ ...newCustomColor, colorMode: +(v === 'colour') });
-  };
-  const handleSave = () => {
+  useHideMenuButton();
+
+  useEffect(() => {
+    setNewCustomColor(customColor);
+  }, [customColor]);
+
+  const handleBack = React.useCallback(() => {
+    router.back();
+  }, []);
+
+  const handleColorRelease = React.useCallback(
+    (key: string, value: COLOUR | number) => {
+      let result: typeof newCustomColor;
+      if (key === colour_data.code) {
+        result = { ...newCustomColor, ...(value as COLOUR) };
+      } else if (key === bright_value.code) {
+        result = { ...newCustomColor, brightness: value as number };
+      } else {
+        result = { ...newCustomColor, temperature: value as number };
+      }
+      setNewCustomColor(result);
+    },
+    [newCustomColor]
+  );
+
+  const handleWhiteRelease = React.useCallback(
+    (value: any) => {
+      const result = {
+        ...newCustomColor,
+        brightness: value[bright_value.code],
+        temperature: value[temp_value.code],
+      };
+      setNewCustomColor(result);
+    },
+    [newCustomColor]
+  );
+
+  const handlePowerModeChange = React.useCallback(
+    (mode: string) => {
+      if (mode !== 'colour' && mode !== 'white') return;
+      // 断电记忆切换白彩光
+      setNewCustomColor({ ...newCustomColor, colorMode: mode });
+    },
+    [newCustomColor]
+  );
+
+  const handleSave = React.useCallback(() => {
     router.back();
     const { colorMode, hue, saturation, value, brightness, temperature } = newCustomColor;
-    let newColor;
-    if (colorMode === 0) {
+    let newColor: typeof newCustomColor;
+    if (colorMode === 'white') {
       newColor = { brightness, temperature, hue: 0, saturation: 0, value: 0, colorMode };
     } else {
       newColor = { brightness: 0, temperature: 0, hue, saturation, value, colorMode };
     }
-    dispatch(actions.common.updateUi({ customColor: newColor }));
-  };
+    dispatch(updateCustomColor(newColor));
+  }, [newCustomColor]);
+
   const handleColorChange = useThrottleFn(
     (isColor: boolean, v: any) => {
-      setNewCustomColor({ ...newCustomColor, ...v, mode: isColor ? 1 : 0 });
+      setNewCustomColor({ ...newCustomColor, ...v, colorMode: isColor ? 'colour' : 'white' });
     },
     { wait: 80 }
   ).run;
+
   return (
     <View style={{ paddingTop: safeArea?.top * 2 }} className={styles.view}>
       <TopBar
-        handleCancel={backToHome}
+        handleCancel={handleBack}
         cancelType="icon"
         title={Strings.getLang('customMemory')}
         handleSave={handleSave}
       />
 
       <Dimmer
+        showTitle={false}
         canEdit={false}
         style={{ marginTop: 48 }}
-        mode={newCustomColor?.colorMode === 0 ? 'white' : 'colour'}
-        handleModeChange={handlePowerModeChange}
+        mode={newCustomColor?.colorMode}
+        validWorkMode={['white', 'colour']}
+        onModeChange={handlePowerModeChange}
         colour={{
           hue: newCustomColor?.hue,
           saturation: newCustomColor?.saturation,

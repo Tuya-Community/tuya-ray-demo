@@ -1,50 +1,29 @@
-import {
-  Image,
-  View,
-  Switch,
-  hideMenuButton,
-  setNavigationBarColor,
-  showMenuButton,
-} from '@ray-js/ray';
-import { router } from 'ray';
+import { Image, View, Switch, router } from '@ray-js/ray';
 import React, { useEffect, useState } from 'react';
+import { useThrottleFn } from 'ahooks';
 import { useActions, useProps } from '@ray-js/panel-sdk';
-import Res from '@/res';
-import { useSelector } from '@/redux';
 import { TopBar } from '@/components';
 import Strings from '@/i18n';
+import { useSystemInfo } from '@/hooks/useSystemInfo';
+import { useHideMenuButton } from '@/hooks/useHideMenuButton';
+import { isIphoneX } from '@/utils/isIphoneX';
 import styles from './index.module.less';
-import useThrottleFn from '@/hooks/useThrottleFn';
-import { lampSchemaMap } from '@/devices/schema';
-import { isIphoneX } from '@/utils';
-
-const { do_not_disturb } = lampSchemaMap;
 
 const DoNotDisturb = () => {
-  const systemInfo = useSelector(state => state.cloudState.systemInfo);
+  const systemInfo = useSystemInfo();
   const dpActions = useActions();
-  const doNotDisturb = useProps(props => props[do_not_disturb.code]);
+  const doNotDisturb = useProps(props => props.do_not_disturb);
   const [currentVal, setCurrentVal] = useState(doNotDisturb);
-  useEffect(() => {
-    setNavigationBarColor({
-      frontColor: '#ffffff',
-      backgroundColor: 'transparent',
-      animation: {
-        duration: 300,
-        timingFunc: 'linear',
-      },
-    });
-    hideMenuButton();
-    return () => {
-      showMenuButton();
-    };
-  }, []);
+
+  useHideMenuButton();
+
   useEffect(() => {
     setCurrentVal(doNotDisturb);
   }, [doNotDisturb]);
-  const backToHome = () => {
+
+  const handleBack = React.useCallback(() => {
     router.back();
-  };
+  }, []);
 
   const handleSave = useThrottleFn(
     () => {
@@ -53,12 +32,14 @@ const DoNotDisturb = () => {
     },
     { wait: 100 }
   ).run;
+
   const handleSwitchPress = useThrottleFn(
     v => {
       setCurrentVal(v?.value);
     },
     { wait: 80 }
   ).run;
+
   return (
     <View
       style={{
@@ -68,7 +49,7 @@ const DoNotDisturb = () => {
       className={styles.view}
     >
       <TopBar
-        handleCancel={backToHome}
+        handleCancel={handleBack}
         cancelType="icon"
         title={Strings.getLang('doNotDisturb')}
         handleSave={handleSave}
@@ -76,8 +57,8 @@ const DoNotDisturb = () => {
       <View className={styles.container}>
         <View className={styles.containerTop}>
           <View className={styles.imageBar}>
-            <Image src={Res.do_not_disturb_lamp} className={styles.image} />
-            <Image src={Res.do_not_shadow} className={styles.imageShadow} />
+            <Image src="/images/do_not_disturb_lamp.png" className={styles.image} />
+            <Image src="/images/do_not_shadow.png" className={styles.imageShadow} />
           </View>
           <View className={styles.describeTitle}>{Strings.getLang('tip_doNotDisturb')}</View>
         </View>

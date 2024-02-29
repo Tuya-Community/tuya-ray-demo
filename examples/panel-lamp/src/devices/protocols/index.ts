@@ -1,27 +1,12 @@
 import dpParser from './parsers';
-import dpCodes from '@/config/dpCodes';
-const { colourCode, switchGradientCode, controlCode, powerMemoryCode } = dpCodes;
+import { lampSchemaMap } from '../schema';
+
+const { colour_data, music_data, control_data, switch_gradient, power_memory } = lampSchemaMap;
 
 export const protocols = {
-  [colourCode]: [
-    {
-      name: 'hue' as const,
-      bytes: 2,
-      default: 0,
-      defaultValue: 0,
-    },
-    {
-      name: 'saturation' as const,
-      bytes: 2,
-      defaultValue: 1,
-    },
-    {
-      name: 'value' as const,
-      bytes: 2,
-      defaultValue: 1,
-    },
-  ],
-  [controlCode]: dpParser.ControlTransformer,
-  [switchGradientCode]: dpParser.SwitchGradientTransformer,
-  [powerMemoryCode]: dpParser.PowerMemoryTransformer,
+  [colour_data.code]: dpParser.ColourTransformer,
+  [music_data.code]: dpParser.MusicTransformer,
+  [control_data.code]: dpParser.ControlTransformer,
+  [switch_gradient.code]: dpParser.SwitchGradientTransformer,
+  [power_memory.code]: dpParser.PowerMemoryTransformer,
 };

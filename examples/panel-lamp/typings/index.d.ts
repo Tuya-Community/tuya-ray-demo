@@ -29,34 +29,3 @@ type TTTCommonErrorCode = GetTTTFailData<typeof ty.device.getDeviceInfo>;
  * 设备信息
  */
 type DevInfo = ty.device.DeviceInfo & { state: DpState };
-
-type COLOUR = {
-  hue: number;
-  saturation: number;
-  value: number;
-};
-type WHITE = {
-  temperature: number;
-  brightness: number;
-};
-type RGB = {
-  r: number;
-  g: number;
-  b: number;
-};
-
-type RGBA = RGB & {
-  a?: number;
-};
-
-type HSL = {
-  h: number;
-  s: number;
-  l: number;
-};
-
-type HSV = {
-  h: number;
-  s: number;
-  v: number;
-};

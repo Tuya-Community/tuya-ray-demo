@@ -1,74 +1,52 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-console */
-import { router } from 'ray';
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { utils, useStructuredActions, useStructuredProps } from '@ray-js/panel-sdk';
-import {
-  hideMenuButton,
-  setNavigationBarColor,
-  showMenuButton,
-  Image,
-  Text,
-  View,
-} from '@ray-js/ray';
+import { Image, Text, View, router } from '@ray-js/ray';
 import { useDebounceFn } from 'ahooks';
 import { lampSchemaMap } from '@/devices/schema';
-import { actions, store, useSelector } from '@/redux';
 import { Button, TopBar } from '@/components';
-import colorUtils from '@/utils/color.js';
 import Strings from '@/i18n';
-import config from '@/config/default';
-import res from '@/res';
+import defaultConfig from '@/config/default';
+import { useHideMenuButton } from '@/hooks/useHideMenuButton';
+import { useSystemInfo } from '@/hooks/useSystemInfo';
+import { selectCustomColor, updateCustomColor } from '@/redux/modules/uiStateSlice';
+import { useAppDispatch } from '@/redux';
 import styles from './index.module.less';
 
 const { power_memory } = lampSchemaMap;
-const { dispatch } = store;
-const { defaultMemoryMode } = config;
-const { brightKelvin2rgb } = colorUtils;
-const { hsv2rgbString } = utils;
+const { defaultMemoryMode } = defaultConfig;
+const { hsv2rgbString, brightKelvin2rgb } = utils;
 
 export function PowerMemory() {
-  const safeArea = useSelector(state => state.cloudState.systemInfo?.safeArea);
+  const dispatch = useAppDispatch();
+  const { safeArea } = useSystemInfo();
   const dpActions = useStructuredActions();
   const powerMemory = useStructuredProps(props => props[power_memory.code]);
   const [mode, setMode] = useState(`${powerMemory?.mode}` ?? '1');
-  const customColor = useSelector(state => state.uiState.customColor);
-  useEffect(() => {
-    setNavigationBarColor({
-      frontColor: '#ffffff',
-      backgroundColor: 'transparent',
-      animation: {
-        duration: 300,
-        timingFunc: 'linear',
-      },
-    });
-    hideMenuButton();
-    return () => {
-      showMenuButton();
-    };
-  }, []);
+  const customColor = useSelector(selectCustomColor);
 
+  useHideMenuButton();
   useEffect(() => {
     if (powerMemory) {
       const { brightness, temperature, hue, saturation, value } = powerMemory;
-      dispatch(
-        actions.common.updateUi({
-          customColor: { brightness, temperature, hue, saturation, value },
-        })
-      );
+      dispatch(updateCustomColor({ brightness, temperature, hue, saturation, value }));
     }
     setMode(`${powerMemory?.mode}`);
   }, [powerMemory]);
-  const backToHome = () => {
+
+  const handleBack = React.useCallback(() => {
     router.back();
-  };
-  const handleEdit = () => {
+  }, []);
+
+  const handleEdit = React.useCallback(() => {
     setMode('2');
     router.push('/customColor');
-  };
+  }, []);
+
   const handleSave = useDebounceFn(
     () => {
       const newMemory = {
+        version: 0,
         mode: +mode,
         ...customColor,
       };
@@ -77,10 +55,11 @@ export function PowerMemory() {
     },
     { wait: 100 }
   ).run;
+
   return (
     <View style={{ paddingTop: safeArea?.top * 2 }} className={styles.view}>
       <TopBar
-        handleCancel={backToHome}
+        handleCancel={handleBack}
         cancelType="icon"
         title={Strings.getLang('powerMemory')}
         handleSave={handleSave}
@@ -93,8 +72,8 @@ export function PowerMemory() {
           const isActive = mode === item.mode;
           const { colorMode, brightness, temperature, hue, saturation, value } = customColor;
           const bg =
-            colorMode === 0
-              ? brightKelvin2rgb(brightness, temperature)
+            colorMode === 'white'
+              ? brightKelvin2rgb(brightness, temperature, { kelvinMin: 4000, kelvinMax: 8000 })
               : hsv2rgbString(hue, saturation / 10, value / 10);
           return (
             <View
@@ -131,7 +110,7 @@ export function PowerMemory() {
                 </View>
                 {item.mode === '2' && (
                   <Button className={styles.editBtn} onClick={handleEdit}>
-                    <Image className={styles.editIcon} src={res.icon_edit} />
+                    <Image className={styles.editIcon} src="/images/icon_edit.png" />
                   </Button>
                 )}
               </Button>

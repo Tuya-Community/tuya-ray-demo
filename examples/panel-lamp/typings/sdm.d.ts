@@ -1,5 +1,5 @@
 import '@ray-js/panel-sdk';
-import { GetStructuredDpState, GetStructuredActions } from '@ray-js/panel-sdk';
+import { GetStructuredDpState, GetStructuredActions, SmartSupportAbility } from '@ray-js/panel-sdk';
 
 type SmartDeviceSchema = typeof import('@/devices/schema').lampSchema;
 type SmartDeviceStructuredProtocols = typeof import('@/devices/protocols').protocols;
@@ -33,4 +33,5 @@ declare module '@ray-js/panel-sdk' {
   ): Device;
   export function useActions(): SmartDevices['model']['actions'];
   export function useStructuredActions(): GetStructuredActions<SmartDeviceStructuredProtocols>;
+  export function useSupport(): SmartSupportAbility<SmartDeviceSchema>;
 }
