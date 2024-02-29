@@ -1,6 +1,8 @@
 /* eslint-disable react/require-default-props */
-import React, { useState } from 'react';
+import clsx from 'clsx';
+import React from 'react';
 import { View, Text, Image } from '@ray-js/ray';
+import styles from './index.module.less';
 
 interface IProps {
   id?: string;
@@ -9,7 +11,6 @@ interface IProps {
   text?: string;
   disabled?: boolean;
   className?: any;
-  opacity?: number;
   imgClassName?: any;
   textClassName?: any;
   onClickStart?: () => void;
@@ -20,7 +21,6 @@ interface IProps {
 export const Button = (props: IProps) => {
   const {
     img,
-    opacity = 0.7,
     id,
     text,
     disabled = false,
@@ -33,44 +33,38 @@ export const Button = (props: IProps) => {
     onClickStart,
     onClickEnd,
   } = props;
-  const [click, setClick] = useState(false);
-  // const timer = useRef<any>().current;
-  // useEffect(() => {
-  //   // console.log('click', click);
-  //   if (click) {
-  //     // setTimeout(() => {
-  //     //   setClick(false);
-  //     // }, 300);
-  //     // } else {
-  //     //   timer = null;
-  //     //   clearTimeout(timer);
-  //   }
-  // }, [click]);
-  const handleClick = () => {
-    if (disabled) {
-      return;
-    }
-    onClick?.();
-    // setClick(true);
-  };
+  const [click, setClick] = React.useState(false);
+
+  const handleTouchStart = React.useCallback(() => {
+    setClick(true);
+    onClickStart?.();
+  }, [onClickStart]);
+
+  const handleTouchEnd = React.useCallback(() => {
+    setClick(false);
+    onClickEnd?.();
+  }, [onClickEnd]);
+
+  const handleClick = React.useCallback(
+    e => {
+      if (disabled) return;
+      e?.origin?.stopPropagation();
+      onClick?.();
+    },
+    [disabled, onClick]
+  );
+
   return (
     <View
       id={id}
-      className={className}
-      style={{ ...style, opacity: click ? opacity : 1 ?? 1 }}
-      // @ts-ignore
-      onTouchStart={() => {
-        setClick(true);
-        onClickStart?.();
-      }}
-      onTouchEnd={() => {
-        setClick(false);
-        onClickEnd?.();
-      }}
-      onClick={e => {
-        e.origin.stopPropagation();
-        handleClick();
-      }}
+      className={clsx(className, {
+        [styles.touching]: click,
+        [styles.disabled]: disabled,
+      })}
+      style={style}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onClick={handleClick}
     >
       {img && <Image src={img} className={imgClassName} />}
       {text && <Text className={textClassName}>{text}</Text>}

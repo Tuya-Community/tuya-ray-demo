@@ -50,11 +50,11 @@ export const TabBar = (props: TabAnimationProps) => {
     <View
       className={styles.container}
       style={{
-        width: `calc(${itemWidth} * 2 + ${padding}px)`,
         height: itemHeight + padding * 2,
         borderRadius,
         backgroundColor: `${containerBgColor}`,
         marginBottom: `${marginBottom}rpx`,
+        padding,
         ...style,
       }}
     >
@@ -68,9 +68,7 @@ export const TabBar = (props: TabAnimationProps) => {
             style={{
               width: itemWidth,
               height: itemHeight,
-              marginLeft: index === 0 ? padding : 0,
             }}
-            // @ts-ignore
             onClick={() => {
               !disable && onClick(item);
             }}
@@ -90,12 +88,10 @@ export const TabBar = (props: TabAnimationProps) => {
       <View
         className={styles.selectedBg}
         style={{
-          width: `calc(50% - ${padding}rpx)`,
+          width: `calc((100% - ${padding * 2}rpx) / ${tabList?.length ?? 2})`,
           height: itemHeight,
           borderRadius: 94,
           backgroundColor: activeBgColor || '#fff',
-          left: padding,
-          // top: padding,
           transform: `translate(calc(${selectIndex} * 100%))`,
         }}
       />

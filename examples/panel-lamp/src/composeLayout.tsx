@@ -1,20 +1,20 @@
 /* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { LampApi } from '@/api';
-import DefaultVal from '@/config/default';
-import { actions, store } from '@/redux';
-import './styles/index.less';
+import { utils } from '@ray-js/panel-sdk';
+import store from '@/redux';
 import { devices, dpKit } from '@/devices';
+import defaultConfig from '@/config/default';
+// import { initCloudDataAsync } from './redux/modules/cloudStateSlice';
+import { initCloud } from './redux/modules/cloudStateSlice';
+import './styles/index.less';
+import { CLOUD_DATA_KEYS_MAP } from './constant';
 
-const { defaultColors, defaultWhite } = DefaultVal;
+const { defaultColors, defaultWhite } = defaultConfig;
 
 interface Props {
   devInfo: DevInfo;
-  // eslint-disable-next-line react/require-default-props
   extraInfo?: Record<string, any>;
-  // eslint-disable-next-line react/require-default-props
   preload?: boolean;
 }
 
@@ -23,51 +23,45 @@ interface State {
 }
 
 const composeLayout = (Comp: React.ComponentType<any>) => {
-  const { dispatch } = store;
   return class PanelComponent extends Component<Props, State> {
     async onLaunch() {
       devices.lamp.init();
-      devices.lamp.onInitialized(res => {
-        dpKit.init(devices.lamp);
-        const devInfo = res.getDevInfo();
-        const { devId, groupId } = devInfo;
-        this.initCloud(devInfo);
-        LampApi.fetchCloudConfig(devId, groupId).then(cloudData => {
-          if (cloudData && Object.keys(cloudData).length) {
-            this.handleCloudData(cloudData);
-          }
-        });
-        ty.hideLoading();
+      devices.lamp.onInitialized(device => {
+        dpKit.init(device);
+        // store.dispatch(initCloudDataAsync()); // 初始化设备维度缓存的云端数据，并同步到 redux
+        this.initCloudData();
       });
     }
 
-    async initCloud(devInfo) {
-      // 获取本地数据
-      // 加载云端配置
-
-      const { devId, groupId } = devInfo;
+    /**
+     * 初始化设备维度缓存的云端数据，并同步到 redux
+     */
+    async initCloudData() {
       ty.showLoading({ title: '' });
-    }
-
-    handleCloudData(cloudData: any) {
-      // 获取云端数据，并放到redux里
-      let collectColorList = [...defaultColors];
-      let collectWhiteList = [...defaultWhite];
-      Object.entries(cloudData).forEach(([code, value]: [string, any]) => {
-        if (code === 'collectColors' && value && JSON.stringify(value) !== '[]') {
-          collectColorList = value;
-        }
-        if (code === 'collectWhites' && value && JSON.stringify(value) !== '[]') {
-          collectWhiteList = value;
-        }
-      });
-
-      dispatch(
-        actions.common.updateCloud({
-          collectColors: collectColorList,
-          collectWhites: collectWhiteList,
+      const storageKeys = [CLOUD_DATA_KEYS_MAP.collectColors, CLOUD_DATA_KEYS_MAP.collectWhites];
+      return Promise.all(storageKeys.map(k => devices.lamp.model.abilities.storage.get(k)))
+        .then(data => {
+          // 在云端没有数据的情况下，使用默认值
+          const cloudData = {
+            [CLOUD_DATA_KEYS_MAP.collectColors]: [...defaultColors],
+            [CLOUD_DATA_KEYS_MAP.collectWhites]: [...defaultWhite],
+          } as Parameters<typeof initCloud>['0'];
+          data.forEach((v, i) => {
+            const storageKey = storageKeys[i];
+            if (v) {
+              const value = utils.parseJSON(v);
+              // @ts-ignore TODO: fix typing
+              cloudData[storageKey] = value?.data?.value;
+            }
+          });
+          // TODO: move to async action
+          store.dispatch(initCloud(cloudData));
+          ty.hideLoading();
         })
-      );
+        .catch(err => {
+          console.log('storage.get failed', err);
+          ty.hideLoading();
+        });
     }
 
     render() {

@@ -1,6 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { transform, generateStep } from './transform';
 
 export default class PowerMemoryFormatter {
@@ -37,7 +34,8 @@ export default class PowerMemoryFormatter {
 
   parser(val = '') {
     if (!val) {
-      console.log('数据有问题，无法解析', val);
+      // eslint-disable-next-line no-console
+      console.log(`DP ${this.uuid} 出现异常数据 %s，无法解析`, val);
       return this.defaultValue;
     }
 
@@ -95,7 +93,6 @@ export default class PowerMemoryFormatter {
   formatter(data) {
     // 自定义格式转为16进制
     const { mode, hue, saturation, value, temperature, brightness } = data;
-    // console.log('断电记忆format', data);
     const modeStr = this.to16(mode, 2);
     const hueStr = this.to16(hue, 4);
     const satStr = this.to16(saturation, 4);

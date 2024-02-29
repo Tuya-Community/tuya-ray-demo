@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import {
-  setNavigationBarTitle,
-  setNavigationBarColor,
-  View,
-  Image,
-  Text,
-  ScrollView,
-} from '@ray-js/ray';
+import React, { useState } from 'react';
+import { View, Image, Text, ScrollView, router } from '@ray-js/ray';
 import clsx from 'clsx';
 import {
   useDevice,
@@ -14,22 +7,21 @@ import {
   useProps,
   useStructuredActions,
   useStructuredProps,
+  useSupport,
 } from '@ray-js/panel-sdk';
-import { router } from 'ray';
+import { useCreation, useThrottleFn } from 'ahooks';
 import { lampSchemaMap } from '@/devices/schema';
-import { ControlBar, Button } from '@/components';
-import Res from '@/res';
+import { ControlBar, Button, Dimmer } from '@/components';
+import { getCachedSystemInfo } from '@/api/getCachedSystemInfo';
 import { devices } from '@/devices';
-import SupportUtils from '@/utils/SupportUtils';
-import { useSelector, store, actions } from '@/redux';
 import Strings from '@/i18n';
-import useThrottleFn from '@/hooks/useThrottleFn';
+import { openScheduleFunctional } from '@/utils/openScheduleFunctional';
+import { openRhythmFunctional } from '@/utils/openRhythmFunctional';
+import { Box } from '@/components/Box';
 import styles from './index.module.less';
-import Dimmer from '../Dimmer';
-
-const { dispatch } = store;
 
 const {
+  countdown,
   control_data,
   white_gradi_time,
   switch_gradient,
@@ -37,13 +29,16 @@ const {
   colour_data,
   power_memory,
   do_not_disturb,
+  rhythm_mode,
 } = lampSchemaMap;
-export function Home() {
-  const deviceName = useDevice(d => d.devInfo.name);
 
-  const { systemInfo } = useSelector(({ cloudState }) => ({
-    systemInfo: cloudState.systemInfo,
-  }));
+const HeaderHeight = 59;
+
+const sysInfo = getCachedSystemInfo();
+
+export function Home() {
+  const support = useSupport();
+  const deviceName = useDevice(d => d.devInfo.name);
   const [scrollEnabled, setScrollEnabled] = useState(true);
   const dpActions = useActions();
   const dpStructuredActions = useStructuredActions();
@@ -53,47 +48,50 @@ export function Home() {
   const power = useProps(props => props.switch_led);
   const workMode = useProps(props => props.work_mode);
 
-  const moreFuncs = [
-    {
-      code: 'powerMemory',
-      hidden: !SupportUtils.isSupportDp(power_memory.code),
-    },
-    {
-      code: 'doNotDisturb',
-      hidden: !SupportUtils.isSupportDp(do_not_disturb.code),
-    },
-    {
-      code: 'switchGradient',
-      hidden:
-        !SupportUtils.isSupportDp(switch_gradient.code) &&
-        !SupportUtils.isSupportDp(white_gradi_time.code) &&
-        !SupportUtils.isSupportDp(colour_gradi_time.code),
-    },
-  ].filter(item => !item.hidden);
-  useEffect(() => {
-    // 把导航栏切换成黑色
-    setNavigationBarColor({
-      backgroundColor: '#000000',
-      frontColor: '#ffffff',
-      animation: null,
-    });
-  }, []);
-  useEffect(() => {
-    // 根据workMode切换对应显示页面
-    dispatch(actions.common.updateUi({ currentTab: workMode }));
-  }, [workMode]);
+  const moreFuncs = useCreation(() => {
+    const isGroupDevice = support.isGroupDevice();
+    return [
+      {
+        code: 'powerMemory',
+        hidden: !support.isSupportDp(power_memory.code) || isGroupDevice,
+        disabled: !power,
+      },
+      {
+        code: 'doNotDisturb',
+        hidden: !support.isSupportDp(do_not_disturb.code) || isGroupDevice,
+        disabled: !power,
+      },
+      {
+        code: 'switchGradient',
+        hidden:
+          (!support.isSupportDp(switch_gradient.code) &&
+            !support.isSupportDp(white_gradi_time.code) &&
+            !support.isSupportDp(colour_gradi_time.code)) ||
+          isGroupDevice,
+        disabled: !power,
+      },
+      {
+        code: 'schedule',
+        hidden: !support.isSupportCloudTimer() && !support.isSupportDp(countdown.code),
+        onClick: openScheduleFunctional,
+        disabled: false,
+      },
+      {
+        code: 'bioRhythm',
+        hidden: !support.isSupportDp(rhythm_mode.code) || isGroupDevice,
+        onClick: openRhythmFunctional,
+        disabled: !power,
+      },
+    ].filter(item => !item.hidden);
+  }, [power]);
 
-  useEffect(() => {
-    setNavigationBarTitle({ title: deviceName });
-  }, [deviceName]);
-
-  const handleChangeTab = (val: string) => {
+  const handleChangeTab = React.useCallback((val: string) => {
     // 切换tab,对应下发工作模式
     dpActions.work_mode.set(val, { checkRepeat: false, throttle: 300 });
-  };
+  }, []);
 
-  const handleColorChange = (isColour: boolean, data: any) => {
-    if (!SupportUtils.isSupportDp(control_data.code)) return;
+  const handleColorChange = React.useCallback((isColour: boolean, data: any) => {
+    if (!support.isSupportDp(control_data.code)) return;
     let controlData = { hue: 0, saturation: 0, value: 0, bright: 0, temp: 0 };
     if (isColour) {
       const { hue, saturation, value } = data;
@@ -103,19 +101,19 @@ export function Home() {
       controlData = { hue: 0, saturation: 0, value: 0, bright, temp };
     }
     dpStructuredActions.control_data.set(controlData, { throttle: 300 });
-  };
+  }, []);
 
-  const putColorData = (code: string, value: any) => {
+  const handleRelease = React.useCallback((code: string, value: any) => {
     if (code === colour_data.code) {
       dpStructuredActions[code].set(value, { throttle: 300, immediate: true });
     } else {
       dpActions[code].set(value, { throttle: 300 });
     }
-  };
+  }, []);
 
-  const handleReleaseWhite = (value: any) => {
+  const handleReleaseWhite = React.useCallback((value: any) => {
     devices.lamp.publishDps(value, { throttle: 300 });
-  };
+  }, []);
 
   const handleJump = useThrottleFn(
     (code: string) => {
@@ -124,61 +122,60 @@ export function Home() {
     { wait: 80 }
   ).run;
 
-  const renderMore = () => {
+  const renderMore = React.useCallback(() => {
     return (
-      <View className={styles.moreContainer}>
-        <Text className={styles.title}>{Strings.getLang('more')}</Text>
-        <View className={styles.row}>
-          {moreFuncs.map((item, index) => {
-            return (
-              <Button
-                key={item.code}
-                className={clsx(styles.greyCard, styles.item)}
-                style={{ marginRight: moreFuncs.length > 1 && index === 0 ? 16 : 0 }}
-                onClick={() => handleJump(item.code)}
-              >
-                <Text className={styles.funcTitle}>{Strings.getLang(item.code)}</Text>
-                <Image
-                  style={{ width: 48, height: 48, marginRight: 12 }}
-                  src={Res[`setting_${item.code}`]}
-                />
-              </Button>
-            );
-          })}
-        </View>
-      </View>
+      <Box contentClassName={styles.row} title={Strings.getLang('more')}>
+        {moreFuncs.map((item, index) => {
+          return (
+            <Button
+              key={item.code}
+              className={clsx(styles.greyCard, styles.item)}
+              disabled={item.disabled}
+              style={{
+                marginRight: moreFuncs.length > 1 && index % 2 === 0 ? 14 : 0,
+              }}
+              onClick={item.onClick || (() => handleJump(item.code))}
+            >
+              <Text className={styles.funcTitle}>{Strings.getLang(item.code as any)}</Text>
+              <Image
+                style={{ width: 48, height: 48, marginRight: 12 }}
+                src={`/images/setting_${item.code}.png`}
+              />
+            </Button>
+          );
+        })}
+      </Box>
     );
-  };
+  }, [moreFuncs]);
+
   return (
-    <View className={styles.view} style={{ paddingTop: systemInfo?.statusBarHeight * 2 }}>
+    <View className={styles.view} style={{ paddingTop: `${sysInfo.statusBarHeight}px` }}>
       {/* 根据开关显示不同的页面状态 */}
       <View className={styles.devName}>{deviceName}</View>
 
-      {power ? (
-        <ScrollView
-          scrollY={scrollEnabled}
-          refresherTriggered
-          style={{ height: `calc(100vh - 320rpx - ${systemInfo?.statusBarHeight * 2}rpx)` }}
-        >
-          <Dimmer
-            setScrollEnabled={setScrollEnabled}
-            mode={workMode}
-            colour={colour}
-            brightness={brightness}
-            temperature={temperature}
-            handleModeChange={handleChangeTab}
-            onChange={handleColorChange}
-            onRelease={putColorData}
-            onReleaseWhite={handleReleaseWhite}
-          />
-          {moreFuncs.length > 0 && renderMore()}
-          <View style={{ height: 60 }} />
-        </ScrollView>
-      ) : (
-        <View className={clsx(styles.flexCenter, styles.flex1)}>
-          <Image src={Res.power_off} style={{ width: 550, height: 550 }} />
-        </View>
-      )}
+      <ScrollView
+        scrollY={scrollEnabled}
+        refresherTriggered
+        style={{
+          height: `calc(100vh - ${HeaderHeight}px - ${ControlBar.height}px - ${sysInfo.statusBarHeight}px)`,
+        }}
+      >
+        <Dimmer
+          contentClassName={clsx(!power && styles.disabled)}
+          setScrollEnabled={setScrollEnabled}
+          showTitle
+          mode={workMode as any}
+          colour={colour}
+          brightness={brightness}
+          temperature={temperature}
+          onModeChange={handleChangeTab}
+          onChange={handleColorChange}
+          onRelease={handleRelease}
+          onReleaseWhite={handleReleaseWhite}
+        />
+        {moreFuncs.length > 0 && renderMore()}
+        <View style={{ height: 60 }} />
+      </ScrollView>
       <ControlBar />
     </View>
   );

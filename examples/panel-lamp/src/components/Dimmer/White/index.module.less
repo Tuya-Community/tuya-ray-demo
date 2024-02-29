@@ -1,0 +1,30 @@
+.container {
+  padding-top: 16rpx;
+  & > view:not(:last-child) {
+    margin-bottom: 32rpx;
+  }
+}
+
+.textBox {
+  margin-bottom: 32rpx;
+}
+
+.label {
+  font-family: PingFang SC;
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 40rpx;
+  color: #fff;
+}
+
+.value {
+  font-family: Manrope;
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 38rpx;
+  color: rgba(16, 130, 254, 0.9);
+  &::before {
+    content: '·';
+    margin: 0 10rpx;
+  }
+}
