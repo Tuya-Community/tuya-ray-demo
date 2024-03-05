@@ -1,6 +1,6 @@
 {
   "name": "panel-lamp",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Panel Lamp",
   "main": "index.js",
   "private": true,
