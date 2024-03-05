@@ -1,6 +1,6 @@
 export default {
-  backgroundColor: '#000',
+  backgroundColor: 'black',
   disableScroll: true,
   navigationStyle: 'custom',
-  navigationBarTextStyle: '#fff',
+  navigationBarTextStyle: 'white',
 };
