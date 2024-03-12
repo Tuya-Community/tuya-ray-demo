@@ -13,5 +13,5 @@
   },
   "baseversion": "2.13.3",
   "projectname": "public-sdm-template",
-  "devMode": "npm"
+  "devMode": "ray"
 }
