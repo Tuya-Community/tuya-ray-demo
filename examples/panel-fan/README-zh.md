@@ -1,6 +1,6 @@
 # 涂鸦面板模板
 
-该模板基于 Ray 框架开发，提供给需要在涂鸦智能、智能生活等 App 中开发面板的业务开发人员，代码提供了 Ray 开发的基本使用方法，包含路由使用、页面跳转、设备操作、多语言等内容的使用, 并实现模型与设备实时动态的交互展示, 开发人员可参照用例并根据业务需求自行调整代码。
+该模板基于 Ray 框架开发，提供给需要在涂鸦智能、智能生活等 App 中开发面板的业务开发人员，代码提供了 Ray 开发的基本使用方法，包含路由使用、页面跳转、设备操作、多语言等内容的使用。 开发人员可参照用例并根据业务需求自行调整代码。
 
 ## 使用须知
 
@@ -28,7 +28,6 @@ ray-panel
 │  ├─ components                    // 组件目录
 │  │  ├─ connect.tsx
 │  │  └─ index.tsx
-│  ├─ composeLayout.tsx             // 入口高阶，处理设备相关逻辑
 │  ├─ config                        // 配置文件，根据需求删除或保留
 │  │  ├─ dpCodes.ts
 │  │  ├─ index.ts
@@ -41,17 +40,6 @@ ray-panel
 │  │  └─ strings.ts
 │  ├─ kits.deps.json                // 由 IDE 生成，配置 TTT 能力依赖
 │  ├─ pages                         // 页面目录，根据情况添加或删除
-│  │  ├─ common
-│  │  │  ├─ page4
-│  │  │  │  ├─ index.config.ts
-│  │  │  │  └─ index.tsx
-│  │  │  └─ page6
-│  │  │     ├─ index.config.ts
-│  │  │     └─ index.tsx
-│  │  └─ home
-│  │     ├─ index.config.ts
-│  │     ├─ index.module.less
-│  │     └─ index.tsx
 │  ├─ redux                         // redux 逻辑， 根据情况添加或删除
 │  │  ├─ actions
 │  │  │  ├─ common.ts
@@ -62,14 +50,7 @@ ray-panel
 │  │  │  └─ theme.ts
 │  │  └─ store.ts
 │  ├─ res                           // 资源目录，根据需求添加或删除
-│  │  ├─ arrow.png
-│  │  ├─ close.png
-│  │  ├─ delete.png
 │  │  ├─ index.ts
-│  │  ├─ mode.png
-│  │  ├─ notify.png
-│  │  ├─ read.ts
-│  │  └─ rect.png
 │  ├─ routes.config.ts              // 路由配置 参照https://developer.tuya.com/cn/ray/guide/tutorial/routes
 │  ├─ utils                         // 工具方法存放目录
 │  │  └─ index.ts

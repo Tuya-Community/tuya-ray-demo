@@ -1,6 +1,6 @@
 ## Panel Template
 
-This template is based on the Ray framework and is provided to business developers who need to develop panels in apps related to Graffiti Intelligence or Smart Living. The code offers basic usage of developing with the Ray framework, including routing, page navigation, device operations, multilingual support. Additionally, it enables real-time interactive displays between models and devices. Developers can refer to the use cases and adjust the code according to their business needs.
+This template is based on the Ray framework and is provided to business developers who need to develop panels in apps related to Graffiti Intelligence or Smart Living. The code offers basic usage of developing with the Ray framework, including routing, page navigation, device operations, multilingual support. Developers can refer to the use cases and adjust the code according to their business needs.
 
 ## Instructions for Use
 

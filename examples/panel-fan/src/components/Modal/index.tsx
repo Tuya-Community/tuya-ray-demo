@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
-import { View } from '@ray-js/components';
 import clsx from 'clsx';
 
-import './index.module.less';
-import { usePageInstance } from '@ray-js/ray';
+import './index.less';
+import { View, usePageInstance } from '@ray-js/ray';
 import { createPortal } from '@ray-core/runtime';
 
 const prefixCls = 'rayui-modal';
@@ -38,13 +37,18 @@ type Props = {
    * 自定义内容样式
    */
   contentStyle?: React.CSSProperties;
+  /**
+   * 自定义容器类名
+   */
+  className?: string;
+  contentClassName?: string;
 };
 
 /**
  * 类似PageContainer的弹窗，PageContainer被限制只能有一个，这个没有限制
  */
 const Modal: FC<Props> = ({
-  visible,
+  visible = false,
   overlay = true,
   position = 'center',
   children,
@@ -52,12 +56,17 @@ const Modal: FC<Props> = ({
   containerStyle,
   overlayStyle,
   contentStyle,
+  className,
+  contentClassName,
 }) => {
   const alertCls = clsx(prefixCls);
   const inst = usePageInstance();
 
   return createPortal(
-    <View className={clsx(alertCls, position, visible && 'visible')} style={containerStyle}>
+    <View
+      className={clsx(alertCls, position, visible && 'visible', className)}
+      style={containerStyle}
+    >
       {overlay && (
         <View
           className={clsx(`${prefixCls}-overlay`)}
@@ -65,7 +74,7 @@ const Modal: FC<Props> = ({
           onClick={onClickOverlay}
         />
       )}
-      <View className={clsx(`${prefixCls}-content`)} style={contentStyle}>
+      <View className={clsx(`${prefixCls}-content`, contentClassName)} style={contentStyle}>
         {children}
       </View>
     </View>,
