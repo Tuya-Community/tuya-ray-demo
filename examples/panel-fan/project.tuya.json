@@ -1,0 +1,15 @@
+{
+  "projectname": "家电小程序模板",
+  "i18n": false,
+  "description": "家电小程序模板",
+  "miniprogramRoot": "./dist/tuya",
+  "productId": "8fi2hn0nxndzm9rm",
+  "dependencies": {
+    "BaseKit": "3.0.0",
+    "MiniKit": "3.0.2",
+    "DeviceKit": "3.0.0",
+    "BizKit": "3.0.4"
+  },
+  "devMode": "ray",
+  "baseversion": "2.16.0"
+}

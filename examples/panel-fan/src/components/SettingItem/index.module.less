@@ -1,0 +1,34 @@
+@import '@/mixins.less';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 104rpx;
+  width: 100vw;
+  padding: 0 48rpx;
+}
+
+.title {
+  flex: 1;
+  margin-right: 32rpx;
+  .ellipsis(0);
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #19191b;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  :global(.icon-panel-angleRight) {
+    margin-left: 8rpx;
+    font-size: 32rpx;
+    color: rgba(52, 54, 60, 0.3);
+  }
+}
+
+.featureText {
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.5);
+}
