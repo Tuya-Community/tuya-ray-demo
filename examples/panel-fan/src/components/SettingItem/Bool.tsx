@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { vibrateShort } from '@ray-js/ray';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch } from '@ray-js/components';
 import { DpStateKey, selectDpStateByCode, updateDp } from '@/redux/modules/dpStateSlice';
@@ -13,7 +14,7 @@ const Bool: FC<Props> = ({ dpCode }) => {
 
   const handleSwitchChange = () => {
     dispatch(updateDp({ [dpCode]: !dpValue }));
-    ty.vibrateShort({ type: 'light' });
+    vibrateShort({ type: 'light' });
   };
 
   return <Switch color="#6395f6" checked={dpValue} onChange={handleSwitchChange} />;

@@ -1,4 +1,5 @@
 import React, { FC, useMemo, useState } from 'react';
+import { vibrateShort, showToast, getSystemInfoSync } from '@ray-js/ray';
 import clsx from 'clsx';
 import { EntityId } from '@reduxjs/toolkit';
 import { PageContainer, ScrollView, Switch, Text, View } from '@ray-js/components';
@@ -22,7 +23,7 @@ type Props = {
 
 const TimingAdd: FC<Props> = ({ id, visible, onClose }) => {
   const dispatch = useAppDispatch();
-  const { language } = useMemo(() => ty.getSystemInfoSync(), []);
+  const { language } = useMemo(() => getSystemInfoSync(), []);
 
   // 编辑时的初始值
   const currentTiming = useSelector((state: ReduxState) =>
@@ -95,14 +96,14 @@ const TimingAdd: FC<Props> = ({ id, visible, onClose }) => {
         ).unwrap();
       }
 
-      ty.showToast({
+      showToast({
         title: Strings.getLang(id ? 'dsc_edit_success' : 'dsc_create_success'),
         icon: 'success',
       });
 
       onClose();
     } catch (err) {
-      ty.showToast({
+      showToast({
         title: err?.message ?? Strings.getLang('dsc_error'),
         icon: 'fail',
       });
@@ -111,7 +112,7 @@ const TimingAdd: FC<Props> = ({ id, visible, onClose }) => {
 
   const handleTimeChange = newTime => {
     setTimeState(newTime);
-    ty.vibrateShort({ type: 'light' });
+    vibrateShort({ type: 'light' });
   };
 
   const handleFilterChange = (newLoops: string[]) => {
@@ -173,7 +174,7 @@ const TimingAdd: FC<Props> = ({ id, visible, onClose }) => {
                 checked={fanSwitch}
                 onChange={() => {
                   setFanSwitch(!fanSwitch);
-                  ty.vibrateShort({ type: 'light' });
+                  vibrateShort({ type: 'light' });
                 }}
               />
             </View>
@@ -186,7 +187,7 @@ const TimingAdd: FC<Props> = ({ id, visible, onClose }) => {
                 checked={lightSwitch}
                 onChange={() => {
                   setLightSwitch(!lightSwitch);
-                  ty.vibrateShort({ type: 'light' });
+                  vibrateShort({ type: 'light' });
                 }}
               />
             </View>

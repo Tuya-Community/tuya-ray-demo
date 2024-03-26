@@ -26,7 +26,7 @@ export const getFaultStrings = (
   return onlyPrior ? labels[0] : labels.join(', ');
 };
 
-export const formatDps = ({ dps }: ty.device.DpsChanged) => {
+export const formatDps = ({ dps }: any) => {
   const dpState = {};
   Object.entries(dps).forEach(([dpId, dpValue]) => {
     const dpCode = getDpCodeById(dpId);

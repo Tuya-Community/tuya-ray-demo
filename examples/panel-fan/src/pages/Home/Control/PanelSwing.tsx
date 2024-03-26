@@ -1,5 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import clsx from 'clsx';
+import { vibrateShort } from '@ray-js/ray';
 import { Text, View } from '@ray-js/components';
 import { useDispatch, useSelector } from 'react-redux';
 import Strings from '@/i18n';
@@ -24,12 +25,12 @@ const PanelSwing: FC = () => {
 
   const handleSwitch = (dpCode, dpValue) => {
     dispatch(updateDp({ [dpCode]: !dpValue }));
-    ty.vibrateShort({ type: 'light' });
+    vibrateShort({ type: 'light' });
   };
 
   const handleSwingAngle = (dpCode, subDpCode, dpValue) => {
     dispatch(updateDp({ [subDpCode]: dpValue, [dpCode]: true }, { checkRepeat: true }));
-    ty.vibrateShort({ type: 'light' });
+    vibrateShort({ type: 'light' });
   };
 
   const swings = useMemo(

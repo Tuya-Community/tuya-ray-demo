@@ -1,3 +1,4 @@
+import { apiRequestByAtop } from '@ray-js/ray';
 import { DEFAULT_TIMING_CATEGORY } from '@/constant';
 import { getDevId } from '@/utils';
 import { kit } from '@ray-js/panel-sdk';
@@ -27,7 +28,7 @@ const apiRequest = async <T>(params: { api: string; version?: string; data: any 
  */
 export const getOssUrl = () => {
   return new Promise((resolve, reject) => {
-    ty.apiRequestByAtop({
+    apiRequestByAtop({
       api: `${decode('dHV5YQ==')}.m.app.panel.url.get`,
       version: '1.0',
       postData: {},

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { vibrateShort } from '@ray-js/ray';
 import { useDispatch, useSelector } from 'react-redux';
 import { DpStateKey, selectDpStateByCode, updateDp } from '@/redux/modules/dpStateSlice';
 import { getDpSchema } from '@/utils';
@@ -27,7 +28,7 @@ export default function useSliderDp(code: DpStateKey) {
   const handleAfterChange = useCallback(value => {
     console.log(value);
     dispatch(updateDp({ [code]: value }, { checkRepeat: true, filterExpired: true }));
-    ty.vibrateShort({ type: 'light' });
+    vibrateShort({ type: 'light' });
   }, []);
 
   return { min, max, step, sliderState, handleChange, handleAfterChange };

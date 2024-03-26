@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { vibrateShort } from '@ray-js/ray';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text } from '@ray-js/components';
@@ -16,7 +17,7 @@ const TempUnitConvert: FC = () => {
   const handleTempUnitConvert = (tempUnitConvert: 'c' | 'f') => {
     if (dpTempUnitConvert !== tempUnitConvert) {
       dispatch(updateDp({ [tempUnitConvertCode]: tempUnitConvert }));
-      ty.vibrateShort({ type: 'light' });
+      vibrateShort({ type: 'light' });
     }
   };
 
