@@ -1,0 +1,43 @@
+.transform-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ellipsis(@width) {
+  display: inline-block;
+  width: @width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.safe-area-padding-bottom() {
+  padding-bottom: env(safe-area-inset-bottom, 48rpx);
+}
+
+.hide-scrollbar() {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.spin(@animation, @duration) {
+  animation: @animation @duration linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+  &:global(.running) {
+    animation-play-state: running;
+  }
+}
+
+.basic-button() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 128rpx;
+  width: 128rpx;
+  border-radius: 48rpx;
+  background-color: #fff;
+}

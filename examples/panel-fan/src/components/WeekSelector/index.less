@@ -1,0 +1,32 @@
+@import '@/variables.less';
+
+@alert-prefix-cls: ~'rayui-week-selector';
+
+.@{alert-prefix-cls} {
+  display: flex;
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80rpx;
+    width: 80rpx;
+    border-radius: 40rpx;
+    background-color: rgba(0, 0, 0, 0.05);
+    &.active {
+      background-color: @theme-color;
+    }
+  }
+
+  &-item-text {
+    font-size: 24rpx;
+    color: rgba(0, 0, 0, 0.9);
+    &.active {
+      font-weight: 500;
+      color: #fff;
+    }
+  }
+}

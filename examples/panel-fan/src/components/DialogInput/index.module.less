@@ -1,0 +1,71 @@
+@import '@/variables.less';
+@import '@/mixins.less';
+
+.container {
+  .transform-center();
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 376rpx;
+  width: 622rpx;
+  border-radius: 32rpx;
+  background-color: #fff;
+}
+
+.header {
+  padding: 48rpx 64rpx 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 32rpx;
+  :global(.rayui-input-input) {
+    text-align: left;
+    font-size: 32rpx;
+    border: none;
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  :global(.icon-panel-closeFill) {
+    font-size: 64rpx;
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.footerBtn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 108rpx;
+  & + .footerBtn {
+    border-left: 0.5px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+.footerBtnText {
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.7);
+  &:global(.active) {
+    font-weight: 500;
+    color: @theme-color;
+  }
+  &:global(.disabled) {
+    opacity: 0.4;
+  }
+}

@@ -1,0 +1,47 @@
+@import '@/mixins.less';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.scrollWrapper {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.device {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  height: 160rpx;
+  padding: 0 48rpx;
+  :global(.icon-panel-angleRight) {
+    font-size: 32rpx;
+    color: rgba(52, 54, 60, 0.3);
+  }
+}
+
+.deviceIcon {
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.deviceName {
+  flex: 1;
+  margin: 0 32rpx;
+  .ellipsis(0);
+  width: 0;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #000;
+}
+
+.divider {
+  align-self: stretch;
+  height: 1px;
+  margin: 0 52rpx;
+  background-color: rgba(0, 0, 0, 0.05);
+}

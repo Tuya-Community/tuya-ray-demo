@@ -1,0 +1,105 @@
+@import '@/mixins.less';
+@import '@/animations.less';
+
+.container {
+  position: relative;
+  font-size: 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+}
+
+.temperatureWrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 24rpx;
+  left: 32rpx;
+  :global(.icon-panel-temperature) {
+    font-size: 32rpx;
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.temperatureText {
+  margin-left: 16rpx;
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.countdownWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  // left: 50%;
+  top: 20rpx;
+  // transform: translateX(-50%);
+  max-width: 400rpx;
+  padding: 14rpx 32rpx;
+  border-radius: 200rpx;
+  background-color: rgba(68, 68, 68, 0.06);
+  z-index: 501;
+}
+
+.countdownText {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; //多行在这里修改数字即可
+  overflow: hidden;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 28rpx;
+  line-height: 32rpx;
+  align-content: center;
+  word-break: break-all;
+  white-space: normal;
+}
+
+.countdownValue {
+  margin-left: 8rpx;
+  font-size: 28rpx;
+  line-height: 32rpx;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.imgFanBottom {
+  height: 545rpx;
+  width: 545rpx;
+}
+
+.imgFanShadow {
+  .transform-center();
+  height: 110rpx;
+  width: 125rpx;
+}
+
+.spinElementWrapper {
+  .transform-center();
+  height: 747rpx;
+  width: 747rpx;
+  .spin(rotateWrapper, 4s);
+}
+
+.spinElement {
+  height: 100%;
+  width: 100%;
+  .spin(rotateReverse, 3s);
+}
+
+.imgFanBlade {
+  height: 100%;
+  width: 100%;
+  .spin(rotate, 1s);
+
+  &:global(.start) {
+  }
+
+  &:global(.stop) {
+    // animation-timing-function: ;
+  }
+}
