@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import { vibrateShort } from '@ray-js/ray';
 import clsx from 'clsx';
 import { Text, View } from '@ray-js/components';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,7 +38,7 @@ const Control: FC<Props> = () => {
   const handleLight = useThrottleFn(
     () => {
       dispatch(updateDp({ [lightCode]: !dpLight }));
-      ty.vibrateShort({ type: 'light' });
+      vibrateShort({ type: 'light' });
     },
     { wait: 600, trailing: false }
   ).run;
@@ -67,7 +68,7 @@ const Control: FC<Props> = () => {
     () => {
       setPanelVisible(false);
       dispatch(updateDp({ [switchCode]: !dpSwitch }));
-      ty.vibrateShort({ type: 'light' });
+      vibrateShort({ type: 'light' });
     },
     { wait: 600, trailing: false }
   ).run;
@@ -89,7 +90,7 @@ const Control: FC<Props> = () => {
           [switchVerticalCode]: !dpSwitchVertical,
         })
       );
-      ty.vibrateShort({ type: 'light' });
+      vibrateShort({ type: 'light' });
 
       return;
     }
@@ -105,7 +106,7 @@ const Control: FC<Props> = () => {
           [switchHorizontalCode]: !dpSwitchHorizontal,
         })
       );
-      ty.vibrateShort({ type: 'light' });
+      vibrateShort({ type: 'light' });
 
       return;
     }

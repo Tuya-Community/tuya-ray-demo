@@ -1,3 +1,4 @@
+import { publishDps } from '@ray-js/ray';
 import { Action, configureStore, Middleware, ThunkDispatch } from '@reduxjs/toolkit';
 import { createDpKitMiddleware } from '@ray-js/tuya-dp-kit';
 import { createLogger } from 'redux-logger';
@@ -27,7 +28,7 @@ const dpKitMiddleware: Middleware = createDpKitMiddleware<DpState, ReduxState>({
 
     console.log('下发dp', dpState);
 
-    ty.device.publishDps({
+    publishDps({
       deviceId: getDevId(),
       dps,
       mode: 2,

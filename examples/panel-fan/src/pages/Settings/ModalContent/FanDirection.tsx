@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import clsx from 'clsx';
+import { vibrateShort } from '@ray-js/ray';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text } from '@ray-js/components';
 import { TouchableOpacity } from '@/components';
@@ -17,7 +18,7 @@ const FanDirection: FC = () => {
   const handleFanDirection = (fanDirection: 'forward' | 'reverse') => {
     if (dpFanDirection !== fanDirection) {
       dispatch(updateDp({ [fanDirectionCode]: fanDirection }));
-      ty.vibrateShort({ type: 'light' });
+      vibrateShort({ type: 'light' });
     }
   };
 

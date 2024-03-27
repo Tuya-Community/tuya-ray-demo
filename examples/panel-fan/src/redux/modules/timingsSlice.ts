@@ -1,28 +1,18 @@
 import {
   addTimingApi,
   fetchTimingsApi,
-  updateStatusOrDeleteTimingApi,
+  updateTimingStatusApi,
   updateTimingApi,
+  removeTimingApi,
 } from '@/api';
 import { createAsyncThunk, createEntityAdapter, createSlice, EntityId } from '@reduxjs/toolkit';
 import { DEFAULT_TIMING_CATEGORY } from '@/constant';
 import moment from 'moment';
 import { ReduxState } from '..';
-import { kit } from '@ray-js/panel-sdk';
 
-const { getDevInfo } = kit;
-
-type Timer = IAndSingleTime & {
+type Timer = ty.device.TimerModel & {
   time: string;
   id: EntityId;
-};
-
-type AddTimerPayload = {
-  dps: string;
-  time: string;
-  loops: string;
-  actions: any;
-  aliasName?: string;
 };
 
 const timingsAdapter = createEntityAdapter<Timer>({
@@ -30,38 +20,29 @@ const timingsAdapter = createEntityAdapter<Timer>({
 });
 
 export const fetchTimings = createAsyncThunk<Timer[]>('timings/fetchTimings', async () => {
-  const { timers } = await fetchTimingsApi();
+  const { timers } = (await fetchTimingsApi()) as { timers: Timer[] };
 
   return timers as unknown as Timer[];
 });
 
-export const addTiming = createAsyncThunk<Timer, AddTimerPayload>(
-  'timings/addTiming',
-  async param => {
-    const { groupId: devGroupId, devId } = getDevInfo();
-    const defaultParams = {
-      bizId: devGroupId || devId,
-      bizType: devGroupId ? '1' : '0',
-      isAppPush: false,
-      category: DEFAULT_TIMING_CATEGORY,
-    };
-    const params = { ...defaultParams, ...param };
-    const id = await addTimingApi(params);
-    return { id, status: 1, ...params };
-  }
-);
+export const addTiming = createAsyncThunk<Timer, any>('timings/addTiming', async param => {
+  const defaultParams = {
+    isAppPush: false,
+  };
+  const params = { ...defaultParams, ...param };
+  const { timerId } = (await addTimingApi(DEFAULT_TIMING_CATEGORY, params)) as {
+    timerId: string;
+  };
+  return { id: timerId, status: true, ...params };
+});
 
 export const updateTiming = createAsyncThunk(
   'timings/updateTiming',
-  async (param: AddTimerPayload & { id: EntityId }) => {
-    const { groupId: devGroupId, devId } = getDevInfo();
+  async (param: any & { id: EntityId }) => {
     const defaultParams = {
-      bizId: devGroupId || devId,
-      bizType: devGroupId ? '1' : '0',
       isAppPush: false,
-      category: DEFAULT_TIMING_CATEGORY,
     };
-    const params = { ...defaultParams, ...param };
+    const params = { ...defaultParams, ...param, timerId: param.id };
     await updateTimingApi(params);
     return { id: param.id, changes: param };
   }
@@ -70,18 +51,16 @@ export const updateTiming = createAsyncThunk(
 export const deleteTiming = createAsyncThunk<EntityId, EntityId>(
   'timings/deleteTiming',
   async id => {
-    // status 2 --- 删除
-    await updateStatusOrDeleteTimingApi({ ids: String(id), status: 2 });
+    await removeTimingApi({ timerId: String(id) });
     return id;
   }
 );
 
 export const updateTimingStatus = createAsyncThunk(
   'timings/updateTimingStatus',
-  async ({ id, status }: { id: EntityId; status: 0 | 1 }) => {
-    // status 0 --- 关闭  1 --- 开启
-    await updateStatusOrDeleteTimingApi({ ids: String(id), status });
-    return { id, changes: { status: status ?? 0 } };
+  async ({ id, status }: { id: EntityId; status: boolean }) => {
+    await updateTimingStatusApi({ timerId: String(id), status });
+    return { id, changes: { status: status ?? false } };
   }
 );
 

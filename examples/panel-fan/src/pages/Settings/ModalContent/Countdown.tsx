@@ -1,4 +1,5 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { vibrateShort } from '@ray-js/ray';
 import { useDispatch, useSelector } from 'react-redux';
 import Slider from '@ray-js/components-ty-slider';
 import { Text, View } from '@ray-js/components';
@@ -32,7 +33,7 @@ const Countdown: FC = () => {
     dispatch(
       updateDp({ [countdownSetCode]: range[value] }, { checkRepeat: true, filterExpired: true })
     );
-    ty.vibrateShort({ type: 'light' });
+    vibrateShort({ type: 'light' });
   }, []);
 
   return (

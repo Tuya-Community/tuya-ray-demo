@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { openDeviceDetailPage } from '@ray-js/ray';
 import { useSelector } from 'react-redux';
 import { Image, Text } from '@ray-js/components';
 import { TouchableOpacity } from '@/components';
@@ -11,7 +12,7 @@ const Device: FC = () => {
   const { icon: deviceIcon, name } = useSelector(selectDevInfo);
 
   const handleGoToDeviceDetail = () => {
-    ty.device.openDeviceDetailPage({
+    openDeviceDetailPage({
       deviceId: getDevId(),
     });
   };

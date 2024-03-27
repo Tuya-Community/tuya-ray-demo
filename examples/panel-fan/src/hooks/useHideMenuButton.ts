@@ -1,14 +1,15 @@
 import { usePageEvent } from 'ray';
+import { hideMenuButton } from '@ray-js/ray';
 
 const useHideMenuButton = () => {
   usePageEvent('onLoad', () => {
-    ty.hideMenuButton();
+    hideMenuButton();
   });
 
   usePageEvent('onShow', () => {
-    ty.hideMenuButton();
+    hideMenuButton();
     setTimeout(() => {
-      ty.hideMenuButton();
+      hideMenuButton();
     }, 100);
   });
 };

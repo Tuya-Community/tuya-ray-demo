@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'ray';
+import { hideMenuButton, getSystemInfoSync, getMenuButtonBoundingClientRect } from '@ray-js/ray';
 import '@/i18n';
 import { onDpDataChange, offDpDataChange } from '@ray-js/api';
 import { kit, hooks } from '@ray-js/panel-sdk';
@@ -12,7 +13,6 @@ import { responseUpdateDp } from './redux/modules/dpStateSlice';
 import '@/icon/iconfont.css';
 import '@/global.less';
 import { updateSystemInfo } from './redux/modules/systemInfoSlice';
-import { getOssUrl } from './api';
 
 if (process.env.NODE_ENV === 'production') {
   console.log = () => {};
@@ -37,11 +37,9 @@ const App = ({ children }) => {
 
   useEffect(() => {
     const initializeState = async () => {
-      ty.hideMenuButton();
-      const staticPrefix = await getOssUrl();
-      console.log('staticPrefix', staticPrefix);
-      store.dispatch(updateSystemInfo({ staticPrefix, ...ty.getSystemInfoSync() }));
-      ty.getMenuButtonBoundingClientRect({
+      hideMenuButton();
+      store.dispatch(updateSystemInfo(getSystemInfoSync()));
+      getMenuButtonBoundingClientRect({
         success: menuBounding => {
           store.dispatch(
             updateSystemInfo({

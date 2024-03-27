@@ -1,9 +1,9 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import { Image, ScrollView, Text, View } from '@ray-js/components';
-import { useHideMenuButton } from '@/hooks';
 import { EntityId } from '@reduxjs/toolkit';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHideMenuButton } from '@/hooks';
 import { selectSafeArea } from '@/redux/modules/systemInfoSlice';
 import { TopBar, TouchableOpacity } from '@/components';
 import Strings from '@/i18n';

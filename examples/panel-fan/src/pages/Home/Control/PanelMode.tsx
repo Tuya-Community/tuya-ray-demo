@@ -1,4 +1,5 @@
 import React, { FC, useMemo, useState } from 'react';
+import { vibrateShort } from '@ray-js/ray';
 import _ from 'lodash';
 import clsx from 'clsx';
 import { Swiper, Text, View } from '@ray-js/components';
@@ -22,7 +23,7 @@ const ModeGroup: FC<PropsModeGroup> = ({ currentMode, modes }) => {
 
   const handleSelectMode = mode => {
     dispatch(updateDp({ [modeCode]: mode }));
-    ty.vibrateShort({ type: 'light' });
+    vibrateShort({ type: 'light' });
   };
 
   return (
