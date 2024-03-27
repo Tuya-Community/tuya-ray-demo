@@ -46,7 +46,7 @@ const TimingAdd: FC<Props> = ({ id, visible, onClose }) => {
   });
 
   const dpsObject = useMemo(() => {
-    return currentTiming?.dps ? JSON.parse(currentTiming.dps) : {};
+    return currentTiming?.dps ? currentTiming.dps : {};
   }, [currentTiming]);
 
   const [loops, setLoops] = useState((currentTiming?.loops ?? '0000000').split(''));
@@ -74,11 +74,7 @@ const TimingAdd: FC<Props> = ({ id, visible, onClose }) => {
             time,
             loops: loops.join(''),
             aliasName: remark,
-            dps: JSON.stringify(dps),
-            actions: JSON.stringify({
-              time,
-              dps,
-            }),
+            dps,
           })
         ).unwrap();
       } else {
@@ -87,11 +83,7 @@ const TimingAdd: FC<Props> = ({ id, visible, onClose }) => {
             time,
             loops: loops.join(''),
             aliasName: remark,
-            dps: JSON.stringify(dps),
-            actions: JSON.stringify({
-              time,
-              dps,
-            }),
+            dps,
           })
         ).unwrap();
       }

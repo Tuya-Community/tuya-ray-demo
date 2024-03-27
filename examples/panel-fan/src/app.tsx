@@ -13,7 +13,6 @@ import { responseUpdateDp } from './redux/modules/dpStateSlice';
 import '@/icon/iconfont.css';
 import '@/global.less';
 import { updateSystemInfo } from './redux/modules/systemInfoSlice';
-import { getOssUrl } from './api';
 
 if (process.env.NODE_ENV === 'production') {
   console.log = () => {};
@@ -39,9 +38,7 @@ const App = ({ children }) => {
   useEffect(() => {
     const initializeState = async () => {
       hideMenuButton();
-      const staticPrefix = await getOssUrl();
-      console.log('staticPrefix', staticPrefix);
-      store.dispatch(updateSystemInfo({ staticPrefix, ...getSystemInfoSync() }));
+      store.dispatch(updateSystemInfo(getSystemInfoSync()));
       getMenuButtonBoundingClientRect({
         success: menuBounding => {
           store.dispatch(

@@ -2,10 +2,10 @@ import React, { FC, useEffect, useMemo, useRef } from 'react';
 import { EntityId } from '@reduxjs/toolkit';
 import { Switch, Text, View } from '@ray-js/components';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteTiming, selectTimingById, updateTimingStatus } from '@/redux/modules/timingsSlice';
-import { ReduxState } from '@/redux';
 import SwipeOut from '@ray-js/components-ty-swipeout';
 import moment from 'moment';
+import { deleteTiming, selectTimingById, updateTimingStatus } from '@/redux/modules/timingsSlice';
+import { ReduxState } from '@/redux';
 import Strings from '@/i18n';
 import { WEEKS } from '@/constant';
 import { TouchableOpacity } from '@/components';
@@ -32,7 +32,9 @@ const TimingItem: FC<Props> = ({ id, currentOpenedId, onEdit, onOpen }) => {
   } = useMemo(() => {
     const { loops, time, dps } = timing ?? {};
 
-    const dpsObject = JSON.parse(dps);
+    console.log('timing ==>', timing ?? {});
+
+    const dpsObject = dps || {};
     const switchCodeId = getDpIdByCode(switchCode);
     const lightCodeId = getDpIdByCode(lightCode);
 
@@ -76,7 +78,7 @@ const TimingItem: FC<Props> = ({ id, currentOpenedId, onEdit, onOpen }) => {
   }, [timing]);
 
   const handleSwitch = () => {
-    dispatch(updateTimingStatus({ id, status: timing?.status ? 0 : 1 }));
+    dispatch(updateTimingStatus({ id, status: !timing?.status }));
   };
 
   const handleDelete = () => {
@@ -129,7 +131,7 @@ const TimingItem: FC<Props> = ({ id, currentOpenedId, onEdit, onOpen }) => {
         </View>
         {/* 阻止冒泡 避免整项的点击事件被触发 */}
         <View onClick={e => e.origin.stopPropagation()}>
-          <Switch color="#6395f6" checked={timing?.status === 1} onChange={handleSwitch} />
+          <Switch color="#6395f6" checked={timing?.status} onChange={handleSwitch} />
         </View>
       </TouchableOpacity>
     </SwipeOut>
