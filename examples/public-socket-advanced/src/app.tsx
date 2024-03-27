@@ -1,6 +1,4 @@
 import React from 'react';
-import 'ray';
-import '@/i18n';
 import './app.less';
 import { initPanelEnvironment } from '@ray-js/ray';
 import { SdmProvider } from '@ray-js/panel-sdk';
