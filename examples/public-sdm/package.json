@@ -14,7 +14,7 @@
   "dependencies": {
     "@ray-js/panel-sdk": "^1.10.0",
     "@ray-js/ray": "^1.4.45",
-    "@ray-js/ray-error-catch": "^0.0.20",
+    "@ray-js/ray-error-catch": "^0.0.23",
     "@reduxjs/toolkit": "^1.9.3",
     "clsx": "^1.2.1",
     "react-redux": "^7.2.1",

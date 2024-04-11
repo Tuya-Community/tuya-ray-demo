@@ -18,7 +18,7 @@
     "@ray-js/components-ty-lamp": "^1.10.6",
     "@ray-js/panel-sdk": "^1.10.0",
     "@ray-js/ray": "^1.4.19",
-    "@ray-js/ray-error-catch": "^0.0.19",
+    "@ray-js/ray-error-catch": "^0.0.23",
     "@reduxjs/toolkit": "^2.0.1",
     "ahooks": "^3.7.1",
     "clsx": "^1.2.1",

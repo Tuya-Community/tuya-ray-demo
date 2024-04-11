@@ -18,7 +18,7 @@
     "@ray-js/components-ty-switch": "^0.0.7",
     "@ray-js/panel-sdk": "^1.10.0",
     "@ray-js/ray": "^1.4.23",
-    "@ray-js/ray-error-catch": "^0.0.19",
+    "@ray-js/ray-error-catch": "^0.0.23",
     "@ray-js/svg": "^0.0.6",
     "@reduxjs/toolkit": "2.0.1",
     "@types/redux-logger": "^3.0.12",
