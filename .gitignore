@@ -17,3 +17,13 @@ examples/*/.ray
 package-lock.json
 
 scripts/
+
+examples/*/typings/tuya-miniapp__BaseKit
+examples/*/typings/tuya-miniapp__BizKit
+examples/*/typings/tuya-miniapp__DeviceKit
+examples/*/typings/tuya-miniapp__MiniKit
+examples/*/typings/tuya-miniapp__MediaKit
+examples/*/typings/tuya_miniapp__api-types
+
+yarn.lock
+package-lock.json
