@@ -1,28 +1,31 @@
 import React, { useState, useCallback, useMemo, useLayoutEffect } from 'react';
 import { Text, View, Icon, Button, CoverView } from '@ray-js/ray';
+import ClassNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { IpcPlayer as Player } from '@ray-js/components-ty-ipc';
+import { useProps, useDevice } from '@ray-js/panel-sdk';
 import IconFont from '@/components/Iconfont';
 import { useSelector, actions } from '@/redux';
 import Definition from '@/components/Definition';
 import Timer from '@/components/Timer';
 import RecordTip from '@/components/RecordTip';
-import ClassNames from 'classnames';
-import { useDispatch } from 'react-redux';
 import Tab from '@/components/Tab';
 import Ptz from '@/components/Ptz';
 import { hasPtz, hasZoom, videoClarityObj } from '@/config/home';
 import Zoom from '@/components/Zoom';
-import { IpcPlayer as Player } from '@ray-js/components-ty-ipc';
 import { setOrientation, subStatusToMain } from '@/utils/util';
 import { getString } from '@/utils/in18Util';
 import OneTalk from '@/components/OneTalk';
 import { showFullButtonAnd5sHide, closeShowFullButton } from '@/utils/index';
 import _ from '@/utils/loadsh';
-import { useProps, useDevice } from '@ray-js/panel-sdk';
 import Styles from './index.module.less';
 
 interface CameraPlayerProps {
   showMore: boolean;
 }
+
+const startTime = new Date().getTime();
+let firstSuccess = false;
 
 const CameraPlayer = (props: CameraPlayerProps) => {
   const { showMore } = props;
@@ -43,6 +46,7 @@ const CameraPlayer = (props: CameraPlayerProps) => {
   const devInfo = useDevice(device => device.devInfo);
 
   const [playerLayout, setPlayerLayout] = useState(0); // 播放器更新尺寸
+  const [diffTime, setDiffTime] = useState(0); // 时间差
 
   const handlePlayerClick = useCallback(() => {
     if (isFull) {
@@ -83,6 +87,12 @@ const CameraPlayer = (props: CameraPlayerProps) => {
   }, [isFull]);
 
   const onChangeStreamStatus = (data: number) => {
+    console.log(data, 'data');
+    if (data === 1002 && !firstSuccess) {
+      firstSuccess = true;
+      const endTime = new Date().getTime();
+      setDiffTime(endTime - startTime);
+    }
     subStatusToMain(data);
   };
 
@@ -179,6 +189,18 @@ const CameraPlayer = (props: CameraPlayerProps) => {
           />
         )}
       </View>
+
+      <Text
+        style={{
+          fontSize: 60,
+          color: 'red',
+          position: 'absolute',
+          top: 100,
+          left: 30,
+        }}
+      >
+        {diffTime}
+      </Text>
 
       {/* 录制成功提示 */}
       <CoverView
