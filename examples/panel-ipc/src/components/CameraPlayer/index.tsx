@@ -24,9 +24,6 @@ interface CameraPlayerProps {
   showMore: boolean;
 }
 
-const startTime = new Date().getTime();
-let firstSuccess = false;
-
 const CameraPlayer = (props: CameraPlayerProps) => {
   const { showMore } = props;
   const dispatch = useDispatch();
@@ -46,7 +43,6 @@ const CameraPlayer = (props: CameraPlayerProps) => {
   const devInfo = useDevice(device => device.devInfo);
 
   const [playerLayout, setPlayerLayout] = useState(0); // 播放器更新尺寸
-  const [diffTime, setDiffTime] = useState(0); // 时间差
 
   const handlePlayerClick = useCallback(() => {
     if (isFull) {
@@ -87,12 +83,6 @@ const CameraPlayer = (props: CameraPlayerProps) => {
   }, [isFull]);
 
   const onChangeStreamStatus = (data: number) => {
-    console.log(data, 'data');
-    if (data === 1002 && !firstSuccess) {
-      firstSuccess = true;
-      const endTime = new Date().getTime();
-      setDiffTime(endTime - startTime);
-    }
     subStatusToMain(data);
   };
 
@@ -189,19 +179,6 @@ const CameraPlayer = (props: CameraPlayerProps) => {
           />
         )}
       </View>
-
-      <Text
-        style={{
-          fontSize: 60,
-          color: 'red',
-          position: 'absolute',
-          top: 100,
-          left: 30,
-        }}
-      >
-        {diffTime}
-      </Text>
-
       {/* 录制成功提示 */}
       <CoverView
         className={Styles.RecordTipContent}
@@ -209,7 +186,6 @@ const CameraPlayer = (props: CameraPlayerProps) => {
       >
         <RecordTip />
       </CoverView>
-
       {/* 全屏云台组件 */}
       <CoverView className={ClassNames(Styles.fullPtz, ptzStyle)}>
         <Ptz />
