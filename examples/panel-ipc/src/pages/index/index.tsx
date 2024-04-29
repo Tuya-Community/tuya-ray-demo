@@ -35,11 +35,6 @@ export default () => {
     openShowFullButton();
   });
 
-  // useEffect(() => {
-  //   ty.onAppMore(() => {
-  //     console.log('++++++++++++')
-  //   }), []);
-
   // 更多
   const handleMore = type => {
     setShowMore(type);
