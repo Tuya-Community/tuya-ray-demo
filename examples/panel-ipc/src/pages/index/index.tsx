@@ -1,16 +1,17 @@
 /* eslint-disable no-console */
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { View, Text, Button } from '@ray-js/ray';
+import ClassNames from 'classnames';
+import { usePageEvent } from 'ray';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { useSelector, actions } from '@/redux';
 import IconFont from '@/components/Iconfont';
 import { tabBottomConfig } from '@/config/home';
-import ClassNames from 'classnames';
 import PtzPanel from '@/components/PtzPanel';
 import Tab from '@/components/Tab';
 import CameraPlayer from '@/components/CameraPlayer';
 import TopBar from '@/components/TopBar';
-import { usePageEvent } from 'ray';
-import { useDispatch } from 'react-redux';
 import { getString } from '@/utils/in18Util';
 import { openShowFullButton, isIphoneX } from '@/utils/index';
 import _ from '@/utils/loadsh';

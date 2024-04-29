@@ -1,23 +1,23 @@
 import React, { useState, useCallback, useMemo, useLayoutEffect } from 'react';
 import { Text, View, Icon, Button, CoverView } from '@ray-js/ray';
+import ClassNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { IpcPlayer as Player } from '@ray-js/components-ty-ipc';
+import { useProps, useDevice } from '@ray-js/panel-sdk';
 import IconFont from '@/components/Iconfont';
 import { useSelector, actions } from '@/redux';
 import Definition from '@/components/Definition';
 import Timer from '@/components/Timer';
 import RecordTip from '@/components/RecordTip';
-import ClassNames from 'classnames';
-import { useDispatch } from 'react-redux';
 import Tab from '@/components/Tab';
 import Ptz from '@/components/Ptz';
 import { hasPtz, hasZoom, videoClarityObj } from '@/config/home';
 import Zoom from '@/components/Zoom';
-import { IpcPlayer as Player } from '@ray-js/components-ty-ipc';
 import { setOrientation, subStatusToMain } from '@/utils/util';
 import { getString } from '@/utils/in18Util';
 import OneTalk from '@/components/OneTalk';
 import { showFullButtonAnd5sHide, closeShowFullButton } from '@/utils/index';
 import _ from '@/utils/loadsh';
-import { useProps, useDevice } from '@ray-js/panel-sdk';
 import Styles from './index.module.less';
 
 interface CameraPlayerProps {
@@ -179,7 +179,6 @@ const CameraPlayer = (props: CameraPlayerProps) => {
           />
         )}
       </View>
-
       {/* 录制成功提示 */}
       <CoverView
         className={Styles.RecordTipContent}
@@ -187,7 +186,6 @@ const CameraPlayer = (props: CameraPlayerProps) => {
       >
         <RecordTip />
       </CoverView>
-
       {/* 全屏云台组件 */}
       <CoverView className={ClassNames(Styles.fullPtz, ptzStyle)}>
         <Ptz />
