@@ -1,0 +1,18 @@
+{
+  "name": "模式设置模版",
+  "type": "panel-app",
+  "ownerType": "tuya-official",
+  "i18n": false,
+  "miniprogramRoot": "./dist/tuya",
+  "dependencies": {
+    "BaseKit": "3.0.0",
+    "MiniKit": "3.0.1",
+    "DeviceKit": "3.0.2",
+    "BizKit": "3.0.6"
+  },
+  "baseversion": "2.13.3",
+  "devMode": "ray",
+  "compileType": "miniprogram",
+  "projectname": "模式设置模版",
+  "description": "工作模式、充电放电时间段设置"
+}

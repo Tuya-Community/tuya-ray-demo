@@ -1,0 +1,239 @@
+.view {
+  overflow: auto;
+  width: 100%;
+  height: 100vh;
+}
+.container {
+  width: 100%;
+  padding: 24rpx 32rpx 240rpx;
+}
+
+.mt-20 {
+  margin-top: 40rpx;
+}
+
+.mr-20 {
+  margin-right: 20rpx;
+}
+
+.tab-label-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tab-label-title {
+  font-family: 'PingFang SC';
+  font-style: normal;
+  // font-weight: 500;
+  // font-size: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  opacity: 0.5;
+  color: var(--card-text-color);
+}
+
+.manual-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg-color);
+  border-radius: var(--card-border-radius);
+  padding: 32rpx;
+  margin-top: 20rpx;
+}
+
+.switch-btn-border {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch-btn-label {
+  margin-right: 20rpx;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--card-text-color);
+}
+
+.time-schedule-content {
+  width: 100%;
+  background-color: var(--card-bg-color);
+  border-radius: var(--card-border-radius);
+  padding: 32rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+
+.time-schedule-item-wrapper {
+  width: calc(100% + unit(40 * 2, rpx));
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(unit((-40) * 2, rpx));
+  transition: transform 0.3s ease-in-out;
+}
+
+.time-schedule-item-wrapper+.time-schedule-item-wrapper {
+  margin-top: 0;
+}
+
+.editing {
+  transform: translateX(unit((8) * 2, rpx));
+
+  .time-schedule-ls {
+    pointer-events: none;
+  }
+}
+
+.time-schedule-ls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-switch {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.schedule-switch-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.peakValley_time {
+  --time-bg-color: #F7F7F7;
+
+  background-color: var(--time-bg-color);
+  width: 100%;
+  height: 80rpx;
+  border-radius: 15rpx;
+  margin-top: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: var(--main-text-color);
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.peakValley_time_text {
+  color: var(--main-text-color);
+  opacity: 0.5;
+}
+
+.peakValley_time_line {
+  opacity: 1;
+}
+
+.bottom-line {
+  --line-color: #000;
+
+  border-bottom: 2rpx solid var(--line-color);
+  opacity: 0.1;
+  width: 100%;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.add-time-schedule {
+  --sub-btn-bg-color: #F8F7FE;
+
+  text-align: center;
+  width: 100%;
+  padding: 32rpx;
+  border-radius: 20rpx;
+  background-color: var(--sub-btn-bg-color);
+  color: #3678E3;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.save-btn {
+  position: fixed;
+  z-index: 10;
+  bottom: 32rpx;
+  left: 32rpx;
+  right: 32rpx;
+
+  padding: 32rpx;
+  border-radius: var(--card-border-radius);
+  background-color: #3678E3;
+  color: #F8F7FE;
+  text-align: center;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+
+  // margin-top: 64rpx;
+  // margin-bottom: 32rpx;
+}
+
+.del-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 40rpx;
+  background-color: red;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: "";
+
+    width: 20rpx;
+    height: 4rpx;
+    border-radius: 2rpx;
+    background-color: #fff;
+  }
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.edit-btn-cont {
+  width: 100%;
+  height: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.edit-btn {
+  float: right;
+}
+
+:root[theme='dark'] {
+  .peakValley_time {
+    --time-bg-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .add-time-schedule {
+    --sub-btn-bg-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .bottom-line {
+    --line-color: rgba(255, 255, 255, 0.85);
+  }
+}

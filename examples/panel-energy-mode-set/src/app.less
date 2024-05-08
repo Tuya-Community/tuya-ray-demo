@@ -1,0 +1,79 @@
+page {
+  overflow-y: hidden;
+}
+
+:root {
+  --card-bg-color: white;
+  --card-text-color: #000;
+  --card-border-radius: 32rpx;
+
+  --main-bg-color: #F8F8F8; /* 浅色背景 */
+  --main-text-color: rgb(54, 54, 54); /* 深色文字 */
+
+  --picker-bg-color: #fff;
+  --main-text-min-color: rgba(0,0,0,0.5);
+  --picker-divider-color: #F5F5F5;
+  --main-text-sub-color: rgba(0,0,0,0.9);
+  --primary-color: #76D38F;
+  --set-card-color: #fff;
+  --terms-service-background-color: #fff;
+  --main-button-bg-color:rgba(0,0,0,0.05);
+  --main-text-min-color: rgba(0,0,0,0.5);
+  --main-button-selected-color:#fff;
+  --article-bg-color: #fff;
+  --main-guide-color: #fff;
+  --main-custom-top: 150rpx;
+
+
+  /* 首页样式 */
+  --index-main-bg: #FFFFFF; // 页面底色
+  --index-title-bg: #FFFFFF; // title背景
+  --index-title-color: #000000E5; // title字体色
+  --index-footer-bar-bg: #FFFFFF; // 底部操作栏底色
+  --index-icon-color: rgba(0, 0, 0, 0.5); // 图标颜色
+
+  button {
+    line-height: normal;
+    background-color: transparent;
+    padding: 0 !important;
+    border-radius: 0;
+  }
+
+  button[disabled] {
+    --index-icon-color: rgba(0, 0, 0, 0.2);
+    color: var(--index-icon-color);
+  }
+}
+
+:root[theme='dark'] {
+  --card-bg-color: #1F1F1F;
+  --card-text-color: #fff;
+
+  --main-bg-color: rgb(47, 58, 68); /* 深色背景 */
+  --main-text-color: rgb(197, 197, 197); /* 浅色文字 */
+  --picker-bg-color: #333;
+  --main-text-min-color: rgba(255,255,255,0.5);
+  --picker-divider-color: #5c5c5c;
+  --main-text-sub-color: rgba(255,255,255,0.9);
+  --primary-color: #76D38F;
+  --set-card-color: rgba(255,255,255,0.12);
+  --terms-service-background-color: rgba(25,25,25);
+  --main-button-bg-color:rgba(118,118,128,0.24);
+  --main-text-min-color: rgba(255,255,255,0.5);
+  --main-button-selected-color:#636366;
+  --article-bg-color: rgba(255, 255, 255, 0.1);
+  --main-guide-color: #000;
+  --main-custom-top: 150rpx;
+
+  /* 首页样式 */
+  --index-main-bg: #000000; // 页面底色
+  --index-title-bg: #000000; // title背景
+  --index-title-color: #FFFFFF; // title字体色
+  --index-footer-bar-bg: rgb(26, 25, 25); // 底部操作栏底色
+  --index-icon-color: rgba(255, 255, 255, 0.5); // 图标颜色
+
+  button[disabled] {
+    --index-icon-color: rgba(255, 255, 255, 0.2);
+    color: var(--index-icon-color);
+  }
+}

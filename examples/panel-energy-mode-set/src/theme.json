@@ -1,0 +1,20 @@
+{
+  "light": {
+    "navBgColor": "#FFFFFF",
+    "navTxtStyle": "rgba(0, 0, 0, 0.5)",
+    "bgColor": "#efefef",
+    "setNavBgColor": "#FFFFFF",
+    "setBgColor": "#f5f5f5",
+    "homeIcon": "/images/home.png",
+    "settingsIcon": "/images/setting.png"
+  },
+  "dark": {
+    "navBgColor": "rgba(255, 255, 255, 0.1)",
+    "navTxtStyle": "rgba(255, 255, 255, 0.5)",
+    "bgColor": "#000000",
+    "setNavBgColor": "#181818",
+    "setBgColor": "#222222",
+    "homeIcon": "/images/home-dark.png",
+    "settingsIcon": "/images/setting-dark.png"
+  }
+}
