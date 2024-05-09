@@ -1,6 +1,6 @@
 {
   "name": "zigbee-remote-group",
-  "version": "1.0.18",
+  "version": "1.0.0",
   "description": "Panel Zigbee Remote Group Template",
   "main": "src/app.tsx",
   "private": true,
