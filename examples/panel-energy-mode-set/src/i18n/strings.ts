@@ -1,0 +1,61 @@
+export default {
+  en: {
+    submit_text: 'Submit',
+    error_title: 'Had an accident',
+    error_text: 'You can click the button below to provide feedback, and we will handle it.',
+
+    tab_home: 'Home',
+    tab_schedule: 'Schedule',
+
+    work_mode: 'Work Mode',
+    mode_load_priority: 'Load Priority',
+    mode_timer_mode: 'Timer Mode',
+    mode_battery_priority: 'Battery Priority',
+    mode_self_use: 'Auto Mode',
+
+    schedule_setting_time_popup: 'Time period setting',
+    schedule_setting_compare_time_tip: 'The end time must be later than the start time.',
+    schedule_setting_time_repeat_tip:
+      'The time period overlaps with another one. Please change it.',
+    schedule_setting_success: 'Setting success',
+    schedule_manual_switch: 'Manual switch',
+    schedule_charge: 'Charge',
+    schedule_discharge: 'Discharge',
+    schedule_char_dis_time_setting: 'Charging and discharging time setting',
+    schedule_cancel: 'Cancel',
+    schedule_edit: 'Edit',
+    schedule_period: 'Period',
+    schedule_add_time_period: 'Add time period',
+    schedule_save: 'Save',
+    schedule_confirm: 'Confirm',
+  },
+  zh: {
+    submit_text: '提交',
+    error_title: '发生点意外',
+    error_text: '您可以点击下方的按钮反馈给我们，我们将第一时间处理',
+
+    tab_home: '首页',
+    tab_schedule: '定时',
+
+    work_mode: '工作模式',
+    mode_load_priority: '负载优先',
+    mode_timer_mode: '定时模式',
+    mode_battery_priority: '电池优先',
+    mode_self_use: '智能模式',
+
+    schedule_setting_time_popup: '时间段设置',
+    schedule_setting_compare_time_tip: '结束时间必须大于开始时间',
+    schedule_setting_time_repeat_tip: '时间段设置重叠，请修改',
+    schedule_setting_success: '设置成功',
+    schedule_manual_switch: '手动开关',
+    schedule_charge: '充电',
+    schedule_discharge: '放电',
+    schedule_char_dis_time_setting: '充放电时间段设置',
+    schedule_cancel: '取消',
+    schedule_edit: '编辑',
+    schedule_period: '时间段',
+    schedule_add_time_period: '添加时段',
+    schedule_save: '保存',
+    schedule_confirm: '确定',
+  },
+};

@@ -1,0 +1,92 @@
+.page-cell {
+  height: 1400rpx;
+  background-color: var(--picker-bg-color);
+}
+
+.picker-view-title {
+  background-color: var(--picker-bg-color);
+  font-size: 28rpx;
+  color: var(--main-text-min-color);
+  height: 100rpx;
+  padding: 20rpx 0;
+  border-bottom: 2rpx var(--picker-divider-color) solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-section {
+  background: var(--picker-bg-color);
+  padding-bottom: 64rpx;
+  color: var(--main-text-color);
+}
+
+.page-section-demo {
+  padding: 64rpx;
+  display: flex;
+}
+
+.timeline-wrp {
+  &::before {
+    content: ':';
+    position: absolute;
+    top: ~'calc(41%)';
+    left: ~'calc(28%)';
+    z-index: 4;
+  }
+
+  &::after {
+    content: ':';
+    position: absolute;
+    top: ~'calc(41%)';
+    right: ~'calc(28%)';
+    z-index: 4;
+  }
+}
+
+.time-view-content {
+  color: var(--main-text-sub-color);
+  line-height: 80rpx;
+  text-align: center;
+  height: 200rpx;
+  font-size: 32rpx;
+}
+
+.pickerView-bottom-but {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 40rpx;
+  width: 100%;
+  height: 140rpx;
+  background-color: var(--picker-bg-color);
+  border-top: 20rpx var(--picker-divider-color) solid;
+}
+
+.pickerView-bottom-box {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 140rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+.pickerView-bottom-cancel {
+  opacity: 0.7;
+  color: var(--main-text-color);
+  font-size: 32rpx;
+}
+
+.line {
+  height: 60rpx;
+  border: 2rpx var(--picker-divider-color) solid;
+}
+
+.pickerView-bottom-confirm {
+  color: var(--main-text-color);
+  font-size: 32rpx;
+  font-weight: 700;
+}
