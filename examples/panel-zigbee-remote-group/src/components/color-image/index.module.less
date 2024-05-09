@@ -1,0 +1,9 @@
+.colorImageContent {
+  display: inline-block;
+  overflow: hidden;
+  transform: scale(1); // 部分机型（鸿蒙）未开启时会导致 filter 的效果不生效，因为会被 overflow: hidden 同时隐藏，开启后估计是启用了硬件加速，导致可以正常显示
+  .img {
+    box-sizing: content-box;
+    border-right: 1px solid transparent;
+  }
+}
