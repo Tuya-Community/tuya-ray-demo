@@ -1,6 +1,6 @@
 [English](README.md) | 简体中文[](README_zh.md)
 
-# 涂鸦面板模板 - 高压储能柜节能模式设置模板
+# 涂鸦面板模板 - 新能源节能模式+峰谷电设置模板
 
 该模板基于 Ray 框架开发，提供给需要在涂鸦智能、智能生活等 App 中开发面板的业务开发人员，代码提供了 Ray 开发的基本使用方法，包含路由使用、页面跳转、设备操作、多语言等内容的使用，开发人员可参照用例并根据业务需求自行调整代码。
 
@@ -8,7 +8,7 @@
 
 1. 前往[IoT 平台](https://iot.tuya.com/)创建产品
 
-2. 选择品类 `节能能源 —— 新能源&储能`
+2. 选择品类 `节能能源`
 
 3. 功能选择
 
@@ -29,7 +29,7 @@
 
 ## :rocket: 若有疑问，请访问以下链接查看详细教程
 
-- [高压储能柜节能模式设置模板](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panel-energy-mode-set/index.html#0)
+- [新能源节能模式+峰谷电设置模板](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panel-energy-mode-set/index.html#0)
 - [使用 `Ray` 开发万能面板](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panelmore-guide/index.html#0)
 
 ## 使用须知

@@ -1,6 +1,6 @@
 English[](README.md) | [简体中文](README_zh.md)
 
-## High voltage Energy Storage Mode Set Template
+## Energy Mode Set Template
 
 This template is developed based on the Ray framework and is provided to business developers who need to develop panels in apps such as Tuya Smart and Smart Life. The code offers basic usage methods for Ray development, including routing usage, page navigation, device operations, multi-language support, and more. Developers can refer to examples and adjust the code according to their business requirements.
 
@@ -8,7 +8,7 @@ This template is developed based on the Ray framework and is provided to busines
 
 1. Go to the [IoT platform](https://iot.tuya.com/) to create a product.
 
-2. Choose the category `Energy - Energy Storage & Stored`.
+2. Choose the category `Energy`.
 
 3. Functions selection
 
@@ -29,7 +29,7 @@ This template is developed based on the Ray framework and is provided to busines
 
 ## :rocket: If you have questions, please visit the following link for a detailed tutorial:
 
-- [High voltage Energy Storage Mode Set Template](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panel-energy-mode-set/index.html#0)
+- [Energy Mode Set Template](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panel-energy-mode-set/index.html#0)
 - [Use `Ray` to develop universal panel](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panelmore-guide/index.html#0)
 
 ## Instructions for Use
