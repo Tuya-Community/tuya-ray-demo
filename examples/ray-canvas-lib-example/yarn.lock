@@ -1900,6 +1900,11 @@
     "@ray-js/router" "^1.4.23"
     "@ray-js/router-mp" "^1.4.23"
 
+"@ray-js/pencil-flow@0.0.21-beta-1":
+  version "0.0.21-beta-1"
+  resolved "https://registry.npmjs.org/@ray-js/pencil-flow/-/pencil-flow-0.0.21-beta-1.tgz#eedebcdce8ec8d9b64b9c34eab933b1d1783d7c7"
+  integrity sha512-yE6WWHqA5BOJVzdywoRMRgUKf6jHF2N8cYq6ilKdzSa2FyKlv9nxWTEHP44kpE+Rwo200ErftkmGeTYJZLq9Lg==
+
 "@ray-js/ray@latest":
   version "1.4.23"
   resolved "https://registry.npmmirror.com/@ray-js/ray/-/ray-1.4.23.tgz#931d34b610f0b9c85492f2a28cad7f522bffae94"

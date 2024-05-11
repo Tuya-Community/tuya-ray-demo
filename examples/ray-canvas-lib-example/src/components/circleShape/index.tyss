@@ -1,0 +1,13 @@
+.ray-js_pencil_flow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+.canvas {
+  position: relative;
+}
+
+.hit-canvas {
+  position: relative;
+}

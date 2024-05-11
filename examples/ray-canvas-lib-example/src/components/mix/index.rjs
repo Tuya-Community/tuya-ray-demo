@@ -1,0 +1,53 @@
+import pencilFlow, { init } from '@ray-js/pencil-flow';
+const { Stage, Group, Graphics, Rect, Circle, Bitmap, Text } = pencilFlow;
+
+export default Render({
+  renderCanvas(canvasId, hitCanvasId, pixelRatio) {
+    init(canvasId, hitCanvasId, { pixelRatio }).then(({ stage }) => {
+      const NUM = 1000;
+      const circleList = new Array(NUM).fill(1).map((item, index) => {
+        let circle = null;
+        if (index === NUM - 1) {
+          circle = new Circle(10, {
+            fillStyle: 'blue',
+            id: `circle${index}`,
+          });
+          circle.on('drag', function (event) {
+            event.stopPropagation();
+            circle.x += event.dx;
+            circle.y += event.dy;
+            stage.update();
+          });
+
+          circle.on('touchstart', function (event) {
+            circle.alpha = 0.5;
+            stage.update();
+          });
+          circle.on('touchend', function (event) {
+            circle.alpha = 1;
+            stage.update();
+          });
+        } else {
+          circle = new Circle(10, {
+            fillStyle: 'red',
+            id: `circle${index}`,
+          });
+        }
+        circle.x = 20 + Math.floor(Math.random() * 280);
+        // 生成20-300的随机数
+        circle.y = 20 + Math.floor(Math.random() * 280);
+        return circle;
+      });
+      const group = new Group();
+      group.add(...circleList);
+
+      stage.add(group);
+      stage.on('drag', function (event) {
+        stage.x += event.dx;
+        stage.y += event.dy;
+        stage.update();
+      });
+      stage.update();
+    });
+  },
+});

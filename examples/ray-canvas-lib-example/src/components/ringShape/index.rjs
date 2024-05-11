@@ -1,0 +1,64 @@
+import pencilFlow, { init } from '@ray-js/pencil-flow';
+const { Stage, Group, Graphics, Rect, Ring, Bitmap, Text } = pencilFlow;
+
+export default Render({
+  renderCanvas(canvasId, hitCanvasId, pixelRatio, option = {}) {
+    const { extraCanvasId = '' } = option;
+    init(canvasId, hitCanvasId, { pixelRatio, extraCanvasId }).then(({ stage, extraOption }) => {
+      const { extraStage } = extraOption || {};
+      const r = 40;
+      const ring = new Ring(r, {
+        strokeGradient: ['#f1a88f', '#4374f1', '#f1a88f'],
+        lineWidth: 20,
+        percent: 1,
+        lineCap: 'round',
+        id: `ring`,
+      });
+      ring.alpha = 1;
+      ring.x = 150;
+      ring.y = 100;
+      ring.rotation = 145;
+      const ring1 = new Ring(r, {
+        strokeGradient: ['#4374f1', '#5ec7c7', '#f9d387', '#f1a88f', '#e78a86'],
+        lineWidth: 20,
+        percent: 0.7,
+        lineCap: 'round',
+        id: `ring1`,
+      });
+      ring1.alpha = 1;
+      ring1.x = 150;
+      ring1.y = 210;
+      ring1.rotation = 145;
+
+      ring1.on('touchstart', event => {
+        ring1.alpha = 0.8;
+        stage.update();
+      });
+
+      ring1.on('drag', event => {
+        ring1.x += event.dx;
+        ring1.y += event.dy;
+        stage.update();
+      });
+
+      ring1.on('touchstart', function (event) {
+        ring1.alpha = 0.5;
+        stage.update();
+      });
+      ring1.on('touchend', function (event) {
+        ring1.alpha = 1;
+        stage.update();
+      });
+
+
+      ring1.on('touchend', event => {
+        ring1.alpha = 1;
+        stage.update();
+      });
+
+      stage.add(ring);
+      stage.add(ring1);
+      stage.update();
+    });
+  },
+});

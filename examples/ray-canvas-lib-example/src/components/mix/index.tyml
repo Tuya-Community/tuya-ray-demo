@@ -1,0 +1,5 @@
+<view class='ray-js_pencil_flow-container' style="position: relative;">
+	<view style="position: absolute; margin-bottom: 20px; top: 0;">渲染1000个圆形, 蓝色图形可自由拖动</view>
+	<canvas class='ray-js_pencil_flow-canvas' canvas-id='{{ canvasId }}' style='width:{{width}}px;height:{{height}}px; border:1px solid rgb(173, 140, 90);' disable-scroll="true" type='2d'></canvas>
+	<canvas class='ray-js_pencil_flow-hit-canvas' canvas-id='{{ hitCanvasId }}' style='width:{{width}}px;height:{{height}}px; position: absolute; left: 100000px;' disable-scroll="true" type='2d'></canvas>
+</view>

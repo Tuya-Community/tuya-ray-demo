@@ -1,0 +1,87 @@
+import pencilFlow, { init } from '@ray-js/pencil-flow';
+const { Stage, Group, Graphics, Rect, Circle, Bitmap, Text, Ellipse } = pencilFlow;
+
+export default Render({
+  renderCanvas(canvasId, hitCanvasId, pixelRatio) {
+    init(canvasId, hitCanvasId, { pixelRatio }).then(({ stage }) => {
+      const width = 100;
+      const height = 50;
+      const ellipse = new Ellipse(width, height, {
+        gradientPoints: [
+          { x: 0, y: height / 2 },
+          { x: width, y: height / 2 },
+        ],
+        fillGradient: ['#ff0000', 'pink', '#ffff00'],
+        id: 'ellipse',
+      });
+
+      ellipse.alpha = 1;
+      ellipse.x = 100;
+      ellipse.y = 200;
+      ellipse.on('drag', function (event) {
+        ellipse.x += event.dx;
+        ellipse.y += event.dy;
+        stage.update();
+      });
+
+      ellipse.on('touchstart', function (event) {
+        ellipse.alpha = 0.5;
+        stage.update();
+      });
+      ellipse.on('touchend', function (event) {
+        ellipse.alpha = 1;
+        stage.update();
+      });
+    
+
+      const width1 = 150;
+      const height1 = 100;
+      const ellipse1 = new Ellipse(width1, height1, {
+        gradientPoints: [
+          { x: 0, y: height1 / 2 },
+          { x: width1, y: height1 / 2 },
+        ],
+        fillGradient: ['#ff0000', '#0000ff', '#ffff00'],
+        id: 'ellipse1',
+      });
+      ellipse1.alpha = 0.8;
+      ellipse1.x = 75;
+      ellipse1.y = 50;
+
+      ellipse1.on('drag', function (event) {
+        ellipse1.x += event.dx;
+        ellipse1.y += event.dy;
+        stage.update();
+      });
+
+      ellipse1.on('touchstart', function (event) {
+        ellipse1.alpha = 0.5;
+        stage.update();
+      });
+      ellipse1.on('touchend', function (event) {
+        ellipse1.alpha = 1;
+        stage.update();
+      });
+    
+      const width3 = 100;
+      const height3 = 80;
+      const ellipse3 = new Ellipse(width3, height3, {
+        id: 'ellipse3',
+        fillStyle: 'red',
+      });
+      const group = new Group();
+
+      group.x = 0;
+      group.y = 20;
+      // 测试是否可以重复添加成功
+      group.add(ellipse);
+      group.add(ellipse);
+      group.add(ellipse);
+      group.add(ellipse1);
+      group.add(ellipse3);
+
+      stage.add(group);
+      stage.update();
+    });
+  },
+});

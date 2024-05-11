@@ -1,0 +1,63 @@
+import pencilFlow, { init } from '@ray-js/pencil-flow';
+import CircleLine from './CircleLine';
+
+const { Stage, Group, Graphics, Rect, Circle, Bitmap, Text } = pencilFlow;
+
+export default Render({
+  renderCanvas(canvasId, hitCanvasId, pixelRatio) {
+    init(canvasId, hitCanvasId, { pixelRatio }).then(({ stage }) => {
+      const circleLine = new CircleLine(100, 100, {
+        fillStyle: 'red',
+        id: 'circle222',
+      });
+      circleLine.alpha = 0.1;
+      circleLine.x = 100;
+      circleLine.y = 50;
+      circleLine.hitBox = [0, 0, 100, 100];
+      circleLine.on('tap', function (event) {
+        console.warn('tap circleLine');
+      });
+
+      const circle = new Circle(50, {
+        fillStyle: 'blue',
+        id: 'circle',
+      });
+
+      circle.alpha = 0.5;
+      circle.x = 100;
+      circle.y = 50;
+
+      circle.on('drag', function (event) {
+        event.stopPropagation();
+        circle.x += event.dx;
+        circle.y += event.dy;
+        stage.update();
+      });
+
+
+      circle.on('touchstart', function (event) {
+        circle.alpha = 0.5;
+        stage.update();
+      });
+      circle.on('touchend', function (event) {
+        circle.alpha = 1;
+        stage.update();
+      });
+    
+      // const group = new Group();
+
+      // group.x = 20;
+      // group.y = 20;
+      // group.on('drag', function (event) {
+      //   group.x += event.dx;
+      //   group.y += event.dy;
+      //   stage.update();
+      // });
+      // group.add(circle);
+      // group.add(circleLine);
+      stage.add(circle);
+      stage.add(circleLine);
+      stage.update();
+    });
+  },
+});

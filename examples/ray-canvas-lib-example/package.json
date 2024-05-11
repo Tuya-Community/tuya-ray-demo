@@ -11,6 +11,7 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
+    "@ray-js/pencil-flow": "0.0.21-beta-1",
     "@ray-js/ray": "latest"
   }
 }

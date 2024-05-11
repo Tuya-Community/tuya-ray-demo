@@ -1,0 +1,95 @@
+import pencilFlow, { init } from '@ray-js/pencil-flow';
+const { Stage, Group, Graphics, Rect, Circle, Bitmap, Text } = pencilFlow;
+
+export default Render({
+  renderCanvas(canvasId, hitCanvasId, pixelRatio) {
+    init(canvasId, hitCanvasId, { pixelRatio }).then(({ stage }) => {
+      const r = 50;
+      const circle = new Circle(r, {
+        gradientPoints: [
+          { x: -r, y: r },
+          { x: r, y: r },
+        ],
+        fillGradient: ['#ff0000', '#0000ff', '#ffff00'],
+        id: 'circle',
+      });
+      circle.alpha = 1;
+      circle.x = 200;
+      circle.y = 100;
+      circle.on('tap', function (event) {
+        console.log('tap circle', event);
+      });
+      circle.on('drag', function (event) {
+        circle.x += event.dx;
+        circle.y += event.dy;
+        stage.update();
+      });
+
+
+      circle.on('touchstart', function (event) {
+        circle.alpha = 0.5;
+        stage.update();
+      });
+      circle.on('touchend', function (event) {
+        circle.alpha = 1;
+        stage.update();
+      });
+
+      const circle1 = new Circle(50, {
+        fillStyle: 'rgba(0,0,0,0.5)',
+        id: 'circle1',
+      });
+      circle1.alpha = 1;
+      circle1.x = 200;
+      circle1.y = 150;
+
+      circle1.on('touchstart', function (event) {
+        circle1.alpha = 0.5;
+        stage.update();
+      });
+      circle1.on('touchend', function (event) {
+        circle1.alpha = 1;
+        stage.update();
+      });
+      circle1.on('drag', function (event) {
+        circle1.x += event.dx;
+        circle1.y += event.dy;
+        stage.update();
+      });
+
+      const group = new Group();
+
+      group.x = 20;
+      group.y = 20;
+      // 测试是否可以重复添加成功
+      group.add(circle);
+      group.add(circle);
+      group.add(circle);
+      group.add(circle);
+      group.add(circle);
+      group.add(circle1);
+      group.on('tap', function (event) {
+        console.log('tap group', event);
+      });
+
+      const group1 = new Group();
+      const circle2 = new Circle(50, {
+        fillStyle: 'rgba(255,0,0,0.5)',
+        id: 'circle2',
+      });
+      circle2.on('tap', function (event) {
+        console.log('tap circle2', event);
+      });
+      
+      group1.x = 200;
+      group1.y = 200;
+      group1.add(circle2);
+      group1.on('tap', function (event) {
+        console.log('tap group1', event);
+      });
+      stage.add(group1);
+      stage.add(group);
+      stage.update();
+    });
+  },
+});

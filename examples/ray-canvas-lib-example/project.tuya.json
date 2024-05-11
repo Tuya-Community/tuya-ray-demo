@@ -2,7 +2,7 @@
   "projectname": "RayCodeSample",
   "i18n": false,
   "description": "",
-  "baseversion": "2.15.5",
+  "baseversion": "2.12.18",
   "devMode": "ray",
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {

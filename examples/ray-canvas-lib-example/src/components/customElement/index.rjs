@@ -1,0 +1,46 @@
+import pencilFlow, { init } from '@ray-js/pencil-flow';
+import CustomElement from './CustomElement';
+
+const { Stage, Group, Graphics, Rect, Bitmap, Text } = pencilFlow;
+
+export default Render({
+  renderCanvas(canvasId, hitCanvasId, pixelRatio) {
+    init(canvasId, hitCanvasId, { pixelRatio }).then(({ stage }) => {
+      const customElement = new CustomElement(stage, {
+        text: '自定义元素',
+        id: 'customElement',
+        color: 'red',
+        fontSize: 20,
+      });
+
+      customElement.hitBox = [0, 0, 120, 40];
+      customElement.x = 100;
+      customElement.y = 100;
+
+      customElement.on('touchstart', event => {
+        console.log('touchstart');
+        customElement.alpha = 0.5;
+        stage.update();
+      });
+
+      customElement.on('touchend', event => {
+        console.log('touchend');
+        customElement.alpha = 1;
+        stage.update();
+      });
+
+      customElement.on('drag', event => {
+        event.stopPropagation();
+        customElement.x += event.dx;
+        customElement.y += event.dy;
+        stage.update();
+      });
+      customElement.on('tap', event => {
+        console.log('tap');
+      });
+
+      stage.add(customElement);
+      stage.update();
+    });
+  },
+});
