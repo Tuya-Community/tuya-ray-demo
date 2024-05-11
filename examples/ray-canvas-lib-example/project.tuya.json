@@ -1,0 +1,14 @@
+{
+  "projectname": "RayCodeSample",
+  "i18n": false,
+  "description": "",
+  "baseversion": "2.15.5",
+  "devMode": "ray",
+  "miniprogramRoot": "./dist/tuya",
+  "dependencies": {
+    "BaseKit": "3.0.0",
+    "MiniKit": "3.0.0",
+    "BizKit": "3.0.1"
+  },
+  "compileType": "miniprogram"
+}
