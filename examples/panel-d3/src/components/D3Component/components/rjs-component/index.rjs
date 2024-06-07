@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import { KTInstance } from '../../lib/KTInstance';
-import { getLocalUrl } from '../../lib/utils/Functions.ts';
-import { ELECTRIC_FAN } from '../../lib/models';
+import { KTInstance } from '../../library/KTInstance.ts';
+import { getLocalUrl } from '../../library/utils/Functions.ts';
+import { ELECTRIC_FAN } from '../../library/models/index.ts';
 
 export default Render({
   _onComponentLoadEnd(data) {
