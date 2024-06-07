@@ -1,0 +1,3 @@
+<view class="container" id="energy-custom-id">
+  <canvas style="height: 100%; width: 100%; background-color: transparent, user-select: none;" canvas-id="{{componentId}}"></canvas>
+</view>

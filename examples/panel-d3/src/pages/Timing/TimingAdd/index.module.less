@@ -1,0 +1,87 @@
+@import '@/variables.less';
+@import '@/mixins.less';
+
+.container {
+  height: calc(100vh - 108rpx);
+  display: flex;
+  flex-direction: column;
+  border-radius: 32rpx 32rpx 0 0;
+  background-color: #fff;
+}
+
+.header {
+  height: 104rpx;
+  width: 100%;
+  padding: 0 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 34rpx;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.headerBtnText {
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.9);
+  &:global(.active) {
+    color: @theme-color;
+  }
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48rpx;
+
+  :global(.rayui-week-selector) {
+    margin-bottom: 96rpx;
+  }
+}
+
+.featureRow {
+  height: 112rpx;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+  :global(.icon-panel-angleRight) {
+    margin-left: 8rpx;
+    font-size: 32rpx;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.featureBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 96rpx;
+  margin-left: 24rpx;
+}
+
+.featureText {
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.pickerColumn {
+  height: 60px !important;
+  line-height: 60px !important;
+}
+
+.remark {
+  flex: 1;
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.5);
+  .ellipsis(0);
+  text-align: right;
+}

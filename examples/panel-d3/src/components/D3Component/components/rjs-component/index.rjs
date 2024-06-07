@@ -1,0 +1,226 @@
+import _ from 'lodash';
+import { KTInstance } from '../../lib/KTInstance';
+import { getLocalUrl } from '../../lib/utils/Functions.ts';
+import { ELECTRIC_FAN } from '../../lib/models';
+
+export default Render({
+  _onComponentLoadEnd(data) {
+    this.callMethod('onComponentLoadEnd', data);
+  },
+
+  _onGestureChange(data) {
+    this.callMethod('onGestureChange', data);
+  },
+
+  _onResetControl(data) {
+    this.callMethod('onResetControl', data);
+  },
+
+  _onComponentApiCallee(data) {
+    this.callMethod('onComponentApiCallee', data);
+  },
+
+  // 透过_onComponentApiCallee把Api执行结果回调给业务层
+  _resolveSuccess(methodName, results) {
+    const timeEnd = new Date().getTime();
+    const timeStart = results.props.timestamp;
+    this._onComponentApiCallee({
+      method: methodName,
+      componentId: this.componentId,
+      status: true,
+      communicationTime: timeEnd - timeStart,
+      timestamp: timeEnd,
+      props: results.props,
+      values: results.values,
+    });
+  },
+
+  // 透过_onComponentApiCallee 把Api执行结果回调给业务层
+  _resolveFailed(methodName, results) {
+    const timeEnd = new Date().getTime();
+    const timeStart = results.props.timestamp;
+    this._onComponentApiCallee({
+      method: methodName,
+      componentId: this.componentId,
+      status: false,
+      communicationTime: timeEnd - timeStart,
+      timestamp: timeEnd,
+      props: results.props,
+      values: results.values,
+    });
+  },
+
+  /** initComponent
+   * 初始化
+   * @param sysInfo
+   * @param newValue
+   */
+  async initComponent(componentId, pixelRatio, modelUrl) {
+    try {
+      const canvas = await getCanvasById(componentId);
+      const THREE = await requirePlugin('rjs://three').catch(err => {
+        console.log('usePlugins occur an error', err);
+      });
+      const { GLTFLoader } = await requirePlugin(
+        'rjs://three/examples/jsm/loaders/GLTFLoader'
+      ).catch(err => {
+        console.log('usePlugins occur an error', err);
+      });
+      this._GLTFLoader = GLTFLoader;
+      this.componentId = componentId;
+
+      await this.instanceDidMount(canvas, pixelRatio, modelUrl);
+    } catch (e) {
+      console.log('initComponent occur an error', e);
+    }
+  },
+
+  async instanceDidMount(canvas, pixelRatio, modelUrl) {
+    this.fanModelList = [];
+    const params = {
+      canvas: canvas,
+      antialias: true,
+      pixelRatio: pixelRatio,
+      logarithmicDepthBuffer: true,
+      preserveDrawingBuffer: true,
+      onComponentLoadEnd: this._onComponentLoadEnd,
+      onGestureChange: this._onGestureChange,
+      onResetControl: this._onResetControl,
+      onClickInfoWindow: this._onClickInfoWindow,
+      GLTFLoader: this._GLTFLoader,
+    };
+    this.kTInstance = new KTInstance(params);
+
+    // 这里兜底一个模型
+    const url = modelUrl || getLocalUrl(ELECTRIC_FAN);
+    const model = await this.kTInstance.loadModelLayer({
+      infoKey: 'model',
+      uri: url,
+    });
+
+    if (model) {
+      this.layer = model.scene;
+      this.animations = model.animations;
+      // 准备一个关键帧
+      this.animationMixer = this.kTInstance.kTComponent.createAnimationMixer(this.layer);
+      this.clipAnimation = this.animations.map(item => {
+        return this.animationMixer.clipAction(item);
+      });
+
+      // 根据不同的模型做调整
+      this.layer.scale.set(0.4, 0.4, 0.4);
+      this.kTInstance.putLayerIntoScene(this.layer);
+      this.setFanModel();
+    }
+  },
+
+  /**
+   * 解构对应的API
+   * @param opts
+   */
+  deconstructApiProps(opts) {
+    if (typeof this[opts.method] === 'function') {
+      this[opts.method](opts.calleeProps);
+    }
+  },
+
+  /**
+   * 从模型中找到对应的风扇叶片
+   */
+  setFanModel() {
+    this.fanModel = this.kTInstance.getChildByNameFromObject(this.layer, '组080')[0];
+  },
+
+  /**
+   * 启动风扇运转动画
+   * @param speed
+   */
+  startFanAnimate(fanSpeed) {
+    this.stopFanAnimate();
+    this.fanAnimationIdList = [this.fanModel].map(item =>
+      this.kTInstance.startRotateAnimationOnZ(item, fanSpeed)
+    );
+  },
+
+  /**
+   * 停止风扇运转动画
+   */
+  stopFanAnimate() {
+    if (this.fanAnimationIdList) {
+      this.fanAnimationIdList.map(item => this.kTInstance.stopAnimation(item));
+    }
+  },
+
+  /**
+   * 开启动画渲染
+   * @param start
+   */
+  startAnimationFrameVision(start) {
+    if (this.kTInstance.kTComponent) {
+      this.kTInstance.kTComponent.animateStatus = start;
+    }
+  },
+  /**
+   * 控制风扇是否转动和设置它的转速
+   * @param opts
+   */
+  setFanAnimation(opts) {
+    const methodName = 'setFanAnimation';
+    if (opts) {
+      const results = {
+        props: opts,
+        values: {},
+      };
+      const { fanSpeed = 0.1 } = opts;
+      if (this.kTInstance) {
+        if (fanSpeed !== 0) {
+          this.startFanAnimate(fanSpeed);
+        } else {
+          this.stopFanAnimate();
+        }
+        this._resolveSuccess(methodName, results);
+      } else {
+        this._resolveFailed(methodName, results);
+      }
+    }
+  },
+
+  /**
+   * 开启场景渲染
+   * @param opts
+   */
+  startAnimationFrame(opts) {
+    const methodName = 'startAnimationFrame';
+    if (opts) {
+      const results = {
+        props: opts,
+        values: {},
+      };
+      const { start } = opts;
+      if (this.kTInstance) {
+        this.startAnimationFrameVision(start);
+        this._resolveSuccess(methodName, results);
+      } else {
+        this._resolveFailed(methodName, results);
+      }
+    }
+  },
+
+  /**
+   * 注销3D组件
+   * @param opts
+   */
+  disposeComponent() {
+    const methodName = 'disposeComponent';
+    const results = {
+      props: {},
+      values: {},
+    };
+    if (this.kTInstance) {
+      this.kTInstance.kTComponent.disposeComponent();
+      this._resolveSuccess(methodName, results);
+    } else {
+      this._resolveFailed(methodName, results);
+    }
+  },
+});
