@@ -1,0 +1,10 @@
+node_modules
+.ray
+.git
+dist
+typings
+tuya-miniapp__BaseKit/
+tuya-miniapp__BizKit/
+tuya-miniapp__DeviceKit/
+tuya-miniapp__MiniKit/
+tuya_miniapp__api-types/

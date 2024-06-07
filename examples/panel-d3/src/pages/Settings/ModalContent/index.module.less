@@ -1,0 +1,99 @@
+@import '@/mixins.less';
+@import '@/variables.less';
+
+.modalWrapper {
+  width: 702rpx;
+  padding: 40rpx;
+  border-radius: 40rpx;
+  background-color: #fff;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.modalTitleWrapper {
+  margin-right: 16rpx;
+  flex: 1;
+}
+
+.modalTitle {
+  font-weight: 500;
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.modalSubTitle {
+  margin-left: 4rpx;
+  font-size: 30rpx;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.modalCloseWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48rpx;
+  width: 48rpx;
+  border-radius: 48rpx;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.modalContent {
+  width: 100%;
+}
+
+.buttonLarge {
+  .basic-button();
+  width: 100%;
+  background-color: fade(@theme-color, 10);
+  transition: background-color 0.2s @ease-in-out;
+
+  & + .buttonLarge {
+    margin-top: 40rpx;
+  }
+
+  &:global(.active) {
+    background-color: @theme-color;
+    :global(.iconfontpanel) {
+      color: #fff;
+    }
+    .buttonText {
+      color: #fff;
+    }
+  }
+
+  :global(.iconfontpanel) {
+    font-size: 64rpx;
+    color: @theme-color;
+    transition: color 0.2s @ease-in-out;
+  }
+
+  .buttonText {
+    margin-left: 24rpx;
+    font-size: 32rpx;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+    transition: color 0.2s @ease-in-out;
+    &:global(.large) {
+      font-size: 48rpx;
+      font-weight: 600;
+    }
+  }
+}
+
+.sliderReference {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16rpx;
+}
+
+.sliderReferenceText {
+  min-width: 48rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+}

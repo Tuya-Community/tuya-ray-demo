@@ -1,0 +1,105 @@
+@import '@/variables.less';
+@import '@/mixins.less';
+
+@alert-prefix-cls: ~'rayui-modal';
+
+.@{alert-prefix-cls} {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s @ease-in-out;
+
+  &.top {
+    .@{alert-prefix-cls}-content {
+      position: absolute;
+      top: calc(env(safe-area-inset-top) + 16px);
+      transform: translateY(-100%);
+    }
+
+    &.visible {
+      .@{alert-prefix-cls}-content {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &.center {
+    .@{alert-prefix-cls}-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.bottom {
+    .@{alert-prefix-cls}-content {
+      position: absolute;
+      bottom: 0;
+      transform: translateY(100%);
+    }
+
+    &.visible {
+      .@{alert-prefix-cls}-content {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &.visible {
+    pointer-events: all;
+    opacity: 1;
+
+    .@{alert-prefix-cls}-overlay {
+      opacity: 1;
+    }
+
+    .@{alert-prefix-cls}-content {
+      opacity: 1;
+    }
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.3s @ease-in-out;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    background-color: #fff;
+    border-radius: 32rpx 32rpx 0 0;
+
+    transition: all 0.3s @ease-in-out;
+    opacity: 0;
+
+    .safe-area-padding-bottom();
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 16rpx;
+      height: 6rpx;
+      width: 80rpx;
+      border-radius: 18rpx;
+      background-color: fade(@theme-color, 30);
+    }
+  }
+}
