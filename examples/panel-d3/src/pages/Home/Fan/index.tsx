@@ -16,7 +16,7 @@ const Fan: FC<Props> = ({ disabledAnimation = false }) => {
   const componentId = useRef(`component_${new Date().getTime()}`).current;
   const isAppOnBackground = useRef(false);
   // 模型的URL 支持glb, gltf格式, 需要为线上地址，可以透过CDN上传
-  // domain + uri  如: https://images.tuyacn.com/smart/miniapp/static/bay1591069675815HNkH/17109234773d561a0f716.gltf
+  // domain + uri  如: https://xxx.xxx.com/smart/miniapp/static/bay1591069675815HNkH/17109234773d561a0f716.gltf
   const modelUrl = useRef('').current;
   const dpSwitch = useSelector(selectDpStateByCode(switchCode));
   const dpFanSpeed = useSelector(selectDpStateByCode(fanSpeedCode));
