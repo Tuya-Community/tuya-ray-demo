@@ -1,0 +1,19 @@
+{
+  "name": "无线开关模板",
+  "type": "panel-app",
+  "ownerType": "tuya-official",
+  "i18n": true,
+  "description": "一键执行模板",
+  "miniprogramRoot": "./dist/tuya",
+  "dependencies": {
+    "BaseKit": "3.11.3",
+    "MiniKit": "3.9.8",
+    "DeviceKit": "4.5.1",
+    "BizKit": "3.0.8",
+    "HomeKit": "3.4.0"
+  },
+  "baseversion": "2.19.2",
+  "projectname": "无线开关一键执行模板",
+  "devMode": "ray",
+  "compileType": "miniprogram"
+}
