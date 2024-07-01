@@ -4,7 +4,7 @@
   "description": "Panel Strip Lamp / 照明幻彩灯带",
   "main": "index.js",
   "private": true,
-  "author": "罗丘(黄辉)",
+  "author": "Tuya.inc",
   "license": "MIT",
   "scripts": {
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
@@ -17,7 +17,7 @@
     "@ray-js/components-ty-cell": "^0.0.12",
     "@ray-js/components-ty-lamp": "^1.10.10",
     "@ray-js/components-ty-switch": "^0.0.7",
-    "@ray-js/lamp-rect-picker-color": "1.1.10-beta-1",
+    "@ray-js/lamp-rect-picker-color": "^1.1.11-beta-1",
     "@ray-js/panel-sdk": "^1.10.0",
     "@ray-js/ray": "^1.4.23",
     "@ray-js/ray-error-catch": "^0.0.24",
