@@ -1,5 +1,5 @@
-import Strings from '@/i18n';
 import { decode } from 'base64-browser';
+import Strings from '@/i18n';
 
 export const formatColorText = (hue: number): string => {
   const degree = hue || 0;
@@ -63,8 +63,15 @@ export const isIphoneX = info => {
   return false;
 };
 
-const isShowLog = false;
+const isShowLog = process.env.NODE_ENV === 'development';
 export const log = (...arg) => {
   // eslint-disable-next-line no-console
   isShowLog && console.log(...arg);
 };
+
+export function convertRange(value, oldMin = 1, oldMax = 1000, newMin = 240, newMax = 1000) {
+  const oldRange = oldMax - oldMin;
+  const newRange = newMax - newMin;
+  const newValue = ((value - oldMin) * newRange) / oldRange + newMin;
+  return newValue;
+}

@@ -8,6 +8,8 @@ import {
   setNavigationBarTitle,
 } from '@ray-js/ray';
 import Strings from '@/i18n';
+import getCdnImgUrl from '@/utils/getCdnImgUrl';
+import { useDebugPerf } from '@/hooks';
 
 import { lampSchemaMap } from '@/devices/schema';
 import { devices } from '@/devices';
@@ -19,6 +21,8 @@ const More = () => {
   useEffect(() => {
     setNavigationBarTitle({ title: Strings.getLang('moreTitle') });
   }, []);
+
+  useDebugPerf(More);
 
   const listData = useMemo(() => {
     const isGroup = devices.lamp.model.abilities.support.isGroupDevice();
@@ -32,7 +36,7 @@ const More = () => {
     const list = [
       {
         key: 'schedule',
-        icon: '/images/icon_schedule_active.png',
+        icon: getCdnImgUrl('icon_schedule_active.png'),
         title: Strings.getLang('scheduleTitle'),
         visible: isShowSchedule,
         callback() {
@@ -47,7 +51,7 @@ const More = () => {
       },
       {
         key: 'stripLength',
-        icon: '/images/icon_clip_active.png',
+        icon: getCdnImgUrl('icon_clip_active.png'),
         title: Strings.getLang('stripLengthTitle'),
         visible: !isGroup,
         callback() {
@@ -77,7 +81,7 @@ const More = () => {
               <Image src={item.icon} className={styles.iconItem} />
               <Text className={styles.moreTitle}>{item.title}</Text>
             </View>
-            <Image src="/images/icon_right.png" className={styles.iconRight} />
+            <Image src={getCdnImgUrl('icon_right.png')} className={styles.iconRight} />
           </View>
         );
       })}

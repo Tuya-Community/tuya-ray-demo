@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import { View } from '@ray-js/ray';
-import { LampMusicCard } from '@ray-js/components-ty-lamp';
+import LampMusicCard from '@ray-js/lamp-music-card';
 import {
   utils,
   useStructuredActions,
@@ -10,6 +10,7 @@ import {
   useProps,
 } from '@ray-js/panel-sdk';
 import { E_WOKE_MODE } from '@/types';
+import { useDebugPerf } from '@/hooks';
 
 import { getLocalMusicList, TMusicItem } from './config';
 import styles from './index.module.less';
@@ -19,6 +20,7 @@ const defaultList = getLocalMusicList();
 const LocalMusic = () => {
   const [musicList, setMusicList] = useState(defaultList);
   const micMusicData = useStructuredProps(props => props.dreamlightmic_music_data);
+  useDebugPerf(LocalMusic);
   useEffect(() => {
     if (!micMusicData && !musicList) {
       return;

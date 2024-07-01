@@ -17,7 +17,7 @@
     "baseUrl": "./",
     "paths": {
       "ray": ["./node_module/@ray-js/ray"],
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
     },
     "typeRoots": ["./node_modules/@types", "./typings", "./node_modules/@tuya-miniapp"]
   },

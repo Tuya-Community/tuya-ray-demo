@@ -1,4 +1,12 @@
+import { rgb2hsv, hsv2rgbString } from '@ray-js/panel-sdk/lib/utils/color';
 import { getCollisionCheck } from '../../pages/Dimmer/DimmerStrip/utils';
+
+function convertRange(value, oldMin = 1, oldMax = 1000, newMin = 240, newMax = 1000) {
+  const oldRange = oldMax - oldMin;
+  const newRange = newMax - newMin;
+  const newValue = ((value - oldMin) * newRange) / oldRange + newMin;
+  return newValue;
+}
 
 const INTERVAL = 30;
 
@@ -9,10 +17,16 @@ export default Render({
   canvasWidth: 0,
   canvasHeight: 0,
   border: 1,
+  rest: {},
+  data: [],
   interval: Date.now(),
   async render(id, data, rest) {
-    const { canvasWidth = 375, canvasHeight = 200, width = 8, gradient = false } = rest;
-    this.canvasId = id;
+    const { canvasWidth = 375, canvasHeight = 200, width = 8, gradient = false } = {
+      ...(rest || this.rest),
+    };
+    this.data = data;
+    this.rest = rest;
+    this.canvasId = id || this.canvasId;
     if (!this.canvas) {
       this.canvas = await getCanvasById(this.canvasId);
     }
@@ -99,6 +113,7 @@ export default Render({
     });
   },
   addEventListeners() {
+    this.removeEventListeners();
     if (!this.canvas) {
       console.warn('addEventListeners this.canvas not found');
       return;
@@ -472,6 +487,38 @@ export default Render({
       } else if (type === 'circleLine') {
         this.renderCircleLine(ctx, element, isGradient);
       }
+    });
+  },
+  renderChannel() {
+    const eventChannelName = 'lampRectPickerColorEventChannel';
+    this.instance.eventChannel.on(eventChannelName, e => {
+      const { rgba, touchType } = e;
+      if (touchType !== 'move') {
+        return;
+      }
+
+      if (this.channelTimer) {
+        return;
+      }
+      this.channelTimer = setTimeout(() => {
+        const resData = this.data.map(i => {
+          const [r, g, b, a] = rgba;
+          const bright = (i.brightness / 1000).toFixed(1);
+          let checkedColor = i.color;
+          if (i.checked) {
+            const [h, s, v] = rgb2hsv(r, g, b);
+            const colorRgba = hsv2rgbString(h, s, convertRange(i.brightness) / 10);
+            checkedColor = colorRgba;
+          }
+          return {
+            ...i,
+            color: checkedColor,
+          };
+        });
+        this.render(this.canvasId, resData, this.rest, origin);
+        clearTimeout(this.channelTimer);
+        this.channelTimer = null;
+      }, 100);
     });
   },
 });

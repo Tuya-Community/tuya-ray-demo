@@ -1,8 +1,10 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { View, Image, Text } from '@ray-js/ray';
-import _ from 'lodash';
+import { isEqual } from 'lodash-es';
 import Strings from '@/i18n';
+import getCdnImgUrl from '@/utils/getCdnImgUrl';
+import { useDebugPerf } from '@/hooks';
 
 import './GroupColorPicker.less';
 
@@ -184,8 +186,9 @@ type TProps = {
 
 const GroupColorPicker = (props: TProps) => {
   const { colorList = [], disable, onClick } = props;
+  useDebugPerf(GroupColorPicker, props);
   const renderCard = (hsvList: HSV[], _index) => {
-    const active = _.isEqual(colorList, hsvList);
+    const active = isEqual(colorList, hsvList);
     const height = 92 / (hsvList.length || 4);
     const isRowLast = (_index + 1) % 4 === 0;
     const hexColor = hexColors[_index];
@@ -220,7 +223,7 @@ const GroupColorPicker = (props: TProps) => {
     }
     return (
       <View className="maskWrapper">
-        <Image src="/images/disable_move.png" className="maskIcon" />
+        <Image src={getCdnImgUrl('disable_move.png')} className="maskIcon" />
         <Text className="maskTip">{Strings.getLang('disableCheck')}</Text>
       </View>
     );

@@ -4,42 +4,40 @@
   "description": "Panel Strip Lamp / 照明幻彩灯带",
   "main": "index.js",
   "private": true,
-  "author": "Tuya.inc",
+  "author": "罗丘(黄辉)",
   "license": "MIT",
   "scripts": {
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
     "start:tuya": "ray start -t tuya --verbose",
-    "build:tuya": "ray build -t tuya --verbose"
+    "minipack": "minipack build -o ./minipack",
+    "build": "ray build --target=tuya && yarn minipack && node ./delmap.js"
   },
   "dependencies": {
     "@ray-js/components-ty-actionsheet": "^0.0.17",
     "@ray-js/components-ty-cell": "^0.0.12",
-    "@ray-js/components-ty-lamp": "^1.10.6",
+    "@ray-js/components-ty-lamp": "^1.10.10",
     "@ray-js/components-ty-switch": "^0.0.7",
+    "@ray-js/lamp-rect-picker-color": "1.1.10-beta-1",
     "@ray-js/panel-sdk": "^1.10.0",
     "@ray-js/ray": "^1.4.23",
-    "@ray-js/ray-error-catch": "^0.0.23",
-    "@ray-js/svg": "^0.0.6",
+    "@ray-js/ray-error-catch": "^0.0.24",
     "@reduxjs/toolkit": "2.0.1",
     "@types/redux-logger": "^3.0.12",
     "ahooks": "^3.7.1",
     "base64-browser": "^1.0.1",
     "clsx": "^1.2.1",
     "color": "^4.2.3",
-    "core-js": "^3.23.5",
-    "dayjs": "^1.11.5",
+    "core-js": "3.23.5",
     "lodash-es": "^4.17.21",
-    "lottie-miniapp": "^1.9.1",
     "react-redux": "^7.0.0",
     "redux": "^4.2.0",
     "redux-actions": "^2.6.5",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.4.2"
+    "redux-logger": "^3.0.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^9.0.1",
-    "@ray-js/cli": "^1.4.26",
+    "@ray-js/cli": "^1.4.44",
     "@types/lodash-es": "^4.17.6",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
@@ -70,6 +68,8 @@
     ]
   },
   "resolutions": {
-    "@types/react": "^17.0.24"
+    "@types/react": "^17.0.24",
+    "@ray-js/lamp-rect-picker-color": "1.1.11-beta-1",
+    "follow-redirects": "1.15.4"
   }
 }

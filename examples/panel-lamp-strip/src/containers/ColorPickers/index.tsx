@@ -6,6 +6,7 @@ import Strings from '@/i18n';
 import { useSelector } from 'react-redux';
 
 import { devices } from '@/devices';
+import { useDebugPerf } from '@/hooks';
 import { selectSmearType, updateDimmerType, updateSmearType, useAppDispatch } from '@/redux';
 import styles from './index.modules.less';
 import RectColorPicker from './RectColorPicker';
@@ -43,6 +44,7 @@ type TProps = {
 export const ColorPickers = (props: TProps) => {
   const { hsvList, checkedSet, dimmerType, onColorChange } = props;
   const dispatch = useAppDispatch();
+  useDebugPerf(ColorPickers, props);
   const tabs: TTabs = useMemo(() => {
     const _tabs = [
       {
