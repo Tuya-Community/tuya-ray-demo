@@ -14,6 +14,7 @@ import { ControlBar } from '@/containers';
 import { SmearMode } from '@ray-js/panel-sdk/lib/protocols/lamp/SmearTransformer';
 import { updateCurrentTab, updateSmearType, selectCurrentTab } from '@/redux';
 import { devices } from '@/devices';
+import { useDebugPerf } from '@/hooks';
 
 import styles from './index.module.less';
 import Dimmer from '../Dimmer';
@@ -34,6 +35,8 @@ export function Home() {
   const currentTab = useSelector(selectCurrentTab);
   const paintColorData = useStructuredProps(props => props.paint_colour_data);
   const workMode = useProps(props => props.work_mode);
+
+  useDebugPerf(Home);
 
   useEffect(() => {
     let { smearMode } = paintColorData;

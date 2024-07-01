@@ -6,6 +6,7 @@
   "i18n": true,
   "description": "照明灯带模板_panel-stripe",
   "miniprogramRoot": "./dist/tuya",
+  "publicRoot": "cdn/",
   "dependencies": {
     "BaseKit": "3.3.13",
     "MiniKit": "3.1.0",
@@ -13,5 +14,6 @@
     "BizKit": "3.3.1"
   },
   "projectname": "幻彩灯带模版",
-  "baseversion": "2.12.18"
+  "baseversion": "2.12.18",
+  "compileType": "miniprogram"
 }

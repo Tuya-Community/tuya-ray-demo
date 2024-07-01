@@ -2,9 +2,12 @@
 /* eslint-disable no-shadow */
 import React from 'react';
 import { View, Image, Text } from '@ray-js/ray';
-import { LampColorCard } from '@ray-js/components-ty-lamp';
+import LampColorCard from '@ray-js/lamp-color-card';
 import LampTouchSlider from '@ray-js/lamp-touch-slider';
 import Strings from '@/i18n';
+import getCdnImgUrl from '@/utils/getCdnImgUrl';
+
+import { useDebugPerf } from '@/hooks';
 
 import './BlockColorPicker.less';
 
@@ -26,12 +29,12 @@ type TProps = {
   disable?: boolean; // 禁用无法操作
   closed?: boolean; // 关闭，支持点击开启
   isShow: boolean; // 展示
-  onChange: (hsvList: HSV[], type: DimmerMode) => void;
+  onChange: (hsvList: any[], type: DimmerMode) => void;
 };
 
 const ColorPicker = (props: TProps) => {
   const { hsv, disable, isShow, onChange } = props;
-
+  useDebugPerf(ColorPicker, props);
   const handleColorTouchEnd = hs => {
     const hsvList = [
       {
@@ -61,7 +64,7 @@ const ColorPicker = (props: TProps) => {
     }
     return (
       <View className="maskWrapper">
-        <Image src="/images/disable_move.png" className="maskIcon" />
+        <Image src={getCdnImgUrl('disable_move.png')} className="maskIcon" />
         <Text className="maskTip">{Strings.getLang('disableCheck')}</Text>
       </View>
     );

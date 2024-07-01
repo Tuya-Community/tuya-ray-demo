@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { isEqual } from 'lodash-es';
 import Render from './index.rjs';
 
 // eslint-disable-next-line no-undef
@@ -23,7 +24,12 @@ Component({
       if (!this.isReady) {
         return;
       }
+      const isSame = isEqual(resList, this.preResList);
+      if (isSame) {
+        return;
+      }
       this.renderRjs(resList);
+      this.preResList = resList;
     },
   },
   lifetimes: {
@@ -33,6 +39,7 @@ Component({
     ready() {
       this.renderRjs();
       this.isReady = true;
+      this.rjs?.renderChannel();
     },
   },
   methods: {
