@@ -1,0 +1,32 @@
+.container {
+  width: 480rpx;
+  height: 480rpx;
+  .centerView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .centerImage {
+      width: 120rpx;
+      height: 98rpx;
+    }
+    .lockText {
+      font-size: 28rpx;
+    }
+  }
+  .outLineWrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .outLineBg {
+      width: 100%;
+      height: 100%;
+    }
+    .outLineText {
+      position: absolute;
+      left: 50%;
+      top: 60%;
+      transform: translate(-50%, 0);
+    }
+  }
+}
