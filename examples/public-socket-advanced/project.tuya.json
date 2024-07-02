@@ -3,7 +3,7 @@
   "type": "panel-app",
   "ownerType": "tuya-official",
   "i18n": false,
-  "description": "测试面板",
+  "description": "用于向开发者演示使用",
   "miniprogramRoot": "./dist/tuya",
   "dependencies": {
     "BaseKit": "3.0.0",
