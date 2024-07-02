@@ -1,10 +1,6 @@
 {
   "name": "panel-lamp",
   "version": "1.0.0",
-  "description": "Panel Lamp",
-  "main": "index.js",
-  "private": true,
-  "author": "睦海(李利民)",
   "license": "MIT",
   "scripts": {
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
