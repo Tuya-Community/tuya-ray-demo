@@ -19,10 +19,8 @@ import {
 import Strings from '@/i18n';
 import { globalConfig } from '@/config';
 import { getPwdTypeBle } from '@/utils/temp';
-import { api } from './atop';
 import { getCachedLaunchOptions } from './getCachedLaunchOptions';
 import {
-  FetchParams,
   IDeleteParams,
   IUpdateParams,
   FetchInvalidListParams,
@@ -48,11 +46,6 @@ export abstract class ApiCreatorBase {
 
   /** 更新密码 */
   public abstract updatePwd(params: IUpdateParams): Promise<boolean>;
-
-  request = <P, T>(a: string, postData: P, version: string, extData?: P) => {
-    console.log(`请求接口 ${a} 您的请求参数 --> }`, postData);
-    return api<T>(a, postData, version, extData);
-  };
 
   /** 列表删除密码 */
   checkAndDeletePwd(params: Omit<IDeleteParams, 'deviceOnline'>): Promise<boolean> {
