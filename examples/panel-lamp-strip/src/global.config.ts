@@ -14,8 +14,8 @@ export const tuya = {
       appid: 'tyjks565yccrej3xvo',
     },
     rayStripClipFunctional: {
-      // tyonnsnmyhlon0ocmx 为功能页的id
-      appid: 'tyonnsnmyhlon0ocmx',
+      // tyj0zkwgqubepk3r1h 为功能页的id
+      appid: 'tyj0zkwgqubepk3r1h',
     },
   },
 };

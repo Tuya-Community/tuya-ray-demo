@@ -307,7 +307,7 @@ const defaultProps = {
 
 export const getSharpPathColorData = (_pathPosData: TPathData[], initData, isGradient = false) => {
   // ！！注意如果color为空 则认为是灯珠是关闭
-  const { checkedMapColor, checkedSet, power } = initData;
+  const { checkedMapColor, checkedSet, power, brightness } = initData;
   if (isGradient) {
     return _pathPosData.map((i, idx) => {
       const preColor = checkedMapColor[idx - 1];
@@ -318,6 +318,7 @@ export const getSharpPathColorData = (_pathPosData: TPathData[], initData, isGra
         // 允许添加string或number
         checked: checkedSet.has(`${idx}`) || checkedSet.has(+idx),
         color,
+        brightness,
         onOff: color ? power : false,
         preColor: color ? preColor : '',
         nextColor: color ? nextColor : '',
@@ -331,6 +332,7 @@ export const getSharpPathColorData = (_pathPosData: TPathData[], initData, isGra
       // 允许添加string或number
       checked: checkedSet.has(`${idx}`) || checkedSet.has(+idx),
       color,
+      brightness,
       onOff: color ? power : false,
     };
   });

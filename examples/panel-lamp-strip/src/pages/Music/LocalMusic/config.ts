@@ -1,4 +1,5 @@
 import Strings from '@/i18n';
+import getCdnImgUrl from '@/utils/getCdnImgUrl';
 
 export type TMusic = {
   v: number; // 版本
@@ -161,7 +162,7 @@ export const getLocalMusicList = (): TMusicItem[] => {
   return localMusicList.map(i => {
     return {
       ...i,
-      icon: `/images/local_music_${i.id}.png`,
+      icon: getCdnImgUrl(`local_music_${i.id}.png`),
       title: Strings.getLang(`local_music_${i.id}` as 'local_music_0'),
     };
   });

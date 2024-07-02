@@ -9,12 +9,15 @@ import {
   useDevice,
   useProps,
 } from '@ray-js/panel-sdk';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Strings from '@/i18n';
 import { ColorPickers } from '@/containers';
-import { useDispatch, useSelector } from 'react-redux';
 import { LIGHT_COLOR_DATA } from '@/constant';
 import { E_WOKE_MODE } from '@/types';
 import { devices } from '@/devices';
+import getCdnImgUrl from '@/utils/getCdnImgUrl';
+import { convertRange } from '@/utils';
 
 import {
   updateDimmerType,
@@ -24,6 +27,7 @@ import {
   selectDimmerType,
   updateLightColorData,
 } from '@/redux';
+import { useDebugPerf } from '@/hooks';
 import DimmerStrip from './DimmerStrip';
 import styles from './index.module.less';
 
@@ -68,13 +72,6 @@ enum DimmerMode {
   combination,
 }
 
-function convertRange(value, oldMin = 1, oldMax = 1000, newMin = 240, newMax = 1000) {
-  const oldRange = oldMax - oldMin;
-  const newRange = newMax - newMin;
-  const newValue = ((value - oldMin) * newRange) / oldRange + newMin;
-  return newValue;
-}
-
 type TProps = {
   show: boolean;
 };
@@ -89,6 +86,8 @@ const Dimmer = (props: TProps) => {
     }
     setNavigationBarTitle({ title: deviceName });
   }, [deviceName, show]);
+
+  useDebugPerf(Dimmer, props);
 
   const smearType = useSelector(selectSmearType);
   const checkedMapColorCloud = useSelector(selectLightColorData);
@@ -242,7 +241,7 @@ const Dimmer = (props: TProps) => {
       {
         title: Strings.getLang('smearAll'),
         key: SmearMode.all,
-        icon: '/images/icon_smear_all.png',
+        icon: getCdnImgUrl('icon_smear_all.png'),
         visible: smearType === SmearMode.all && isColor,
         disabled: false,
       },
@@ -250,19 +249,19 @@ const Dimmer = (props: TProps) => {
         title: Strings.getLang('smearSingle'),
         key: SmearMode.single,
         visible: smearType === SmearMode.single && !isCombination,
-        icon: '/images/icon_smear_single.png',
+        icon: getCdnImgUrl('icon_smear_single.png'),
         disabled: false,
       },
       {
         title: Strings.getLang('smearEraser'),
-        icon: '/images/icon_smear_eraser.png',
+        icon: getCdnImgUrl('icon_smear_eraser.png'),
         key: SmearMode.clear,
         visible: isColor,
         disabled: false,
       },
       {
         title: Strings.getLang('smearGradient'),
-        icon: '/images/icon_smear_gradient.png',
+        icon: getCdnImgUrl('icon_smear_gradient.png'),
         key: SmearModeAll.gradient,
         visible: true,
         disabled: isCombination ? false : isAll,
@@ -482,6 +481,10 @@ const Dimmer = (props: TProps) => {
       newColorMap
     );
   };
+  // 防止重复渲染
+  if (Object.keys(checkedMapColor || {}).length === 0) {
+    return null;
+  }
   return (
     <>
       <View className={styles.dimmerStripWrapper}>

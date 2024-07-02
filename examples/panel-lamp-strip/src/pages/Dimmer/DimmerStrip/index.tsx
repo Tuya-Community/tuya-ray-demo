@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useProps, useStructuredProps, utils } from '@ray-js/panel-sdk';
 import DimmerStripCom from '@/components/DimmerStrip';
 import { getSystemInfoSync } from '@ray-js/ray';
+import { useDebugPerf } from '@/hooks';
 
 import { getSharpPathData } from './utils';
 
@@ -48,6 +49,7 @@ const DimmerStrip = (props: TProps) => {
   const [checkedMapColor, setCheckedMapColor] = useState(initCheckedMapColor);
 
   const paintColorData = useStructuredProps(dp => dp.paint_colour_data);
+  useDebugPerf(DimmerStrip);
 
   useEffect(() => {
     setCheckedMapColor(initCheckedMapColor);
@@ -59,12 +61,13 @@ const DimmerStrip = (props: TProps) => {
       checkedSet,
       checkedMapColor,
       power,
+      brightness: colorList[0]?.v || 1000,
       isGradient: paintColorData.effect === 1,
       ...stripPos,
     };
     const data = getSharpPathData(20, initData);
     return data;
-  }, [smearType, checkedMapColor, power, checkedSet, paintColorData.effect]);
+  }, [smearType, checkedMapColor, power, checkedSet, paintColorData.effect, colorList]);
 
   // 处理切换选中逻辑，防止moving情况下会一直反复切换
   const isMoving = useRef(false);

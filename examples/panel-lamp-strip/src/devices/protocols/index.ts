@@ -1,6 +1,11 @@
 import dpParser from './parsers';
 import { lampSchemaMap } from '@/devices/schema';
-const { colour_data, dreamlightmic_music_data, paint_colour_data } = lampSchemaMap;
+const {
+  colour_data,
+  dreamlightmic_music_data,
+  paint_colour_data,
+  dreamlight_scene_mode,
+} = lampSchemaMap;
 
 export const protocols = {
   [colour_data.code]: [
@@ -22,5 +27,6 @@ export const protocols = {
     },
   ],
   [dreamlightmic_music_data.code]: dpParser.micMusicTransformer,
+  [dreamlight_scene_mode.code]: dpParser.sceneFormatter,
   [paint_colour_data.code]: dpParser.smearFormatter,
 };

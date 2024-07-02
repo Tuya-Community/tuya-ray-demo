@@ -1,5 +1,4 @@
 /* eslint-disable no-shadow */
-import _ from 'lodash';
 import { utils } from '@ray-js/panel-sdk';
 import { lampSchemaMap } from '@/devices/schema';
 import { log } from '@/utils';

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, setNavigationBarTitle } from '@ray-js/ray';
 import Strings from '@/i18n';
+import { useDebugPerf } from '@/hooks';
 
 import LocalMusic from './LocalMusic';
 // import AppMusic from './AppMusic'; // app端的api暂未开放
@@ -14,7 +15,7 @@ enum EMusicActionType {
 
 const Music = () => {
   const [musicType, setMusicType] = useState(EMusicActionType.Local);
-
+  useDebugPerf(Music);
   useEffect(() => {
     setNavigationBarTitle({ title: Strings.getLang('musicTitle') });
   }, []);
