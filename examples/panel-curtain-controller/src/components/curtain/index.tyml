@@ -1,0 +1,27 @@
+<sjs src="./index.sjs"
+  module="computed"></sjs>
+
+<view class="container"
+    value="{{value}}"
+    control="{{control}}"
+    work_state="{{work_state}}"
+    change:control="{{computed.controlChange}}"
+    change:value="{{computed.observerValue}}">
+    <view class="rail">
+        <image class="image image-left" src="{{curtainImage}}" mode='scaleToFill' />
+        <image class="image image-right" src="{{curtainImage}}" mode='scaleToFill' />
+    </view>
+    <view class="dialog-percent {{showPercent?'show':''}}">
+    </view>
+    <view class="work-state">{{animing?`${work_state}...`:' '}}</view>
+    <view class="point slider-left" 
+        data-position="left"
+        catch:touchstart="{{computed.handleStart}}" catch:touchmove="{{computed.handleMove}}" 
+        catch:touchend="{{computed.handleEnd}}" catch:touchcancel="{{computed.handleEnd}}"
+    ></view>
+    <view class="point slider-right"
+        data-position="right"
+        catch:touchstart="{{computed.handleStart}}" catch:touchmove="{{computed.handleMove}}" 
+        catch:touchend="{{computed.handleEnd}}" catch:touchcancel="{{computed.handleEnd}}"
+    ></view>
+</view>
