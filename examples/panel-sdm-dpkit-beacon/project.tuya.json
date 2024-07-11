@@ -1,0 +1,19 @@
+{
+  "name": "照明小程序模板",
+  "type": "panel-app",
+  "ownerType": "panel-lamp",
+  "devMode": "ray",
+  "i18n": false,
+  "description": "Beacon设备面板模版",
+  "miniprogramRoot": "./dist/tuya",
+  "dependencies": {
+    "BaseKit": "3.0.0",
+    "MiniKit": "3.0.0",
+    "DeviceKit": "3.0.0",
+    "BizKit": "3.0.1",
+    "MediaKit": "3.2.1"
+  },
+  "projectname": "太阳能感应灯面板",
+  "baseversion": "2.12.19",
+  "compileType": "miniprogram"
+}
