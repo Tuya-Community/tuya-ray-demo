@@ -1,0 +1,16 @@
+{
+  "i18n": false,
+  "description": "",
+  "miniprogramRoot": "./dist/tuya",
+  "dependencies": {
+    "BaseKit": "3.0.0",
+    "MiniKit": "3.0.1",
+    "DeviceKit": "3.1.0",
+    "BizKit": "3.0.6"
+  },
+  "baseversion": "2.19.0",
+  "projectname": "门锁模板",
+  "compileType": "miniprogram",
+  "devMode": "npm",
+  "remoteDebug": "mqtt"
+}

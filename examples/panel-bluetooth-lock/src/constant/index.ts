@@ -1,0 +1,11 @@
+export const DEV_INFO_CHANGE = '_DEVINFOCHANGE_';
+export const DEVICE_INFO_CHANGE = '_DEVICEINFOCHANGE_';
+export const RESPONSE_UPDATE_DP = 'RESPONSE_UPDATE_DP';
+export const CHANGE_DP = 'CHANGE_DP';
+export const SET_USER_REGION = 'SET_USER_REGION';
+export const GET_LAST_LOG = 'GET_LAST_LOG';
+export const GET_USER = 'GET_USER';
+export const GET_PANEL_INFO = 'GET_PANEL_INFO';
+export const GET_DEVICE_PROPS = 'GET_DEVICE_PROPS';
+export const SET_DEVICE_PROPS = 'SET_DEVICE_PROPS';
+export const SET_LOCK_DATA = 'SET_LOCK_DATA';
