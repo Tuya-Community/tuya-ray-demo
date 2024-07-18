@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'iconfont'; /* Project id  */
+  src: url('iconfont.ttf?t=1661508115353') format('truetype');
+}
+
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-size: 48rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-select_room:before {
+  content: '\f8c0';
+}
+
+.icon-recharge:before {
+  content: '\f8c1';
+}
+
+.icon-smart:before {
+  content: '\f8c2';
+}
+
+.icon-zone-add:before {
+  content: '\f8c3';
+}
+
+.icon-zone:before {
+  content: '\f8c4';
+}
+
+.icon-preference:before {
+  content: '\f8c5';
+}
+
+.icon-pose:before {
+  content: '\f8c6';
+}
+
+.icon-charging:before {
+  content: '\f8c9';
+}
+
+.icon-start:before {
+  content: '\f8de';
+}
+
+.icon-paused:before {
+  content: '\f8e2';
+}

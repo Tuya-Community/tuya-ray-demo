@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  &-left,
+  &-right {
+    flex: 1;
+  }
+
+  &-right {
+    justify-content: flex-end;
+    display: flex;
+  }
+  
+  &-title {
+    flex: auto;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-back {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    padding: 6px 0;
+    cursor: pointer;
+    &-arrow {
+      font-size: 24px;
+      margin-right: 4px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'iconfont'; /* Project id  */
+  src: url('iconfont.ttf?t=1661308359191') format('truetype');
+}
+
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-size: 48rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-setting2:before {
+  content: '\f8df';
+}
+
+.icon-exitMini:before {
+  content: '\f8dd';
+}

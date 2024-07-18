@@ -1,0 +1,57 @@
+.topbar {
+  width: 100vw;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  background-color: transparent;
+}
+
+.textContainer {
+  width: 520rpx;
+  height: 44px;
+  overflow: hidden;
+  position: relative;
+}
+
+.topbarText {
+  position: absolute;
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48rpx;
+  line-height: 44px;
+  color: #000000;
+  // max-width: 520rpx;
+  // text-align: center;
+  white-space: nowrap;
+  // text-overflow: ellipsis;
+  // overflow: hidden;
+}
+
+.topBarTextRolling {
+  animation: myRolling 6s linear infinite;
+}
+
+@keyframes myRolling {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.menuBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // margin-right: 150rpx;
+}
+
+.statusBar{
+  height: 20px;
+}

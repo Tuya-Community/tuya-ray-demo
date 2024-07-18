@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3608428 */
+  src: url('iconfont.ttf?t=1661331223153') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-map:before {
+  content: "\e603";
+}
+
