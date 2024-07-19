@@ -23,7 +23,7 @@ import { useProps } from '@ray-js/panel-sdk';
 import { offDpDataChange, onDpDataChange } from '@ray-js/ray';
 import { Utils } from '@ray-js/ray-error-catch';
 import { GridItem } from '@ray-js/smart-ui';
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 import PauseIcon from '@tuya-miniapp/icons/dist/svg/Pause';
 import PlayIcon from '@tuya-miniapp/icons/dist/svg/Play';
 import _ from 'lodash';

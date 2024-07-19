@@ -1,5 +1,5 @@
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
-import { ILaserMapArea } from '@ray/robot-map-component/lib/api';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
+import { ILaserMapArea } from '@ray-js/robot-map-component/lib/api';
 
 /**
  * @description 从地图中获取虚拟信息的相关数据

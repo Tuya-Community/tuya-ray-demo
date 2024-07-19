@@ -1,4 +1,4 @@
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 /**
  * @description 设置地图状态和编辑状态
  */

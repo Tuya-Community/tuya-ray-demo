@@ -1,4 +1,4 @@
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 /**
  * @description 获取地图分割和的数据信息
  */

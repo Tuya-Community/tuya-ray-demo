@@ -20,7 +20,7 @@
     "@ray-js/ray-error-catch": "^0.0.23",
     "@ray-js/robot-protocol": "0.3.1-beta-3",
     "@ray-js/smart-ui": "^1.0.2",
-    "@ray/robot-map-component": "0.0.2-beta-4",
+    "@ray-js/robot-map-component": "0.0.3",
     "@reduxjs/toolkit": "^1.9.3",
     "@stdlib/array-uint8": "^0.0.7",
     "@tuya-miniapp/rjs-adapter": "^1.0.0",
@@ -57,7 +57,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^9.0.1",
-    "@ray-js/cli": "^1.4.45",
+    "@ray-js/cli": "^1.5.20",
     "@types/lodash-es": "^4.17.6",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",

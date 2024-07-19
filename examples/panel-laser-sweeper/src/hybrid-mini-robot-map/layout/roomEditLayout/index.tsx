@@ -53,7 +53,7 @@ import {
 import Strings from '@/i18n';
 import { formatDps } from '@/utils';
 import { Grid, GridItem } from '@ray-js/smart-ui';
-import { mapSplitStateEnum } from '@ray/robot-map-component/lib/enums';
+import { mapSplitStateEnum } from '@ray-js/robot-map-component/lib/enums';
 import { assignIn } from 'lodash';
 import Res from '../../res';
 import RoomNamePopLayout from '../roomNamePopLayout';

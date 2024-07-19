@@ -3,7 +3,6 @@ import P2pApi from './p2pApi';
 import Base64 from 'base64-js';
 import _ from 'lodash';
 import logger from '../../protocol/utils/loggerUtil';
-import { emitter, getDevId } from '@/utils';
 /**
  * 基于P2p工具类的扫地机扩展实现
  */
@@ -57,6 +56,10 @@ const FILE_NAME_MAP = {
 const shouldDownloadStream = Boolean(ty.p2p.downloadStream && ty.p2p.onStreamPacketReceive);
 // const shouldDownloadStream = false;
 
+interface Props {
+  devId: string;
+}
+
 export class SweeperP2p extends P2pApi {
   file: { items: Array<FileInfo>; count: number } | undefined;
   albumName: string;
@@ -78,7 +81,8 @@ export class SweeperP2p extends P2pApi {
   packetDataCacheMap: Map<keyof typeof FILE_NAME_MAP, Map<number, string>>;
   packetSerialNumberCacheMap: Map<keyof typeof FILE_NAME_MAP, number>;
   packetTotalMap: Map<keyof typeof FILE_NAME_MAP, number>;
-
+  onReceiveMapData: (data: string) => void;
+  onReceivePathData: (data: string) => void;
   offFileDownloadComplete: () => void;
   offP2pStreamPacketReceive: () => void;
   offDownLoadProgressUpdate: () => void;
@@ -242,7 +246,12 @@ export class SweeperP2p extends P2pApi {
         console.info('收到P2P连接断开通知 ==>', status);
         this.reconnectP2p(() => {
           // 重连之后重新开启文件下载, 这里的成功不需要注册断开事件
-          this.startObserverSweeperDataByP2P(this.downloadType);
+          this.startObserverSweeperDataByP2P(
+            this.downloadType,
+            this.devId,
+            this.onReceiveMapData,
+            this.onReceivePathData
+          );
         });
       }
     }
@@ -253,15 +262,22 @@ export class SweeperP2p extends P2pApi {
    * @param downloadType
    * 0: 下载断开 1: 持续下载
    */
-  startObserverSweeperDataByP2P = async (downloadType: number) => {
+  startObserverSweeperDataByP2P = async (
+    downloadType: number,
+    devId: string,
+    onReceiveMapData: (data: string) => void,
+    onReceivePathData: (data: string) => void
+  ) => {
     if (![0, 1].some(item => item === downloadType)) {
       logger.info('【SweeperP2p】==> 下载类型必须是0或1');
       return;
     }
+    this.onReceiveMapData = onReceiveMapData;
+    this.onReceivePathData = onReceivePathData;
     logger.info('【SweeperP2p】 ==> startObserverSweeperDataByP2P ==>');
     this.downloadType = downloadType;
-    this.setDataFilePath(getDevId());
-    this.setStreamFilePath(getDevId());
+    this.setDataFilePath(devId);
+    this.setStreamFilePath(devId);
     // 先移除监听,再重新注册
     this.removeP2pDownloadEvent();
     this.registerP2pDownloadEvent();
@@ -406,10 +422,10 @@ export class SweeperP2p extends P2pApi {
         const { type } = FILE_NAME_MAP[fileName];
         if (this.cacheData[type] !== hexValue) {
           if (type === 0) {
-            emitter.emit('receiveMapData', hexValue);
+            this.onReceiveMapData(hexValue);
           }
           if (type === 1) {
-            emitter.emit('receivePathData', hexValue);
+            this.onReceivePathData(hexValue);
           }
 
           this.cacheData[type] = hexValue;
@@ -465,10 +481,10 @@ export class SweeperP2p extends P2pApi {
             }
 
             if (type === 0) {
-              emitter.emit('receiveMapData', hexValue);
+              this.onReceiveMapData(hexValue);
             }
             if (type === 1) {
-              emitter.emit('receivePathData', hexValue);
+              this.onReceivePathData(hexValue);
             }
             this.cacheData[type] = hexValue;
           }

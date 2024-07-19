@@ -8,7 +8,7 @@ import {
 import circleIntersectRect from '@/hybrid-mini-robot-map/protocol/utils/pressCoordinateUtil/circleIntersectRect';
 import _ from 'lodash';
 import { dpCodes } from '@/config';
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 import { useAddLaserMapPosPoints, useAddLaserMapArea } from '@/hooks/openApiHooks';
 const { nativeMapStatusEnum } = dpCodes;
 const ALL_ZONE_MUN_MAX = 100;

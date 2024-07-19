@@ -1,5 +1,5 @@
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
-import { mapSplitStateEnum } from '@ray/robot-map-component/lib/enums';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
+import { mapSplitStateEnum } from '@ray-js/robot-map-component/lib/enums';
 /**
  * @description 设置地图状态和编辑状态
  */

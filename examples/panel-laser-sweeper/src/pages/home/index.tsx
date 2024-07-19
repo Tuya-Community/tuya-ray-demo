@@ -7,7 +7,7 @@ import { View } from '@ray-js/ray';
 import React, { useRef, useState } from 'react';
 import ControllerBar from '@/components/controllerBar';
 import { robotIsPointPause } from '@/utils/robotStatus';
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 import styles from './index.module.less';
 
 const { nativeMapStatus } = dpCodes;

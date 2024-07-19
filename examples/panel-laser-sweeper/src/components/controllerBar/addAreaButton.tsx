@@ -5,7 +5,7 @@ import { actions, useSelector } from '@/redux';
 import { getNewAreaId, setMapCleanZone } from '@/utils/mapStateUtils';
 import { View } from '@ray-js/ray';
 import { GridItem } from '@ray-js/smart-ui';
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import './icons/iconfont.css';
