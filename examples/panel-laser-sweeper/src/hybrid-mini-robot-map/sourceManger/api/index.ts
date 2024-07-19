@@ -2,7 +2,6 @@ import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
 import sweeperP2pInstance from '@/hybrid-mini-robot-map/sourceManger/api/sweeperP2p';
 import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 import { useEffect, useRef, useState } from 'react';
-
 const useP2P = (
   devId: string,
   onReceiveMapData: (data: string) => void,
@@ -15,9 +14,17 @@ const useP2P = (
   const [mapId, setMapId] = useState('');
 
   useEffect(() => {
-    isInitP2p();
-    onEnterBackground();
-    onEnterForeground();
+    ty.device.getDeviceInfo({
+      deviceId: devId,
+      success: res => {
+        const { devId } = res;
+        if (devId.startsWith('vdevo')) return;
+        isInitP2p();
+        onEnterBackground();
+        onEnterForeground();
+      },
+    });
+
     return () => {
       unmount();
 
