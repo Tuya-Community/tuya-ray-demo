@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import _ from 'lodash';
 import { View } from '@ray-js/ray';
 import { useMiddlewareMapViewParams } from '@/hooks';
-import { IndoorMap } from '@ray/robot-map-component';
+import { IndoorMap } from '@ray-js/robot-map-component';
 import { MapHeader, RoomDecoded } from '@ray-js/robot-protocol';
 import Loading from '../loading';
 import { IProps, mapDisplayModeEnum } from './type';

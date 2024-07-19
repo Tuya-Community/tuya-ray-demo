@@ -106,6 +106,7 @@ export const TopBar = (props: Props) => {
   return (
     <View>
       <View className={styles.statusBar} style={{ height: `${statusBarHeight}px` }} />
+
       <View className={styles.topbar}>
         <View id="topBarTextContainer" className={styles.textContainer}>
           <Text

@@ -1,4 +1,4 @@
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 /**
  * @description 当地图的dataMapId 发生变化时, 清空整个地图
  */

@@ -6,7 +6,7 @@ import Store, { useSelector } from '@/redux';
 import { getNewAreaId, setPosPoints } from '@/utils/mapStateUtils';
 import { View } from '@ray-js/ray';
 import { Grid, GridItem } from '@ray-js/smart-ui';
-import { mapSplitStateEnum } from '@ray/robot-map-component/lib/enums';
+import { mapSplitStateEnum } from '@ray-js/robot-map-component/lib/enums';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import './icons/iconfont.css';
@@ -17,7 +17,7 @@ import { updateMapData } from '@/redux/modules/mapStateSlice';
 
 import styles from './index.module.less';
 
-const { nativeMapStatusEnum, cleanWorkModeEnum } = dpCodes;
+const { nativeMapStatusEnum } = dpCodes;
 const { smart, pose, zone, selectRoom } = dpCodes.workModeEnum;
 
 interface Props {
@@ -116,7 +116,7 @@ export const ModeChange = (props: Props) => {
    * @param modeValue
    * @param mapStatusValue
    */
-  const handleSwitchMode = (modeValue: Mode, mapStatusValue: NativeMapStatus) => {
+  const handleSwitchMode = (modeValue: string, mapStatusValue: number) => {
     const { setMapStatus } = props;
     setMapStatus(mapStatusValue, modeValue !== 'smart');
 
@@ -142,15 +142,16 @@ export const ModeChange = (props: Props) => {
   const modes = getCleanModes();
   return (
     <Grid customClass={styles.full} border={false}>
-      {modes.map(item => (
+      {modes.map((item, index) => (
         <GridItem
+          key={JSON.stringify(item)}
           text={item.title}
-          key={JSON.stringify({ mode: item.mode, isActive: item.isActive })}
           onClick={() => {
             if (item.disabled) return;
             setModeState(item.mode);
             handleSwitchMode(item.mode, item.mapStatus);
           }}
+          className={styles.cleanModeItem}
           iconClass={item.isActive ? styles.activeCleanModeContent : styles.cleanModeContent}
           slot={{
             icon: (

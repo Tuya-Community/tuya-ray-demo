@@ -1,4 +1,4 @@
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 /**
  * @description 更改地图指定房间的颜色
  */

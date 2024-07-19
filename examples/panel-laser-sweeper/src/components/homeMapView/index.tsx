@@ -10,7 +10,7 @@ import { isRobotQuiet, robotIsSelectRoom, robotIsSelectRoomPaused } from '@/util
 import { parseRoomId } from '@/hybrid-mini-robot-map/protocol/robotCmd';
 import { useUpdateEffect } from 'ahooks';
 import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 import MapView from '@/hybrid-mini-robot-map/layout/mapView';
 import { useCommandTransData, useMapData, usePathData } from '@/hooks';
 import { useProps } from '@ray-js/panel-sdk';

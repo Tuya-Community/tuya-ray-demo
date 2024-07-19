@@ -23,7 +23,7 @@ import {
 import Res from '@/res';
 import { CoverView, Text, View, offDpDataChange, onDpDataChange, Image } from '@ray-js/ray';
 import { Grid, GridItem } from '@ray-js/smart-ui';
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 import { useThrottleFn } from 'ahooks';
 import _, { isEmpty } from 'lodash';
 import React, { useEffect, useMemo, useRef, useState } from 'react';

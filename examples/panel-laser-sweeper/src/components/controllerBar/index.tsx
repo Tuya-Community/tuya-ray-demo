@@ -34,10 +34,10 @@ import {
   robotIsStandby,
   robotIsToCharing,
 } from '@/utils/robotStatus';
-import { CoverView, View, offDpDataChange, onDpDataChange } from '@ray-js/ray';
+import { CoverView, View, offDpDataChange, onDpDataChange, Text } from '@ray-js/ray';
 import { Grid } from '@ray-js/smart-ui';
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
-import { mapSplitStateEnum } from '@ray/robot-map-component/lib/enums';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
+import { mapSplitStateEnum } from '@ray-js/robot-map-component/lib/enums';
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -210,6 +210,19 @@ function ControllerBar(props: Props) {
     <CoverView className={styles.controllerBarContainer}>
       {/* 清扫按钮、清洁偏好、回充、快速建图 */}
       <View className={styles.operationContainer}>
+        <View
+          style={{
+            background: '#FA8C16',
+
+            padding: 10,
+            borderRadius: 10,
+            margin: 10,
+          }}
+        >
+          <Text style={{ color: '#fff', fontSize: '12px' }}>
+            由于扫地机的地图数据及路径数据依赖于P2P通道进行数据上报，如需体验该模版的完整能力，请绑定涂鸦方案的扫地机真实设备进行体验
+          </Text>
+        </View>
         {/* 快速建图: 无地图且不处于快速建图状态中时显示快速建图按钮 */}
         <QuickMapButton />
 

@@ -1,4 +1,4 @@
-import { IndoorMapApi, IndoorMapUtils } from '@ray/robot-map-component';
+import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
 /**
  * @description 根据选区清扫的房间ID来设置选中
  */
