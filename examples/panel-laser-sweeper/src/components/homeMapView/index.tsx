@@ -1,25 +1,24 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useState, useCallback, useRef } from 'react';
-import { View, showToast } from '@ray-js/ray';
-import { dpCodes, isMock } from '@/config';
-import Store, { useSelector } from '@/redux';
-import { emitter, getDevId, getDevInfo } from '@/utils';
-import { mapData0, pathData0 } from '@/mock';
-import Strings from '@/i18n';
-import { isRobotQuiet, robotIsSelectRoom, robotIsSelectRoomPaused } from '@/utils/robotStatus';
-import { parseRoomId } from '@/hybrid-mini-robot-map/protocol/robotCmd';
-import { useUpdateEffect } from 'ahooks';
-import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
-import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
-import MapView from '@/hybrid-mini-robot-map/layout/mapView';
+import { dpCodes } from '@/config';
 import { useCommandTransData, useMapData, usePathData } from '@/hooks';
-import { useProps } from '@ray-js/panel-sdk';
-import { MapHeader, RoomDecoded } from '@ray-js/robot-protocol';
+import { useFoldableSingleRoomInfo, useGetMapPointsInfo } from '@/hooks/openApiHooks';
+import MapView from '@/hybrid-mini-robot-map/layout/mapView';
+import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
+import { parseRoomId } from '@/hybrid-mini-robot-map/protocol/robotCmd';
+import { useP2P } from '@/hybrid-mini-robot-map/sourceManger/api';
+import Strings from '@/i18n';
+import Store, { useSelector } from '@/redux';
 import { updateMapData } from '@/redux/modules/mapStateSlice';
-import { Utils } from '@ray-js/ray-error-catch';
-import { useGetMapPointsInfo, useFoldableSingleRoomInfo } from '@/hooks/openApiHooks';
 import { updateTemporaryPreference } from '@/redux/modules/temporaryPreferenceSlice';
-import sweeperP2pInstance from '@/hybrid-mini-robot-map/sourceManger/api/sweeperP2p';
+import { emitter, getDevId } from '@/utils';
+import { isRobotQuiet, robotIsSelectRoom, robotIsSelectRoomPaused } from '@/utils/robotStatus';
+import { useProps } from '@ray-js/panel-sdk';
+import { View, showToast } from '@ray-js/ray';
+import { Utils } from '@ray-js/ray-error-catch';
+import { MapHeader, RoomDecoded } from '@ray-js/robot-protocol';
+import { useUpdateEffect } from 'ahooks';
+import React, { useCallback, useRef, useState } from 'react';
+
 
 const { Logger } = Utils;
 interface IProps {
@@ -38,14 +37,23 @@ const HomeMapView: React.FC<IProps> = props => {
   const workModeState = useProps(props => props[dpCodes.workMode]);
   const robotStatusState = useProps(props => props[dpCodes.robotStatus]);
   const customizeModeSwitchState = useProps(props => props[dpCodes.customizeModeSwitch]);
-
   const mapId = useRef('');
-  const offSessionStatusChange = useRef<any>(null);
 
   const [mapLoadEnd, setMapLoadEnd] = useState(false);
-  const isInit: any = useRef(null);
-  const timer: any = useRef(null);
-  const isAppOnBackground: any = useRef(false);
+ 
+
+  const onReceiveMapData = (data: string) => {
+    emitter.emit('receiveMapData', data)
+  }
+
+
+  const onReceivePathData = (data:string) => {
+    emitter.emit('receivePathData', data)
+
+  }
+
+  const { setMapId} = useP2P(getDevId(), onReceiveMapData, onReceivePathData)
+
 
   /**
    * 当前是否处于选区状态
@@ -65,101 +73,13 @@ const HomeMapView: React.FC<IProps> = props => {
     isSelectingRoom(props.mapStatus, workModeState, robotStatusState)
   );
 
-  /**
-   * p2p连接
-   */
-  const isInitP2p = async () => {
-    logger.info('【HomeMapView】 => Component has been started initP2p');
-    isInit.current = await sweeperP2pInstance.initP2pSdk();
-    if (isInit.current) {
-      sweeperP2pInstance.connectDevice(
-        () => {
-          sweeperP2pInstance.startObserverSweeperDataByP2P(1);
-          offSessionStatusChange.current = sweeperP2pInstance.onSessionStatusChange(
-            sweeperP2pInstance.sessionStatusCallback
-          );
-        },
-        () => {
-          sweeperP2pInstance.reconnectP2p(() => {
-            sweeperP2pInstance.startObserverSweeperDataByP2P(1);
-            // 这里失败重连需要注册断开重连的事件
-            offSessionStatusChange.current = sweeperP2pInstance.onSessionStatusChange(
-              sweeperP2pInstance.sessionStatusCallback
-            );
-          });
-        }
-      );
-    }
-  };
+ 
 
-  /**
-   * 进入后台时断开P2P连接
-   */
-  const onEnterBackground = () => {
-    ty.onAppHide(() => {
-      logger.info('【HomeMapView】 => onAppHide');
-      isAppOnBackground.current = true;
-      // 停止整个场景渲染
-      IndoorMapApi.sceneRender(IndoorMapUtils.getMapInstance(mapId.current), false);
-      if (isInit.current) {
-        // 判断进入后台之后，维持定时器，如果进入后台超过3分钟, 则断开P2P
-        timer.current = setTimeout(() => {
-          logger.info('【HomeMapView】 => Timer has been exe');
-          if (isAppOnBackground.current) {
-            unmount();
-          }
-          clearTimeout(timer.current);
-          timer.current = null;
-        }, 2 * 60 * 1000);
-      }
-    });
-  };
-
-  /**
-   * 进入前台时开启P2P连接
-   */
-  const onEnterForeground = () => {
-    ty.onAppShow(() => {
-      logger.info('【HomeMapView】 => onAppShow');
-      IndoorMapApi.sceneRender(IndoorMapUtils.getMapInstance(mapId.current), true);
-      isAppOnBackground.current = false;
-      if (!isInit.current) {
-        isInitP2p();
-      }
-    });
-  };
-
-  /**
-   * p2p断开
-   */
-  const unmount = async () => {
-    logger.info('【HomeMapView】 => Component has been started unmount');
-    isInit.current = false;
-
-    if (offSessionStatusChange.current) {
-      offSessionStatusChange.current();
-      offSessionStatusChange.current = null;
-    }
-
-    await sweeperP2pInstance.stopObserverSweeperDataByP2P();
-    await sweeperP2pInstance.deInitP2PSDK();
-  };
 
   useMapData();
   usePathData();
   useCommandTransData();
 
-  // 初始化并连接p2p
-  useEffect(() => {
-    isInitP2p();
-    onEnterBackground();
-    onEnterForeground();
-    return () => {
-      unmount();
-
-      timer && clearInterval(timer);
-    };
-  }, []);
 
   // 监听状态变化判断是否处于选区状态
   useUpdateEffect(() => {
@@ -171,6 +91,8 @@ const HomeMapView: React.FC<IProps> = props => {
    * @param data
    */
   const onMapId = async (data: any) => {
+    mapId.current = data.mapId
+    setMapId(data.mapId)
     dispatch(
       updateMapData({
         mapId: data.mapId,

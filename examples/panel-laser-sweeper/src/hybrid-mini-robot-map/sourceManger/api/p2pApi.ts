@@ -1,6 +1,5 @@
 /* eslint-disable prefer-promise-reject-errors */
 import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
-import { getDevId } from '@/utils';
 import { p2p } from '@ray-js/ray';
 import moment from 'moment';
 
@@ -12,6 +11,7 @@ interface ErrorCbParams {
     errorMsg: string;
   };
 }
+
 /**
  * P2P 工具类
  */
@@ -19,6 +19,7 @@ export default class P2pApi {
   // P2p连接状态
   isConnected: boolean;
   offSessionStatusChange: () => void;
+  devId: string;
   constructor() {
     this.isConnected = false;
   }
@@ -62,9 +63,10 @@ export default class P2pApi {
    * @param id 用户Id
    * @returns
    */
-  initP2pSdk = async () => {
+  initP2pSdk = async (devId: string) => {
     return new Promise<boolean>((resolve, reject) => {
       try {
+        this.devId = devId;
         p2p.P2PSDKInit({
           success: () => {
             console.log('P2PSDKInit success');
@@ -89,7 +91,7 @@ export default class P2pApi {
     return new Promise<boolean>((resolve, reject) => {
       try {
         p2p.connectDevice({
-          deviceId: getDevId(),
+          deviceId: this.devId,
           timeout: 5000,
           mode: 0,
           success: () => {
@@ -123,7 +125,7 @@ export default class P2pApi {
     return new Promise<boolean>((resolve, reject) => {
       try {
         p2p.disconnectDevice({
-          deviceId: getDevId(),
+          deviceId: this.devId,
           success: () => {
             this.isConnected = false;
             console.log('disconnectDevice, success');
@@ -158,7 +160,7 @@ export default class P2pApi {
       if (this.isConnected) {
         return new Promise((resolve, reject) => {
           p2p.downloadStream({
-            deviceId: getDevId(),
+            deviceId: this.devId,
             albumName: albumName,
             jsonfiles: JSON.stringify(files),
             success: () => {
@@ -210,7 +212,7 @@ export default class P2pApi {
       if (this.isConnected) {
         return new Promise((resolve, reject) => {
           p2p.downloadFile({
-            deviceId: getDevId(),
+            deviceId: this.devId,
             albumName: albumName,
             filePath: filePath,
             jsonfiles: JSON.stringify(files),
@@ -296,7 +298,7 @@ export default class P2pApi {
     return new Promise((resolve, reject) => {
       try {
         p2p.cancelDownloadTask({
-          deviceId: getDevId(),
+          deviceId: this.devId,
           success: () => {
             resolve(true);
           },
@@ -319,7 +321,7 @@ export default class P2pApi {
   queryAlbumFileIndexs = (albumName: string) => {
     return new Promise((resolve, reject) => {
       p2p.queryAlbumFileIndexs({
-        deviceId: getDevId(),
+        deviceId: this.devId,
         albumName,
         success: (params: { count: number; items: any[] }) => {
           console.log('queryAlbumFileIndexs', params);

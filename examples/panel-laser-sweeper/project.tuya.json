@@ -21,5 +21,6 @@
   "projectname": "激光扫地机",
   "compileType": "miniprogram",
   "webviewRoot": "webview",
-  "remoteDebug": "mqtt"
+  "remoteDebug": "mqtt",
+  "devMode": "ray"
 }
