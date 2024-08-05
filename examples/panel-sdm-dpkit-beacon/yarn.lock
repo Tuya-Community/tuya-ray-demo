@@ -3328,17 +3328,17 @@
   resolved "https://registry.npmjs.org/@ray-js/components-ty-config-provider/-/components-ty-config-provider-0.0.10.tgz#14afd354c12cc6d8262f643d1951b9435121c32a"
   integrity sha512-r+siVAyRrc0HXcrycY+sbjruG5SMLGdMhdR49dKfIDQTRH5BwkdyfrPxMenOL/qxoh8fGrvlDiuvBd6TvSXamw==
 
-"@ray-js/components-ty-perf-text@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/@ray-js/components-ty-perf-text/-/components-ty-perf-text-0.0.3.tgz#14e0d9996170d5050547b7b80079679ad8189ed1"
-  integrity sha512-YTjwEL9cEPdJD/iwxyBzivNpSZvtFMf0ZlLdjGpmo29cJ3PwbTESakaFASlZ5oa27QfPDZozjOvYa0xhhqabQg==
+"@ray-js/components-ty-perf-text@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/@ray-js/components-ty-perf-text/-/components-ty-perf-text-0.0.6.tgz#2aaa05f51f056e5625e31d613bba57ae3c2f1ba9"
+  integrity sha512-egwoOsqeiMpS5JkC9E5Dn5dARbE2zLnQa3POQS9znLRlpl5rcHwCRJeVvuyPy9Pxjd+9gXC1O+skn0rJ4L4nUA==
   dependencies:
     clsx "^1.2.1"
 
-"@ray-js/components-ty-slider@^0.2.44":
-  version "0.2.44"
-  resolved "https://registry.npmjs.org/@ray-js/components-ty-slider/-/components-ty-slider-0.2.44.tgz#ca2cb0d5a08d5af79bb20993e47c757eebd4053e"
-  integrity sha512-vuFdNbspvaIH7yMWwQwYgl2zO9qMshVztSS5TDZdOTEo2nCtURSETW5+ghX9oD30qeHWYALkOAVf6AtS9JIo4g==
+"@ray-js/components-ty-slider@^0.2.47":
+  version "0.2.47"
+  resolved "https://registry.npmjs.org/@ray-js/components-ty-slider/-/components-ty-slider-0.2.47.tgz#284e41009a952f9a249bf00577a5685ebe514bd2"
+  integrity sha512-roYlbCFCmPKm/AzdGArwwmEAXVx2YCTm6/f7yBzL+7R74V+w3lKUcyysFZ1NOfhNzIMvrJgkS5O/8mZEYhCB7A==
   dependencies:
     "@ray-js/components-ty-config-provider" "^0.0.10"
     "@ray-js/gesture" "^0.1.4"

@@ -6,16 +6,15 @@ import { LightSlider } from '@/components/LightSlider';
 import Strings from '@/i18n';
 import { actions as storeActions } from '@/redux/actions/common';
 import LampCirclePicker from '@ray-js/lamp-circle-picker';
-import { useActions, useProps, useStructuredProps } from '@ray-js/panel-sdk';
+import { useActions, useProps } from '@ray-js/panel-sdk';
 import { View } from '@ray-js/ray';
 
 import styles from './index.module.less';
 
 export interface WhiteProps {}
 
-export const White: React.FC<WhiteProps> = ({}) => {
+export const White: React.FC<WhiteProps> = () => {
   const actions = useActions();
-  const colour = useStructuredProps(props => props.colour_data_raw);
   const brightness = useProps(props => +props.bright_value);
   const temperature = useProps(props => +props.temp_value);
   const work_mode = useProps(props => props.work_mode);
@@ -62,7 +61,6 @@ export const White: React.FC<WhiteProps> = ({}) => {
         <LightSlider
           title={Strings.getLang('light_label')}
           instanceId="slider_white"
-          hidden={work_mode !== 'light_white'}
           min={10}
           max={1000}
           value={brightness}
