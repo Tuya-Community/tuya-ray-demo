@@ -17,7 +17,7 @@ export function Home() {
           // actions.switch_1.toggle();
         }}
       >
-        <View className={styles['space-between']} style={{ marginTop: '50rpx' }}>
+        <View className={styles['space-around']} style={{ marginTop: '50rpx' }}>
           <Text>Public SDM Template</Text>
           <Button type="primary">Smart UI Primary Button</Button>
           <IconFont icon="sun" />
