@@ -15,10 +15,10 @@
     "build:tuya": "ray build -t tuya --verbose"
   },
   "dependencies": {
-    "@ray-js/components-ty-lamp": "^1.10.6",
-    "@ray-js/panel-sdk": "^1.10.0",
-    "@ray-js/ray": "^1.4.19",
-    "@ray-js/ray-error-catch": "^0.0.23",
+    "@ray-js/components-ty-lamp": "^1.10.11",
+    "@ray-js/panel-sdk": "^1.12.0",
+    "@ray-js/ray": "^1.5.27",
+    "@ray-js/ray-error-catch": "^0.0.24",
     "@reduxjs/toolkit": "^2.0.1",
     "ahooks": "^3.7.1",
     "clsx": "^1.2.1",
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^9.0.1",
-    "@ray-js/cli": "^1.4.19",
+    "@ray-js/cli": "^1.5.27",
     "@types/lodash-es": "^4.17.6",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
