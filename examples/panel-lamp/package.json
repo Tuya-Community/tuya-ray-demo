@@ -7,18 +7,16 @@
   "author": "Tuya.inc",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:native": "ray start -t native --verbose",
-    "start:tuya": "ray start -t tuya --verbose",
-    "build:native": "ray build -t native --verbose",
-    "build:tuya": "ray build -t tuya --verbose"
+    "start": "ray start --target tuya",
+    "build": "ray build --target tuya",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
-    "@ray-js/components-ty-lamp": "^1.10.6",
-    "@ray-js/panel-sdk": "^1.10.0",
-    "@ray-js/ray": "^1.4.19",
-    "@ray-js/ray-error-catch": "^0.0.23",
+    "@ray-js/components-ty-lamp": "^1.10.11",
+    "@ray-js/panel-sdk": "^1.12.0",
+    "@ray-js/ray": "^1.5.27",
+    "@ray-js/ray-error-catch": "^0.0.24",
+    "@ray-js/smart-ui": "^1.2.4",
     "@reduxjs/toolkit": "^2.0.1",
     "ahooks": "^3.7.1",
     "clsx": "^1.2.1",
@@ -30,7 +28,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^9.0.1",
-    "@ray-js/cli": "^1.4.19",
+    "@ray-js/cli": "^1.5.27",
     "@types/lodash-es": "^4.17.6",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",

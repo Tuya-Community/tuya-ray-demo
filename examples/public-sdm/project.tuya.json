@@ -11,7 +11,8 @@
     "DeviceKit": "3.0.2",
     "BizKit": "3.0.6"
   },
-  "baseversion": "2.13.3",
+  "baseversion": "2.19.0",
   "projectname": "public-sdm-template",
-  "devMode": "ray"
+  "devMode": "ray",
+  "compileType": "miniprogram"
 }
