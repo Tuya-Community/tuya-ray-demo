@@ -3411,6 +3411,18 @@
   dependencies:
     color "^3.2.1"
 
+"@ray-js/components-ty-progress-bar@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/@ray-js/components-ty-progress-bar/-/components-ty-progress-bar-0.1.1.tgz#881065b217fa01a527fb7160184d64c80b209670"
+  integrity sha512-64f9s7GQvOeeePHdHb+m6Go5pK0FgBOnhnbydwIEAMv3vTjNR+rtXH40TXudTgcwc/PHcVRa4EeMTfogZKlhLA==
+
+"@ray-js/components-ty-progress-circle@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npmjs.org/@ray-js/components-ty-progress-circle/-/components-ty-progress-circle-0.1.6.tgz#014ee5dd7580eb383ce6de7d7d7a27ce553fb55a"
+  integrity sha512-ZpvBqAPNsmIf+I0WjUNuV+ju3bAmRQeJuTpGqWiLh/9EMXFkk2oo3TCTPD+9UQ4ekZeSLIbqlqHCtLbGYXRlsg==
+  dependencies:
+    clsx "^1.1.1"
+
 "@ray-js/components-ty-slider@0.2.43":
   version "0.2.43"
   resolved "https://registry.npmjs.org/@ray-js/components-ty-slider/-/components-ty-slider-0.2.43.tgz#7c28e7da593e13192067abb1b309d2a81666dc0e"
@@ -3435,6 +3447,16 @@
   version "0.2.40"
   resolved "https://registry.npmjs.org/@ray-js/components-ty-slider/-/components-ty-slider-0.2.40.tgz#12109a8916423ee864e73b751220d10501711594"
   integrity sha512-W6iGRY4YNVYhdRQrmLLxCf2JzNKIxxBvYWLQd2g+/qs3SVe2g/EBuQgO5xnc/q5TMwshEB904Qckf9uUu2ZR6w==
+  dependencies:
+    "@ray-js/components-ty-config-provider" "^0.0.10"
+    "@ray-js/gesture" "^0.1.4"
+    clsx "^1.2.1"
+    to-style "^1.3.3"
+
+"@ray-js/components-ty-slider@^0.2.44", "@ray-js/components-ty-slider@^0.2.48":
+  version "0.2.48"
+  resolved "https://registry.npmjs.org/@ray-js/components-ty-slider/-/components-ty-slider-0.2.48.tgz#853139502f70e29c1be341d994bb4047aa0c3200"
+  integrity sha512-vAUQM37HT34krU2wS02VNS7RkVsCulrIdf7jO8vch0ySTCWxNkts1lOZjJ5qXP7iaIV+cpmSxW8G5HG/Ipo22Q==
   dependencies:
     "@ray-js/components-ty-config-provider" "^0.0.10"
     "@ray-js/gesture" "^0.1.4"
@@ -3823,6 +3845,17 @@
     npmlog "^7.0.1"
     slash "^3.0.0"
 
+"@ray-js/smart-ui@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.npmjs.org/@ray-js/smart-ui/-/smart-ui-1.2.4.tgz#5e8648bdcbd3e1bdf6eb32cb82a107e0870e9ce8"
+  integrity sha512-jg0TjVAEkB3XfNDCXJXCKa3PKqPTmDyZyKDb0tnekO35MbxE8YSbNH1oe8uYI/vdmo0VqqE5WHlG3ESUw6t9MQ==
+  dependencies:
+    "@ray-js/components-ty-progress-bar" "^0.1.1"
+    "@ray-js/components-ty-progress-circle" "^0.1.6"
+    "@ray-js/components-ty-slider" "^0.2.48"
+    "@tuya-miniapp/smart-ui" "^1.2.2"
+    lodash-es "^4.17.21"
+
 "@ray-js/tuya-dp-transform@^0.0.2":
   version "0.0.2"
   resolved "https://registry.npmjs.org/@ray-js/tuya-dp-transform/-/tuya-dp-transform-0.0.2.tgz#41bba42842e3efc570a3a5cecca71c6b13db2357"
@@ -4021,6 +4054,19 @@
   version "1.1.2"
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
+
+"@tuya-miniapp/icons@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@tuya-miniapp/icons/-/icons-1.0.0.tgz#34a470948df49aaa3c043adcf2d2df35a4160614"
+  integrity sha512-LsPihGkOQwXyxhJ62+0IJAXYl50HnQqtIU57U+lWFzrIz0cuq0+LUSIEg+KShLJS5ac3nDAhawmumaZUjXgUzA==
+
+"@tuya-miniapp/smart-ui@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/@tuya-miniapp/smart-ui/-/smart-ui-1.2.2.tgz#ff773a8054daa608c1081013aa993719d23877d4"
+  integrity sha512-4nmu48dpV/8CwzUdywA7ohAqEfAPJmEYli97KHwivjfTlgrKfSkufoNZLdDO1YmsVXjdcnOb2+D3AXJJhTqCfg==
+  dependencies:
+    "@ray-js/components-ty-slider" "^0.2.44"
+    "@tuya-miniapp/icons" "^1.0.0"
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.19"

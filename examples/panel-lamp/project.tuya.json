@@ -14,6 +14,6 @@
     "MediaKit": "3.2.0"
   },
   "projectname": "照明光源模板",
-  "baseversion": "2.15.6",
+  "baseversion": "2.19.0",
   "compileType": "miniprogram"
 }

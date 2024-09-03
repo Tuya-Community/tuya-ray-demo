@@ -19,6 +19,7 @@
     "@ray-js/panel-sdk": "^1.12.0",
     "@ray-js/ray": "^1.5.27",
     "@ray-js/ray-error-catch": "^0.0.24",
+    "@ray-js/smart-ui": "^1.2.4",
     "@reduxjs/toolkit": "^2.0.1",
     "ahooks": "^3.7.1",
     "clsx": "^1.2.1",
