@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View } from '@ray-js/ray';
+import { Button } from '@ray-js/smart-ui';
 import { TopBar } from '@/components';
 import { IconFont } from '@/components/icon-font';
 import styles from './index.module.less';
@@ -18,6 +19,7 @@ export function Home() {
       >
         <View className={styles['space-between']} style={{ marginTop: '50rpx' }}>
           <Text>Public SDM Template</Text>
+          <Button type="primary">Smart UI Primary Button</Button>
           <IconFont icon="sun" />
         </View>
       </View>
