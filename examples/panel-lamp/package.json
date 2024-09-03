@@ -7,12 +7,9 @@
   "author": "Tuya.inc",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:native": "ray start -t native --verbose",
-    "start:tuya": "ray start -t tuya --verbose",
-    "build:native": "ray build -t native --verbose",
-    "build:tuya": "ray build -t tuya --verbose"
+    "start": "ray start --target tuya",
+    "build": "ray build --target tuya",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
     "@ray-js/components-ty-lamp": "^1.10.11",
