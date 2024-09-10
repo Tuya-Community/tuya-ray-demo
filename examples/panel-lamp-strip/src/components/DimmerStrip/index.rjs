@@ -1,8 +1,22 @@
 import { rgb2hsv, hsv2rgbString } from '@ray-js/panel-sdk/lib/utils/color';
-import { utils } from '@ray-js/panel-sdk';
 import { getCollisionCheck } from '../../pages/Dimmer/DimmerStrip/utils';
 
-import { convertRange } from '../../utils';
+const calcPosition = (
+  value,
+  min,
+  max,
+  newMin,
+  newMax,
+) => {
+  const oldRange = max - min;
+  const newRange = newMax - newMin;
+  const newValue = ((value - min) * newRange) / oldRange + newMin;
+  return newValue;
+};
+
+function convertRange(value, oldMin = 1, oldMax = 1000, newMin = 240, newMax = 1000) {
+  return calcPosition(value, oldMin, oldMax, newMin, newMax);
+}
 
 const INTERVAL = 30;
 
