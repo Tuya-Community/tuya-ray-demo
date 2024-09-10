@@ -2523,10 +2523,10 @@
   resolved "https://registry.npmmirror.com/@ray-js/rjs-for-wechat/-/rjs-for-wechat-0.0.3.tgz#262539b346ffd6c090239dac455225c1a4339a95"
   integrity sha512-YgOzZB3Gtvp5UncWtUxmn81F8LVfhUO8qec29Aj8f2HolhxMCKnJSMJcUooWqpKWX4Au7CUHLPH/hvordWGaiw==
 
-"@ray-js/robot-data-stream@0.0.2-beta-1":
-  version "0.0.2-beta-1"
-  resolved "https://registry.npmjs.org/@ray-js/robot-data-stream/-/robot-data-stream-0.0.2-beta-1.tgz#51d3075de397e8bfaffabdbb7e296680d17873b3"
-  integrity sha512-y6nWxfbWi6iPi6j1515vOBtKKAuTYXx+6Pi2WuWnm8E+/+/s11HZaSxF204ZjYJ356QfivYxfXsg0tgoTp+0bw==
+"@ray-js/robot-data-stream@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/@ray-js/robot-data-stream/-/robot-data-stream-0.0.2.tgz#3df8164d3e430c2300d38c091af469367e3f0d62"
+  integrity sha512-x6apRdbzjCLzV0umHYfzoe7Y4a0acLoMDTBA8Ni0jW0TwhArX79wFro9IdIg097G5oRP2XTO+mcQn8q0o21RtQ==
   dependencies:
     "@ray-js/log4js" "^0.0.2"
     clsx "^1.2.1"
@@ -2534,10 +2534,10 @@
     mitt "^3.0.1"
     moment "^2.30.1"
 
-"@ray-js/robot-map-component@0.0.4-beta-4":
-  version "0.0.4-beta-4"
-  resolved "https://registry.npmjs.org/@ray-js/robot-map-component/-/robot-map-component-0.0.4-beta-4.tgz#d586cb947155e2c0dd7beed7fc48e7ea328df86f"
-  integrity sha512-XQkl2lsVv61Z+F4niKnB1zWamr8vUo+x9nQNUULnaMOIa8XyhTlw0rsx+lZhmhjb6MHQYIFnjznnhtBqcDEYnw==
+"@ray-js/robot-map-component@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@ray-js/robot-map-component/-/robot-map-component-0.0.4.tgz#717f310c1afb13e080db725ae84f586ca17a2f19"
+  integrity sha512-z011s1VaHYHaoTwpgoSOpQe3D0oSxjdbHhrH6zlt6aYKy1+m5nIywryH74ASDjbqfvOlykPIqRkkTYxZeWlEWw==
   dependencies:
     "@ray-js/robot-middleware" "0.0.2-beta-3"
     "@ray-js/robot-protocol" "0.3.1-beta-4"
@@ -2561,18 +2561,18 @@
   dependencies:
     reconnecting-websocket "^4.4.0"
 
-"@ray-js/robot-protocol@0.3.1-beta-3":
-  version "0.3.1-beta-3"
-  resolved "https://registry.npmmirror.com/@ray-js/robot-protocol/-/robot-protocol-0.3.1-beta-3.tgz#d6a4b61f9ce38ba9ae8ecfb2c8b6855d6c26a372"
-  integrity sha512-qk7U3FqI8m0Onbbut3nccnqcUrgXCRrFlDtlqW9IcWjt1GI3wCmKIRVXDHyrtZXPAgP9RuBwa+l3Q34HTStWrw==
-  dependencies:
-    buffer "^6.0.3"
-    lodash-es "^4.17.21"
-
 "@ray-js/robot-protocol@0.3.1-beta-4":
   version "0.3.1-beta-4"
   resolved "https://registry.npmjs.org/@ray-js/robot-protocol/-/robot-protocol-0.3.1-beta-4.tgz#78aad07287f30c50ec9bb67ed22774f18d70b919"
   integrity sha512-hjQ60fJfDFaVZEPUERoNdXcaEyLnJoMgzRJM0Fsqns8IKNFtXAnKlNkDA8G20LGxfrx55PUlJPIYVIvn2cwAJQ==
+  dependencies:
+    buffer "^6.0.3"
+    lodash-es "^4.17.21"
+
+"@ray-js/robot-protocol@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.npmjs.org/@ray-js/robot-protocol/-/robot-protocol-0.3.1.tgz#b95375141730e7efe1dfa337cb69ad9880c95703"
+  integrity sha512-gHfi2N+B4q9srd6fhTwPZlZuC+fIoKY88CN5PuwxQ1ptWeiJKggzeYhix56Wu8hDB/AV6IJT0Zy9KjWSky509g==
   dependencies:
     buffer "^6.0.3"
     lodash-es "^4.17.21"
