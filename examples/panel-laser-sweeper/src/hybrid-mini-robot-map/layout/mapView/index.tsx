@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import _ from 'lodash';
-import { View } from '@ray-js/ray';
+import { View, getSystemInfoSync } from '@ray-js/ray';
 import { useMiddlewareMapViewParams } from '@/hooks';
 import { IndoorMap } from '@ray-js/robot-map-component';
 import { MapHeader, RoomDecoded } from '@ray-js/robot-protocol';
@@ -53,10 +53,14 @@ const MapView: React.FC<IProps> = React.memo(props => {
 
   const mapViewParams = useMiddlewareMapViewParams(params);
 
-  const isLoading = !mapViewParams.mapDataHex;
+  const isIDE = getSystemInfoSync().brand === 'devtools';
+
+  const isLoading = isIDE ? !mapLoadEnd : !mapViewParams.mapDataHex;
 
   const {
-    onMapId = () => {},
+    onMapId = () => {
+      //
+    },
     onLaserMapPoints = () => {
       console.log('onLaserMapPoints');
     },
@@ -69,7 +73,9 @@ const MapView: React.FC<IProps> = React.memo(props => {
     onClickRoom = () => {
       console.log('onClickRoom');
     },
-    onLoggerInfo = () => {},
+    onLoggerInfo = () => {
+      //
+    },
     onClickModel = () => {
       console.log('onClickModel');
     },
@@ -79,7 +85,9 @@ const MapView: React.FC<IProps> = React.memo(props => {
     onMapLoadEnd = () => {
       console.log('onMapLoadEnd');
     },
-    onGestureChange = () => {},
+    onGestureChange = () => {
+      //
+    },
     onClickRoomProperties = () => {
       console.log('onClickRoomProperties');
     },

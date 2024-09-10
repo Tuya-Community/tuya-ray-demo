@@ -28,7 +28,7 @@ import {
 } from '@/hybrid-mini-robot-map/res/base64Imgs';
 import { ForbidTypeEnum } from '@/hybrid-mini-robot-map/protocol/constant';
 import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
-import store, { actions } from '@/redux';
+import store from '@/redux';
 import { updateMapData } from '@/redux/modules/mapStateSlice';
 
 export const getAreasForMapView = (existAreas: any[], mapAreas: any) => {

@@ -5,20 +5,19 @@ import { useFoldableSingleRoomInfo, useGetMapPointsInfo } from '@/hooks/openApiH
 import MapView from '@/hybrid-mini-robot-map/layout/mapView';
 import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
 import { parseRoomId } from '@/hybrid-mini-robot-map/protocol/robotCmd';
-import { useP2P } from '@/hybrid-mini-robot-map/sourceManger/api';
 import Strings from '@/i18n';
 import Store, { useSelector } from '@/redux';
 import { updateMapData } from '@/redux/modules/mapStateSlice';
 import { updateTemporaryPreference } from '@/redux/modules/temporaryPreferenceSlice';
-import { emitter, getDevId } from '@/utils';
+import { getDevId } from '@/utils';
 import { isRobotQuiet, robotIsSelectRoom, robotIsSelectRoomPaused } from '@/utils/robotStatus';
 import { useProps } from '@ray-js/panel-sdk';
 import { View, showToast } from '@ray-js/ray';
 import { Utils } from '@ray-js/ray-error-catch';
+import { StreamDataNotificationCenter, useP2PDataStream } from '@ray-js/robot-data-stream';
 import { MapHeader, RoomDecoded } from '@ray-js/robot-protocol';
 import { useUpdateEffect } from 'ahooks';
 import React, { useCallback, useRef, useState } from 'react';
-
 
 const { Logger } = Utils;
 interface IProps {
@@ -40,20 +39,16 @@ const HomeMapView: React.FC<IProps> = props => {
   const mapId = useRef('');
 
   const [mapLoadEnd, setMapLoadEnd] = useState(false);
- 
 
   const onReceiveMapData = (data: string) => {
-    emitter.emit('receiveMapData', data)
-  }
+    StreamDataNotificationCenter.emit('receiveMapData', data);
+  };
 
+  const onReceivePathData = (data: string) => {
+    StreamDataNotificationCenter.emit('receivePathData', data);
+  };
 
-  const onReceivePathData = (data:string) => {
-    emitter.emit('receivePathData', data)
-
-  }
-
-  const { setMapId} = useP2P(getDevId(), onReceiveMapData, onReceivePathData)
-
+  useP2PDataStream(getDevId(), onReceiveMapData, onReceivePathData);
 
   /**
    * 当前是否处于选区状态
@@ -73,13 +68,9 @@ const HomeMapView: React.FC<IProps> = props => {
     isSelectingRoom(props.mapStatus, workModeState, robotStatusState)
   );
 
- 
-
-
   useMapData();
   usePathData();
   useCommandTransData();
-
 
   // 监听状态变化判断是否处于选区状态
   useUpdateEffect(() => {
@@ -91,8 +82,7 @@ const HomeMapView: React.FC<IProps> = props => {
    * @param data
    */
   const onMapId = async (data: any) => {
-    mapId.current = data.mapId
-    setMapId(data.mapId)
+    mapId.current = data.mapId;
     dispatch(
       updateMapData({
         mapId: data.mapId,
