@@ -1,11 +1,10 @@
 import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
-import { emitter } from '@/utils';
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useDevice } from '@ray-js/panel-sdk';
 import { updateMapData } from '@/redux/modules/mapStateSlice';
 import _ from 'lodash';
-import { actions } from '@/redux';
+import { StreamDataNotificationCenter } from '@ray-js/robot-data-stream';
 
 /**
  * 接收地图数据并解析
@@ -32,10 +31,10 @@ export default function useMapData() {
       }
     };
 
-    emitter.on('receiveMapData', handleMapData);
+    StreamDataNotificationCenter.on('receiveMapData', handleMapData);
 
     return () => {
-      emitter.off('receiveMapData');
+      StreamDataNotificationCenter.off('receiveMapData');
     };
   }, []);
   return {};

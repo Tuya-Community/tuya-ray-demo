@@ -1,10 +1,9 @@
 import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
-import { emitter } from '@/utils';
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { actions } from '@/redux';
 import { useDevice } from '@ray-js/panel-sdk';
 import { updateMapData } from '@/redux/modules/mapStateSlice';
+import { StreamDataNotificationCenter } from '@ray-js/robot-data-stream';
 /**
  * 接收路径数据并解析
  * @returns
@@ -31,10 +30,10 @@ export default function usePathData() {
       }
     };
 
-    emitter.on('receivePathData', handlePathData);
+    StreamDataNotificationCenter.on('receivePathData', handlePathData);
 
     return () => {
-      emitter.off('receivePathData');
+      StreamDataNotificationCenter.off('receivePathData');
     };
   }, []);
   return {};
