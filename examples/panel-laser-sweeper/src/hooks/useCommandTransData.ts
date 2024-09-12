@@ -1,4 +1,4 @@
-import { emitter, getVirtualForbid, getVirtualWall, putDeviceData } from '@/utils';
+import { emitter, getVirtualForbid, getVirtualWall } from '@/utils';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import dataProtocol from '@/hybrid-mini-robot-map/protocol';
@@ -30,6 +30,7 @@ import { ForbidTypeEnum } from '@/hybrid-mini-robot-map/protocol/constant';
 import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
 import store from '@/redux';
 import { updateMapData } from '@/redux/modules/mapStateSlice';
+import { useActions } from '@ray-js/panel-sdk';
 
 export const getAreasForMapView = (existAreas: any[], mapAreas: any) => {
   const {
@@ -152,6 +153,7 @@ export const getAreasForMapView = (existAreas: any[], mapAreas: any) => {
  */
 export default function useCommandTransData() {
   const dispatch = useDispatch();
+  const dpActions = useActions();
 
   useEffect(() => {
     const handleCommandTransData = (command: string) => {
@@ -169,12 +171,9 @@ export default function useCommandTransData() {
     };
 
     emitter.on('receiveCommandTransData', handleCommandTransData);
-    putDeviceData({
-      [commandTransCode]: getVirtualForbid(),
-    });
-    putDeviceData({
-      [commandTransCode]: getVirtualWall(),
-    });
+
+    dpActions[commandTransCode].set(getVirtualForbid());
+    dpActions[commandTransCode].set(getVirtualWall());
 
     return () => {
       emitter.off('receiveCommandTransData');

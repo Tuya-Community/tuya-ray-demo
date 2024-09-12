@@ -4,7 +4,7 @@ import { useGetMapPointsInfo } from '@/hooks/openApiHooks';
 import Strings from '@/i18n';
 import Store, { actions, useSelector } from '@/redux';
 import { selectMapStateByKey } from '@/redux/modules/mapStateSlice';
-import { encodeRoomClean, formatDps, getCommonData, getRoomSuccess, putDeviceData } from '@/utils';
+import { encodeRoomClean, formatDps, getCommonData, getRoomSuccess } from '@/utils';
 import {
   isRobotSilence,
   robotIsAreaPause,
@@ -19,7 +19,7 @@ import {
   robotIsToCharing,
 } from '@/utils/robotStatus';
 import { addCorrectRoomInfo, filterCorrectRoomInfo } from '@/utils/roomInfo';
-import { useProps } from '@ray-js/panel-sdk';
+import { useActions, useProps } from '@ray-js/panel-sdk';
 import { offDpDataChange, onDpDataChange } from '@ray-js/ray';
 import { Utils } from '@ray-js/ray-error-catch';
 import { GridItem } from '@ray-js/smart-ui';
@@ -46,6 +46,7 @@ const { nativeMapStatusEnum, cleanWorkModeEnum } = dpCodes;
 
 function SwitchButton(props: Props) {
   const dispatch = useDispatch();
+  const dpActions = useActions();
   const customizeModeSwitchState = useProps(props => props[dpCodes.customizeModeSwitch]);
   const robotStatusState = useProps(props => props[dpCodes.robotStatus]);
   const workModeState = useProps(props => props[dpCodes.workMode]);
@@ -163,7 +164,7 @@ function SwitchButton(props: Props) {
         }
       }
 
-      await putDeviceData({ [dpCodes.commText]: data });
+      await dpActions[dpCodes.commText].set(data);
     });
 
     if (minCount && dataArr.length < minCount) {
@@ -233,7 +234,7 @@ function SwitchButton(props: Props) {
       );
       onDpDataChange(deviceDataChangeFn);
       startLoading();
-      putDeviceData({ [dpCodes.commText]: data });
+      dpActions[dpCodes.commText].set(data);
       typeof cb === 'function' && cb();
     } catch (error) {
       console.warn('put select room dp data failed\n', error);
@@ -248,14 +249,14 @@ function SwitchButton(props: Props) {
     const btnStatus = judgeRobotStatus();
     if (btnStatus !== 'start') {
       // 结束清扫
-      return putDeviceData({ [dpCodes.cleanSwitch]: false });
+      return dpActions[dpCodes.cleanSwitch].set(false);
     }
     // 地图处于划区状态
     if (mapStatus === nativeMapStatusEnum.areaSet) {
       // 如果处于还未开始清扫状态
       const callback = async () => {
-        await putDeviceData({ [dpCodes.workMode]: zone });
-        await putDeviceData({ [dpCodes.cleanSwitch]: true });
+        await dpActions[dpCodes.workMode].set(zone);
+        await dpActions[dpCodes.cleanSwitch].set(true);
       };
       putPointData(1, callback);
     }
@@ -264,8 +265,8 @@ function SwitchButton(props: Props) {
     if (mapStatus === nativeMapStatusEnum.pressToRun) {
       // 如果处于还未开始清扫状态
       const callback = async () => {
-        await putDeviceData({ [dpCodes.workMode]: pose });
-        await putDeviceData({ [dpCodes.cleanSwitch]: true });
+        await dpActions[dpCodes.workMode].set(pose);
+        await dpActions[dpCodes.cleanSwitch].set(true);
       };
       putPointData(1, callback);
     }
@@ -274,8 +275,8 @@ function SwitchButton(props: Props) {
     if (mapStatus === nativeMapStatusEnum.mapClick) {
       // 如果处于还未开始清扫状态
       const callback = () => {
-        putDeviceData({ [dpCodes.workMode]: selectRoom, [dpCodes.cleanSwitch]: true });
-        putDeviceData({ [dpCodes.cleanSwitch]: true });
+        dpActions[dpCodes.workMode].set(selectRoom);
+        dpActions[dpCodes.cleanSwitch].set(true);
       };
       handleSelectRoomStart(callback);
     }
@@ -286,8 +287,8 @@ function SwitchButton(props: Props) {
       // 如果处于寻找充电座中,则弹窗提示
       // 反之则下发开始清扫指令
 
-      await putDeviceData({ [dpCodes.workMode]: smart });
-      await putDeviceData({ [dpCodes.cleanSwitch]: true });
+      dpActions[dpCodes.workMode].set(smart);
+      dpActions[dpCodes.cleanSwitch].set(true);
     }
   };
 

@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
 import { getSystemInfoSync } from '@ray-js/ray';
 import { kit, DevInfo } from '@ray-js/panel-sdk';
 import store, { actions } from '@/redux';
 import { devices, dpKit } from './devices';
-import { updateThemeType } from './redux/modules/themeSlice';
-import { devInfoChange } from './redux/modules/devInfoSlice';
 import { initializeSystemInfo } from './redux/modules/systemInfoSlice';
 
 import './styles/index.less';
-
-const { initDevInfo } = kit;
 
 interface Props {
   devInfo: DevInfo;
@@ -32,7 +28,6 @@ const composeLayout = (SubComp: React.ComponentType<any>) => {
       const { theme } = systemInfo;
 
       dispatch(initializeSystemInfo(systemInfo));
-      dispatch(updateThemeType(theme));
 
       ty.getAppInfo({
         success: infoSource => {
@@ -40,9 +35,6 @@ const composeLayout = (SubComp: React.ComponentType<any>) => {
           dispatch(actions.common.updateRegionCode({ regionCode }));
         },
       });
-
-      const deviceInfo = await initDevInfo();
-      dispatch(devInfoChange(deviceInfo));
     }
 
     render() {

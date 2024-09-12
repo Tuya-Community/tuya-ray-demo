@@ -12,7 +12,7 @@ import {
   rRotateBase64Img,
 } from '@/hybrid-mini-robot-map/res/base64Imgs';
 import { actions, useSelector } from '@/redux';
-import { decodeCommTextData, formatDps, getVirtualInfoCommonData, putDeviceData } from '@/utils';
+import { decodeCommTextData, formatDps, getVirtualInfoCommonData } from '@/utils';
 import {
   getNewAreaId,
   isForbiddenZonePointsInCurPos,
@@ -28,6 +28,8 @@ import { useThrottleFn } from 'ahooks';
 import _, { isEmpty } from 'lodash';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useActions } from '@ray-js/panel-sdk';
+
 import Strings from '../../i18n';
 import MapView from '../mapView';
 import './icons/iconfont.css';
@@ -35,6 +37,7 @@ import './icons/tab/iconfont.css';
 import styles from './index.module.less';
 
 const MapEditLayout = () => {
+  const dpActions = useActions();
   const dispatch = useDispatch();
   const panelConfig = useSelector(state => state.laserPanelConfig);
   const iconColor = brand;
@@ -186,7 +189,7 @@ const MapEditLayout = () => {
         mapScale: 1,
       };
       const commText = getVirtualInfoCommonData(params);
-      putDeviceData({ [DPCodes.commText]: commText });
+      dpActions[DPCodes.commText].set(commText);
     });
     putFn();
   };

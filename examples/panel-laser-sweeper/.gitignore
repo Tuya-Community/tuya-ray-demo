@@ -2,4 +2,8 @@
 node_modules
 .ray
 dist
-typings
+typings/*
+
+!typings
+!typings/index.d.ts
+!typings/sdm.d.ts

@@ -6,7 +6,6 @@ import { selectCustomConfig } from '@/redux/modules/customConfigSlice';
 import { selectMapExtraByKey } from '@/redux/modules/mapExtrasSlice';
 import { selectMapStateByKey } from '@/redux/modules/mapStateSlice';
 import { useMemo } from 'react';
-import { mapData0, pathData0 } from '@/mock';
 
 type Props = {
   uiInterFace?: {

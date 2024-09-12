@@ -7,14 +7,7 @@ import {
 import { actions, useSelector } from '@/redux';
 import { useActions, useDevice, useProps } from '@ray-js/panel-sdk';
 
-import {
-  formatDps,
-  getPosData,
-  getRoomClean,
-  getRoomSuccess,
-  getZoneArea,
-  putDeviceData,
-} from '@/utils';
+import { formatDps, getPosData, getRoomClean, getRoomSuccess, getZoneArea } from '@/utils';
 import {
   isRobotSilence,
   isRobotSleep,
@@ -164,7 +157,7 @@ function ControllerBar(props: Props) {
       setMapStatus(nativeMapStatusEnum.mapClick, true);
       onDpDataChange(deviceDataChangeFn);
       startLoading();
-      putDeviceData({ [dpCodes.commText]: getRoomClean() });
+      dpActions[dpCodes.commText].set(getRoomClean());
     }
     // 扫地机处于待机/充电中/充电完成/休眠/故障状态
     if (isRobotSilence(robotStatusState) || robotIsFault(robotStatusState)) {
