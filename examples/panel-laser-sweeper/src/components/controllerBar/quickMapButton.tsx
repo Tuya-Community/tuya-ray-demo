@@ -1,9 +1,8 @@
 import { brand, dpCodes } from '@/config';
 import Strings from '@/i18n';
 import { useSelector } from '@/redux';
-import { putDeviceData } from '@/utils';
 import { robotIsCleaning } from '@/utils/robotStatus';
-import { useProps } from '@ray-js/panel-sdk';
+import { useActions, useProps } from '@ray-js/panel-sdk';
 import { View } from '@ray-js/ray';
 import { Button, Col, Row } from '@ray-js/smart-ui';
 import React from 'react';
@@ -12,6 +11,7 @@ import { encodeQuickMapV1 } from '@ray-js/robot-protocol';
 import styles from './index.module.less';
 
 export const QuickMapButton = () => {
+  const dpActions = useActions();
   const mapDataState = useSelector(state => state.mapState); // 地图数据
 
   const { isEmptyMap } = mapDataState;
@@ -24,7 +24,7 @@ export const QuickMapButton = () => {
   const quickMapFn = () => {
     const protocolLengthVersion = '1';
     const commText = encodeQuickMapV1({ version: protocolLengthVersion });
-    putDeviceData({ [dpCodes.commText]: commText });
+    dpActions[dpCodes.commText].set(commText);
   };
 
   const show = isEmptyMap && !robotIsCleaning(workModeState, robotStatusState);

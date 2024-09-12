@@ -9,10 +9,9 @@ import Strings from '@/i18n';
 import Store, { useSelector } from '@/redux';
 import { updateMapData } from '@/redux/modules/mapStateSlice';
 import { updateTemporaryPreference } from '@/redux/modules/temporaryPreferenceSlice';
-import { getDevId } from '@/utils';
 import { isRobotQuiet, robotIsSelectRoom, robotIsSelectRoomPaused } from '@/utils/robotStatus';
 import { useProps } from '@ray-js/panel-sdk';
-import { View, showToast } from '@ray-js/ray';
+import { View, getDevInfo, showToast } from '@ray-js/ray';
 import { Utils } from '@ray-js/ray-error-catch';
 import { StreamDataNotificationCenter, useP2PDataStream } from '@ray-js/robot-data-stream';
 import { MapHeader, RoomDecoded } from '@ray-js/robot-protocol';
@@ -48,7 +47,7 @@ const HomeMapView: React.FC<IProps> = props => {
     StreamDataNotificationCenter.emit('receivePathData', data);
   };
 
-  useP2PDataStream(getDevId(), onReceiveMapData, onReceivePathData);
+  useP2PDataStream(getDevInfo().devId, onReceiveMapData, onReceivePathData);
 
   /**
    * 当前是否处于选区状态

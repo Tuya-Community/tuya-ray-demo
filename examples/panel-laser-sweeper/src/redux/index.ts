@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
 import { TypedUseSelectorHook, useSelector as useSelector1, useDispatch } from 'react-redux';
 import systemInfoReducer from './modules/systemInfoSlice';
-import themeReducer from './modules/themeSlice';
 import commonReducer, { actions as commonInfoActions } from './modules/commonSlice';
 import mapStateReducer from './modules/mapStateSlice';
 import virtualStateReducer, { actions as virtualState } from './modules/virtualStateSlice';
@@ -11,11 +10,11 @@ import laserPanelConfigReducer, {
 } from './modules/laserPanelConfigSlice';
 import panelConfigReducer from './modules/panelConfigSlice';
 import mapExtrasReducer from './modules/mapExtrasSlice';
-import devInfoSlice from './modules/devInfoSlice';
 import temporaryPreferenceReducer from './modules/temporaryPreferenceSlice';
 import componentPositionReducer, {
   actions as componentPosition,
 } from './modules/componentPositionSlice';
+import customConfigReducer from './modules/customConfigSlice';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -30,16 +29,15 @@ const middlewares = isDev ? [logger] : [];
 const store = configureStore({
   reducer: {
     systemInfo: systemInfoReducer,
-    theme: themeReducer,
     commonInfo: commonReducer,
     mapState: mapStateReducer,
     laserPanelConfig: laserPanelConfigReducer,
     virtualState: virtualStateReducer,
     panelConfig: panelConfigReducer,
     mapExtras: mapExtrasReducer,
-    devInfo: devInfoSlice,
     componentPosition: componentPositionReducer,
     temporaryPreference: temporaryPreferenceReducer,
+    customConfig: customConfigReducer,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middlewares),
 });

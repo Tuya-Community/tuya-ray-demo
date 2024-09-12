@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import FunctionUtils from './functionUtil';
 import LoggerUtils from './loggerUtil';
 import Lz4 from './lz4Util';
@@ -15,10 +14,6 @@ export function isNotError(value: any) {
     return false;
   }
   return true;
-}
-
-export function extractError(error: Error) {
-  return Observable.of(error);
 }
 
 export default {

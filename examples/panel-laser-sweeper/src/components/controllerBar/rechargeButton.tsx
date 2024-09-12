@@ -1,16 +1,16 @@
 // 充电按钮
 import { dpCodes } from '@/config';
 import Strings from '@/i18n';
-import { putDeviceData } from '@/utils';
 import { View } from '@ray-js/ray';
 import { GridItem } from '@ray-js/smart-ui';
 import { robotIsCharing, robotIsFullCharge, robotIsToCharing } from '@/utils/robotStatus';
-import { useProps } from '@ray-js/panel-sdk';
+import { useActions, useProps } from '@ray-js/panel-sdk';
 import React from 'react';
 import './icons/iconfont.css';
 import styles from './index.module.less';
 
 export const RechargeButton = () => {
+  const dpActions = useActions();
   const robotStatusState = useProps(props => props[dpCodes.robotStatus]);
 
   /**
@@ -20,12 +20,12 @@ export const RechargeButton = () => {
   const handleBackCharge = () => {
     // 扫地机处于寻找充电座状态
     if (robotIsToCharing(robotStatusState)) {
-      putDeviceData({ [dpCodes.chargeSwitch]: false });
+      dpActions[dpCodes.chargeSwitch].set(false);
 
       return;
     }
 
-    putDeviceData({ [dpCodes.chargeSwitch]: true });
+    dpActions[dpCodes.chargeSwitch].set(true);
   };
 
   const iconName = robotIsToCharing(robotStatusState)

@@ -2,7 +2,6 @@ import React, { ReactNode, useEffect, useCallback, FC } from 'react';
 import { router } from 'ray';
 import { View, Text, CoverView } from '@ray-js/ray';
 import { useSelector } from '@/redux';
-import useHideMenuButton from '@/hooks/useHideMenuButton';
 import { mergeProps } from '@/utils/mergeProps';
 import styles from './index.module.less';
 
@@ -52,7 +51,6 @@ export const NavigationBar: FC<NavigationBarProps> = p => {
   const navigationBarHeight = 44;
   const props = mergeProps(defaultProps, p);
   const { backArrow, left, right, onBack, textColor = '#000' } = props;
-  useHideMenuButton();
   const handleBack = useCallback(() => {
     if (onBack) {
       onBack();

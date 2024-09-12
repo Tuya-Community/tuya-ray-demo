@@ -10,5 +10,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 0,
     'react/require-default-props': 0,
     'no-param-reassign': 0,
+    'consistent-return': 0,
   },
 };

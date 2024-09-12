@@ -799,40 +799,6 @@ export const checkDpExist = (dpCode: string) => {
 export const getDpIdByCode = (dpCode: string) => getDevInfo().codeIds[dpCode];
 
 /**
- * 获取devId
- */
-export const getDevId = () => getDevInfo().devId;
-
-/**
- * 下发DP
- * @param dpState
- */
-export const putDeviceData = (dpState: any) => {
-  return new Promise<void>((resolve, reject) => {
-    const dps = {};
-    Object.keys(dpState).forEach((dpCode: string) => {
-      dps[getDpIdByCode(dpCode)] = dpState[dpCode];
-    });
-
-    ty.device.publishDps({
-      deviceId: getDevId(),
-      dps,
-      mode: 2,
-      pipelines: [],
-      options: {}, // 0，静音； 1，震动；2,声音； 3，震动声音
-      success: () => {
-        console.info('-----数据下发', dpState);
-        resolve();
-      },
-      fail: d => {
-        console.info('-----返回结果错误?', d);
-        reject();
-      },
-    });
-  });
-};
-
-/**
  * 根据dpId获取dpCode
  */
 export const getDpCodeById = (dpId: number | string) => getDevInfo().idCodes[dpId];

@@ -1,4 +1,3 @@
-import { handleActions } from 'redux-actions';
 import _ from 'lodash';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { panelConfig as defaultPanelConfig, dpCodes } from '@/config';
