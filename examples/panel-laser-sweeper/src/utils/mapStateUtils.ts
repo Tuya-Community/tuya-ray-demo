@@ -9,7 +9,7 @@ import circleIntersectRect from '@/hybrid-mini-robot-map/protocol/utils/pressCoo
 import _ from 'lodash';
 import { dpCodes } from '@/config';
 import { IndoorMapApi, IndoorMapUtils } from '@ray-js/robot-map-component';
-import { useAddLaserMapPosPoints, useAddLaserMapArea } from '@/hooks/openApiHooks';
+import { addLaserMapPosPoints, addLaserMapArea } from '@/utils/openApi';
 const { nativeMapStatusEnum } = dpCodes;
 const ALL_ZONE_MUN_MAX = 100;
 
@@ -267,7 +267,7 @@ export function setMapCleanZone({
         });
 
         console.log('areaZone', areaZone);
-        useAddLaserMapArea(mapId, areaZone).then(() =>
+        addLaserMapArea(mapId, areaZone).then(() =>
           resolve({ area: { ...areaZone, type: nativeMapStatusEnum.areaSet } })
         );
       })
@@ -510,7 +510,7 @@ export function setPosPoints({
         },
       });
       console.log('setPosPoints', posPoints);
-      useAddLaserMapPosPoints(mapId, posPoints).then(() => resolve({ posPoints }));
+      addLaserMapPosPoints(mapId, posPoints).then(() => resolve({ posPoints }));
     } else {
       reject();
     }

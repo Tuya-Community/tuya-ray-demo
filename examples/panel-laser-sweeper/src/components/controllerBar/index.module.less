@@ -14,38 +14,35 @@
   background-color: #ffffff;
 }
 
-.full{
-  width:100vw
+.full {
+  width: 100vw;
 }
 
 .quickMapBtn {
   margin-bottom: 20rpx;
 }
 
-
 .icon {
   width: 48rpx;
   height: 48rpx;
 }
 
+.cleanModeItem {
+  width: 25vw;
 
+  &.active {
+    :global(.smart-grid-item__icon) {
+      background-color: #3a9;
+    }
+  }
 
-
-.cleanModeContent {
-  width: 112rpx;
-  height: 112rpx !important;
-  border-radius: 56rpx;
-  background-color: #f6f6f6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.activeCleanModeContent{
-  .cleanModeContent;
-  background-color: #3a9;
-}
-
-.cleanModeItem{
-  width: 100vw/4;
+  :global(.smart-grid-item__icon) {
+    width: 112rpx;
+    height: 112rpx !important;
+    border-radius: 56rpx;
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

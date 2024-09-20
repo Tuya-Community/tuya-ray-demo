@@ -24,23 +24,15 @@ const commonInfoSlice = createSlice({
   },
   reducers: {
     updateShowGuide(state, action: PayloadAction<boolean>) {
-      if (typeof action.payload !== 'boolean') {
-        // 入参需要是一个boolean类型
-        throw new Error('Invalid action payload. It must be a boolean or undefined.');
-      }
-      return Object.assign({}, state, { showGuide: action.payload });
+      state.showGuide = action.payload;
     },
 
     updateGuideDone(state, action: PayloadAction<boolean>) {
-      if (typeof action.payload !== 'boolean') {
-        // 入参需要是一个boolean类型
-        throw new Error('Invalid action payload. It must be a boolean or undefined.');
-      }
-      return Object.assign({}, state, { guideDone: action.payload });
+      state.guideDone = action.payload;
     },
 
     initStaticPrefix(state, action: PayloadAction<string>) {
-      return Object.assign({}, state, { staticPrefix: action.payload });
+      state.staticPrefix = action.payload;
     },
 
     updateArea(state, action) {
@@ -50,10 +42,7 @@ const commonInfoSlice = createSlice({
       };
     },
     updateRegionCode(state, action) {
-      return {
-        ...state,
-        regionCode: action.payload,
-      };
+      state.regionCode = action.payload;
     },
     updateTemporaryPreference(state, action) {
       return {

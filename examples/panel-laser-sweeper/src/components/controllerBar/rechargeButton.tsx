@@ -51,7 +51,7 @@ export const RechargeButton = () => {
           handleBackCharge();
         }
       }}
-      iconClass={styles.cleanModeContent}
+      className={styles.cleanModeItem}
       slot={{
         icon: (
           <View

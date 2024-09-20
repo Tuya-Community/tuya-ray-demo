@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { dpCodes } from '@/config';
-import { useGetMapPointsInfo } from '@/hooks/openApiHooks';
+import { getMapPointsInfo } from '@/utils/openApi';
 import Strings from '@/i18n';
 import Store, { actions, useSelector } from '@/redux';
 import { selectMapStateByKey } from '@/redux/modules/mapStateSlice';
@@ -125,7 +125,7 @@ function SwitchButton(props: Props) {
    */
   const putPointData = async (minCount: number, cb?: () => Promise<void>) => {
     const { mapStatus } = props;
-    const { data } = await useGetMapPointsInfo(mapId);
+    const { data } = await getMapPointsInfo(mapId);
 
     let dataArr = [];
     if (mapStatus === nativeMapStatusEnum.areaSet) {
@@ -298,7 +298,7 @@ function SwitchButton(props: Props) {
         judgeRobotStatus() === 'start' ? Strings.getLang('dsc_start') : Strings.getLang('desc_end')
       }
       onClick={handleSwitchStart}
-      iconClass={styles.cleanModeContent}
+      className={styles.cleanModeItem}
       icon={judgeRobotStatus() === 'paused' ? PauseIcon : PlayIcon}
     />
   );

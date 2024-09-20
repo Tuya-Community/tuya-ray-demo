@@ -1,9 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { dpCodes } from '@/config';
-import {
-  useShowPilePositionBreatheAnimation,
-  useShowRobotSleepAnimation,
-} from '@/hooks/openApiHooks';
+import { showPilePositionBreatheAnimation, showRobotSleepAnimation } from '@/utils/openApi';
 import { actions, useSelector } from '@/redux';
 import { useActions, useDevice, useProps } from '@ray-js/panel-sdk';
 
@@ -78,9 +75,9 @@ function ControllerBar(props: Props) {
     const { setMapStatus } = props;
     if (!mapId) return;
     // 扫地机处于充电状态下显示充电中的动画
-    useShowPilePositionBreatheAnimation(mapId, robotIsCharing(robotStatusState));
+    showPilePositionBreatheAnimation(mapId, robotIsCharing(robotStatusState));
     // 扫地机是否处于休眠中状态
-    useShowRobotSleepAnimation(mapId, isRobotSleep(robotStatusState));
+    showRobotSleepAnimation(mapId, isRobotSleep(robotStatusState));
 
     // 扫地机处于回充/寻找集尘桶/集尘/手动控制状态
     if (

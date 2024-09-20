@@ -13,7 +13,7 @@ export const SettingButton = () => {
       onClick={() => {
         router.push('/setting');
       }}
-      iconClass={styles.cleanModeContent}
+      className={styles.cleanModeItem}
       slot={{
         icon: (
           <View
