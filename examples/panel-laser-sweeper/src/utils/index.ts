@@ -42,6 +42,7 @@ import mitt from 'mitt';
 import { DevInfo, DpSchema, ProductInfo } from 'typings/device-panel';
 import mode from '../res/mode.png';
 import { CISTERN_MAP, SUCTION_MAP } from './constant';
+import { getDevInfo } from '@ray-js/ray';
 
 const { nativeMapStatusEnum } = dpCodes;
 
@@ -768,14 +769,6 @@ export const parseToStyle = (values, key) => {
 };
 
 /**
- * 获取设备信息
- * @returns
- */
-export const getDevInfo = () => {
-  return store.getState().devInfo as DevInfo;
-};
-
-/**
  * 获取DP信息
  * @param dpcode DP Code
  * @returns
@@ -801,7 +794,9 @@ export const getDpIdByCode = (dpCode: string) => getDevInfo().codeIds[dpCode];
 /**
  * 根据dpId获取dpCode
  */
-export const getDpCodeById = (dpId: number | string) => getDevInfo().idCodes[dpId];
+export const getDpCodeById = (dpId: number | string) => {
+  return getDevInfo().idCodes[dpId];
+};
 
 /**
  * 上报DP解析
@@ -815,37 +810,3 @@ export const formatDps = ({ dps }: ty.device.DpsChanged) => {
   });
   return dpState;
 };
-
-/**
- * 获取手机信息
- * @returns
- */
-
-export const getSystemInfoFunc = (): any => {
-  return new Promise((resolve, reject) => {
-    ty.getSystemInfo({
-      success: info => {
-        resolve(info);
-      },
-      fail: error => {
-        reject(error);
-      },
-    });
-  });
-};
-/**
- * 获取productId
- */
-export const getProductId = () => getDevInfo().productId;
-
-/**
- * 获取产品信息
- * @returns
- */
-const getProductInfo = () => store.getState().productInfo as ProductInfo;
-
-/**
- * 获取uiid
- * @returns
- */
-export const getUiid = () => getProductInfo().uiId || '';

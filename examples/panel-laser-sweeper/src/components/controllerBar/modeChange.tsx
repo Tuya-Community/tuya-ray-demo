@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { dpCodes } from '@/config';
-import { useSetLaserMapSplitType } from '@/hooks/openApiHooks';
+import { setLaserMapSplitType } from '@/utils/openApi';
 import Strings from '@/i18n';
 import Store, { useSelector } from '@/redux';
 import { getNewAreaId, setPosPoints } from '@/utils/mapStateUtils';
@@ -15,6 +15,7 @@ import { getAreasForMapView } from '@/hooks';
 import { mapExtrasUpdated } from '@/redux/modules/mapExtrasSlice';
 import { updateMapData } from '@/redux/modules/mapStateSlice';
 
+import clsx from 'clsx';
 import styles from './index.module.less';
 
 const { nativeMapStatusEnum } = dpCodes;
@@ -123,7 +124,7 @@ export const ModeChange = (props: Props) => {
     // 是否是切换到选区清扫
     const isSelectRoom = mapStatusValue === 5;
     if (isSelectRoom) {
-      useSetLaserMapSplitType(mapId, mapSplitStateEnum.click);
+      setLaserMapSplitType(mapId, mapSplitStateEnum.click);
     }
 
     // 指哪扫哪如果不需要点击地图，立即生成一个可移动区时
@@ -140,19 +141,21 @@ export const ModeChange = (props: Props) => {
 
   if (isEmptyMap) return null;
   const modes = getCleanModes();
+
+  console.log(modes, '==================');
+
   return (
     <Grid customClass={styles.full} border={false}>
       {modes.map((item, index) => (
         <GridItem
-          key={JSON.stringify(item)}
+          key={item.mode}
           text={item.title}
           onClick={() => {
             if (item.disabled) return;
             setModeState(item.mode);
             handleSwitchMode(item.mode, item.mapStatus);
           }}
-          className={styles.cleanModeItem}
-          iconClass={item.isActive ? styles.activeCleanModeContent : styles.cleanModeContent}
+          className={clsx(styles.cleanModeItem, item.isActive && styles.active)}
           slot={{
             icon: (
               <View

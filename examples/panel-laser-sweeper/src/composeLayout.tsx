@@ -7,6 +7,8 @@ import { devices, dpKit } from './devices';
 import { initializeSystemInfo } from './redux/modules/systemInfoSlice';
 
 import './styles/index.less';
+import { getOssUrl } from './api/atop';
+import { initStaticPrefix } from './redux/modules/commonSlice';
 
 interface Props {
   devInfo: DevInfo;
@@ -26,6 +28,8 @@ const composeLayout = (SubComp: React.ComponentType<any>) => {
       devices.common.onInitialized(device => dpKit.init(device));
       const systemInfo = getSystemInfoSync();
       const { theme } = systemInfo;
+
+      getOssUrl().then(staticPrefix => dispatch(initStaticPrefix(staticPrefix)));
 
       dispatch(initializeSystemInfo(systemInfo));
 

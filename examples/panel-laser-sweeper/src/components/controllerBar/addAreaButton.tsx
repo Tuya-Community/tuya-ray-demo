@@ -127,7 +127,7 @@ export const AddAreaButton = () => {
         };
         addVirtualArea(params);
       }}
-      iconClass={styles.cleanModeContent}
+      className={styles.cleanModeItem}
       slot={{
         icon: (
           <View

@@ -2456,13 +2456,13 @@
     mitt "^3.0.1"
     moment "^2.30.1"
 
-"@ray-js/robot-map-component@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.npmjs.org/@ray-js/robot-map-component/-/robot-map-component-0.0.5.tgz#219c97f8eef100ba5ae46cd04b94080837381aa7"
-  integrity sha512-uaqzaW1etnaij/E29/QNizVvKgkdEIUUNf8Gy991r5tT2w1AVA1Du/IFeo8S9kRDnG6olMJu4xz2whRGJR7/5g==
+"@ray-js/robot-map-component@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.npmjs.org/@ray-js/robot-map-component/-/robot-map-component-0.0.7.tgz#ed853d45bde56015d9acb83d4b0434c864fde64b"
+  integrity sha512-AmUB1ePY5fvMpnXAYMcwbNkrPHNM1Cf02OgxyvOE+yBu+zrEhHRBY4di5cZrJsyQD9rlYSTmLuJ1CjAUDbmlwg==
   dependencies:
     "@ray-js/hybrid-robot-map" "0.0.5-beta-2"
-    "@ray-js/robot-middleware" "^0.0.2"
+    "@ray-js/robot-middleware" "^0.0.4"
     "@ray-js/robot-protocol" "^0.3.1"
     "@ray-js/webview-invoke" "^0.0.3"
     clsx "^1.2.1"
@@ -2477,10 +2477,10 @@
     redux-thunk "^2.4.0"
     tinycolor2 "^1.6.0"
 
-"@ray-js/robot-middleware@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.npmjs.org/@ray-js/robot-middleware/-/robot-middleware-0.0.2.tgz#396a865bffee7a169ac1b1c2980445426bedb649"
-  integrity sha512-bS5eoI5dCVJt59YTVsh4jUO+5XlcJLiEIgj2ceJhMWoayEvF2EN7u7YQsQAY4IF+ZfiVh2fca2h0n5nhFlTiXQ==
+"@ray-js/robot-middleware@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@ray-js/robot-middleware/-/robot-middleware-0.0.4.tgz#77553ccef178176ff6d141db987e3c2c0325500c"
+  integrity sha512-WRiLCMMb2c2joutyAeQwKHH+I5n3/VjX0nPHnOSkakiWCWpuoPekbvmpATlN3nYYxbbM29vgO1d9PeEfJtTVXw==
   dependencies:
     reconnecting-websocket "^4.4.0"
 
@@ -2535,15 +2535,15 @@
     npmlog "^7.0.1"
     slash "^3.0.0"
 
-"@ray-js/smart-ui@^1.0.2":
-  version "1.2.4"
-  resolved "https://registry.npmjs.org/@ray-js/smart-ui/-/smart-ui-1.2.4.tgz#5e8648bdcbd3e1bdf6eb32cb82a107e0870e9ce8"
-  integrity sha512-jg0TjVAEkB3XfNDCXJXCKa3PKqPTmDyZyKDb0tnekO35MbxE8YSbNH1oe8uYI/vdmo0VqqE5WHlG3ESUw6t9MQ==
+"@ray-js/smart-ui@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.npmjs.org/@ray-js/smart-ui/-/smart-ui-1.2.5.tgz#d5322c5d19dfaf6b3aa763100b7b40dd26111271"
+  integrity sha512-rPSdWkWnsCf0EsApTb4EfobSnnKw4jfCrgRwmWiSTBEhDCNNnwgt8UDBqvB0fjPPueRfvWmzeUkYfCjyr67r6Q==
   dependencies:
     "@ray-js/components-ty-progress-bar" "^0.1.1"
     "@ray-js/components-ty-progress-circle" "^0.1.6"
     "@ray-js/components-ty-slider" "^0.2.48"
-    "@tuya-miniapp/smart-ui" "^1.2.2"
+    "@tuya-miniapp/smart-ui" "^1.2.3"
     lodash-es "^4.17.21"
 
 "@ray-js/tuya-dp-transform@^0.0.2":
@@ -2773,12 +2773,20 @@
   resolved "https://registry.npmjs.org/@tuya-miniapp/icons/-/icons-1.0.0.tgz#34a470948df49aaa3c043adcf2d2df35a4160614"
   integrity sha512-LsPihGkOQwXyxhJ62+0IJAXYl50HnQqtIU57U+lWFzrIz0cuq0+LUSIEg+KShLJS5ac3nDAhawmumaZUjXgUzA==
 
-"@tuya-miniapp/smart-ui@^1.0.1", "@tuya-miniapp/smart-ui@^1.2.2":
+"@tuya-miniapp/smart-ui@^1.0.1":
   version "1.2.2"
   resolved "https://registry.npmjs.org/@tuya-miniapp/smart-ui/-/smart-ui-1.2.2.tgz#ff773a8054daa608c1081013aa993719d23877d4"
   integrity sha512-4nmu48dpV/8CwzUdywA7ohAqEfAPJmEYli97KHwivjfTlgrKfSkufoNZLdDO1YmsVXjdcnOb2+D3AXJJhTqCfg==
   dependencies:
     "@ray-js/components-ty-slider" "^0.2.44"
+    "@tuya-miniapp/icons" "^1.0.0"
+
+"@tuya-miniapp/smart-ui@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.npmjs.org/@tuya-miniapp/smart-ui/-/smart-ui-1.2.3.tgz#340a8f2c950083c63ebe76469d433e60fa13c242"
+  integrity sha512-krrV97ybTkUylYiltCQrYOZkkaAtpzotV69/91GzRyvTqkOIPzlarM19Db+N0rZT+DpGeZdiTHtYP46VwAGm3g==
+  dependencies:
+    "@ray-js/components-ty-slider" "^0.2.48"
     "@tuya-miniapp/icons" "^1.0.0"
 
 "@tweenjs/tween.js@^18.6.4":

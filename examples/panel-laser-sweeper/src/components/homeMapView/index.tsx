@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { dpCodes } from '@/config';
 import { useCommandTransData, useMapData, usePathData } from '@/hooks';
-import { useFoldableSingleRoomInfo, useGetMapPointsInfo } from '@/hooks/openApiHooks';
+import { foldableSingleRoomInfo, getMapPointsInfo } from '@/utils/openApi';
 import MapView from '@/hybrid-mini-robot-map/layout/mapView';
 import logger from '@/hybrid-mini-robot-map/protocol/loggerUtil';
 import { parseRoomId } from '@/hybrid-mini-robot-map/protocol/robotCmd';
@@ -163,7 +163,7 @@ const HomeMapView: React.FC<IProps> = props => {
    */
   const onLaserMapPoints = async ({ data, type }) => {
     if (type === 'remove') {
-      const { data: list, type: virtualType } = await useGetMapPointsInfo(mapId.current);
+      const { data: list, type: virtualType } = await getMapPointsInfo(mapId.current);
 
       if (virtualType === nativeMapStatusEnum.areaSet && !list.length) {
         dispatch(updateTemporaryPreference({ zone: false }));
@@ -175,7 +175,7 @@ const HomeMapView: React.FC<IProps> = props => {
     const {
       properties: { colorHex },
     } = data;
-    useFoldableSingleRoomInfo(mapId.current, colorHex, true);
+    foldableSingleRoomInfo(mapId.current, colorHex, true);
   };
 
   const uiInterFace = React.useMemo(() => {

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { dpCodes as DPCodes, brand, fontColor } from '@/config';
-import { useGetMapPointsInfo, useSetLaserMapStateAndEdit } from '@/hooks/openApiHooks';
+import { getMapPointsInfo, setLaserMapStateAndEdit } from '@/utils/openApi';
 import { nativeMapStatus } from '@/hybrid-mini-robot-map/protocol/constant';
 import { convertColorToArgbHex } from '@/hybrid-mini-robot-map/protocol/utils/pressCoordinateUtil';
 import {
@@ -138,7 +138,7 @@ const MapEditLayout = () => {
    * @param edit
    */
   const setMapStatus = async (mapStatus: number, edit: boolean) => {
-    useSetLaserMapStateAndEdit(mapId.current, { state: mapStatus, edit });
+    setLaserMapStateAndEdit(mapId.current, { state: mapStatus, edit });
     setStatus(mapStatus);
   };
 
@@ -253,7 +253,7 @@ const MapEditLayout = () => {
    * @param params
    */
   const addVirtualArea = async (opts: any) => {
-    const { data = [] } = useGetMapPointsInfo(mapId.current);
+    const { data = [] } = getMapPointsInfo(mapId.current);
 
     let countLimit = false;
     let mopLimit = false;
@@ -324,7 +324,13 @@ const MapEditLayout = () => {
 
     // 根据不同的模式调用Native方法
     switch (forbiddenMode) {
-      case nativeMapStatus.virtualArea:
+      case nativeMapStatus.virtualArea: {
+        console.log(
+          '===============',
+          mode === 'sweep'
+            ? [rDeleteBase64Img(), rRotateBase64Img(), rResizeBase64Img()]
+            : [oDeleteBase64Img(), oRotateBase64Img(), oResizeBase64Img()]
+        );
         setForbid = setMapForbiddenZone({
           ...forbidConf,
           canRotate,
@@ -344,6 +350,7 @@ const MapEditLayout = () => {
           viewType,
         });
         break;
+      }
       case nativeMapStatus.virtualWall:
         setForbid = setMapVirtualWall({
           ...forbidConf,

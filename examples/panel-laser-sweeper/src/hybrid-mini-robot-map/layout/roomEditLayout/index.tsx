@@ -37,19 +37,19 @@ import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import {
-  useChangeAllMapAreaColor,
-  useGetLaserMapMergeInfo,
-  useGetLaserMapSplitPoint,
-  useGetMapAreaInfo,
-  useSetLaserMapStateAndEdit,
-  useUpdateMapAreaColor,
-} from '@/hooks/openApiHooks';
+  changeAllMapAreaColor,
+  getLaserMapMergeInfo,
+  getLaserMapSplitPoint,
+  getMapAreaInfo,
+  setLaserMapStateAndEdit,
+  updateMapAreaColor,
+} from '@/utils/openApi';
 import {
-  useSetMapStatusMerge,
-  useSetMapStatusNormal,
-  useSetMapStatusRename,
-  useSetMapStatusSplit,
-} from '@/hooks/openApiHooks/mapStatus';
+  setMapStatusMerge,
+  setMapStatusNormal,
+  setMapStatusRename,
+  setMapStatusSplit,
+} from '@/utils/openApi/mapStatus';
 import Strings from '@/i18n';
 import { formatDps } from '@/utils';
 import { Grid, GridItem } from '@ray-js/smart-ui';
@@ -109,12 +109,12 @@ const RoomEditLayout = () => {
             // 借助改变状态来重新刷新一下地图
             // 设置延时,让新地图数据先上报后再刷新地图
             setTimeout(async () => {
-              useSetLaserMapStateAndEdit(mapId.current, {
+              setLaserMapStateAndEdit(mapId.current, {
                 state: nativeMapStatus.mapSplit,
                 edit: true,
               });
               if (stateType.current === 'merge') {
-                useChangeAllMapAreaColor(mapId.current, true);
+                changeAllMapAreaColor(mapId.current, true);
               }
             }, 500);
             const resText = Strings.getLang(toastRes);
@@ -146,7 +146,7 @@ const RoomEditLayout = () => {
   const onClickSplitArea = async (data: any) => {
     if (stateType.current === 'split') setActiveConfirm(true);
     if (stateType.current === 'merge') {
-      const res: any = await useGetLaserMapSplitPoint(mapId.current);
+      const res: any = await getLaserMapSplitPoint(mapId.current);
       // console.info('getLaserMapSplitPoint', res);
       const { data: rooms } = res;
       const roomIds = rooms
@@ -155,12 +155,12 @@ const RoomEditLayout = () => {
           return pixel;
         });
 
-      useChangeAllMapAreaColor(mapId.current, true).then(() => {
-        useUpdateMapAreaColor(mapId.current, roomIds, true, false);
+      changeAllMapAreaColor(mapId.current, true).then(() => {
+        updateMapAreaColor(mapId.current, roomIds, true, false);
       });
 
       if (roomIds.length > 1) {
-        const dataList = (await useGetMapAreaInfo(mapId.current, roomIds, true)) as any[];
+        const dataList = (await getMapAreaInfo(mapId.current, roomIds, true)) as any[];
         console.log('dataList ==>', dataList);
         if (!isAdjacent(dataList[0].points, dataList[1].points, 3)) {
           setTimeout(() => {
@@ -235,7 +235,7 @@ const RoomEditLayout = () => {
    */
   const handleSplit = () => {
     try {
-      useSetMapStatusSplit(mapId.current);
+      setMapStatusSplit(mapId.current);
       setActiveConfirm(false);
     } catch (e) {
       console.error(e);
@@ -246,8 +246,8 @@ const RoomEditLayout = () => {
    * 进入区域合并状态
    */
   const handleMerge = async () => {
-    useSetMapStatusMerge(mapId.current);
-    await useChangeAllMapAreaColor(mapId.current, true);
+    setMapStatusMerge(mapId.current);
+    await changeAllMapAreaColor(mapId.current, true);
     setActiveConfirm(false);
   };
 
@@ -255,7 +255,7 @@ const RoomEditLayout = () => {
    * 进入区域命名状态
    */
   const handleRename = () => {
-    useSetMapStatusRename(mapId.current);
+    setMapStatusRename(mapId.current);
   };
 
   /**
@@ -289,7 +289,7 @@ const RoomEditLayout = () => {
    * 回复地图到正常状态
    */
   const handleNormal = async () => {
-    useSetMapStatusNormal(mapId.current);
+    setMapStatusNormal(mapId.current);
     stateType.current = 'normal';
     setShowMenuBar(true);
     setShowDecisionBar(false);
@@ -377,7 +377,7 @@ const RoomEditLayout = () => {
    */
   const handleSplitOk = async () => {
     try {
-      const res: any = await useGetLaserMapSplitPoint(mapId.current);
+      const res: any = await getLaserMapSplitPoint(mapId.current);
       console.log('【RoomEditLayout】handleSplitOk', res);
       const {
         type,
@@ -454,7 +454,7 @@ const RoomEditLayout = () => {
 
     const maxUnknownId = version === 1 ? 31 : 26;
     try {
-      const res: any = await useGetLaserMapMergeInfo(mapId.current);
+      const res: any = await getLaserMapMergeInfo(mapId.current);
       console.log('handleMergeOk ==>', res);
       const { type, data } = res;
       const roomIds = data.map((room: { pixel: string }) => parseRoomId(room.pixel, version));
@@ -474,7 +474,7 @@ const RoomEditLayout = () => {
       }
       console.log('===roomIds', roomIds);
 
-      const dataList = (await useGetMapAreaInfo(mapId.current, roomIds, false)) as any[];
+      const dataList = (await getMapAreaInfo(mapId.current, roomIds, false)) as any[];
       console.log('dataList ==>', dataList);
       if (!isAdjacent(dataList[0].points, dataList[1].points, 3)) {
         showToast({
