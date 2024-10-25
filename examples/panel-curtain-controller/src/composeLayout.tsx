@@ -23,9 +23,7 @@ const composeLayout = (SubComp: React.ComponentType<any>) => {
     render() {
       const { extraInfo } = this.props;
 
-      return (
-        <SubComp extraInfo={extraInfo} {...this.props} />
-      );
+      return <SubComp extraInfo={extraInfo} {...this.props} />;
     }
   };
 };
