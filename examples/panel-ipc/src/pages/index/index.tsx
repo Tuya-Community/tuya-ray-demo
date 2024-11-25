@@ -11,16 +11,18 @@ import { tabBottomConfig } from '@/config/home';
 import PtzPanel from '@/components/PtzPanel';
 import Tab from '@/components/Tab';
 import CameraPlayer from '@/components/CameraPlayer';
-import TopBar from '@/components/TopBar';
+import { NavBar } from '@ray-js/smart-ui';
 import { getString } from '@/utils/in18Util';
 import { openShowFullButton, isIphoneX } from '@/utils/index';
 import _ from '@/utils/loadsh';
+import { useDevice } from '@ray-js/panel-sdk';
 
 import Styles from './index.module.less';
 
 export default () => {
   const dispatch = useDispatch();
   const { isFull } = useSelector(state => state.ipcCommon);
+  const devInfo = useDevice(device => device.devInfo);
 
   const [showMore, setShowMore] = useState(false);
   const [tabBottomList] = useState(tabBottomConfig);
@@ -54,7 +56,7 @@ export default () => {
   return (
     <View className={Styles.homePage}>
       <View style={notFullShow}>
-        <TopBar />
+        <NavBar title={devInfo.name || ''} />
       </View>
 
       <CameraPlayer showMore={showMore} />
@@ -69,8 +71,8 @@ export default () => {
             showMore && !isFull
               ? Styles.indexTabContentShow
               : !showMore && !isFull
-              ? Styles.indexTabContentOpen
-              : Styles.indexTabContent
+                ? Styles.indexTabContentOpen
+                : Styles.indexTabContent
           }
         >
           <View className={Styles.tabPanel}>

@@ -16,11 +16,16 @@
 
 ### 小程序 Kit 依赖（以下依赖是 Kit 最低版本）
 
-- BaseKit: 3.0.0
-- MiniKit: 3.0.0
-- DeviceKit: 3.0.0
-- BizKit: 3.0.1
-- baseversion: 2.10.1
+- TTT 依赖
+
+  - BaseKit: 3.0.0
+  - MiniKit: 3.0.0
+  - DeviceKit: 3.0.0
+  - BizKit: 3.0.1
+  - baseversion: 2.10.1
+
+- 功能页依赖
+  - 设备详情功能页：settings => 'tycryc71qaug8at6yt'
 
 ## 功能介绍
 

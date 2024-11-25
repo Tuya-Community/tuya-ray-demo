@@ -14,11 +14,16 @@ English | [简体中文](./README-zh_CN.md)
 
 ### Mini program kit dependencies (the following dependencies are the minimum version of kit)
 
-- BaseKit: 3.0.0
-- MiniKit: 3.0.0
-- DeviceKit: 3.0.0
-- BizKit: 3.0.1
-- baseversion: 2.10.1
+- TTT dependency
+
+  - BaseKit: 3.0.0
+  - MiniKit: 3.0.0
+  - DeviceKit: 3.0.0
+  - BizKit: 3.0.1
+  - baseversion: 2.10.1
+
+- Function page dependency
+  - Device Detail Functional Page: settings => 'tycryc71qaug8at6yt'
 
 ## Features
 
