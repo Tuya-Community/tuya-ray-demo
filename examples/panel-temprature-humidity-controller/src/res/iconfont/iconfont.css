@@ -1,0 +1,147 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4555983 */
+  src: url('iconfont.woff2?t=1724835226263') format('woff2'),
+       url('iconfont.woff?t=1724835226263') format('woff'),
+       url('iconfont.ttf?t=1724835226263') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-panel-alarm-slience:before {
+  content: "\e62d";
+}
+
+.icon-panel-arrow-down:before {
+  content: "\e688";
+}
+
+.icon-panel-analyze-2:before {
+  content: "\e685";
+}
+
+.icon-panel-analyze-1:before {
+  content: "\e61d";
+}
+
+.icon-panel-volume-off:before {
+  content: "\e61c";
+}
+
+.icon-panel-volume-on:before {
+  content: "\e61b";
+}
+
+.icon-panel-water-device:before {
+  content: "\e61a";
+}
+
+.icon-panel-add:before {
+  content: "\e619";
+}
+
+.icon-panel-list-type-2:before {
+  content: "\e618";
+}
+
+.icon-panel-right:before {
+  content: "\e840";
+}
+
+.icon-panel-history-active:before {
+  content: "\e616";
+}
+
+.icon-panel-alarm-active:before {
+  content: "\e617";
+}
+
+.icon-panel-setting:before {
+  content: "\e614";
+}
+
+.icon-panel-setting-active:before {
+  content: "\e613";
+}
+
+.icon-panel-history:before {
+  content: "\e612";
+}
+
+.icon-panel-curve-active:before {
+  content: "\e611";
+}
+
+.icon-panel-home:before {
+  content: "\e610";
+}
+
+.icon-panel-alarm:before {
+  content: "\e60e";
+}
+
+.icon-panel-curve:before {
+  content: "\e60d";
+}
+
+.icon-panel-home-active:before {
+  content: "\e60f";
+}
+
+.icon-panel-select:before {
+  content: "\e60c";
+}
+
+.icon-panel-bluetooth-disconnect:before {
+  content: "\e60a";
+}
+
+.icon-panel-wifi:before {
+  content: "\e609";
+}
+
+.icon-panel-checked:before {
+  content: "\e615";
+}
+
+.icon-panel-more:before {
+  content: "\e608";
+}
+
+.icon-panel-list-type-1:before {
+  content: "\e607";
+}
+
+.icon-panel-warn:before {
+  content: "\e603";
+}
+
+.icon-panel-wifi-disconnect:before {
+  content: "\e605";
+}
+
+.icon-panel-water:before {
+  content: "\e604";
+}
+
+.icon-panel-temperature:before {
+  content: "\e602";
+}
+
+.icon-panel-bluetooth:before {
+  content: "\e698";
+}
+
+.icon-panel-close:before {
+  content: "\e63b";
+}
+
+.icon-panel-left:before {
+  content: "\e606";
+}
+

@@ -1,0 +1,30 @@
+.slider-temp_sensitivity-with-decimal:before {
+    counter-reset: int var(--slider-temp_sensitivity-int) decimal var(--slider-temp_sensitivity-decimal);
+    content: counter(int) "." counter(decimal);
+}
+
+.slider-hum_sensitivity::before {
+    counter-reset: int var(--slider-hum_sensitivity);
+    content: counter(int);
+}
+
+.slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 184rpx;
+}
+
+.slider-title {
+    font-size: 28rpx;
+    color: black;
+    font-weight: 600;
+}
+
+.limit-desc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--index-icon-color);
+}

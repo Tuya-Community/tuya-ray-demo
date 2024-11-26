@@ -1,0 +1,35 @@
+:root {
+    --radius: 10rpx;
+}
+
+.wrapper {
+    background: #E2E5E9;
+    padding: 8rpx;
+    border-radius: var(--radius);
+}
+
+.content {
+    position: relative;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    background: #fff;
+    border-radius: var(--radius);
+    transition: left 0.3s;
+    transform: translateX(-50%);
+}
+
+.item {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    color: #00000099;
+    font-size: 28rpx;
+}
