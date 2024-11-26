@@ -1,0 +1,152 @@
+page {
+  --theme-color: #437d48;
+  --font-color: #61803d;
+}
+
+.view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #eff4f8;
+}
+
+.export {
+  position: absolute;
+  right: 32rpx;
+  top: 32rpx;
+  color: var(--font-color);
+  font-size: 24rpx;
+  padding: 8rpx 16rpx;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8rpx;
+}
+
+.hover {
+  opacity: 0.6;
+}
+.title {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20rpx 0 0 56rpx;
+    position: relative;
+  }
+
+  &-main-wrapper {
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+  }
+
+  &-main-text {
+    font-weight: 700;
+    font-size: 64rpx;
+    line-height: 96rpx;
+    color: #34363c;
+    margin-right: 8rpx;
+  }
+
+  &-unit-text {
+    font-weight: 500;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #484a5f;
+    opacity: 0.5;
+  }
+
+  &-value-text {
+    font-weight: 400;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #484a5f;
+    opacity: 0.5;
+  }
+
+  &-image {
+    width: 18rpx;
+    height: 32rpx;
+    margin-right: 12rpx;
+  }
+}
+
+.date-selector {
+  &-container {
+    width: 100%;
+    padding: 32rpx 32rpx 64rpx;
+  }
+
+  &-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 33rpx;
+  }
+
+  &-text {
+    flex: 1;
+    font-weight: 600;
+    font-size: 32rpx;
+    line-height: 44rpx;
+    color: #000000;
+    text-align: center;
+  }
+
+  &-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48rpx;
+    height: 48rpx;
+    border-radius: 100%;
+    background: #f7f7f7;
+  }
+
+  &-image {
+    width: 12rpx;
+    height: 12rpx;
+  }
+}
+
+.total {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .value {
+    position: absolute;
+    font-size: 72rpx;
+    color: var(--font-color);
+  }
+
+  .title {
+    font-size: 28rpx;
+    color: var(--font-color);
+    position: absolute;
+    bottom: 100rpx;
+  }
+}
+.items {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: var(--font-color);
+  width: 100vw;
+  padding: 0 40rpx;
+  margin-bottom: 32rpx;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

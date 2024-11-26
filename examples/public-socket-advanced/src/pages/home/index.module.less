@@ -1,0 +1,45 @@
+page {
+  --theme-color: #437d48;
+  --font-color: #61803d;
+}
+
+.view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('../../res/bg_off.png') top center no-repeat;
+  background-size: 100% 100%;
+
+  &.on {
+    background-image: url('../../res/bg_on.png');
+  }
+}
+
+.power {
+  width: 560rpx;
+  height: 560rpx;
+  background: url('../../res/switch_off.png') top center no-repeat;
+  background-size: contain;
+
+  &.on {
+    background-image: url('../../res/switch_on.png');
+  }
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
