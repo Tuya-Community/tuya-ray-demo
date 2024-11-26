@@ -58,6 +58,7 @@ export const tuya = {
       // 这个小程序id写死不需要更改！！！
       // This small program id write dead do not need to change!!
       appid: 'tycryc71qaug8at6yt',
+      entryCode: 'entrye0n05idydmmfv',
     },
   },
   routers: ['camera_playback_panel', 'ipc_album_panel'],
