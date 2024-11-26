@@ -1,0 +1,53 @@
+{
+  "name": "tuya-electric-statistics-template",
+  "version": "1.0.0",
+  "description": "Electric Statistics Use Cases",
+  "main": "index.js",
+  "private": true,
+  "author": "Tuya.inc",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+    "build": "ray build --target=tuya",
+    "start": "ray start --target=tuya"
+  },
+  "dependencies": {
+    "@ray-js/common-charts": "^0.0.3",
+    "@ray-js/panel-sdk": "^1.10.1",
+    "@ray-js/ray": "^1.5.7",
+    "@ray-js/smart-ui": "^1.0.2",
+    "@ray-js/svg": "^0.0.6",
+    "clsx": "^1.2.1",
+    "core-js": "^3.23.5",
+    "dayjs": "^1.11.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@ray-js/cli": "^1.5.7",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "eslint-config-tuya-panel": "^0.4.1",
+    "husky": "^1.2.0",
+    "lint-staged": "^10.2.11",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS --config commitlint.config.js",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
