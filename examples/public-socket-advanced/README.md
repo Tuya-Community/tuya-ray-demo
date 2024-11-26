@@ -1,44 +1,50 @@
 English[](README.md) | [简体中文](README_zh.md)
 
-## Socket Panel Use Cases
+## Product name: Socket advanced template
 
-- productName: Socket Panel
+## 1. Instructions
 
-### Get started：
+Before using this template, you need to have a basic understanding of the Ray framework. It is recommended to refer to the [Ray development documentation](https://developer.tuya.com/en/miniapp/develop/ray/guide/overview)
 
-1. Go to [IoT platform](https://iot.tuya.com/) to create products
+## 2. Quick start:
 
-2. Select category `Socket`
-   ![功能选择](./images/iot01.png)
-3. Function selection
+- [Create a product](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/public-socket-advanced-guide/index.html#2)
+- [Create a project and import the project code in the IDE](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/public-socket-advanced-guide/index.html#3)
+- For more details, please refer to the [Socket Tutorial](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/public-socket-advanced-guide/index.html#0)
 
-   Required Dps
+## 3. Capability dependency
 
-   ```
-   switch_1,
-   countdown_1,
-   ```
+- App version
+  - Smart Life 4.5.0 and above
+- TTT dependency
+  - BaseKit: 3.0.0
+  - MiniKit: 3.0.0
+  - DeviceKit: 3.0.0
+  - BizKit: 3.0.1
+  - baseversion: 2.13.3
+- Component dependency
+  - None
+- Function page dependency
+  - None
 
-4. Install project and start project
+## 4. Panel function
 
-   ```
-   yarn && yarn start
-   ```
+- Switch
+- Countdown
+- Log Recording
+- Statistics Chart
 
-## Notice
+## 5. Specific function implementation
 
-This template requires the product to enable the advanced power statistics capability in order to use the power statistics function normally.
-For relevant instructions on the type parameter in the statistical interface, please refer to [here](https://www.tuyaos.com/viewtopic.php?t=973)
+- See [Socket tutorial](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/public-socket-advanced-guide/index.html#0)
 
-## :rocket: If you have questions, please visit the following link for a detailed tutorial:
+## 6. Problem feedback
 
-- [About Ray](https://developer.tuya.com/cn/ray)
-- [Use `Ray` to develop universal panel](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panelmore-guide/index.html#0)
+If you have any questions, please visit the link and submit post feedback: https://tuyaos.com/viewforum.php?f=22
 
-## Technical support
+## 7. License
 
-You can use [GitHub Issue](https://github.com/Tuya-Community/tuya-ray-demo/issues) to give us feedback on any problems and we are ready to help you out.
+[License details](LICENSE)
 
-## License
+## 8.Changelog
 
-For more information, see [MIT License](LICENSE).
