@@ -1,45 +1,48 @@
 [English](README.md) | 简体中文[](README_zh.md)
 
-## 电量统计模版
+## 项目名称：电量统计模板
 
-- 产品名称：电量统计模板
 
-### 快速开始：
+## 1.使用须知
 
-1. 前往[IoT 平台](https://iot.tuya.com/)创建产品
+使用该模板开发前， 需要对 Ray 框架有基本的了解，建议先查阅 [Ray 开发文档](https://developer.tuya.com/cn/miniapp/develop/ray/guide/overview)
 
-2. 选择品类 `插座`
-   ![功能选择](./images/iot01.png)
-3. 功能选择
 
-   必须的功能点
+## 2.快速上手
 
-   ```
-   switch_1,
-   countdown_1,
-   add_ele
-   ```
+- 可参考单插面板 [创建产品](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/public-socket-advanced-guide/index.html#2)
+- 可参考单插面板 [创建项目并在 IDE 中导入项目代码](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/public-socket-advanced-guide/index.html#3)，**但请注意在选择模板时，请选择电工统计模板**
+- [全屏图表教程](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/chart-fullscreen/index.html#0)
+- [数据导出教程](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/export-dp-log/index.html#0)
+- 此模板需要产品开启电量统计高级能力，才能正常使用电量统计功能。
 
-4. 安装项目并启动项目
+## 3.能力依赖
 
-   ```
-   yarn && yarn start
-   ```
+- App 版本
+  - 智能生活 4.5.0 及以上版本
+- TTT 依赖
+  - BaseKit: 3.0.0
+  - MiniKit: 3.0.0
+  - DeviceKit: 3.0.0
+  - BizKit: 3.0.1
+  - baseversion: 2.13.3
+- 组件依赖
+  - 暂无
+- 功能页依赖
+  - 暂无
 
-## 注意
 
-此模板需要产品开启电量统计高级能力，才能正常使用电量统计功能。
-统计接口中 type 参数的相关说明可参考[这里](https://www.tuyaos.com/viewtopic.php?t=973)
+## 4.面板功能
 
-## :rocket: 若有疑问，请访问以下链接查看详细教程
+- 数据统计
+- 数据导出
 
-- [使用 `Ray` 开发万能面板](https://developer.tuya.com/cn/miniapp-codelabs/codelabs/panelmore-guide/index.html#0)
-- [关于 Ray](https://developer.tuya.com/cn/ray)
+## 5.问题反馈
 
-## 如何获得技术支持
+若有疑问，请访问链接，提交帖子反馈：https://tuyaos.com/viewforum.php?f=10
 
-欢迎通过 [GitHub Issue](https://github.com/Tuya-Community/tuya-ray-demo/issues) 向我们反馈使用的问题和获得帮助
-
-## 许可
+## 6.许可
 
 [许可详情](LICENSE)
+
+## 7.更新日志
