@@ -1,4 +1,4 @@
-import { GlobalConfig } from '@ray-js/types'
+import { GlobalConfig } from '@ray-js/types';
 
 export const tuya = {
   window: {
@@ -6,10 +6,10 @@ export const tuya = {
     navigationBarTitleText: 'Curtain',
     navigationBarBackgroundColor: 'white',
   },
-}
+};
 
 const globalConfig: GlobalConfig = {
   basename: '',
-}
+};
 
-export default globalConfig
+export default globalConfig;
