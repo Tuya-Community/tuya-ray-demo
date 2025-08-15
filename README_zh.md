@@ -1,5 +1,10 @@
 [English](README.md) | 简体中文[](README_zh.md)
 
+## ⚠️ 仓库已废弃
+
+**此仓库已废弃并迁移至 [tuya-ray-materials](https://github.com/Tuya-Community/tuya-ray-materials)**
+
+请访问新仓库获取最新更新并在那里继续开发。
 
 ## `tuya-ray-demo` 介绍
 

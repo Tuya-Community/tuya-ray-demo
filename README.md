@@ -1,6 +1,11 @@
 
 English[](README.md) | [简体中文](README_zh.md)
 
+## ⚠️ Repository Deprecated
+
+**This repository has been deprecated and migrated to [tuya-ray-materials](https://github.com/Tuya-Community/tuya-ray-materials).**
+
+Please visit the new repository for the latest updates and continue development there.
 
 ## Overview of `tuya-ray-demo`
 
