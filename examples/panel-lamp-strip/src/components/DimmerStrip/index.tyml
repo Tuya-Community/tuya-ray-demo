@@ -1,7 +1,0 @@
-<canvas
-  canvas-id="{{canvasId}}"
-  id="{{canvasId}}"
-  disable-scroll="true"
-  style="width:{{ canvasWidth * 2 }}rpx; height:{{ canvasHeight * 2 }}px;"
-  type="2d"
-/>

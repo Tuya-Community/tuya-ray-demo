@@ -1,7 +1,0 @@
-node_modules
-/dist
-/.ray
-/.vscode
-.DS_Store
-.idea
-typings/

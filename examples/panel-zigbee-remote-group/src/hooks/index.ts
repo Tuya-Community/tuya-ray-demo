@@ -1,1 +1,0 @@
-export { useScreenInfo } from './useScreenInfo';

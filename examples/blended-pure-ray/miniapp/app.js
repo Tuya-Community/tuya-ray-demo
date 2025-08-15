@@ -1,2 +1,0 @@
-require('blended.config');
-App({});
