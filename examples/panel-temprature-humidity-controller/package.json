@@ -1,0 +1,49 @@
+{
+  "name": "temperature-humidity-template",
+  "version": "1.0.0",
+  "description": "Temperature-humidity-template",
+  "main": "index.js",
+  "private": true,
+  "author": "Tuya.inc",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx ray start --target tuya",
+    "build": "ray build --target tuya",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
+  },
+  "dependencies": {
+    "@ray-js/common-charts": "^0.0.6",
+    "@ray-js/components-ty-config-provider": "^0.0.10",
+    "@ray-js/panel-sdk": "^1.10.0",
+    "@ray-js/ray": "^1.5.36",
+    "@ray-js/ray-error-catch": "^0.0.23",
+    "@ray-js/smart-ui": "^1.2.5",
+    "@reduxjs/toolkit": "^1.9.3",
+    "clsx": "^1.2.1",
+    "dayjs": "^1.11.11",
+    "react-redux": "^7.2.1",
+    "redux-logger": "^3.0.6"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@ray-js/cli": "^1.5.36",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "core-js": "^3.29.1",
+    "eslint-config-tuya-panel": "^0.4.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "typescript": "^5.4.5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
